@@ -1,14 +1,14 @@
 body {
 	display: flex;
-	background: linear-gradient(#c3f0ef, #d4fcf4);
+	background: #e3e5e7;
 	font-family: "Asap", sans-serif;
 	justify-content: center;
 }
 
 .register {
 	overflow: hidden;
-	background-color: #bbdefc;
-	padding: 40px 30px 30px 30px;
+	background-color:  #a9b2ba;
+	padding: 40px 30px 5px 30px;
 	border-radius: 10px;
 	position: absolute;
 	top: 50%;
@@ -22,7 +22,8 @@ body {
 	-webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
 	-moz-transition: -moz-transform 300ms, box-shadow 300ms;
 	transition: transform 300ms, box-shadow 300ms;
-	box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+	box-shadow: 5px 10px 10px rgba(28, 28, 29, 0.2);
+	filter:blur(0);
 }
 .register::before, .register::after {
 	content: "";
@@ -38,7 +39,7 @@ body {
 .register::before {
 	left: 60%;
 	bottom: -100%;
-	background-color: rgba(252, 83, 83, 0.15);
+	background-color: #313137ae;
 	-webkit-animation: wawes 6s infinite linear;
 	-moz-animation: wawes 6s infinite linear;
 	animation: wawes 6s infinite linear;
@@ -46,7 +47,7 @@ body {
 .register::after {
 	left: 55%;
 	bottom: -95%;
-	background-color: rgba(184, 6, 6, 0.2);
+	background-color: #31313763;
 	-webkit-animation: wawes 7s infinite;
 	-moz-animation: wawes 7s infinite;
 	animation: wawes 7s infinite;
@@ -89,22 +90,6 @@ body {
 	opacity: 1;
 }
 
-/* .register .emailcheck{
-	color: #de0611;
-	font-size: 16px;
-	font-weight: 500;
-	margin: -10px 0 -10px 2px;
-} */
-
-.email:focus{
-	border-color: #4671EA;
-	font-size: 16px;
-}
-
-/* .register .error input.email{
-	border-color: #de0611;
-} */
-
 @-webkit-keyframes wawes {
 	from {
 	-webkit-transform: rotate(0);
@@ -138,10 +123,8 @@ body {
 	}
 }
 a {
+	opacity: 1;
 	text-decoration: none;
-	color: rgba(255, 255, 255, 0.5);
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-	font-size: 12px;
+	color: rgb(255, 0, 89);
+
 }
