@@ -7,10 +7,10 @@
 }
 
 .class {
-	width: 300px;
-	height: 300px;
-	min-width: 300px;
-	min-height: 300px;
+	width: 250px;
+	height: 250px;
+	min-width: 250px;
+	min-height: 250px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -44,10 +44,10 @@
 }
 
 .add-class{
-	width: 300px;
-	height: 300px;
-	min-width: 300px;
-	min-height: 300px;
+	width: 250px;
+	height: 250px;
+	min-width: 250px;
+	min-height: 250px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -73,10 +73,9 @@
 .add-class > .content{
 
 }
-.add-button{	width: 100px;
-	height: 100px;	
-	font-size: 100px;
-	
+.add-button{	
+	font-size: 45px;
+	cursor: pointer;
 	background-color: #08002375;
-	border-radius: 100%;
+	border-radius: 10px;
 }
