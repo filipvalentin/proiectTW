@@ -1,0 +1,9 @@
+.myclasses-panel{
+	display: flex;
+	background-color: #ada2d675;
+	margin: 1em;
+}
+
+.class{
+	display: block;
+}

@@ -1,12 +1,11 @@
-body {
-font-family: "Asap", sans-serif;
-}
-main{
+
+/* main{
 	display: flex;
 	background: #e3e5e7;
 	
 	justify-content: center;
-}
+} */
+
 .register {
 	overflow: hidden;
 	background-color:  #a9b2ba;
