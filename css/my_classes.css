@@ -1,9 +1,82 @@
-.myclasses-panel{
+.myclasses-panel {
 	display: flex;
 	background-color: #ada2d675;
-	margin: 1em;
+	margin: 2em 1em 1em 1em;
+	flex-wrap: wrap;
+	/* flex-direction: column; */
 }
 
-.class{
-	display: block;
+.class {
+	width: 300px;
+	height: 300px;
+	min-width: 300px;
+	min-height: 300px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	
+	align-items: center;
+	justify-content: center;
+
+	background-color: #08002375;
+	margin: 1em;
+	border-radius: 20px;
+
+	overflow: hidden;
+
+}
+
+.class>.title {
+	
+	margin: 10px;
+	font-size: 3em;
+	background-color: #1d1c1f75;
+	border-radius: 10px;
+	padding: 10px;
+
+}
+
+.class>.content {
+	margin: 10px;
+	background-color: #56545c75;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.add-class{
+	width: 300px;
+	height: 300px;
+	min-width: 300px;
+	min-height: 300px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	
+	align-items: center;
+	justify-content: center;
+
+	background-color: #08002375;
+	margin: 1em;
+	border-radius: 20px;
+
+	overflow: hidden;
+}
+
+.add-class > .add-title{
+	margin: 10px;
+	font-size: 3em;
+	background-color: #1d1c1f75;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.add-class > .content{
+
+}
+.add-button{	width: 100px;
+	height: 100px;	
+	font-size: 100px;
+	
+	background-color: #08002375;
+	border-radius: 100%;
 }
