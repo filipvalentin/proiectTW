@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,9 @@
 	<link rel="stylesheet" href="../css/account-administration.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
 </head>
+
 <body>
-	
+
 	<nav class="top-navbar">
 		<div>
 			<a class="active" href="index.html">Home</a>
@@ -18,17 +20,17 @@
 		<div>
 			<a href="my-classes.html">My Classes</a>
 		</div>
-		
-		
+
+
 		<div class="navbar-right">
 			<a href="login.html">My Account</a>
 		</div>
 		<div class="navbar-right" style="display: none;">
 			<a href="login.html">Other</a>
 		</div>
-		
+
 	</nav>
-	 
+
 	<main class="main account-admin-main">
 		<div class="sidepanel">
 			<div class="picture">
@@ -36,7 +38,7 @@
 			</div>
 			<div class="informatii_persoana">
 				<div class="username">
-					<div>mihaitaboss</div>	
+					<div>mihaitaboss</div>
 				</div>
 				<div class="mail">
 					<p>E-mail: mihaitzaboss@gmail.com</p>
@@ -71,12 +73,20 @@
 			</div>
 			<div class="modify">
 				<div class="email">
-					<h2>Schimbare parola</h2>
+					<h2>Modificare profil</h2>
 					<form class="forms">
-						<input type="password" placeholder="Introduceti parola veche" required>
-						<input type="password" placeholder="Introduceti noua parola" required>
-						<input type="password" placeholder="Confirmati noua parola" required>
-						<button>Schimba parola</button>
+						<input type="text" placeholder="Username">
+						<input type="text" placeholder="Nume">
+						<input type="text" placeholder="Prenume">
+						<input type="text" placeholder="Institutie de invatamant">
+						<input type="date" placeholder="Ziua ta de nastere">
+						<select name="option" required>
+							<option value="" disabled selected>Selectati sexul</option>
+							<option value="Masculin">Masculin</option>
+							<option value="Feminin">Feminin</option>
+						</select>
+						
+						<button>Actualizare profil</button>
 
 					</form>
 				</div>
@@ -85,4 +95,5 @@
 	</main>
 
 </body>
+
 </html>
