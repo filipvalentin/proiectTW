@@ -24,18 +24,20 @@
 	</nav>
 	<main class="main">
 		<form class="register">
-			<input type="text" placeholder="Username">
+            <input type="text" placeholder="Username" required>
+            <input type="email" class="email" placeholder="Email" required>
+            <select name="option" required>
+                <option value="Selectati tipul de cont" disabled selected>Selectati tipul de cont</option>
+                <option value="Elev">Elev</option>
+                <option value="Profesor">Profesor</option>
+            </select>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Retype Password" required>
 
-			<input type="email" class="email" placeholder="Email">
+            <button formaction="account-administration.html">Register</button>
 
-			<input type="password" placeholder="Password">
-			<input type="password2" placeholder="Retype Password">
-
-			<button disabled>Register</button>
-
-			<p>Already have an account? <a href="login.html">Log in!</a></p>
-		
-		</form>
+            <p>Already have an account? <a href="login.html">Log in!</a></p>
+        </form>
 	</main>
 </body>
 
