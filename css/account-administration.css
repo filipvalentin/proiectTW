@@ -14,8 +14,86 @@
 }
 
 .settings-area {
-background-color: #ada2d675;
+	background-color: #ada2d675;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px;
+	gap: 1px;
 }
+
+.informatii_persoana{
+	color: black;
+	display: flex;
+	flex-direction: column;
+}
+
+.username{
+	 font-size: larger;
+	 display: flex;
+	 align-items: center;
+	 flex-direction: column;
+	 color: blue;
+}
+
+.mail{
+	font-size: medium;
+	 align-items: center;
+	 padding: 2%;
+	 width: 85%;
+	 height: auto;
+	 display: flex;
+	 flex-direction: column;
+	 gap: 5px;
+	 
+}
+.modify{
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+}
+
+.change_mail{
+	top: 5%;
+	left: 5%;
+	width: 100%;
+
+}
+
+.forms >input{
+	font-weight: 600;
+	overflow: hidden;
+	display: block;
+	flex-direction: column;
+	width: 100%;
+	flex-wrap: wrap;
+	font-size: 18px;
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+	position: relative;
+	margin-top: 5px;	
+	margin-bottom: 5px;	
+}
+
+.forms > button{
+	cursor: pointer;
+	color: #fff;
+	font-size: 18px;
+	background-color: #f45b69;
+	width: 45%;
+	padding: 5px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 5px;	
+	margin-bottom: 5px;	
+
+
+}
+
+
 
 
 @media only screen and (max-width: 40em) {
