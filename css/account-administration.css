@@ -15,7 +15,7 @@ body {
 
 .sidepanel {
 	min-width: 300px;
-	background-color: #ada2d675;
+	background-color: #a1aebe75;
 	display: flex;
 	flex-direction: column;
 }
@@ -42,7 +42,7 @@ body {
 }
 
 .settings-area {
-	background-color: #ada2d675;
+	background-color: #a1aebe75;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -70,6 +70,7 @@ body {
 }
 
 .mail {
+
 	font-size: medium;
 	width: 100%;
 	height: auto;
@@ -84,6 +85,7 @@ body {
 }
 
 .modify {
+	background-color: #1e1e222a;
 	width: 95%;
 	display: flex;
 	flex-direction: column;
