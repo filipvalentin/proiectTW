@@ -12,7 +12,7 @@
 	transform: translate(-50%, -50%);
 	transition: transform 300ms, box-shadow 300ms;
 	box-shadow: 5px 10px 10px rgba(28, 28, 29, 0.2);
-	
+
 	filter:blur(0);
 }
 .register::before, .register::after {
@@ -54,8 +54,6 @@
 	opacity: 0.8; 
 }
 .register > select {
-
-
 	font-weight:600;
 	display: block;
 	border: 0;

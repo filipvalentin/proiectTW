@@ -15,13 +15,11 @@ main{
 	left: 50%;
 	width: 400px;
 
-
 	transform: translate(-50%, -50%);
 	transition: transform 300ms, box-shadow 300ms;
 	box-shadow: 5px 10px 10px rgba(16, 20, 21, 0.2);
 
 	filter:blur(0);
-	
 }
 .login::before, .login::after {
 	content: "";
