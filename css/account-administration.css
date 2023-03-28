@@ -1,5 +1,4 @@
-body
-{
+body {
 	font-family: 'Asap';
 }
 
@@ -8,27 +7,34 @@ body
 	grid-template-areas: "sidepanel settings-area";
 	grid-template-columns: 1fr 3fr;
 	gap: 1rem;
-	
+
 	margin: 20px;
 
 	justify-content: center;
 }
 
-.sidepanel { min-width: 300px;
+.sidepanel {
+	min-width: 300px;
 	background-color: #ada2d675;
+	display: flex;
+	flex-direction: column;
+}
+.main_focus{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.picture{
+.picture {
 	background-color: #fff;
 	border-radius: 100%;
 	align-items: center;
 	width: 75%;
 	margin-top: 5%;
+	margin-bottom: 5%;
 }
-.user{
+
+.user {
 	width: 100%;
 	height: auto;
 	border-radius: 100%;
@@ -45,47 +51,52 @@ body
 	gap: 1px;
 }
 
-.informatii_persoana{
+.informatii_persoana {
 	color: black;
 	display: flex;
 	flex-direction: column;
-	padding: 5px;
+	padding: 2px;
+	border: none;
+	margin-top: 5%;
 }
 
-.username{
-	 font-size: larger;
-	 display: flex;
-	 align-items: center;
-	 flex-direction: column;
-	 color: blue;
-	 font-family: 'JetBrains Mono';
+.username {
+	font-size: larger;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	color: blue;
+	font-family: 'JetBrains Mono';
 }
 
-.mail{
+.mail {
 	font-size: medium;
-	 align-items: center;
-	 padding: 2%;
-	 width: 85%;
-	 height: auto;
-	 display: flex;
-	 flex-direction: column;
-	 gap: 5px;
-	 
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+
 }
-.modify{
+
+.alte_info{
+
+}
+
+.modify {
 	width: 95%;
 	display: flex;
 	flex-direction: column;
 }
 
-.change_mail{
+.change_mail {
 	top: 5%;
 	left: 5%;
 	width: 100%;
 
 }
 
-.forms >input{
+.forms>input {
 	font-weight: 600;
 	overflow: hidden;
 	display: block;
@@ -96,11 +107,11 @@ body
 	background-color: white;
 	border-radius: 5px;
 	padding: 10px;
-	margin-top: 5px;	
-	margin-bottom: 5px;	
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.forms > button{
+.forms>button {
 	cursor: pointer;
 	color: #fff;
 	font-size: 18px;
@@ -110,11 +121,11 @@ body
 	border-radius: 5px;
 	text-transform: uppercase;
 	text-align: center;
-	margin-top: 5px;	
-	margin-bottom: 5px;	
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.forms >select{
+.forms>select {
 	font-weight: 600;
 	overflow: hidden;
 	display: block;
@@ -125,16 +136,16 @@ body
 	background-color: white;
 	border-radius: 5px;
 	padding: 10px;
-	margin-top: 5px;	
-	margin-bottom: 5px;	
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 40em) {
-	.account-admin-main{
+	.account-admin-main {
 
-		grid-template-areas: 
-		"sidepanel"
-		"settings-area";
+		grid-template-areas:
+			"sidepanel"
+			"settings-area";
 		grid-template-columns: 1fr;
 	}
-  }
+}
