@@ -46,7 +46,7 @@ body {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	justify-content: center;
 	padding: 5px;
 	gap: 1px;
 }
@@ -89,6 +89,16 @@ body {
 	width: 95%;
 	display: flex;
 	flex-direction: column;
+	align-self: center;
+	margin: 5px;
+}
+h3{
+	margin: 3%;
+}
+.mod-profil{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .change_mail {
@@ -98,12 +108,17 @@ body {
 
 }
 
+.forms{
+	padding: 2%;
+}
+
 .forms>input {
 	font-weight: 600;
 	overflow: hidden;
 	display: block;
 	flex-direction: column;
-	width: 100%;
+	width: 65%;
+	min-width: 250px;
 	flex-wrap: wrap;
 	font-size: 18px;
 	background-color: white;
@@ -119,6 +134,7 @@ body {
 	font-size: 18px;
 	background-color: #f45b69;
 	width: 45%;
+	min-width: 200px;
 	padding: 5px;
 	border-radius: 5px;
 	text-transform: uppercase;
@@ -132,7 +148,8 @@ body {
 	overflow: hidden;
 	display: block;
 	flex-direction: column;
-	width: 100%;
+	width: 65%;
+	min-width: 250px;
 	flex-wrap: wrap;
 	font-size: 18px;
 	background-color: white;
@@ -141,6 +158,27 @@ body {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+
+textarea{
+	font-weight: 600;
+	overflow: hidden;
+	display: block;
+	flex-direction: column;
+	resize: none;
+	width: 65%;
+	max-width: 65%;
+	min-width: 250px;
+	min-height: 20%;
+	flex-wrap: wrap;
+	font-size: 18px;
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+
 
 @media only screen and (max-width: 40em) {
 	.account-admin-main {

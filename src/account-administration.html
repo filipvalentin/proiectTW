@@ -53,46 +53,50 @@
 
 		<div class="settings-area">
 			<div class="modify">
-				<div class="email">
-					<h2>Schimbare e-mail</h2>
-					<form class="forms">
-						<input type="email" placeholder="Introduceti e-mailul actual" required>
-						<input type="email" placeholder="Introduceti noul e-mail" required>
-						<input type="email" placeholder="Confirmati noul e-mail" required>
-						<button>Schimba e-mailul</button>
-
-					</form>
-				</div>
+				<h3>Schimbare e-mail</h3>
+				<form class="forms">
+					<input type="email" placeholder="Introduceti e-mailul actual" required>
+					<input type="email" placeholder="Introduceti noul e-mail" required>
+					<input type="email" placeholder="Confirmati noul e-mail" required>
+					<button>Schimba e-mailul</button>
+				</form>
 			</div>
 			<div class="modify">
-				<div class="email">
-					<h2>Schimbare parola</h2>
-					<form class="forms">
-						<input type="password" placeholder="Introduceti parola veche" required>
-						<input type="password" placeholder="Introduceti noua parola" required>
-						<input type="password" placeholder="Confirmati noua parola" required>
-						<button>Schimba parola</button>
-
-					</form>
-				</div>
+				<h3>Schimbare parola</h3>
+				<form class="forms">
+					<input type="password" placeholder="Introduceti parola veche" required>
+					<input type="password" placeholder="Introduceti noua parola" required>
+					<input type="password" placeholder="Confirmati noua parola" required>
+					<button>Schimba parola</button>
+				</form>
 			</div>
 			<div class="modify">
-				<div class="email">
-					<h2>Modificare profil</h2>
-					<form class="forms">
-						<input type="text" placeholder="Username">
-						<input type="text" placeholder="Nume">
-						<input type="text" placeholder="Prenume">
-						<input type="text" placeholder="Institutie de invatamant">
-						<input type="date" placeholder="Ziua ta de nastere">
-						<select name="option" required>
-							<option value="" disabled selected>Selectati sexul</option>
-							<option value="Masculin">Masculin</option>
-							<option value="Feminin">Feminin</option>
-						</select>
-
-						<button>Actualizare profil</button>
-
+				<h3>Modificare profil</h3>
+				<div class="mod-profil">
+					<div class="form_2">
+						<form class="forms">
+							<input type="text" placeholder="Username">
+							<input type="text" placeholder="Nume">
+							<input type="text" placeholder="Prenume">
+							<input type="text" placeholder="Institutie de invatamant">
+							<input type="date" placeholder="Ziua ta de nastere">
+							<select name="option">
+								<option value="" disabled selected>Selectati genul</option>
+								<option value="Masculin">Masculin</option>
+								<option value="Feminin">Feminin</option>
+								<option value="Other">Other</option>
+							</select>
+							<textarea placeholder="O mica descriere"></textarea>
+							<button>Actualizare profil</button>
+						</form>
+					</div>
+					<form class="selection">
+						<input type="checkbox" name="afisare_nastere" id="nastere">
+						<label for="nastere">Doresc sa mi se afiseze ziua de nastere.</label><br>
+						<input type="checkbox" name="afisare_institutie" id="institutie">
+						<label for="institutie">Doresc sa mi se afiseze institutia de invatamant.</label><br>
+						<input type="checkbox" name="afisare_gen" id="institutie">
+						<label for="institutie">Doresc sa mi se afiseze genul.</label><br>
 					</form>
 				</div>
 			</div>
