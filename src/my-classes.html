@@ -22,7 +22,7 @@
 		</div>
 
 
-		<div class="navbar-right" >
+		<div class="navbar-right">
 			<a href="login.html">My Account</a>
 		</div>
 		<div class="navbar-right" style="display: none;">
@@ -33,6 +33,15 @@
 
 	<main class="main">
 		<div class="myclasses-panel">
+			<div class="dashboard">
+				<div class="myclasses-name">
+					<content>My classes</content>
+				</div>
+				<div class="class-button">
+					<button >Create a class</button>
+					<button style="display: none;">Enter a class</button>
+				</div>
+			</div>
 			<div class="class">
 				<div class="title" id="class1">
 
@@ -56,7 +65,7 @@
 
 			</div>
 			<div class="add-class">
-					<button class="add-button">New class</button>
+				<button class="add-button">New class</button>
 			</div>
 		</div>
 	</main>
@@ -64,11 +73,11 @@
 	<script>
 
 		document.getElementById('class1').addEventListener('click', click_class);
-		
+
 		function click_class() {
-		
-		document.getElementById('class1').innerHTML = "Welcome to JavaScript";
-		
+
+			document.getElementById('class1').innerHTML = "Welcome to JavaScript";
+
 		} </script>
 
 </body>

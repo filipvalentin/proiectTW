@@ -1,9 +1,26 @@
+
 .myclasses-panel {
 	display: flex;
+	/* width:100%; */
+	max-width: 50em;
+	/* min-width: 45em; */
+	/* align-self: center;
+	justify-self: center; */
 	background-color: #ada2d675;
-	margin: 2em 1em 1em 1em;
+	/* margin: 2em 1em 1em 1em; */
 	flex-wrap: wrap;
+	margin: 2em  auto auto auto;
 	/* flex-direction: column; */
+	flex-direction: column;
+}
+
+@media only screen and (max-width: 55em) {
+	.myclasses-panel {
+		min-width: none;
+		width:auto;
+		
+		margin: 2em 2em auto 2em;
+	}
 }
 
 .class {
@@ -13,7 +30,7 @@
 	min-height: 250px;
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: column;
+	/* flex-direction: row; */
 	
 	align-items: center;
 	justify-content: center;
@@ -25,6 +42,39 @@
 	overflow: hidden;
 
 }
+
+
+.dashboard{
+	
+	flex-direction: row;
+	background-color: #5a7a7bcb;
+	
+}
+.myclasses-name{
+	float: left;
+	margin:  1em;
+	font-size: 22px;
+	padding: 0px;
+}
+.class-button{
+	float:right;
+	margin:0.2em;
+	justify-content: center;
+	align-items: center;
+
+}
+.class-button > button{
+	font-size: 22px;
+	background-color:rgb(233, 245, 255);
+	border: none;
+	padding: 0.9em;
+
+	cursor: pointer;
+}
+/* 
+.class-button > button:hover{
+	
+} */
 
 .class>.title {
 	
