@@ -1,131 +1,106 @@
-
 .myclasses-panel {
 	display: flex;
-	/* width:100%; */
-	max-width: 50em;
-	/* min-width: 45em; */
-	/* align-self: center;
-	justify-self: center; */
-	background-color: #ada2d675;
-	/* margin: 2em 1em 1em 1em; */
-	flex-wrap: wrap;
-	margin: 2em  auto auto auto;
-	/* flex-direction: column; */
 	flex-direction: column;
+	flex-wrap: wrap;
+
+	max-width: 50em;
+	margin: 2em auto auto auto;
+
+	background-color: #ada2d675;
 }
 
 @media only screen and (max-width: 55em) {
 	.myclasses-panel {
 		min-width: none;
-		width:auto;
-		
+		width: auto;
+
 		margin: 2em 2em auto 2em;
 	}
 }
 
-.class {
-	width: 250px;
-	height: 250px;
-	min-width: 250px;
-	min-height: 250px;
-	display: flex;
-	flex-wrap: wrap;
-	/* flex-direction: row; */
-	
-	align-items: center;
-	justify-content: center;
 
-	background-color: #08002375;
-	margin: 1em;
-	border-radius: 20px;
 
-	overflow: hidden;
+/* dashboard related */
 
+.dashboard {
+	background-color: #5a7a7b;
 }
 
-
-.dashboard{
-	
-	flex-direction: row;
-	background-color: #5a7a7bcb;
-	
-}
-.myclasses-name{
+.dashboard-class-name {
 	float: left;
-	margin:  1em;
+	margin: 1em;
 	font-size: 22px;
 	padding: 0px;
+	color: #e7e3e3;
 }
-.class-button{
-	float:right;
-	margin:0.2em;
+
+.dashboard-class-button {
+	float: right;
+	margin: 0.7em;
 	justify-content: center;
 	align-items: center;
-
 }
-.class-button > button{
-	font-size: 22px;
-	background-color:rgb(233, 245, 255);
-	border: none;
-	padding: 0.9em;
 
+.dashboard-class-button>button {
+	font-size: 22px;
+	background-color: #e7e3e3;
+	border: none;
+	padding: 0.5em;
+	border-radius: 4px;
 	cursor: pointer;
 }
-/* 
-.class-button > button:hover{
-	
-} */
 
-.class>.title {
-	
-	margin: 10px;
-	font-size: 3em;
-	background-color: #1d1c1f75;
-	border-radius: 10px;
-	padding: 10px;
-
-}
-
-.class>.content {
-	margin: 10px;
-	background-color: #56545c75;
-	border-radius: 10px;
-	padding: 10px;
-}
-
-.add-class{
-	width: 250px;
-	height: 250px;
-	min-width: 250px;
-	min-height: 250px;
+/* content related */
+.class {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	
-	align-items: center;
-	justify-content: center;
 
-	background-color: #08002375;
+	background-color: #e7e3e3;
+
 	margin: 1em;
-	border-radius: 20px;
+	border-radius: 4px;
 
 	overflow: hidden;
-}
-
-.add-class > .add-title{
-	margin: 10px;
-	font-size: 3em;
-	background-color: #1d1c1f75;
-	border-radius: 10px;
-	padding: 10px;
-}
-
-.add-class > .content{
 
 }
-.add-button{	
-	font-size: 45px;
+
+.class>.header {
+	width: 100%;
+	
+	font-size: 2em;
+
+	background-color: #4a494dae;
+	border-radius: 2px;
+}
+
+.header>.title {
+	float: left;
+	margin: 0.5em;
+
+	font-size: 0.7em;
+	padding: 0.5em ;
+	color: #e7e3e3;
+}
+
+.header>.gotobutton {
+	float: right;
+	margin: 0.6em;
+	/* justify-content: center;
+	align-items: center; */
+	font-size: 20px;
+	background-color: #e7e3e3;
+	border: none;
+	padding: 0.6em;
+	border-radius: 2px;
 	cursor: pointer;
-	background-color: #08002375;
-	border-radius: 10px;
+}
+
+
+.class>.content {
+	/* margin: 10px; */
+	background-color: #e6e8e7c9;
+	color:#171616;
+	padding: 10px;
+	
 }

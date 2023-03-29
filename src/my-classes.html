@@ -34,51 +34,49 @@
 	<main class="main">
 		<div class="myclasses-panel">
 			<div class="dashboard">
-				<div class="myclasses-name">
+				<div class="dashboard-class-name">
 					<content>My classes</content>
 				</div>
-				<div class="class-button">
-					<button >Create a class</button>
+				<div class="dashboard-class-button">
+					<button>Create a class</button>
 					<button style="display: none;">Enter a class</button>
 				</div>
 			</div>
 			<div class="class">
-				<div class="title" id="class1">
-
-					<a>Clasa1</a>
+				<div class="header">
+					<a class="title">Class 1</a>
+					<button class="gotobutton">Go to class</button>
 				</div>
 				<div class="content">
-					<p>Description</p>
+					<p>Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+						mollit anim id est laborum.
+					</p>
 				</div>
 
 			</div>
 
 
 			<div class="class">
-				<div class="title" id="class2">
-
-					<a>Clasa2</a>
+				<div class="header">
+					<a class="title">Class 2</a>
+					<button class="gotobutton">Go to class</button>
 				</div>
 				<div class="content">
-					<p>Description</p>
+					<p>Description 2</p>
 				</div>
 
 			</div>
-			<div class="add-class">
-				<button class="add-button">New class</button>
-			</div>
+
 		</div>
+
+
 	</main>
 
-	<script>
-
-		document.getElementById('class1').addEventListener('click', click_class);
-
-		function click_class() {
-
-			document.getElementById('class1').innerHTML = "Welcome to JavaScript";
-
-		} </script>
 
 </body>
 
