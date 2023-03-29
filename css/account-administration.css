@@ -94,6 +94,7 @@ body {
 }
 h3{
 	margin: 3%;
+	margin-bottom:0;
 }
 .mod-profil{
 	display: flex;
@@ -105,11 +106,11 @@ h3{
 	top: 5%;
 	left: 5%;
 	width: 100%;
-
 }
 
 .forms{
 	padding: 2%;
+	margin: 5px;
 }
 
 .forms>input {
@@ -132,7 +133,7 @@ h3{
 	cursor: pointer;
 	color: #fff;
 	font-size: 18px;
-	background-color: #f45b69;
+	background-color: #687d72;
 	width: 45%;
 	min-width: 200px;
 	padding: 5px;
@@ -141,6 +142,12 @@ h3{
 	text-align: center;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.selection{
+	padding: 2%;
+	margin: 5px;
+	margin-bottom: 0px;
 }
 
 .forms>select {
@@ -159,6 +166,8 @@ h3{
 	margin-bottom: 5px;
 }
 
+
+
 textarea{
 	font-weight: 600;
 	overflow: hidden;
@@ -176,6 +185,41 @@ textarea{
 	padding: 10px;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.Statistici{
+	display: flex;
+	flex-direction: column;
+	flex-flow: column;
+}
+
+.Statistici a{
+	padding: 10px;
+	font-size: larger;	
+	background-color: #687d72;
+	text-decoration: none;
+	text-align: left;
+	color: #f4f4f4;
+}
+
+.Statistici a:hover {
+	background-color: #8ba698;
+	color: black;
+}
+
+.Statistici a:active{
+	background-color:#;
+	color: gray;
+}
+
+.informatii_persoana
+{
+	text-align: justify;
+	margin: 10px;
+}
+
+.informatii_persoana p{
+	font-size: 16px;
 }
 
 
