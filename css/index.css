@@ -3,3 +3,84 @@ body {
 	font-family: "Asap", Helvetica, sans-serif;
 	background-color: #e7e3e3;
 }
+
+main{
+
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 0 3em;
+
+	border-radius: 5px;
+
+	transform: translate(-50%, -50%);
+
+	background-color: #d6c3a275;
+
+}
+
+/* @import url("https://fonts.googleapis.com/css?family=JetBrains Mono"); */
+.title{
+	text-align: center;
+	font-size: 6vi;
+	font-family: 'JetBrains Mono';
+	margin: 0;
+	margin: 0.3em 0;
+}
+
+.login-options{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin-bottom: 3vi;
+}
+
+.login-option{
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	max-width: 15vi;
+	background-color: #f45b69;
+	margin: 1em;
+	border-radius: 10px;
+	transition: background-color 300ms;
+	cursor: pointer;
+	/* align-items: center;
+	justify-content: center; */
+}
+.login-option:hover {
+	background-color: #f24353;
+	opacity: 1;
+}
+
+
+.login-option>p{
+	text-align: center;
+	font-size: 2vi;
+	margin: 0;
+	padding: 0;
+}
+
+.icon{
+
+	display: block;
+	align-self: center;
+	margin: 1em;
+	width: 20vh;
+}
+
+@media only screen and (max-width: 40em){
+	.login-options{
+		flex-direction: column;
+		
+	}
+	.login-option{
+		max-width: none;
+		
+	}
+	.login-option>p{
+		font-size: 1em;
+	}
+}

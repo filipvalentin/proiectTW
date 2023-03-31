@@ -1,16 +1,20 @@
 .login {
 	overflow: hidden;
-	background-color: #a9b2ba;
+	background-color: #ada2d67d;
 	padding: 40px 40px 5px 40px;
 	border-radius: 10px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 400px;
+	/* width: 400px; */
+
+	width: 75vi; /* //util numai pentru mobile */
+	
+	max-width: 25em;
 
 	transform: translate(-50%, -50%);/*//asta il pune la mijloc */
 	transition: transform 300ms, box-shadow 300ms; /*//asta face tranzitia */
-	box-shadow: 5px 10px 10px rgba(28, 28, 29, 0.2); /* //asta pune shadow */
+	box-shadow: 5px 10px 10px #1c1c1d33; /* //asta pune shadow */
 
 	filter:blur(0); /*//asta scoate blur-ul de pe Chrome din cauza ca opacitatea e pe 0.8*/
 }
@@ -36,14 +40,14 @@
 }
 .login::before {
 	left: 70%;
-	bottom: -100%;
+	top: 10%;
 	background-color: #313137ae;
 
 	animation: wawes 6s infinite linear;
 }
 .login::after {
 	left: 65%;
-	bottom: -95%;
+	top: 10%;
 	background-color: #31313763;
 
 	animation: wawes 7s infinite;

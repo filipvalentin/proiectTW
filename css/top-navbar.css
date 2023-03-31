@@ -9,11 +9,10 @@
 	overflow: hidden;
 	background-color: #313137;
 	position: sticky;
-	/* position: absolute; */
-	
 	
 	font-family: Asap;
 	top: 0px;
+	z-index: 1;
 }
 
 .top-navbar a {
@@ -22,7 +21,7 @@
 	text-align: center;
 	padding: 10px 16px;
 	text-decoration: none;
-	font-size: 17px;
+	font-size: 1.2em;
 }
 
 .top-navbar a:hover {
