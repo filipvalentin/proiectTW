@@ -16,20 +16,25 @@
 
 		margin: 2em 2em auto 2em;
 	}
+	.dashboard-class-button{
+		font-size: 1em;
+	}
 }
-
 
 
 /* dashboard related */
 
 .dashboard {
 	background-color: #5a7a7b;
+
+	
 }
 
 .dashboard-class-name {
 	float: left;
-	margin: 1em;
-	font-size: 22px;
+	/* margin: 1em; */
+	padding: 1.2em;
+	font-size: 1.2em;
 
 	color: #e7e3e3;
 }
@@ -40,6 +45,8 @@
 
 	padding-top: 0.5em;
 	padding-bottom: 0.4em;
+
+	
 }
 
 .dashboard-class-button>a {
@@ -52,7 +59,15 @@
 	background-color: #e7e3e3;
 	cursor: pointer;
 	text-decoration: none;
+	
+	transition: background 300ms;
 }
+
+.dashboard-class-button>a:hover{
+	color: #e7e3e3;
+	background-color: #313137ea;
+}
+
 
 /* content related */
 .class {
@@ -98,8 +113,14 @@
 
 	cursor: pointer;
 	text-decoration: none;
+
+	transition: background 300ms;
 }
 
+.gotobutton:hover{
+	background-color: #f24352dc;
+	color: #e7e3e3;
+}
 
 .class>.content {
 	/* margin: 10px; */
