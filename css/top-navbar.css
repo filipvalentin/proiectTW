@@ -9,6 +9,9 @@
 	overflow: hidden;
 	background-color: #313137;
 	position: sticky;
+	/* position: absolute; */
+	
+	
 	font-family: Asap;
 	top: 0px;
 }
