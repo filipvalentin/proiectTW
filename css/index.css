@@ -4,7 +4,7 @@ body {
 	background-color: #e7e3e3;
 }
 
-main{
+main {
 
 	display: flex;
 	flex-direction: column;
@@ -23,7 +23,7 @@ main{
 }
 
 /* @import url("https://fonts.googleapis.com/css?family=JetBrains Mono"); */
-.title{
+.title {
 	text-align: center;
 	font-size: 6vi;
 
@@ -32,7 +32,7 @@ main{
 	margin: 0.3em 0;
 }
 
-.login-options{
+.login-options {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
@@ -40,14 +40,14 @@ main{
 
 }
 
-.login-option{
+.login-option {
 	display: flex;
 	flex-direction: column;
 	padding: 1em;
 	min-width: 10em;
 	max-width: 15em;
 
-	background-color: #f45b69;
+	background-color: #f4505e;
 	margin: 1em;
 	border-radius: 10px;
 
@@ -56,20 +56,21 @@ main{
 	/* align-items: center;
 	justify-content: center; */
 }
+
 .login-option:hover {
-	background-color: #f24353;
+	background-color: #fc2f40;
 	opacity: 1;
 }
 
 
-.login-option>p{
+.login-option>p {
 	text-align: center;
 	font-size: 1.5em;
 	margin: 0;
 	padding: 0;
 }
 
-.icon{
+.icon {
 
 	display: block;
 	align-self: center;
@@ -78,16 +79,36 @@ main{
 	width: 6em;
 }
 
-@media only screen and (max-width: 40em){
-	.login-options{
+.create-account{
+	text-align: center;
+	margin-bottom: 1em;
+}
+.create-account>p{
+	margin: 0;
+	margin-bottom: 0.2em;
+
+}
+
+.create-account>a {
+	
+	text-align: center;
+	margin: 0;
+	margin-bottom: 1em;
+	
+	text-decoration: none;
+	color: rgb(255, 0, 89);
+}
+
+@media only screen and (max-width: 40em) {
+	.login-options {
 		flex-direction: column;
-		
 	}
-	.login-option{
+
+	.login-option {
 		max-width: none;
-		
 	}
-	.login-option>p{
+
+	.login-option>p {
 		font-size: 1.5em;
 	}
 }
