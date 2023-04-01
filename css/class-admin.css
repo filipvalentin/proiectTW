@@ -21,7 +21,7 @@
 	display: flex;
 	flex-direction: column;
 
-	height: calc(100vh - 6em);
+	/* height: calc(100vh - 6em); */
 	margin-top: 1em;
 	margin-bottom: 1em;
 	border-top-right-radius: 8px;
@@ -42,6 +42,7 @@
 
 	transition: all 300ms;
 }
+
 
 .dashboard>.class-name {
 	text-align: center;
@@ -196,4 +197,44 @@
 		height: fit-content;
 		width: auto;
 	}
+}
+
+/* .content-students>.seach-bar{
+	background-color: #e6e4d8;
+	width: 100%;
+} */
+
+.search-bar{
+	display: flex;
+	flex-direction: row;
+	background-color: #e6e4d8;
+	width: auto;
+	margin: 1em;
+	
+	border-radius: 10px;
+	align-content: stretch;
+	overflow: hidden;
+}
+.search-bar>.image{
+	width: 2em;
+	padding: 0.5em;
+	/* margin:1em; */
+	background-color: #f45b69;
+	/* //#c1ed84;  */
+	
+}
+
+.search-bar>.search-input{	
+	flex-grow: 1;
+
+	border-radius: 10px;
+	background-color: #e0decfa0;
+	border: 0;
+	padding-left: 0.5em;
+	font-size: 1.5em;
+}
+
+.search-bar>.search-input:focus{
+	outline: none;
+
 }
