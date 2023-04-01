@@ -6,10 +6,10 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	/* width: 400px; */
-
-	width: 75vi; /* //util numai pentru mobile */
 	
+
+	/* width: 75vw; //util numai pentru mobile */
+	/* width: 25em; */
 	max-width: 25em;
 
 	transform: translate(-50%, -50%);
@@ -36,6 +36,7 @@
 
 	animation: wawes 6s infinite linear;
 }
+
 .register::after {
 	left: 55%;
 	bottom: -95%;
@@ -43,19 +44,24 @@
 
 	animation: wawes 7s infinite;
 }
+
 .register > input {
 	font-weight:600;
+
 	display: block;
 	border: 0;
 	border-radius: 4px;
 	font-size: 16px;
+	
 	background: white;
-	width: 100%;
+	width: 22.5em;
+	/* width: 100%; */
 	height: 100%;
 	padding: 12px 20px;
 	margin: 15px 0px;
 	opacity: 0.8; 
 }
+
 .register > select {
 	font-weight:600;
 	display: block;
@@ -63,23 +69,27 @@
 	border-radius: 4px;
 	font-size: 16px;
 	background: white;
+	/* width: 22.5em; */
 	width: 100%;
 	height: 100%;
-	padding: 12px 20px;
-	margin: 15px 0px;
+	padding: 12px;
+	margin-right: 1em;
+	/* margin: 15px 0px; */
 	opacity: 0.8; 
 }
+
 .register > button {
 
 	cursor: pointer;
 	color: #fff;
 	font-size: 16px;
+
 	text-transform: uppercase;
-	width: 100px;
+	width: 120px;
 	border: 0;
 	padding: 10px 0;
 	margin-top: 10px;
-	margin-left: -5px;
+
 	border-radius: 5px;
 	background-color: #f45b69;
 
@@ -102,4 +112,19 @@ a {
 	opacity: 1;
 	text-decoration: none;
 	color: rgb(255, 0, 89);
+}
+
+@media (max-width:500px) {
+	.register{
+		/* width:18em; */
+		width: 70vw;
+	}
+	.register>input{
+		width: 60vw;
+		/* width: 16em; */
+	}
+	/* .register>select{
+		width: 60vw;
+		 width: 16em; 
+	} */
 }

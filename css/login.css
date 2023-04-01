@@ -7,19 +7,26 @@
 	top: 50%;
 	left: 50%;
 	/* width: 400px; */
-
-	width: 75vi; /* //util numai pentru mobile */
 	
 	max-width: 25em;
 
-	transform: translate(-50%, -50%);/*//asta il pune la mijloc */
-	transition: transform 300ms, box-shadow 300ms; /*//asta face tranzitia */
-	box-shadow: 5px 10px 10px #1c1c1d33; /* //asta pune shadow */
+/*asta il pune la mijloc */
+	transform: translate(-50%, -50%);
+	
 
-	filter:blur(0); /*//asta scoate blur-ul de pe Chrome din cauza ca opacitatea e pe 0.8*/
+/*asta face tranzitia */
+	transition: transform 300ms, box-shadow 300ms;
+
+	
+	box-shadow: 5px 10px 10px #1c1c1d33;
+	/* asta pune shadow */
+
+	filter: blur(0);
+	/*//asta scoate blur-ul de pe Chrome din cauza ca opacitatea e pe 0.8*/
 }
-.login::before, .login::after {
-	content: "";
+
+.login::before,
+.login::after {
 	position: absolute;
 	width: 600px;
 	height: 600px;
@@ -28,72 +35,92 @@
 	border-bottom-left-radius: 45%;
 	border-bottom-right-radius: 40%;
 	z-index: -1;
+
+	content: "";
 }
 
 @keyframes wawes {
 	from {
-	transform: rotate(0); 
+		transform: rotate(0);
 	}
+
 	to {
-	transform: rotate(360deg); 
+		transform: rotate(360deg);
 	}
 }
+
 .login::before {
 	left: 70%;
 	top: 10%;
+
 	background-color: #313137ae;
 
 	animation: wawes 6s infinite linear;
 }
+
 .login::after {
 	left: 65%;
 	top: 10%;
+
 	background-color: #31313763;
 
 	animation: wawes 7s infinite;
 }
-.login > input {
+
+.login>input {
 	display: block;
-	width: 100%;
+	width: 22.5em;
 	height: 100%;
 	padding: 12px 20px;
 	margin: 15px 0px;
-	border-radius: 4px;
 	border: 0;
+	border-radius: 4px;
+
 
 	background: white;
-
 	font-size: 16px;
-	font-weight:600;
-	
-	opacity: 0.8; 
+	font-weight: 600;
+
+	opacity: 0.8;
 }
-.login > button {
-	/* font-family: "Asap", sans-serif; */
 
-	cursor: pointer;
-	color: #fff;
-	font-size: 16px;
-	text-transform: uppercase;
+.login>button {
 	width: 100px;
 	border: 0;
 	padding: 10px 0;
 	margin-top: 10px;
-	margin-left: -5px;
 	border-radius: 5px;
+
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #fff;
 	background-color: #f45b69;
 
+	cursor: pointer;
 	transition: background-color 300ms;
 }
-.login > button:hover {
+
+.login>button:hover {
 	background-color: #f24353;
 	opacity: 1;
 }
 
 
 
-.register > a {
+.register>a {
 	opacity: 1;
 	text-decoration: none;
 	color: rgb(255, 0, 89);
+}
+
+@media (max-width:500px) {
+	.login{
+		/* width:18em; */
+		width: 70vw;
+	}
+	.login>input{
+		width: 60vw;
+		/* width: 16em; */
+	}
+	
 }
