@@ -6,27 +6,26 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	/* width: 400px; */
-	
+
+
 	max-width: 25em;
 
-/*asta il pune la mijloc */
+	/*asta il pune la mijloc */
 	transform: translate(-50%, -50%);
-	
 
-/*asta face tranzitia */
-	transition: transform 300ms, box-shadow 300ms;
+	/*asta face tranzitia */
+	transition: transform 300ms, box-shadow 600ms;
 
-	
-	box-shadow: 5px 10px 10px #1c1c1d33;
 	/* asta pune shadow */
+	box-shadow: 5px 10px 10px #1c1c1d33;
 
-	filter: blur(0);
 	/*//asta scoate blur-ul de pe Chrome din cauza ca opacitatea e pe 0.8*/
+	filter: blur(0);
 }
 
 .login::before,
 .login::after {
+	content: "";
 	position: absolute;
 	width: 600px;
 	height: 600px;
@@ -35,19 +34,8 @@
 	border-bottom-left-radius: 45%;
 	border-bottom-right-radius: 40%;
 	z-index: -1;
-
-	content: "";
 }
 
-@keyframes wawes {
-	from {
-		transform: rotate(0);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
-}
 
 .login::before {
 	left: 70%;
@@ -66,6 +54,8 @@
 
 	animation: wawes 7s infinite;
 }
+
+
 
 .login>input {
 	display: block;
@@ -114,13 +104,24 @@
 }
 
 @media (max-width:500px) {
-	.login{
+	.login {
 		/* width:18em; */
 		width: 70vw;
 	}
-	.login>input{
+
+	.login>input {
 		width: 60vw;
 		/* width: 16em; */
 	}
-	
+
+}
+
+@keyframes wawes {
+	from {
+		transform: rotate(0);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }

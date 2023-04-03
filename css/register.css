@@ -6,19 +6,25 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	
 
-	/* width: 75vw; //util numai pentru mobile */
-	/* width: 25em; */
+
 	max-width: 25em;
 
+	/*asta il pune la mijloc */
 	transform: translate(-50%, -50%);
-	transition: transform 300ms, box-shadow 300ms;
-	box-shadow: 5px 10px 10px rgba(28, 28, 29, 0.2);
 
-	filter:blur(0);
+	/*asta face tranzitia */
+	transition: transform 300ms, box-shadow 600ms;
+
+	/* asta pune shadow */
+	box-shadow: 5px 10px 10px #1c1c1d33;
+
+	/*//asta scoate blur-ul de pe Chrome din cauza ca opacitatea e pe 0.8*/
+	filter: blur(0);
 }
-.register::before, .register::after {
+
+.register::before,
+.register::after {
 	content: "";
 	position: absolute;
 	width: 600px;
@@ -29,6 +35,7 @@
 	border-bottom-right-radius: 40%;
 	z-index: -1;
 }
+
 .register::before {
 	left: 60%;
 	bottom: -100%;
@@ -45,25 +52,25 @@
 	animation: wawes 7s infinite;
 }
 
-.register > input {
-	font-weight:600;
+.register>input {
+	font-weight: 600;
 
 	display: block;
 	border: 0;
 	border-radius: 4px;
 	font-size: 16px;
-	
+
 	background: white;
 	width: 22.5em;
 	/* width: 100%; */
 	height: 100%;
 	padding: 12px 20px;
 	margin: 15px 0px;
-	opacity: 0.8; 
+	opacity: 0.8;
 }
 
-.register > select {
-	font-weight:600;
+.register>select {
+	font-weight: 600;
 	display: block;
 	border: 0;
 	border-radius: 4px;
@@ -75,10 +82,10 @@
 	padding: 12px;
 	margin-right: 1em;
 	/* margin: 15px 0px; */
-	opacity: 0.8; 
+	opacity: 0.8;
 }
 
-.register > button {
+.register>button {
 
 	cursor: pointer;
 	color: #fff;
@@ -95,19 +102,22 @@
 
 	transition: background-color 300ms;
 }
-.register > button:hover {
+
+.register>button:hover {
 	background-color: #f24353;
 	opacity: 1;
 }
 
 @keyframes wawes {
 	from {
-	transform: rotate(0);
+		transform: rotate(0);
 	}
+
 	to {
-	transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
+
 a {
 	opacity: 1;
 	text-decoration: none;
@@ -115,14 +125,16 @@ a {
 }
 
 @media (max-width:500px) {
-	.register{
+	.register {
 		/* width:18em; */
 		width: 70vw;
 	}
-	.register>input{
+
+	.register>input {
 		width: 60vw;
 		/* width: 16em; */
 	}
+
 	/* .register>select{
 		width: 60vw;
 		 width: 16em; 
