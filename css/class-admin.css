@@ -179,6 +179,59 @@
 	/* overflow: scroll; */
 }
 
+.panel-homework{
+	margin: 0.5em;
+	padding: 0em;
+
+	background-color: #e7e3e3;
+	flex-direction: column;
+	display: flex;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.title{
+	background-color: #709a9b;
+	color: white;
+	width: 100%;
+	margin-top: 0;
+	height: auto;
+}
+
+.format {
+	float: left;
+	margin: 0.8em;
+	margin-left: 1em;
+	font-size: 1em;
+	color: white;
+}
+
+.description{
+	color:black;
+	width:fit-content;
+	padding: 1.0em;
+}
+.homework-description{
+	text-align: justify;
+}
+
+.redirect{
+	background-color: #5a7a7b;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+	padding: 1.0em;
+	float: right;
+	transition: 300ms;
+}
+
+.redirect:hover{
+	background-color: #1a494a;
+}
+
+.redirect:active{
+	background-color: #1a494a;
+}
 @media only screen and (max-width: 40em) {
 	.class-admin {
 		flex-direction: column;
