@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
 	<link rel="stylesheet" href="../css/top-navbar.css">
-	<link rel="stylesheet" href="../css/class-admin.css">
+	<link rel="stylesheet" href="../css/problems.css">
 </head>
 
 <body>
@@ -32,25 +32,60 @@
 			Proful trebuie sa aiba panou pentru rezolvari primite: pagina dedicata, validare
 			Setari generale clasa?
 			-->
-			<p class="class-name">Class Name</p>
+			<p class="filter">Filter</p>
+			<div class="search-bar">
+				<form>
+					<input type="text" name="cuvinte" placeholder="Introduceti ceva...">
+				</form>
+			</div>
+			<div class="tag">
+				<form class="tag-1">
+					<div class="dificultate">
+						<input class="hidden" id="chk1" type="checkbox">
+						<label for="chk1">
+							<span class="text">USOR</span>
+						</label>
 
-			<a href="class-admin-overview.html">Overview</a>
-			<a href="class-admin-settings.html">Settings</a>
-			<a href="class-admin-students.html">Students</a>
-			<a href="class-admin-problems.html" class="active">Problems</a>
-			<a href="class-admin-homeworks.html">Homeworks</a>
+						<input class="hidden" id="chk2" type="checkbox">
+						<label for="chk2">
+							<span class="text">MEDIU</span>
+						</label>
 
-			<p class="class-id">ID: #123456</p>
+						<input class="hidden" id="chk3" type="checkbox">
+						<label for="chk3">
+							<span class="text">GREU</span>
+						</label>
+					</div>
+				</form>
+				<form action="">
+					<div class="search-tag">
+						<input type="text" name="cuvinte" placeholder="Introduceti tag-ul...">
+						<input type="submit" name="Search" id="">
+					</div>
+				</form>
+			</div>
+			<div class="date">
+				<form class="date-form">
+					<span>Selectati data de inceput</span>
+					<input type="date" name="data-inceput">
+					<span>Selectati data de final</span>
+					<input type="date" name="data-final">
+				</form>
+			</div>
+
+
 
 		</div>
 
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Problems</p>
+				<a class="section-save-button" href="add-problem.html">Add a new problem</a>
 			</div>
-			<div class="panel-homework">
+			<div class="panel-problem">
 				<div class="title">
 					<h5 class="format">Problem 1</h5>
+					<a href="#" class="redirect">See the problem</a>
 				</div>
 				<div class="description">
 					<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
@@ -61,14 +96,14 @@
 						deserunt alias voluptates error impedit!
 					</p>
 				</div>
-				<a href="#" class="redirect">See the problem</a>
 			</div>
-			<div class="panel-homework">
+			<div class="panel-problem">
 				<div class="title">
 					<h5 class="format">Problem 1</h5>
+					<a href="#" class="redirect">See the problem</a>
 				</div>
 				<div class="description">
-					<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+					<p class="problem-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
 						rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam velit, ad, magnam
 						distinctio ex sint provident error dolores quis minima. Laborum. Lorem, ipsum dolor sit amet
 						consectetur adipisicing elit. Iste illo aspernatur, voluptatem impedit officiis dolore
@@ -76,7 +111,6 @@
 						deserunt alias voluptates error impedit!
 					</p>
 				</div>
-				<a href="#" class="redirect">See the problem</a>
 			</div>
 		</div>
 
