@@ -1,0 +1,6 @@
+Ce se poate face: vazut elevi, adaugat elevi, gestionat elevi + bara de search
+Postat probleme [], vazut (istoric) probleme [x],
+postat teme [], vazut (istoric) teme [-],
+Proful trebuie sa aiba panou pentru rezolvari primite: pagina dedicata + validare []
+about[]
+Admin: panou useri, panou probleme, panou clase
