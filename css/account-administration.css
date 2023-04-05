@@ -108,6 +108,7 @@ h3{
 .forms{
 	padding: 2%;
 	margin: 5px;
+	border:none;
 }
 
 .forms>input {
@@ -139,6 +140,17 @@ h3{
 	text-align: center;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	transition: background 300ms;
+}
+
+.forms>button:hover{
+	background-color: #8ba698;
+	color: black;
+}
+
+.forms>button:active{
+	background-color: #8ba698;
+	color: black;
 }
 
 .selection{
@@ -197,6 +209,8 @@ textarea{
 	text-decoration: none;
 	text-align: left;
 	color: #f4f4f4;
+	transition: background 300ms;
+	border-radius: 5px;
 }
 
 .Statistici a:hover {
