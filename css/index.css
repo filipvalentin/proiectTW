@@ -1,4 +1,6 @@
 body {
+	display: flex;
+	flex-direction: column;
 	margin: 0;
 	font-family: "Asap", Helvetica, sans-serif;
 	background-color: #e7e3e3;
@@ -106,6 +108,10 @@ main {
 
 	.login-option {
 		max-width: none;
+		padding: 0.5em;
+	}
+	.icon{
+		width: 4em;
 	}
 
 	.login-option>p {
