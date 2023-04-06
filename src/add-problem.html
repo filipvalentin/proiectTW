@@ -31,37 +31,30 @@
 		<div class="complete-form">
 			<div class="about-problem">
 				<div class="Titlu">
-					Date generale despre problema
+					<p class="title">Submit new problem</p>
+					<a class="redirect" href="problem.html">Submit</a>
 				</div>
-				<div class="form">
-					<div class="title-of-problem">
-						<input type="text" placeholder="Introduceti titlul problemei">
+				<div class="form"> 
+					<div class="spec">
+						<p class="specification">Title</p>
+						<input class="text-form" type="text" placeholder="Write the title of problem" required>
 					</div>
 					<div class="check">
-						<div>
-							<input type="checkbox" id="usor">
-							<label for="usor">USOR</label>
-						</div>
-						<div>
-							<input type="checkbox" id="mediu">
-							<label for="mediu">MEDIU</label>
-						</div>
-						<div>
-							<input type="checkbox" id="greu">
-							<label for="greu">GREU</label>
-						</div>
+						<p class="specification">Difficulty</p>
+						<select name="difficulty" id="dif" required>
+							<option value="EASY">EASY</option>
+							<option value="MEDIUM">MEDIUM</option>
+							<option value="HARD">HARD</option>
+						</select>
 					</div>
-					<div>
-						<input type="text" placeholder="Introduceti niste tag-uri">
+					<div class="spec">
+						<p class="specification">Tags</p>
+						<input class="text-form" type="text" placeholder="Write some tags" required>
 					</div>
-				</div>
-			</div>
-			<div>
-				<div class="Titlu">
-					Descrierea problemei
-				</div>
-				<div class="form">
-					<textarea name="Problema" id="" placeholder="Introduceti cerinta problemei"></textarea>
+					<div class="textarea-form">
+						<p class="specification">Body</p>
+						<textarea name="Problema" id="" placeholder="Write the specification of problem" required></textarea>
+					</div>
 				</div>
 			</div>
 		</div>
