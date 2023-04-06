@@ -1,0 +1,56 @@
+.about-problem{
+    display: flex;
+    flex-direction: column;
+    background-color: #265a51;
+}
+
+.complete-form{
+    display: flex;
+    flex-direction: column;
+	border-radius: 4px;
+	overflow: hidden;
+    flex-wrap: wrap;
+    margin: 2em auto auto auto;
+    max-width: 50em;
+    align-self: center;
+    min-width: 300px;
+}
+
+.description-problem{
+    display: flex;
+    flex-direction: column;
+    background-color: #2f4743;
+    padding: 2em;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+    min-height: 6em;
+
+}
+.check{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Titlu{
+    padding: 2em;
+    background-color: #265a51;
+    color: white;
+}
+
+.form{
+    background-color:#708581;
+    padding: 2em;
+}
+
+@media only screen and (max-width: 55em) {
+	.complete-form {
+		min-width: none;
+		width: auto;
+
+		margin: 2em 2em auto 2em;
+	}
+}

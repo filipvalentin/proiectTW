@@ -9,7 +9,7 @@
 	<link href='https://fonts.googleapis.com/css?family=JetBrains%20Mono' rel='stylesheet'>
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
-	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/add-problem.css">
 </head>
 
 <body>
@@ -21,20 +21,50 @@
 			<a href="my-classes.html">My Classes</a>
 		</div>
 
-
-		<div class="navbar-right" style="display: none;">
-			<a href="login.html">My Account</a>
+		<div class="navbar-right">
+			<a href="problem.html">My problems</a>
+			<a href="login.html">Login</a>
 		</div>
-		<div class="navbar-right" style="display: none;">
-			<a href="login.html">Other</a>
-		</div>
-
 	</nav>
 
-
-	<main>
-	
-
+	<main class="main">
+		<div class="complete-form">
+			<div class="about-problem">
+				<div class="Titlu">
+					Date generale despre problema
+				</div>
+				<div class="form">
+					<div class="title-of-problem">
+						<input type="text" placeholder="Introduceti titlul problemei">
+					</div>
+					<div class="check">
+						<div>
+							<input type="checkbox" id="usor">
+							<label for="usor">USOR</label>
+						</div>
+						<div>
+							<input type="checkbox" id="mediu">
+							<label for="mediu">MEDIU</label>
+						</div>
+						<div>
+							<input type="checkbox" id="greu">
+							<label for="greu">GREU</label>
+						</div>
+					</div>
+					<div>
+						<input type="text" placeholder="Introduceti niste tag-uri">
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="Titlu">
+					Descrierea problemei
+				</div>
+				<div class="form">
+					<textarea name="Problema" id="" placeholder="Introduceti cerinta problemei"></textarea>
+				</div>
+			</div>
+		</div>
 	</main>
 </body>
 
