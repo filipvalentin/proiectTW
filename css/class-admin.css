@@ -159,8 +159,6 @@
 
 	border-radius: 5px;
 	background-color: #e7e3e3;
-
-
 }
 
 .option>.option-label {
@@ -171,8 +169,8 @@
 .option>.input-description {
 	margin: 0.5em;
 	/* margin-right: 3em; */
-	width: 98%;
-	height: 3.5em;
+	width:calc(100% - 3em);
+	height: 1.5em;
 	padding: 1em;
 	font-size: 1em;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;

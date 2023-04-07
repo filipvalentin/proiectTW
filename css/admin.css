@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Asap");
+
+
+/* ADMIN NAVBAR */
+
+.admin-navbar{
+	display: flex;
+
+	overflow: hidden;
+	background-color: #313137;
+	position: sticky;
+	top: 0px;
+	font-family: Asap;
+	height: 3em;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.admin-button {
+	/* float: left; */
+	color: #f2f2f2;
+	text-align: center;
+	padding: 1em;
+	/* margin:1em; */
+	text-decoration: none;
+	font-size: 1.2em;
+
+	transition: background 200ms;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.admin-button:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+
+
+
+/* ADMIN PAGE: USERS */
+
+main{
+	display: flex;
+	flex-direction: row;
+
+	margin: 0;
+	/* height: 10px; */
+	justify-content: space-between;
+	min-height: 35em;
+}
+
+.dashboard {
+	display: flex;
+	flex-direction: column;
+
+	height: calc(100vh - 6em);
+	min-height: 33em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+
+
+	padding-bottom: 1em;
+
+	min-width: 300px;
+
+	overflow: hidden;
+
+	background-color: #ada2d675;
+
+	transition: all 300ms;
+}
+
+
+.dashboard>.class-name {
+	text-align: center;
+	margin: 0;
+	padding: 0.5em;
+	font-size: 1.5em;
+	color: white;
+	background-color: #313137ea;
+	overflow: visible;
+	/* max-width: 300px; */
+	margin-bottom: 1em;
+	/* white-space: initial; */
+	word-wrap: break-word;
+}
+
+
+.right-area{
+	margin: 1em;
+	display: flex;
+	width: 100%;
+
+	flex-direction: column;
+
+	overflow: hidden;
+
+	border-radius: 5px;
+	background-color: #ada2d675;
+}

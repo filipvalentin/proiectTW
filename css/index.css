@@ -20,6 +20,7 @@ main {
 	transform: translate(-50%, -50%);
 
 	background-color: #d6c3a275;
+	box-shadow: 5px 5px 5px #4e3c4233;
 
 	transition: all 100ms;
 }
