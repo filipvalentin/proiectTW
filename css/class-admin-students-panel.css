@@ -1,5 +1,3 @@
-
-
 .add-students-button>a {
 	background-color: #e7e3e3;
 	padding: 1em;
@@ -12,8 +10,8 @@
 	display: flex;
 	background-color: #e8e2da9f;
 	width: auto;
-	margin: 1em;
-	padding: 0.7em 1em;
+	margin: 0.5em 0.5em;
+	padding: 0.5em 1em;
 	border-radius: 10px;
 	align-items: center;
 	overflow: hidden;
@@ -39,19 +37,19 @@
 
 .student-user {
 	padding-left: 1em;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	margin: 0;
 
 }
 
-.student-remove-button {
+/* .student-remove-button {
 	float: right;
 	margin-left: auto;
 	padding: 0.5em;
 	border-radius: 5px;
 
 
-	font-size: 1.1em;
+	font-size: 1em;
 	text-align: center;
 
 	color: white;
@@ -60,9 +58,30 @@
 
 	cursor: pointer;
 	text-decoration: none;
+} */
+
+.student-entry-button{
+	float: right;
+	margin-left: auto;
+	padding: 0.5em;
+	margin-right: 1em;
+	border-radius: 5px;
+
+
+	font-size: 1em;
+	text-align: center;
+
+	color: white;
+	background-color: #f45b69;
+	transition: background-color 300ms;
+
+	cursor: pointer;
+	text-decoration: none;
+	border-color: #e8e2da9f;
+	border: none;
 }
 
-.divider{
+.divider {
 	display: none;
 	margin-top: 0.5em;
 	width: 100%;
@@ -72,21 +91,51 @@
 }
 
 @media (max-width:30em) {
-	.student-entry{
+	.student-entry {
 		flex-direction: column;
 		justify-items: center;
 		align-items: center;
 	}
-	.entry-left-side{
-		float:unset;
+
+	.entry-left-side {
+		float: unset;
 	}
-	.student-remove-button{
-		float:unset;
+
+	.student-remove-button {
+		float: unset;
 		margin: auto;
 		margin-top: 0.5em;
 	}
-	.divider{
+
+	.divider {
 		display: block;
 	}
 
 }
+
+.student-page-number {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-size: 1.1em;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.page-text{
+	padding: 0;
+	
+	margin:0;
+	margin-right: 0.5em;
+}
+.page-number{
+	background-color: #748e8f;
+	border-radius: 4px;
+	padding: 0.5em;
+	font-size: 0.9em;
+	cursor: pointer;
+	border-color: #acc0d0;
+	color: #e7e3e3;
+}
+
