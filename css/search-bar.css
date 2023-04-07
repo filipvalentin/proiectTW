@@ -1,0 +1,45 @@
+/* <div class="search-bar">
+<!-- https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg -->
+<img class="image" src="../resources/256px-Magnifying_glass_icon.svg.png" alt="magnifying glass icon">
+<input class="search-input">
+</div> */
+
+.search-bar {
+	/* float: left; */
+
+	display: flex;
+	flex-direction: row;
+	background-color: #e6e4d8;
+	width: auto;
+	margin: 1em;
+
+	/* max-width: 30em; */
+	/* min-width: auto; */
+
+	border-radius: 10px;
+	align-content: stretch;
+	overflow: hidden;
+}
+
+.search-bar>.image {
+	width: 2em;
+	padding: 0.5em;
+	/* margin:1em; */
+	background-color: #f45b69;
+	/* //#c1ed84;  */
+
+}
+
+.search-bar>.search-input {
+	flex-grow: 1;
+
+	border-radius: 10px;
+	background-color: #e0decfa0;
+	border: 0;
+	padding-left: 0.5em;
+	font-size: 1.3em;
+}
+
+.search-bar>.search-input:focus {
+	outline: none;
+}

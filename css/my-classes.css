@@ -4,38 +4,25 @@
 	flex-wrap: wrap;
 
 	max-width: 50em;
-	margin: 2em auto auto auto;
+	margin: 1em auto auto auto;
 
 	background-color: #ada2d675;
+	border-radius: 4px;
 }
-
-@media only screen and (max-width: 55em) {
-	.myclasses-panel {
-		min-width: none;
-		width: auto;
-
-		margin: 2em 2em auto 2em;
-	}
-	.dashboard-class-button{
-		font-size: 1em;
-	}
-}
-
 
 /* dashboard related */
 
 .dashboard {
 	background-color: #5a7a7b;
-
 	
 }
 
 .dashboard-class-name {
 	float: left;
-	/* margin: 1em; */
-	padding: 1.2em;
-	font-size: 1.2em;
 
+	padding: 0.9em;
+	font-size: 1.5em;
+	
 	color: #e7e3e3;
 }
 
@@ -45,8 +32,6 @@
 
 	padding-top: 0.5em;
 	padding-bottom: 0.4em;
-
-	
 }
 
 .dashboard-class-button>a {
@@ -128,4 +113,16 @@
 	color: #171616;
 	padding: 10px;
 
+}
+
+@media only screen and (max-width: 55em) {
+	.myclasses-panel {
+		min-width: none;
+		width: auto;
+
+		margin: 2em 2em auto 2em;
+	}
+	.dashboard-class-button{
+		font-size: 1em;
+	}
 }
