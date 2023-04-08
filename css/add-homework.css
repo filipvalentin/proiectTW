@@ -13,7 +13,9 @@
     overflow: hidden;
     border-radius: 5px;
 }
-
+.title>form{
+    display: flex;
+}
 .title {
     background-color: #709a9b;
     color: white;
@@ -122,4 +124,80 @@
     min-height: 10em;
     font-size: 1.2em;
     padding: 0.5em;
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 1em;
+    transition: all 300ms;
+}
+
+.search{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5em;
+    width: 100%;
+}
+
+.search>input{
+    font-size: 1.0em;
+    padding: 0.2em;
+    font-family: 'Asap';
+    border-radius: 5px;
+}
+
+.filtering{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0.5em;
+    width: 100%;
+}
+
+.filtering>input{
+    width: 50%;
+    font-size: 1.0em;
+    padding: 0.2em;
+    font-family: 'Asap';
+    border-radius: 5px;
+}
+
+.difficulty{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.selection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.selection #sent{
+    font-size: 1.0em;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4em;
+    margin-right: 1em;
+    font-family: 'Asap';
+    color: white;
+    background-color: #f45b69;
+    transition: background-color 300ms;
+}
+
+.selection #sent:hover{
+    background-color: #f24353;
+}
+
+.selection #sent:active{
+    background-color: #f24353;
 }
