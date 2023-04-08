@@ -4,3 +4,6 @@ postat teme [], vazut (istoric) teme [-],//de continuat la lucrat paginile
 Proful trebuie sa aiba panou pentru rezolvari primite: pagina dedicata + validare [] //tema implementare in vezi tema
 about[] //copiat din scholarly html introducere
 Admin: panou useri, panou probleme, panou clase //de implementat cat de cat
+
+
+neaparat: reset password

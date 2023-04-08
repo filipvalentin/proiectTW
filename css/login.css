@@ -75,9 +75,10 @@
 }
 
 .login>button {
-	width: 100px;
+	/* width: 100px; */
+	width: auto;
 	border: 0;
-	padding: 10px 0;
+	padding: 0.5em 1em;
 	margin-top: 10px;
 	border-radius: 5px;
 
@@ -103,6 +104,16 @@
 	color: rgb(255, 0, 89);
 }
 
+@keyframes wawes {
+	from {
+		transform: rotate(0);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 @media (max-width:500px) {
 	.login {
 		/* width:18em; */
@@ -116,12 +127,3 @@
 
 }
 
-@keyframes wawes {
-	from {
-		transform: rotate(0);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
-}
