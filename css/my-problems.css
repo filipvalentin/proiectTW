@@ -9,7 +9,7 @@ main{
 	display: flex;
 	flex-direction: row;
 	background-color: #ada2d675;
-	margin-top:2em;
+	margin-top: 2em;
 	align-items: center;
 	max-width: 1200px;
 	height: calc(100vh - 6em);
@@ -20,7 +20,7 @@ main{
 .description{
 	display: flex;
 	flex-direction: column;
-	min-width: 300px;
+	min-width: 22.5em;
 	height: 100%;
 }
 
@@ -126,9 +126,33 @@ ul{
 	padding: 1.5em;
 }
 
-@media (max-width: 45em) {
+@media only screen and (max-width: 55em) {
 	.problemas {
 		flex-direction: column;
 		height: fit-content;
+		width: 100%;
+		overflow: hidden;
+		margin:1em;
 	}
+
+	.the-body{
+		width: 85%;
+		padding: 0em;
+		height: 10em;
+	}
+
+	.body{
+		width: 100%;
+		min-width: 0em;
+		padding: 2em;
+	}
+
+	.description{
+		width: 85%;
+	}
+	main{
+		margin: 1em;
+	}
+
+
 }
