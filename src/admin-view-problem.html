@@ -5,109 +5,85 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Administration</title>
+	<title>InformatiX</title>
 	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/top-navbar.css">
+	<link rel="stylesheet" href="../css/admin-view-problem.css">
+	<!-- <link rel="stylesheet" href="../css/class-admin.css"> -->
 	<link rel="stylesheet" href="../css/admin-top-navbar.css">
-
-	<!-- <link rel="stylesheet" href="../css/my-classes.css">	 -->
-	<link rel="stylesheet" href="../css/admin-problems.css">
-	<link rel="stylesheet" href="../css/search-bar.css">
+	<!-- <link rel="stylesheet" href="../css/class-admin-students-panel.css"> -->
+	<!-- <link rel="stylesheet" href="../css/search-bar.css"> -->
 </head>
 
 <body>
-
 	<nav class="admin-navbar">
 		<a class="admin-button" href="admin-users.html">USERS</a>
 		<a class="admin-button" href="admin-classes.html">CLASSES</a>
 		<a class="admin-button" href="admin-problems.html">PROBLEMS</a>
 	</nav>
 
+
 	<main>
-		
-
-
-		<div class="panel">
-			<div class="dashboard">
-				<div class="dashboard-class-name">
-					<content>Pending problems</content>
+		<div class="content">
+			<div class="description">
+				<div class="title">
+					<p class="format-title">Problem name 111</p>
 				</div>
-				<!-- <div class="dashboard-problems-page-select">
-					<p>Page:</p>
-					<select name="page" class="page-select">
-						<option value="1">1</option>
-						<option value="2">2</option>
-					</select>
-				
-				</div> -->
+				<div class="tags">
+					<div class="text">
+						<p class="header"> Status: </p>
+						<p class="type">Pending</p>
+					</div>
+					<div class="text">
+						<p class="header"> Teacher: </p>
+						<p class="type">Teacher 1 link</p>
+					</div>
+					<div class="text">
+						<p class="header"> Created: </p>
+						<p class="type">12/12/1999 12:30:43</p>
+					</div>
+					<div class="text">
+						<p class="header"> Difficulty: </p>
+						<p class="type">MEDIUM</p>
+					</div>
+					<div class="other-tags">
+						<p class="header">Tags</p>
+						<ul>
+							<li>
+								<p class="tags-2">backtracking</p>
+							</li>
+							<li>
+								<p class="tags-2">advanced programming</p>
+							</li>
+							<li>
+								<p class="tags-2">graph</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="bottom-buttons">
+					<button class="button" id="accept-button" onclick="location.href = 'admin-problems.html'">ACCEPT</button>
+					<button class="button" id="reject-button" onclick="location.href = 'admin-problems.html'">REJECT</button>
+				</div>
 			</div>
-			<div class="search-bar">
-				<!-- https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg -->
-				<img class="image" src="../resources/256px-Magnifying_glass_icon.svg.png" alt="magnifying glass icon">
-				<input class="search-input">
-			</div>
-			<!-- <div style="background-color: blueviolet;">Filters</div> -->
+			<div class="body">
+				<div class="inner">
+					<textarea readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod earum nostrum veniam consectetur blanditiis dolorum, cumque magni libero corporis illo, hic pariatur necessitatibus officiis rerum odio exercitationem impedit esse tempore.
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-			<div class="problem">
-				<div class="header">
-					
-					<a class="title">Problem_1_title_long</a>
-					<a class="gotobutton" href="class-admin-overview.html">View problem</a>
+						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+						
+					</textarea>
 				</div>
-
-				<div class="content">
-					<div class="teacher-name">
-						<p>Teacher:</p>
-						<p class="teacher-name-content">Teacher1</p>
-					</div>
-					<div class="date">
-						<p>Date: </p><p>01/01/1997 12:40:21</p>
-					</div>
-					<div class="id">
-						<p>ID:</p>
-						<p class="id-content">#123456</p>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="problem">
-				<div class="header">
-					<a class="title">Class 2</a>
-					<a class="gotobutton" href="class-admin-overview.html">View problem</a>
-				</div>
-				<div class="content">
-					<div class="teacher-name">
-						<p>Teacher:</p>
-						<p class="teacher-name-content">Teacher2</p>
-					</div>
-					<div class="date">
-						<p>Date: </p><p>01/01/1997 12:40:21</p>
-					</div>
-					<div class="id">
-						<p>ID:</p>
-						<p class="id-content">#123456</p>
-					</div>
-				</div>
-
-
-			</div>
-
-			<!-- <div class="class">
-				<div class="content">
-					<p style="text-align: center;">You haven't joined a class yet.</p>
-				</div>
-			</div> -->
-			<div class="navigation-buttons">
-				<button>&lt;</button>
-				<div class="button-list">
-				<button>1</button>
-				<button>2</button>
-				</div>
-				<button>&gt;</button>
 			</div>
 		</div>
-
-
 	</main>
 </body>
 
