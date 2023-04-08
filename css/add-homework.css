@@ -1,37 +1,42 @@
-* {box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+}
 
-.create-custom{
-    display:flex;
+.create-custom {
+    display: flex;
     flex-direction: column;
     align-items: center;
     align-self: center;
     justify-self: center;
     max-width: 60em;
-    margin: 2em;
+    margin: 2em auto;
     overflow: hidden;
     border-radius: 5px;
 }
- .title{
+.title>form{
+    display: flex;
+}
+.title {
     background-color: #709a9b;
     color: white;
     max-width: 100%;
-	min-width: 100%;
+    min-width: 100%;
     margin-top: 0;
     height: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
- }
+}
 
- .setting-for-title{
+.setting-for-title {
     float: left;
     padding: 1em;
     padding-right: 0em;
     margin: 0em;
     font-size: 1.4em;
- }
+}
 
- .button{
+.button {
     float: right;
     align-self: center;
     font-size: 1.2em;
@@ -40,53 +45,203 @@
     padding: 0.4em;
     margin-right: 1em;
     font-family: 'Asap';
-	color: white;
+    color: white;
     background-color: #f45b69;
     transition: background-color 300ms;
- }
+}
 
- .button:active{
+.button:active {
     background-color: #f24353;
- }
+}
 
- .button:hover{
+.button:hover {
     background-color: #f24353;
- }
+}
 
- .custom{
+.custom {
     display: flex;
-	flex-direction: column;
+    flex-direction: column;
     max-width: 100%;
-	min-width: 100%;
-	background-color: #ada2d675;
-	transition: all 300ms;
- }
+    min-width: 100%;
+    background-color: #ada2d675;
+    transition: all 300ms;
+}
 
- .cerinta{
+.progress {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+    border-radius: 100%;
+}
+
+.stade {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+}
+
+.bullet {
+    font-size: 1.2em;
+    padding: 0.5em 0.75em;
+    margin: 0em;
+    background-color: #fff;
+    color: black;
+    border-radius: 100%;
+
+}
+
+.cerinta {
     max-width: 100%;
-	min-width: 100%;
+    min-width: 100%;
     display: flex;
     flex-direction: column;
     padding: 1em;
- }
+}
 
- .put-something{
+.explication {
+    margin: 0em;
+    font-size: 1.0em;
+}
+
+.put-something {
     min-height: 10em;
     max-width: 100%;
-	min-width: 100%;
+    min-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1em;
- }
+    padding-top: 0em;
+}
 
- .c-problem{
+.c-problem {
     display: flex;
     flex-direction: column;
     resize: none;
     width: 100%;
-	height: 100%;
+    height: 100%;
     min-height: 10em;
     font-size: 1.2em;
-	padding: 0.5em;
- }
+    padding: 0.5em;
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 1em;
+    transition: all 300ms;
+}
+
+.search{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5em;
+    width: 100%;
+}
+
+.search>input{
+    font-size: 1.0em;
+    padding: 0.2em;
+    font-family: 'Asap';
+    border-radius: 5px;
+}
+
+.filtering{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0.5em;
+    width: 100%;
+}
+
+.filtering>input{
+    width: 50%;
+    font-size: 1.0em;
+    padding: 0.2em;
+    font-family: 'Asap';
+    border-radius: 5px;
+}
+
+.difficulty{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.selection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.selection #sent{
+    font-size: 1.0em;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4em;
+    margin-right: 1em;
+    font-family: 'Asap';
+    color: white;
+    background-color: #f45b69;
+    transition: background-color 300ms;
+}
+
+.selection #sent:hover{
+    background-color: #f24353;
+}
+
+.selection #sent:active{
+    background-color: #f24353;
+}
+
+.a-result{
+    display: flex;
+    background-color: #dadada;
+    margin:1em;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 5px;
+}
+
+.details{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    padding: 0.4em;
+    margin-right: 1em;
+    font-family: 'Asap';
+    align-self: center;
+}
+
+.button-2{
+    float: right;
+    align-self: center;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4em;
+    margin-right: 1em;
+    font-family: 'Asap';
+    color: white;
+    background-color: #73aaa3;
+    transition: background-color 300ms;
+}
+
+.see-prob{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    flex-direction: row;
+}
+
