@@ -1,4 +1,155 @@
 
-.dashboard{
+p{
+	padding: 0;
+	margin: 0;
+}
+
+
+.classes-panel {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	max-width: 50em;
+	margin: 1em auto auto auto;
+	padding-bottom: 1em;
+
+	background-color: #ada2d675;
+	border-radius: 4px;
+}
+
+/* dashboard related */
+
+.dashboard {
 	background-color: #313137ea;
+	border-radius: 4px;
+}
+
+.dashboard-class-name {
+	float: left;
+
+	padding: 0.5em;
+	font-size: 1.5em;
+	
+	color: #e7e3e3;
+}
+
+.dashboard-class-button {
+	float: right;
+	margin: 1em;
+
+	padding-top: 0.5em;
+	padding-bottom: 0.4em;
+}
+
+.dashboard-class-button>a {
+
+	padding: 0.5em;
+	border-radius: 4px;
+
+	color: #000;
+	font-size: 22px;
+	background-color: #e7e3e3;
+	cursor: pointer;
+	text-decoration: none;
+	
+	transition: background 300ms;
+}
+
+.dashboard-class-button>a:hover{
+	color: #e7e3e3;
+	background-color: #313137ea;
+}
+
+
+/* content related */
+.class {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+	background-color: #e7e3e3;
+
+	margin: 1em;
+	margin-bottom: 0;
+	border-radius: 4px;
+
+	overflow: hidden;
+}
+
+.class>.header {
+	width: 100%;
+
+	font-size: 2em;
+
+	background-color: #4a494dae;
+	border-radius: 2px;
+}
+
+.header>.title {
+	float: left;
+	/* margin: 0.5em; */
+
+	font-size: 0.6em;
+	/* padding: 0.5em; */
+	color: #e7e3e3;
+}
+
+.header>.gotobutton {
+	float: right;
+	margin: 0.5em;
+	padding: 0.4em;
+	border-radius: 2px;
+
+	color: #000;
+	font-size: 20px;
+	background-color: #e7e3e3;
+
+	cursor: pointer;
+	text-decoration: none;
+
+	transition: background 300ms;
+}
+
+.gotobutton:hover{
+	background-color: #f24352dc;
+	color: #e7e3e3;
+}
+
+.class>.content {
+	/* margin: 10px; */
+	background-color: #e6e8e7c9;
+	color: #171616;
+	padding: 0.7em;
+
+
+}
+
+@media only screen and (max-width: 55em) {
+	.classes-panel {
+		min-width: none;
+		width: auto;
+
+		margin: 2em 2em auto 2em;
+	}
+	.dashboard-class-button{
+		font-size: 1em;
+	}
+}
+
+
+
+.teacher-name {
+	float: left;
+	display: flex;
+}
+.teacher-name>p{
+	margin-right: 0.5em;
+}
+.id {
+	display: flex;
+	float: right;
+}
+.id>p{
+	margin-right: 0.5em;
 }
