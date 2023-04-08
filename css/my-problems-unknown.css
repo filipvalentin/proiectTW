@@ -8,6 +8,8 @@ main{
 	min-height: 35em;
 }
 
+* {box-sizing: border-box;}
+
 .problemas{
 	display: flex;
 	flex-direction: row;
