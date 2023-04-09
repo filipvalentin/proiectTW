@@ -2,18 +2,18 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Scholarly HTML</title>
-  <link rel="stylesheet" href="scholarly.css">
-  <!-- <script src="js/scholarly.min.js"></script> -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<title>Scholarly HTML</title>
+	<link rel="stylesheet" href="scholarly.css">
+	<!-- <script src="js/scholarly.min.js"></script> -->
 </head>
 
 <body prefix="schema: http://schema.org">
-  <header>
-    <h1>In&lt;form&gt;atiX</h1>
-  </header>
-  <!--
+	<header>
+		<h1>In&lt;form&gt;atiX</h1>
+	</header>
+	<!--
       XXX
       - check refs
       - the math example has too much maths
@@ -30,412 +30,482 @@
       - some notes on using Semantic CSS
       - needs more RDFa in the spec itself
     -->
-  <div role="contentinfo">
-    <dl>
-      <dt>Authors</dt>
-      <dd>
-        Filip Valentin
-        &amp;
-        Grăjdeanu Alexandru-Cristian
-      </dd>
-    </dl>
-  </div>
-  <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-    <h2>Abstract</h2>
-    <p>
-      Proiectul In&lt;form&gt;atiX reprezintă o platformă de învățare a informaticii, prin folosirea de probleme, propuse de
-      profesorii înregistrați pe platformă.
-    </p>
-  </section>
-  <section id="introduction" role="doc-introduction">
-    <!-- review? -->
-    <h2>Introducere</h2>
-    <p>
-      Proiectul In&lt;form&gt;atiX este o aplicație web destinată eleviilor de liceu ce are ca scop învățarea programării prin
-      intermediul rezolvării de probleme. Aceste probleme sunt propuse de către profesori și aprobare de către administratori. 
-    </p>
-      Profesorii înregistrați pe plaftormă pot crea clase și adăuga elevi ce sunt deja înregistrați pe platformă. Profesorii pot crea teme fie propunând probleme, fie alegând din alte probleme propuse de alți profesori.
-      Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a fi evaluate. De asemenea, elevii vor putea acorda un rating pentru problemă sau să adauge comentarii privitoare la problemă 
-      (cu scopul de a oferi ponturi celorlalți colegi).
-    <p>
-      <p>
-        Am ales să dezvoltăm acest proiect pentru a vedea pe de o parte, cum au fost create alte platforme asemănătoare, precum PBInfo, dar și
-        de încerca să aducem îmbunătățiri și inovații.
-      </p>
+	<div role="contentinfo">
+		<dl>
+			<dt>Authors</dt>
+			<dd>
+				Filip Valentin
+				&amp;
+				Grăjdeanu Alexandru-Cristian
+			</dd>
+		</dl>
+	</div>
+	<section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+		<h2>Abstract</h2>
+		<p>
+			Proiectul In&lt;form&gt;atiX reprezintă o platformă de învățare a informaticii, prin folosirea de probleme,
+			propuse de
+			profesorii înregistrați pe platformă.
+		</p>
+	</section>
+	<section id="introduction" role="doc-introduction">
+		<!-- review? -->
+		<h2>Introducere</h2>
+		<p>
+			Proiectul In&lt;form&gt;atiX este o aplicație web destinată elevilor de liceu ce are ca scop învățarea
+			programării prin
+			intermediul rezolvării de probleme. Aceste probleme sunt propuse de către profesori și aprobare de către
+			administratori.
+		</p>
+		Profesorii înregistrați pe plaftormă pot crea clase și adăuga elevi ce sunt deja înregistrați pe platformă.
+		Profesorii pot crea teme fie propunând probleme, fie alegând din alte probleme propuse de alți profesori.
+		Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a fi evaluate. De asemenea,
+		elevii vor putea acorda un rating pentru problemă sau să adauge comentarii privitoare la problemă
+		(cu scopul de a oferi ponturi celorlalți colegi).
+		<p>
+		<p>
+			Am ales să dezvoltăm acest proiect pentru a vedea pe de o parte, cum au fost create alte platforme
+			asemănătoare, precum PBInfo, dar și
+			de încerca să aducem îmbunătățiri și inovații.
+		</p>
 
-  </section>
-  <section id="structure">
-    <!-- review? -->
-    <h2>Structura site-ului</h2>
-    <p>
-        Aplicația are peste 20 de fișiere HTML, ce acoperă servicii esențiale, precum crearea unui cont, logarea pe aplicație, dar și administrarea contului, 
-        postarea de probleme și rezolvarea de teme.
-        În următoarele secțiuni, vom parcurge aceste pagini și vom detalia rolul acestora.
-    </p>
-    <section id="index">
-      <!-- review? -->
-      <h3><code>index.html</code></h3>
-      <p>
-        Această pagină este prima pagină cu care utilizatorul va interacționa. În această pagină, pe lângă bara de navigare, există un câmp cu numele aplicației, 
-        opțiunea de a te loga cu rol de profesor sau cu rol de elev. În cazul în care utilizatorul este la primul contact cu aplicația, există opțiunea de crearea
-        a contului.
-      </p>
-      <p>
-        Această pagină mai conține și un footer, de unde utilizatorul poate intra pe pagina de about, iar administratorii pot intra în meniul specific.
-      </p>
-    </section>
-    <section id="login">
-      <!-- review? -->
-      <h3><code>login.html</code></h3>
-      <p>
-        Această pagină reprezintă principalul mod de conectare a utilizatorului în aplicație. La apariția acesteia,
-        utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care utilizatorul 
-        și-a uitat parola, acesta va apăsa pe opțiunea "Forgot your password?" pentru a-și reseta parola.
-      </p>
-      <p>
-        În cazul în care utilizatorul nu are cont pe aplicație, acesta va apăsa pe opțiunea "Create one!", ce-l va redirecta
-        pe pagina de creare a contului.
-      </p>
-      <p>
-        După ce a completat câmpurile, utilizatorul va apăsa pe butonul de login, ce îl va redirecta spre pagina de administrare a contului.
-      </p>
-    </section>
-    <section id="forgot-passwd">
-      <h3><code>forgot-password.html</code></h3>
-      <p>
-        În cazul în care utilizatorul nu-și amintește parola asociată contului, va accesa această pagină. În această pagină, utilizatorul va 
-        furniza e-mailul asociat contului, unde vor fi transmise instrucțiunile pentru stabilirea unei noi parole.
-      </p>
-    </section>
-    <section id="create-accont">
-      <h3><code>register.html</code></h3>
-      <p>
-        Această pagină este dedicată înregistrării utilizatorului pe această platformă.
-      </p>
-      <p>
-        Utilizatorul va completa acest formular cu informații privind următoarele aspecte:
-        <ul>
-          <li>
-            Stabilirea unui username;
-          </li>
-          <li>
-            Furnizarea unui e-mail ce va fi asociat contului nou creat;
-          </li>
-          <li>
-            De care tip va fi contul? (Elev sau profesor);
-          </li>
-          <li>
-            Stabilirea unei parole.
-          </li>
-        </ul>
-      </p>
-      <p>În cazul în care utilizatorul are deja un cont pe platformă, acesta va accesa opțiunea "Log in!".</p>
-      <p>După ce a completat formularul, utilizatorul va apăsa pe butonul "Register", ce va crea contul și-l va redirecta pe pagina de administrare a contului.</p>
-    </section>
-    <section id="admin-cont">
-      <h3><code>account-administration.html</code></h3>
-      <p>
-        Această pagină este dedicată administrării informațiilor utilizatorului.
-      </p>
-      <p>
-        În partea stângă, este prezentat utilizatorul. Prezentarea aceasta curprinde informații privioare la numele utilizatorului,
-        ziua lui de naștere, unde învață/predă utilizatorul, dar și o mică descriere a acestuia.
-      </p>
-      <p>În partea dreaptă, sunt mau multe formulare, cu rol în modificarea informațiilor asociate contului. Aceste formulare sunt:
-        <ul>
-          <li>
-            Formularul de schimbare a e-mailului: acest formular are rolul de a schimba e-mailul asociat contului;
-          </li>
-          <li>
-            Formularul de schimbare a parolei: acest formular este destinat schimbării de către utilizator a parolei, în principal din motice ce țin de securitatea
-            contului;
-          </li>
-          <li>
-            Formularul de modificare a profilului: utilizatorul poate să modifice diverse informații personale precum descrierea, instituția de învățământ, dar și 
-            username-ul. Tot în acest formular, utilizatorul va selecta ce informații va dori să le facă publice. 
-          </li>
-        </ul>
-      </p>
-    </section>
+	</section>
+	<section id="structure">
+		<!-- review? -->
+		<h2>Structura site-ului</h2>
+		<p>
+			Aplicația are peste 20 de fișiere HTML, ce acoperă servicii esențiale, precum crearea unui cont, logarea pe
+			aplicație, dar și administrarea contului,
+			postarea de probleme și rezolvarea de teme.
+			În următoarele secțiuni, vom parcurge aceste pagini și vom detalia rolul acestora.
+		</p>
+		<section id="index">
+			<!-- review? -->
+			<h3><code>index.html</code></h3>
+			<p>
+				Această pagină este prima pagină cu care utilizatorul va interacționa. În această pagină, pe lângă bara
+				de navigare, există un câmp cu numele aplicației,
+				opțiunea de a te loga cu rol de profesor sau cu rol de elev. În cazul în care utilizatorul este la
+				primul contact cu aplicația, există opțiunea de crearea
+				a contului.
+			</p>
+			<p>
+				Această pagină mai conține și un footer, de unde utilizatorul poate intra pe pagina de about, iar
+				administratorii pot intra în meniul specific.
+			</p>
+		</section>
+		<section id="login">
+			<!-- review? -->
+			<h3><code>login.html</code></h3>
+			<p>
+				Această pagină reprezintă principalul mod de conectare a utilizatorului în aplicație. La apariția
+				acesteia,
+				utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care
+				utilizatorul
+				și-a uitat parola, acesta va apăsa pe opțiunea "Forgot your password?" pentru a-și reseta parola.
+			</p>
+			<p>
+				În cazul în care utilizatorul nu are cont pe aplicație, acesta va apăsa pe opțiunea "Create one!", ce-l
+				va redirecta
+				pe pagina de creare a contului.
+			</p>
+			<p>
+				După ce a completat câmpurile, utilizatorul va apăsa pe butonul de login, ce îl va redirecta spre pagina
+				de administrare a contului.
+			</p>
+		</section>
+		<section id="forgot-passwd">
+			<h3><code>forgot-password.html</code></h3>
+			<p>
+				În cazul în care utilizatorul nu-și amintește parola asociată contului, va accesa această pagină. În
+				această pagină, utilizatorul va
+				furniza e-mailul asociat contului, unde vor fi transmise instrucțiunile pentru stabilirea unei noi
+				parole.
+			</p>
+		</section>
+		<section id="create-accont">
+			<h3><code>register.html</code></h3>
+			<p>
+				Această pagină este dedicată înregistrării utilizatorului pe această platformă.
+			</p>
+			<p>
+				Utilizatorul va completa acest formular cu informații privind următoarele aspecte:
+			<ul>
+				<li>
+					Stabilirea unui username;
+				</li>
+				<li>
+					Furnizarea unui e-mail ce va fi asociat contului nou creat;
+				</li>
+				<li>
+					De care tip va fi contul? (Elev sau profesor);
+				</li>
+				<li>
+					Stabilirea unei parole.
+				</li>
+			</ul>
+			</p>
+			<p>În cazul în care utilizatorul are deja un cont pe platformă, acesta va accesa opțiunea "Log in!".</p>
+			<p>După ce a completat formularul, utilizatorul va apăsa pe butonul "Register", ce va crea contul și-l va
+				redirecta pe pagina de administrare a contului.</p>
+		</section>
+		<section id="admin-cont">
+			<h3><code>account-administration.html</code></h3>
+			<p>
+				Această pagină este dedicată administrării informațiilor utilizatorului.
+			</p>
+			<p>
+				În partea stângă, este prezentat utilizatorul. Prezentarea aceasta curprinde informații privioare la
+				numele utilizatorului,
+				ziua lui de naștere, unde învață/predă utilizatorul, dar și o mică descriere a acestuia.
+			</p>
+			<p>În partea dreaptă, sunt mau multe formulare, cu rol în modificarea informațiilor asociate contului.
+				Aceste formulare sunt:
+			<ul>
+				<li>
+					Formularul de schimbare a e-mailului: acest formular are rolul de a schimba e-mailul asociat
+					contului;
+				</li>
+				<li>
+					Formularul de schimbare a parolei: acest formular este destinat schimbării de către utilizator a
+					parolei, în principal din motice ce țin de securitatea
+					contului;
+				</li>
+				<li>
+					Formularul de modificare a profilului: utilizatorul poate să modifice diverse informații personale
+					precum descrierea, instituția de învățământ, dar și
+					username-ul. Tot în acest formular, utilizatorul va selecta ce informații va dori să le facă
+					publice.
+				</li>
+			</ul>
+			</p>
+		</section>
 
-    <section id="about">
-      <h3><code>about.html</code></h3>
-      <p>
-        Această pagină reprezintă o mică descriere a platformei și a modului de utilizare al aplicației.
-      </p>
-    </section>
+		<section id="about">
+			<h3><code>about.html</code></h3>
+			<p>
+				Această pagină reprezintă o mică descriere a platformei și a modului de utilizare al aplicației.
+			</p>
+		</section>
 
-    <section id="my-problem">
-      <h3><code>my-problems.html</code></h3>
-      <p>
-        Această pagină este accesibilă doar pentru utilizatorii cu rol de profesor. Această pagină reprezintă un dashboard cu probleme propuse de către
-        acesta.
-      </p>
-      <p>
-        În partea stângă există un mod de filtrare a problemelor afișate în partea dreaptă. Aceste probleme pot fi filtrate în funcție de gradul de
-        dificultate a acesteia, în funcție de anumite tag-uri. Pot afișa probleme ce au fost create într-un interval de timp dat, sau problemele ce conțin în titlu sau în descriere, anumite cuvinte date în bara de 
-        search. 
-      </p>
-      <p>
-        În partea dreaptă, sunt prezentate problemele postate de către utilizator. În partea de sus, există butonul de "Submit new problem", prin care 
-        utilizatorul poate posta o nouă problemă. Fiecare problemă afișată are, pe lângă o mică descriere, și un buton pentru vizualizarea efectivă a problemei.
-      </p>
-    </section>
-    <section id="create-prob">
-      <h3><code>add-problem.html</code></h3>
-      <p>
-        Această pagină reprezintă modalitatea prin care utilizatorul cu rol de profesor poate posta noi probleme. 
-      </p>
-      <p>
-        Utilizatorul va completa formularul cu următoarele informații:
-        <ul>
-          <li>Titlul problemei;</li>
-          <li>Dificulatea problemei;</li>
-          <li>Posibile tag-uri după care problema poate fi căutată (exemplu: capitol informatic, clasa etc);</li>
-          <li>Enunțul efectiv al problemei.</li>
-        </ul>
-      </p>
-      <p>După completarea acestui formular, utilizatorul va apăsa pe butonul "Submit" pentru a posta problema, dar și pentru a trimite către administrator spre aprobare.</p>
-    </section>
-    <section id="view-prob">
-      <h3><code>view-problem.html</code></h3>
-      <p>
-        Utilizatorul va putea vizualiza mai detaliat informații privind problema prin intermediul acestei pagini. 
-      </p>
-      <p>
-        În partea stângă, utilizatorul va putea vedea starea problemei (dacă problema a fost acceptată de administrator,
-        a fost respinsă sau se află în curs de evaluare). Pe lângă asta, utilizatorul va vedea dificulatea problemei, data la care a fost postată și
-        tag-urile specifice problemei.
-      </p>
-      <p>
-        În partea dreaptă este afișat enunțul propriu-zis al problemei
-      </p>
-    </section>
-    <section id="my-classes">
-      <h3><code>my-classes.html</code></h3>
-      <p>
-        Prin intermediul acestei pagini, utilizatorul poate vizualiza la ce clase este înscris.
-      </p>
-      <p>
-        În cazul în care utilizarorul are rol de profesor, acesta poate crea o clasa nouă, apăsând pe butonul "Create class". 
-      </p>
-      <p>
-        Pentru a intra pe pagina specifică clasei, utilizatorul va apăsa pe butonul Go to class".
-      </p>
-    </section>
-    <section id="create-class">
-      <h3><code>creare-class.html</code></h3>
-      <p>
-        Această este dedicată procesului de creare a unei clase. Utilizatorul va furniza numele viitoarei clase, apoi va apăsa pe butonul "Create class".
-    </section>
-    <section id="class">
-      <h3>Class section</h3>
-      <p>Această secțiune reprezintă este responsabilă cu buna funcționare și administrare a clasei. Aceasta are 2 persective: cea a elevului și cea a profesorului.</p>
-      <ul>
-        <section id="class-overview">
-          <h3><code>class-admin-overview.html</code></h3>
-          <p>
-            Această pagină reprezintă panoul de control al clasei.
-          </p>
-          <p>
-            În partea stângă, există un meniu, de unde putem selecta:
-            <ul>
-              <li>Settings: pagina pentru anumite setări ale clasei;</li>
-              <li>Students: pagina pentru a vedea ce studenti sunt în clasă;</li>
-              <li>Homeworks: pagina dedicată vizualizării temelor propuse.</li>
-            </ul>
-          </p>
-          <p>
-            În partea dreaptă, va fi afișat meniul specific opțiunii selectate.
-          </p>
-        </section>
-        <section id="class-settings">
-          <h3><code>class-admin-settings.html</code></h3>
-          <p>
-            Această pagină este dedicată setărilor ce pot fi aduse clasei.
-          </p>
-          <p>
-            În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
-          </p>
-          <p>
-            În partea dreaptă, utilizatorul poate adăuga o descriere a clasei sau să modifice denumirea clasei.
-          </p>
-        </section>
-        <section id="class-students">
-          <h3><code>class-admin-students.html</code></h3>
-          <p>
-            Această pagină este dedicată vizualizării listei de elevi ce sunt înscriși în clasă.
-          </p>
-          <p>
-            În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
-          </p>
-          <p>
-            În partea dreaptă, prin apăsarea butonului "Add students", utilizatorul poate adăuga unul sau mai mulți studenți. Tot în partea dreaptă, utilizatorul poate vizualiza lista de elevi, având posibilitatea de a-l elimina din clasă sau de
-            a verifica toate temele postate de acesta.
-          </p>
-        </section>
-        <section id="class-homeworks">
-          <h3><code>class-admin-homeworks.html</code></h3>
-          <p>
-            Această pagină este dedicată vizualizării temelor propuse de către profesor.
-          </p>
-          <p>
-            În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
-          </p>
-          <p>
-            În partea dreaptă, prin apăsarea butonului "Add homework", utilizatorul cu rol de profesor poate adăuga o nouă temă. 
-            De asemenea, poate vizualiza temele ce au fost propuse, iar prin apăsarea butonului "View homework", utilizatorul poate vizualiza tema respectivă
-            în detaliu.
-          </p>
-        </section>
-      </ul>
-    </section>
-    <section id="add-students">
-      <h3><code>add-students.html</code></h3>
-      <p>
-        Această pagină este dedicată adăugării de elevi.
-      </p>
-      <p>
-        Utilizatorul cu rol de profesor va introduce în caseta text unul sau mai mulți elevi, elemente de identificare
-        putând fi username-ul sau adresa de e-mail al elevului.
-      </p>
-    </section>
-    <section id="add-homework">
-      <h3>Add homework</h3>
-      Pentru a menține o interfața curată, procesul de adăugare a temei s-a împărțit în 3 pași:
-      <ul>
-      <section id="add-homework1">
-        <h3><code>add-homework-1.html</code></h3>
-        <p>
-          Această pagină este primul pas în crearea unei teme.
-        </p>
-        <p>
-          Utilizatorul cu rol de profesor va putea adăuga probleme ce nu sunt în baza de date a aplicației, apăsând pe butonul
-          "Add custom problem", iar apoi scriind în caseta text enunțul problemei. La final, utilizatorul va trece la următorul pas.
-        </p>
-      </section>
-      <section id="add-homework2">
-        <h3><code>add-homework-2.html</code></h3>
-        <p>
-          Această pagină este cel de-al doilea pas în crearea unei teme.
-        </p>
-        <p>
-          Utilizatorul cu rol de profesor va putea selecta probleme din baza de date a aplicației. Acesta va putea realiza o filtrare a 
-          bazei de date, folosindu-se de formularul din partea superioară. Filtrarea poate fi în funcție de dificultate sau tag-uri. Apoi din lista afișată, 
-          utilizatorul va bifa câte probleme
-          dorește să fie adăugate în temă. Utilizatorul poate să vizualizeze problema explicată în detaliu, apăsând pe butonul "View problem".
-        </p>
-        <p>
-          La final, utilizatorul va trece la următorul pas.
-        </p>
-      </section>
-      <section id="add-homework3">
-        <h3><code>add-homework-3.html</code></h3>
-        <p>
-          Această pagină este ultimul pas în crearea unei teme.
-        </p>
-        <p>
-          Utilizatorul cu rol de profesor va stabili câteva tag-uri corespunzătoare temei, dificultatea temei, și în special deadline-ul acestei noi teme.
-        </p>
-        <p>
-          La final, utilizatorul va posta tema.
-        </p>
-      </section>
-    </ul>
-    </section>
-    <section id="prof-view-homework">
-      <h3><code>prof-view-homework.html</code></h3>
-      <p>
-        Această pagină este responsabilă cu vizualizarea unei teme. Utilizatorul cu rol de profesor va putea vedea care este termenul limită stabilit pentru 
-        această temă, dar și ce elevi au rezolvat această temă.
-      </p>
-    </section>
-    <section id="admin">
-      <h3>Secțiunea ADMIN</h3>
-      <p>
-        Aplicația are la baza un adminstrator ce verifică buna funționarea a platformei, acesta fiind și cel ce aprobă 
-        ce probleme vor exista pe platformă.
-      </p>
-      <ul>
-        <section id="admin-classes">
-          <h3><code>admin-classes.html</code></h3>
-          <p>
-            Din această pagină, administratorul verifică clasele existente pe platformă. Acesta poate să caute anumite clase folosind bara de căutare.
-          </p>
-          <p>
-            Din lista de clase prezentată (având ca o mică descriere: numele clasei, id-ul acesteia și profesorul corepunzător clasei), acesta poate vedea activitatea clasei
-            respective apăsând pe butonul "Go to class".
-          </p>
-        </section>
-        <section id="admin-users">
-          <h3><code>admin-users.html</code></h3>
-          <p>
-            Din această pagină, administratorul observă toți utilizatorii platformei. Acesta poate aplica o filtrare în funcție de tipul de cont sau de data creării, pentru o căutare mai ușoară a unui utilizator.
-          </p>
-        </section>
-        <section id="admin-problems">
-          <h3><code>admin-problems.html</code></h3>
-          <p>
-            Din această pagină, administratorul observă toate probleme propuse de către utilizatorii cu rol de profesor. Administratorul poate aplica o filtrare, folosindu-se de bara de căutare.
-          </p>
-          <p>
-            Ca informații afișate, administratorului i se arată numele problemei, cine a propus acea problemă, data la care s-a propus acea problemă și id-ul unic al problemei. Ca să vadă mai multe detalii privitoare la problema propusa,
-            administratorul poate apăsa pe butonul "View problem".
-          </p>
-        </section>
-        <section id="admin-view-problem">
-          <h3><code>admin-view-problem.html</code></h3>
-          <p>
-            Din această pagină, administratorul vede problema propusă de către un utilizator cu rol de profesor.
-          </p>
-          <p>
-            Administratorul va vedea, pe lângă statusul problemei, data la care a fost propusă problema și cine a propus, și dificultatea problemei, tag-urile specifice problemei
-            și enunțul problemei.
-          </p>
-          <p>
-            La final, administratorul poate că accepte ca problema să apară în baza de date a platformei sau să o respingă.
-          </p>
-        </section>
-      </ul>
-    </section>
-    <section id="stud-view-prob-comm">
-      <h3><code>student-view-problem-comments.html</code></h3>
-      <p>
-        Această pagină este disponibilă pentru utilizatorii cu rol de elev. 
-      </p>
-      <p>
-        Această pagină afișează, pe lângă date privitoare la problemă, comentariile postate de alți elevi la aceeași problemă, dar și un rating dat de către utilizatori.
-        Utilizatorul, la rândul său poate să adauge și el comentariu referitor la problemă.
-      </p>
-    </section>
-    <section id="stud-view-prob-solve">
-      <h3><code>student-view-problem-solve.html</code></h3>
-      <p>
-        Această pagină este disponibilă pentru utilizatorii cu rol de elev. 
-      </p>
-      <p>
-        Această pagină afișează, pe lângă date privitoare la problemă, enunțul problemei și un text-area unde utilizatorul va putea scrie rezolvarea la problemă.
-        La final, ca soluția lui să poată fi corectată, utilizatorul va apăsa pe butonul de "Submit".
-      </p>
-    </section>
-    <section id="view-solution">
-      <h3><code>view-solution.html</code></h3>
-      <p>
-        Această pagină are rolul de a ajuta asocia rezolvarea unui elev cu problema pe care acesta o rezolvă. 
-      </p>
-      <p>
-        În partea stângă se regăsește enunțul problemei, iar în partea dreaptă se regăsește soluția propusă de elev.
-      </p>
-    </section>
-  </section>
-  <section id="resurse">
-    <h2>Resurse</h2>
-    <p>Atașăm aici link-urile la imaginile pe care le-am folosit în acest proiect.</p>
-    <ul>
-      <a href="https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg"> https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg</a>
-      <a href="https://en.wikipedia.org/wiki/File:Sample_User_Icon.png">https://en.wikipedia.org/wiki/File:Sample_User_Icon.png</a>
-    </ul>
-  </section>
+		<section id="my-problem">
+			<h3><code>my-problems.html</code></h3>
+			<p>
+				Această pagină este accesibilă doar pentru utilizatorii cu rol de profesor. Această pagină reprezintă un
+				dashboard cu probleme propuse de către
+				acesta.
+			</p>
+			<p>
+				În partea stângă există un mod de filtrare a problemelor afișate în partea dreaptă. Aceste probleme pot
+				fi filtrate în funcție de gradul de
+				dificultate a acesteia, în funcție de anumite tag-uri. Pot afișa probleme ce au fost create într-un
+				interval de timp dat, sau problemele ce conțin în titlu sau în descriere, anumite cuvinte date în bara
+				de
+				search.
+			</p>
+			<p>
+				În partea dreaptă, sunt prezentate problemele postate de către utilizator. În partea de sus, există
+				butonul de "Submit new problem", prin care
+				utilizatorul poate posta o nouă problemă. Fiecare problemă afișată are, pe lângă o mică descriere, și un
+				buton pentru vizualizarea efectivă a problemei.
+			</p>
+		</section>
+		<section id="create-prob">
+			<h3><code>add-problem.html</code></h3>
+			<p>
+				Această pagină reprezintă modalitatea prin care utilizatorul cu rol de profesor poate posta noi
+				probleme.
+			</p>
+			<p>
+				Utilizatorul va completa formularul cu următoarele informații:
+			<ul>
+				<li>Titlul problemei;</li>
+				<li>Dificulatea problemei;</li>
+				<li>Posibile tag-uri după care problema poate fi căutată (exemplu: capitol informatic, clasa etc);</li>
+				<li>Enunțul efectiv al problemei.</li>
+			</ul>
+			</p>
+			<p>După completarea acestui formular, utilizatorul va apăsa pe butonul "Submit" pentru a posta problema, dar
+				și pentru a trimite către administrator spre aprobare.</p>
+		</section>
+		<section id="view-prob">
+			<h3><code>view-problem.html</code></h3>
+			<p>
+				Utilizatorul va putea vizualiza mai detaliat informații privind problema prin intermediul acestei
+				pagini.
+			</p>
+			<p>
+				În partea stângă, utilizatorul va putea vedea starea problemei (dacă problema a fost acceptată de
+				administrator,
+				a fost respinsă sau se află în curs de evaluare). Pe lângă asta, utilizatorul va vedea dificulatea
+				problemei, data la care a fost postată și
+				tag-urile specifice problemei.
+			</p>
+			<p>
+				În partea dreaptă este afișat enunțul propriu-zis al problemei
+			</p>
+		</section>
+		<section id="my-classes">
+			<h3><code>my-classes.html</code></h3>
+			<p>
+				Prin intermediul acestei pagini, utilizatorul poate vizualiza la ce clase este înscris.
+			</p>
+			<p>
+				În cazul în care utilizarorul are rol de profesor, acesta poate crea o clasa nouă, apăsând pe butonul
+				"Create class".
+			</p>
+			<p>
+				Pentru a intra pe pagina specifică clasei, utilizatorul va apăsa pe butonul Go to class".
+			</p>
+		</section>
+		<section id="create-class">
+			<h3><code>creare-class.html</code></h3>
+			<p>
+				Această este dedicată procesului de creare a unei clase. Utilizatorul va furniza numele viitoarei clase,
+				apoi va apăsa pe butonul "Create class".
+		</section>
+		<section id="class">
+			<h3>Class section</h3>
+			<p>Această secțiune reprezintă este responsabilă cu buna funcționare și administrare a clasei. Aceasta are 2
+				persective: cea a elevului și cea a profesorului.</p>
+			<ul>
+				<section id="class-overview">
+					<h3><code>class-admin-overview.html</code></h3>
+					<p>
+						Această pagină reprezintă panoul de control al clasei.
+					</p>
+					<p>
+						În partea stângă, există un meniu, de unde putem selecta:
+					<ul>
+						<li>Settings: pagina pentru anumite setări ale clasei;</li>
+						<li>Students: pagina pentru a vedea ce studenti sunt în clasă;</li>
+						<li>Homeworks: pagina dedicată vizualizării temelor propuse.</li>
+					</ul>
+					</p>
+					<p>
+						În partea dreaptă, va fi afișat meniul specific opțiunii selectate.
+					</p>
+				</section>
+				<section id="class-settings">
+					<h3><code>class-admin-settings.html</code></h3>
+					<p>
+						Această pagină este dedicată setărilor ce pot fi aduse clasei.
+					</p>
+					<p>
+						În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
+					</p>
+					<p>
+						În partea dreaptă, utilizatorul poate adăuga o descriere a clasei sau să modifice denumirea
+						clasei.
+					</p>
+				</section>
+				<section id="class-students">
+					<h3><code>class-admin-students.html</code></h3>
+					<p>
+						Această pagină este dedicată vizualizării listei de elevi ce sunt înscriși în clasă.
+					</p>
+					<p>
+						În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
+					</p>
+					<p>
+						În partea dreaptă, prin apăsarea butonului "Add students", utilizatorul poate adăuga unul sau
+						mai mulți studenți. Tot în partea dreaptă, utilizatorul poate vizualiza lista de elevi, având
+						posibilitatea de a-l elimina din clasă sau de
+						a verifica toate temele postate de acesta.
+					</p>
+				</section>
+				<section id="class-homeworks">
+					<h3><code>class-admin-homeworks.html</code></h3>
+					<p>
+						Această pagină este dedicată vizualizării temelor propuse de către profesor.
+					</p>
+					<p>
+						În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
+					</p>
+					<p>
+						În partea dreaptă, prin apăsarea butonului "Add homework", utilizatorul cu rol de profesor poate
+						adăuga o nouă temă.
+						De asemenea, poate vizualiza temele ce au fost propuse, iar prin apăsarea butonului "View
+						homework", utilizatorul poate vizualiza tema respectivă
+						în detaliu.
+					</p>
+				</section>
+			</ul>
+		</section>
+		<section id="add-students">
+			<h3><code>add-students.html</code></h3>
+			<p>
+				Această pagină este dedicată adăugării de elevi.
+			</p>
+			<p>
+				Utilizatorul cu rol de profesor va introduce în caseta text unul sau mai mulți elevi, elemente de
+				identificare
+				putând fi username-ul sau adresa de e-mail al elevului.
+			</p>
+		</section>
+		<section id="add-homework">
+			<h3>Add homework</h3>
+			Pentru a menține o interfața curată, procesul de adăugare a temei s-a împărțit în 3 pași:
+			<ul>
+				<section id="add-homework1">
+					<h3><code>add-homework-1.html</code></h3>
+					<p>
+						Această pagină este primul pas în crearea unei teme.
+					</p>
+					<p>
+						Utilizatorul cu rol de profesor va putea adăuga probleme ce nu sunt în baza de date a
+						aplicației, apăsând pe butonul
+						"Add custom problem", iar apoi scriind în caseta text enunțul problemei. La final, utilizatorul
+						va trece la următorul pas.
+					</p>
+				</section>
+				<section id="add-homework2">
+					<h3><code>add-homework-2.html</code></h3>
+					<p>
+						Această pagină este cel de-al doilea pas în crearea unei teme.
+					</p>
+					<p>
+						Utilizatorul cu rol de profesor va putea selecta probleme din baza de date a aplicației. Acesta
+						va putea realiza o filtrare a
+						bazei de date, folosindu-se de formularul din partea superioară. Filtrarea poate fi în funcție
+						de dificultate sau tag-uri. Apoi din lista afișată,
+						utilizatorul va bifa câte probleme
+						dorește să fie adăugate în temă. Utilizatorul poate să vizualizeze problema explicată în
+						detaliu, apăsând pe butonul "View problem".
+					</p>
+					<p>
+						La final, utilizatorul va trece la următorul pas.
+					</p>
+				</section>
+				<section id="add-homework3">
+					<h3><code>add-homework-3.html</code></h3>
+					<p>
+						Această pagină este ultimul pas în crearea unei teme.
+					</p>
+					<p>
+						Utilizatorul cu rol de profesor va stabili câteva tag-uri corespunzătoare temei, dificultatea
+						temei, și în special deadline-ul acestei noi teme.
+					</p>
+					<p>
+						La final, utilizatorul va posta tema.
+					</p>
+				</section>
+			</ul>
+		</section>
+		<section id="prof-view-homework">
+			<h3><code>prof-view-homework.html</code></h3>
+			<p>
+				Această pagină este responsabilă cu vizualizarea unei teme. Utilizatorul cu rol de profesor va putea
+				vedea care este termenul limită stabilit pentru
+				această temă, dar și ce elevi au rezolvat această temă.
+			</p>
+		</section>
+		<section id="admin">
+			<h3>Secțiunea ADMIN</h3>
+			<p>
+				Aplicația are la baza un adminstrator ce verifică buna funționarea a platformei, acesta fiind și cel ce
+				aprobă
+				ce probleme vor exista pe platformă.
+			</p>
+			<ul>
+				<section id="admin-classes">
+					<h3><code>admin-classes.html</code></h3>
+					<p>
+						Din această pagină, administratorul verifică clasele existente pe platformă. Acesta poate să
+						caute anumite clase folosind bara de căutare.
+					</p>
+					<p>
+						Din lista de clase prezentată (având ca o mică descriere: numele clasei, id-ul acesteia și
+						profesorul corepunzător clasei), acesta poate vedea activitatea clasei
+						respective apăsând pe butonul "Go to class".
+					</p>
+				</section>
+				<section id="admin-users">
+					<h3><code>admin-users.html</code></h3>
+					<p>
+						Din această pagină, administratorul observă toți utilizatorii platformei. Acesta poate aplica o
+						filtrare în funcție de tipul de cont sau de data creării, pentru o căutare mai ușoară a unui
+						utilizator.
+					</p>
+				</section>
+				<section id="admin-problems">
+					<h3><code>admin-problems.html</code></h3>
+					<p>
+						Din această pagină, administratorul observă toate probleme propuse de către utilizatorii cu rol
+						de profesor. Administratorul poate aplica o filtrare, folosindu-se de bara de căutare.
+					</p>
+					<p>
+						Ca informații afișate, administratorului i se arată numele problemei, cine a propus acea
+						problemă, data la care s-a propus acea problemă și id-ul unic al problemei. Ca să vadă mai multe
+						detalii privitoare la problema propusa,
+						administratorul poate apăsa pe butonul "View problem".
+					</p>
+				</section>
+				<section id="admin-view-problem">
+					<h3><code>admin-view-problem.html</code></h3>
+					<p>
+						Din această pagină, administratorul vede problema propusă de către un utilizator cu rol de
+						profesor.
+					</p>
+					<p>
+						Administratorul va vedea, pe lângă statusul problemei, data la care a fost propusă problema și
+						cine a propus, și dificultatea problemei, tag-urile specifice problemei
+						și enunțul problemei.
+					</p>
+					<p>
+						La final, administratorul poate că accepte ca problema să apară în baza de date a platformei sau
+						să o respingă.
+					</p>
+				</section>
+			</ul>
+		</section>
+		<section id="stud-view-prob-comm">
+			<h3><code>student-view-problem-comments.html</code></h3>
+			<p>
+				Această pagină este disponibilă pentru utilizatorii cu rol de elev.
+			</p>
+			<p>
+				Această pagină afișează, pe lângă date privitoare la problemă, comentariile postate de alți elevi la
+				aceeași problemă, dar și un rating dat de către utilizatori.
+				Utilizatorul, la rândul său poate să adauge și el comentariu referitor la problemă.
+			</p>
+		</section>
+		<section id="stud-view-prob-solve">
+			<h3><code>student-view-problem-solve.html</code></h3>
+			<p>
+				Această pagină este disponibilă pentru utilizatorii cu rol de elev.
+			</p>
+			<p>
+				Această pagină afișează, pe lângă date privitoare la problemă, enunțul problemei și un text-area unde
+				utilizatorul va putea scrie rezolvarea la problemă.
+				La final, ca soluția lui să poată fi corectată, utilizatorul va apăsa pe butonul de "Submit".
+			</p>
+		</section>
+		<section id="view-solution">
+			<h3><code>view-solution.html</code></h3>
+			<p>
+				Această pagină are rolul de a ajuta asocia rezolvarea unui elev cu problema pe care acesta o rezolvă.
+			</p>
+			<p>
+				În partea stângă se regăsește enunțul problemei, iar în partea dreaptă se regăsește soluția propusă de
+				elev.
+			</p>
+		</section>
+	</section>
+	<section id="resurse">
+		<h2>Resurse</h2>
+		<p>Atașăm aici link-urile la imaginile pe care le-am folosit în acest proiect.</p>
+		<ul>
+			<a href="https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg">
+				https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg</a><br>
+			<a href="https://en.wikipedia.org/wiki/File:Sample_User_Icon.png">
+				https://en.wikipedia.org/wiki/File:Sample_User_Icon.png</a><br>
+			<a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+				https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a><br>
+			<a href="https://www.flaticon.com/free-icons/student" title="student icons"> Student icons created by Eucalyp - Flaticon</a><br>
+			<a href="https://icon-library.com/icon/teacher-icon-png-17.html">https://icon-library.com/icon/teacher-icon-png-17.html</a>
+		</ul>
+	</section>
 </body>
 
 </html>

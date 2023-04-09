@@ -16,6 +16,9 @@ p{
 
 	background-color: #ada2d675;
 	border-radius: 4px;
+
+	position: relative;
+	padding-bottom: 3em;
 }
 
 /* dashboard related */
