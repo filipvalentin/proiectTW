@@ -228,47 +228,67 @@
       <p>
         Această este dedicată procesului de creare a unei clase. Utilizatorul va furniza numele viitoarei clase, apoi va apăsa pe butonul "Create class".
     </section>
-    <section id="class-overview">
-      <h3><code>class-admin-overview.html</code></h3>
-      <p>
-        Această pagină reprezintă panoul de control al clasei.
-      </p>
-      <p>
-        În partea stângă, există un meniu, de unde putem selecta:
-        <ul>
-          <li>Settings: pagina pentru anumite setări ale clasei;</li>
-          <li>Students: pagina pentru a vedea ce studenti sunt în clasă;</li>
-          <li>Homeworks: pagina dedicată vizualizării temelor propuse.</li>
-        </ul>
-      </p>
-      <p>
-        În partea dreaptă, va fi afișat meniul specific opțiunii selectate.
-      </p>
-    </section>
-    <section id="class-settings">
-      <h3><code>class-admin-settings.html</code></h3>
-      <p>
-        Această pagină este dedicată setărilor ce pot fi aduse clasei.
-      </p>
-      <p>
-        În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
-      </p>
-      <p>
-        În partea dreaptă, utilizatorul poate adăuga o descriere a clasei sau să modifice denumirea clasei.
-      </p>
-    </section>
-    <section id="class-students">
-      <h3><code>class-admin-students.html</code></h3>
-      <p>
-        Această pagină este dedicată vizualizării listei de elevi ce sunt înscriși în clasă.
-      </p>
-      <p>
-        În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
-      </p>
-      <p>
-        În partea dreaptă, prin apăsarea butonului "Add students", utilizatorul poate adăuga unul sau mai mulți studenți. Tot în partea dreaptă, utilizatorul poate vizualiza lista de elevi, având posibilitatea de a-l elimina din clasă sau de
-        a verifica toate temele postate de acesta.
-      </p>
+    <section id="class">
+      <h3>Class section</h3>
+      <p>Această secțiune reprezintă este responsabilă cu buna funcționare și administrare a clasei. Aceasta are 2 persective: cea a elevului și cea a profesorului.</p>
+      <ul>
+        <section id="class-overview">
+          <h3><code>class-admin-overview.html</code></h3>
+          <p>
+            Această pagină reprezintă panoul de control al clasei.
+          </p>
+          <p>
+            În partea stângă, există un meniu, de unde putem selecta:
+            <ul>
+              <li>Settings: pagina pentru anumite setări ale clasei;</li>
+              <li>Students: pagina pentru a vedea ce studenti sunt în clasă;</li>
+              <li>Homeworks: pagina dedicată vizualizării temelor propuse.</li>
+            </ul>
+          </p>
+          <p>
+            În partea dreaptă, va fi afișat meniul specific opțiunii selectate.
+          </p>
+        </section>
+        <section id="class-settings">
+          <h3><code>class-admin-settings.html</code></h3>
+          <p>
+            Această pagină este dedicată setărilor ce pot fi aduse clasei.
+          </p>
+          <p>
+            În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
+          </p>
+          <p>
+            În partea dreaptă, utilizatorul poate adăuga o descriere a clasei sau să modifice denumirea clasei.
+          </p>
+        </section>
+        <section id="class-students">
+          <h3><code>class-admin-students.html</code></h3>
+          <p>
+            Această pagină este dedicată vizualizării listei de elevi ce sunt înscriși în clasă.
+          </p>
+          <p>
+            În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
+          </p>
+          <p>
+            În partea dreaptă, prin apăsarea butonului "Add students", utilizatorul poate adăuga unul sau mai mulți studenți. Tot în partea dreaptă, utilizatorul poate vizualiza lista de elevi, având posibilitatea de a-l elimina din clasă sau de
+            a verifica toate temele postate de acesta.
+          </p>
+        </section>
+        <section id="class-homeworks">
+          <h3><code>class-admin-homeworks.html</code></h3>
+          <p>
+            Această pagină este dedicată vizualizării temelor propuse de către profesor.
+          </p>
+          <p>
+            În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
+          </p>
+          <p>
+            În partea dreaptă, prin apăsarea butonului "Add homework", utilizatorul cu rol de profesor poate adăuga o nouă temă. 
+            De asemenea, poate vizualiza temele ce au fost propuse, iar prin apăsarea butonului "View homework", utilizatorul poate vizualiza tema respectivă
+            în detaliu.
+          </p>
+        </section>
+      </ul>
     </section>
     <section id="add-students">
       <h3><code>add-students.html</code></h3>
@@ -278,20 +298,6 @@
       <p>
         Utilizatorul cu rol de profesor va introduce în caseta text unul sau mai mulți elevi, elemente de identificare
         putând fi username-ul sau adresa de e-mail al elevului.
-      </p>
-    </section>
-    <section id="class-homeworks">
-      <h3><code>class-admin-homeworks.html</code></h3>
-      <p>
-        Această pagină este dedicată vizualizării temelor propuse de către profesor.
-      </p>
-      <p>
-        În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
-      </p>
-      <p>
-        În partea dreaptă, prin apăsarea butonului "Add homework", utilizatorul cu rol de profesor poate adăuga o nouă temă. 
-        De asemenea, poate vizualiza temele ce au fost propuse, iar prin apăsarea butonului "View homework", utilizatorul poate vizualiza tema respectivă
-        în detaliu.
       </p>
     </section>
     <section id="add-homework">
