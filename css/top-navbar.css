@@ -40,3 +40,12 @@
 	float: right;
 }
 
+.hidden{
+	display: block;
+}
+
+@media (max-width:30em) {
+	.hidden{
+		display: none;
+	}
+}

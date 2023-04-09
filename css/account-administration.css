@@ -1,22 +1,26 @@
-
 .account-admin-main {
 	display: grid;
 	grid-template-areas: "sidepanel settings-area";
 	grid-template-columns: 1fr 3fr;
 	gap: 1rem;
 
-	margin: 20px;
 
 	justify-content: center;
+	width: 60em;
+	margin:1em auto;
+	transition: all 300ms;
 }
 
 .sidepanel {
-	min-width: 300px;
-	background-color: #a1aebe75;
+	min-width: 25em;
+	background-color: #ada2d675;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
+	border-radius: 5px;
 }
-.main_focus{
+
+.main_focus {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -26,7 +30,7 @@
 	background-color: #fff;
 	border-radius: 100%;
 	align-items: center;
-	width: 75%;
+	width: 10em;
 	margin-top: 5%;
 	margin-bottom: 5%;
 }
@@ -38,8 +42,14 @@
 	align-self: center;
 }
 
+.aboutme {
+	margin: 1em 0.5em;
+	background-color: #c2c2c291;
+	border-radius: 5px;
+}
+
 .settings-area {
-	background-color: #a1aebe75;
+	background-color: #ada2d675;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -48,14 +58,21 @@
 	gap: 1px;
 }
 
-.informatii_persoana {
+.user-info-large {
+	background-color: #eff4f28e;
+	margin: 0.5em;
+	border-radius: 10px;
+	padding: 0.5em;
+}
+
+/* .user-info-large {
 	color: black;
 	display: flex;
 	flex-direction: column;
 	padding: 2px;
 	border: none;
 	margin-top: 5%;
-}
+} */
 
 .username {
 	font-size: larger;
@@ -66,34 +83,39 @@
 	font-family: 'JetBrains Mono';
 }
 
-.mail {
+p {
+	margin: 0;
+}
+
+.user-info {
+	display: flex;
+	gap: 0.5em;
+	margin: 0.5em;
+	width: 100%;
+	/* height: auto; */
 
 	font-size: medium;
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	margin-top: 5px;
-
+	text-align: left;
 }
 
-.alte_info{
 
-}
 
 .modify {
-	background-color: #1e1e222a;
+	background-color: #ffffff48;
 	width: 95%;
 	display: flex;
 	flex-direction: column;
 	align-self: center;
 	margin: 5px;
+	border-radius: 5px;
 }
-h3{
+
+h3 {
 	margin: 3%;
-	margin-bottom:0;
+	margin-bottom: 0;
 }
-.mod-profil{
+
+.mod-profil {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -105,10 +127,10 @@ h3{
 	width: 100%;
 }
 
-.forms{
+.forms {
 	padding: 2%;
 	margin: 5px;
-	border:none;
+	border: none;
 }
 
 .forms>input {
@@ -116,7 +138,7 @@ h3{
 	overflow: hidden;
 	display: block;
 	flex-direction: column;
-	width: 65%;
+	width: 95%;
 	min-width: 250px;
 	flex-wrap: wrap;
 	font-size: 18px;
@@ -131,29 +153,43 @@ h3{
 	cursor: pointer;
 	color: #fff;
 	font-size: 18px;
-	background-color: #687d72;
+	background-color: #bb3657;
 	width: 45%;
 	min-width: 200px;
 	padding: 5px;
 	border-radius: 5px;
-	text-transform: uppercase;
+
 	text-align: center;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	transition: background 300ms;
 }
+.preferences-button {
+	cursor: pointer;
+	color: #fff;
+	font-size: 18px;
+	background-color: #bb3657;
+	/* width: 45%; */
+	/* min-width: 200px; */
+	padding: 5px;
+	border-radius: 5px;
 
-.forms>button:hover{
-	background-color: #8ba698;
-	color: black;
+	text-align: center;
+	margin:1em;
+	transition: background 300ms;
 }
 
-.forms>button:active{
-	background-color: #8ba698;
-	color: black;
+.forms>button:hover {
+	background-color: #b91f1f;
+
 }
 
-.selection{
+.forms>button:active {
+	background-color: #8ba698;
+
+}
+
+.selection {
 	padding: 2%;
 	margin: 5px;
 	margin-bottom: 0px;
@@ -177,7 +213,7 @@ h3{
 
 
 
-textarea{
+textarea {
 	font-weight: 600;
 	overflow: hidden;
 	display: block;
@@ -196,15 +232,15 @@ textarea{
 	margin-bottom: 5px;
 }
 
-.Statistici{
+.Statistici {
 	display: flex;
 	flex-direction: column;
 	flex-flow: column;
 }
 
-.Statistici a{
+.Statistici a {
 	padding: 10px;
-	font-size: larger;	
+	font-size: larger;
 	background-color: #687d72;
 	text-decoration: none;
 	text-align: left;
@@ -218,29 +254,22 @@ textarea{
 	color: black;
 }
 
-.Statistici a:active{
+.Statistici a:active {
 	background-color: #687d72;
 	color: gray;
 }
 
-.informatii_persoana
-{
-	text-align: justify;
-	margin: 10px;
-}
-
-.informatii_persoana p{
-	font-size: 16px;
-}
 
 
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 60em) {
 	.account-admin-main {
 
 		grid-template-areas:
 			"sidepanel"
 			"settings-area";
 		grid-template-columns: 1fr;
+		width: auto;
+		margin:1em;
 	}
 }
