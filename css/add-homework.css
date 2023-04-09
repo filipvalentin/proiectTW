@@ -245,3 +245,8 @@
     flex-direction: row;
 }
 
+
+.forms #data{
+    font-size: 1.0em;
+    padding: 0.2em;
+}
