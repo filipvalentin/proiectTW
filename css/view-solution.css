@@ -40,6 +40,20 @@ main{
     height: auto;
 }
 
+.subtitle{
+    width: 100%;
+	margin-left: 1em;
+    margin-top: 0;
+    height: auto;
+}
+
+.format-subtitle{
+	float: left;
+	margin-left: 0.5em;
+	margin-bottom: 0em;
+    font-size: 1.0em;
+}
+
 .format-title{
 	float: left;
     margin-left: 0.8em;
