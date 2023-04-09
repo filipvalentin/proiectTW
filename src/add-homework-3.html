@@ -2,84 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InformatiX</title>
-    <link href='https://fonts.googleapis.com/css?family=JetBrains%20Mono' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/top-navbar.css">
-    <link rel="stylesheet" href="../css/add-homework.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>InformatiX</title>
+	<link href='https://fonts.googleapis.com/css?family=JetBrains%20Mono' rel='stylesheet'>
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/top-navbar.css">
+	<link rel="stylesheet" href="../css/add-homework.css">
 </head>
 
 <body>
-    <nav class="top-navbar">
-        <div>
-            <a class="active" href="index.html">Home</a>
-        </div>
-        <div>
-            <a href="my-classes.html">My Classes</a>
-        </div>
+	<nav class="top-navbar">
+		<div>
+			<a class="active" href="my-classes.html">My classes</a>
+		</div>
+
+		<div class="navbar-right">
+			<a href="my-problems.html">My problems</a>
+			<a href="account-administration.html">My account</a>
+		</div>
+	</nav>
 
 
-        <div class="navbar-right" style="display: none;">
-            <a href="login.html">My Account</a>
-        </div>
-        <div class="navbar-right" style="display: none;">
+	<main>
+		<div class="create-custom">
+			<div class="header">
+				<p class="title">Step 3: Tags and deadline</p>
+				<div class="progress-view">
+					<div class="progress">
+						<p class="bullet" style="background-color: #f24353; color:#fff">1</p>
+					</div>
+					<div class="progress">
+						<p class="bullet" style="background-color: #f24353; color:#fff">2</p>
+					</div>
+					<div class="progress">
+						<p class="bullet" style="background-color: #f24353; color:#fff">3</p>
+					</div>
+				</div>
 
-            <a href="login.html">Other</a>
-        </div>
+					<button type="submit" class="button" onclick="location.href = 'class-admin-homeworks.html';">Finish</button>
 
-    </nav>
-
-
-    <main>
-        <div class="create-custom">
-            <div class="title">
-                <p class="setting-for-title">Pasul 3: Setare tag-uri si deadline</p>
-                <div class="stade">
-                    <div class="progress">
-                        <p class="bullet" style="background-color: #f24353; color:#fff">1</p>
-                    </div>
-                    <div class="progress">
-                        <p class="bullet" style="background-color: #f24353; color:#fff">2</p>
-                    </div>
-                    <div class="progress">
-                        <p class="bullet" style="background-color: #f24353; color:#fff">3</p>
-                    </div>
-                </div>
-                <form>
-                    <button type="submit" class="button" formaction="class-admin-homeworks.html">Finish</button>
-                </form>
-            </div>
-            <div class="custom">
-                <div class="cerinta">
+			</div>
+			<div class="custom">
+				<!-- <div class="cerinta">
                     <p class="explication">Aici veti seta niste taguri si deadline-ul temei
                     </p>
-                </div>
-                <div class="forms">
-                    <div class="filtering">
-                        <input type="text" id="tags" placeholder="Introduceti niste tag-uri">
-                        <div class="difficulty">
-                            <div class="selection">
-                                <input type="checkbox" name="" id="easy">
-                                <label for="easy">EASY</label>
-                            </div>
-                            <div class="selection">
-                                <input type="checkbox" name="" id="medium">
-                                <label for="medium">MEDIUM</label>
-                            </div>
-                            <div class="selection">
-                                <input type="checkbox" name="" id="hard">
-                                <label for="hard">HARD</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <input type="date">
-                </div>
-    </main>
+                </div> -->
+				<div class="forms">
+					<div class="filtering">
+						<input type="text" id="tags" placeholder="Type your tags">
+						<div class="difficulty">
+							<div class="selection">
+								<input type="checkbox" name="" id="easy">
+								<label for="easy">EASY</label>
+							</div>
+							<div class="selection">
+								<input type="checkbox" name="" id="medium">
+								<label for="medium">MEDIUM</label>
+							</div>
+							<div class="selection">
+								<input type="checkbox" name="" id="hard">
+								<label for="hard">HARD</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="date-section">
+					<p>Deadline: </p>
+					<input type="date">
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 
 </html>

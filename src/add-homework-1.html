@@ -15,29 +15,21 @@
 <body>
 	<nav class="top-navbar">
 		<div>
-			<a class="active" href="index.html">Home</a>
-		</div>
-		<div>
-			<a href="my-classes.html">My Classes</a>
+			<a class="active" href="my-classes.html">My classes</a>
 		</div>
 
-
-		<div class="navbar-right" style="display: none;">
-			<a href="login.html">My Account</a>
+		<div class="navbar-right">
+			<a href="my-problems.html">My problems</a>
+			<a href="account-administration.html">My account</a>
 		</div>
-		<div class="navbar-right" style="display: none;">
-
-			<a href="login.html">Other</a>
-		</div>
-
 	</nav>
 
 
 	<main>
 		<div class="create-custom">
-			<div class="title">
-				<p class="setting-for-title">Pasul 1: Probleme custom</p>
-				<div class="stade">
+			<div class="header">
+				<p class="title">Step 1: Enter your custom problems</p>
+				<div class="progress-view">
 					<div class="progress">
 						<p class="bullet" style="background-color: #f24353; color:#fff">1</p>
 					</div>
@@ -48,17 +40,20 @@
 						<p class="bullet">3</p>
 					</div>
 				</div>
-				<form>
-					<button type="submit" class="button" formaction="add-homework-2.html">Next step</button>
-				</form>
+
+				<button type="submit" class="button" onclick="location.href = 'add-homework-2.html';">Next step</button>
+
 			</div>
-			<div class="custom">
-				<div class="cerinta">
-					<p class="explication">Aici o sa scrieti enunturile problemelor ce nu apar in baza noastra de date
-					</p>
-				</div>
-				<div class="put-something">
-					<textarea class="c-problem" name="custom-problem"></textarea>
+			<div class="problem-section">
+				<!-- <div class="cerinta"> -->
+				<!-- <p class="explication"> -->
+				<!-- </p> -->
+				<!-- </div> -->
+				<div class="custom-problem-section">
+					<!-- <textarea class="c-problem" name="custom-problem"></textarea> -->
+					<div class="add-custom-problem-button-section">
+						<button class="add-custom-problem-button">Add custom problem</button>
+					</div>
 				</div>
 			</div>
 		</div>

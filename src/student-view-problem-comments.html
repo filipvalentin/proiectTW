@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>InformatiX</title>
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/top-navbar.css">
+	<!-- <link rel="stylesheet" href="../css/admin-view-problem.css"> -->
+	<!-- <link rel="stylesheet" href="../css/class-admin.css"> -->
+	<link rel="stylesheet" href="../css/admin-top-navbar.css">
+	<!-- <link rel="stylesheet" href="../css/class-admin-students-panel.css"> -->
+	<link rel="stylesheet" href="../css/student-view-problem.css">
+	<link rel="stylesheet" href="../css/student-view-problem-comments.css">
+	<!-- Font Awesome Icon Library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<nav class="top-navbar">
+		<div>
+			<a class="active" href="my-classes.html">My classes</a>
+		</div>
+
+		<div class="navbar-right">
+			<a href="account-administration.html">My account</a>
+		</div>
+	</nav>
+
+
+	<main>
+		<div class="content">
+			<div class="description">
+				<div class="title">
+					<p class="format-title"> Class Name &#x2022; Problem name 111</p>
+				</div>
+				<div class="stats">
+					<div class="text">
+						<p class="header"> Deadline: </p>
+						<p class="type">10/04/2023 10:00</p>
+					</div>
+					<div class="text">
+						<p class="header"> Diffficulty: </p>
+						<p class="type">MEDIUM</p>
+					</div>
+					<div class="text">
+						<p class="header"> Tags: </p>
+						<div class="tags-list"></div>
+					</div>
+
+					<div class="rating">
+						<p>Rating: </p>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+					</div>
+				</div>
+			</div>
+			<div class="button-section">
+				<button class="generic-button solve-button "
+					onclick="location.href = 'student-view-problem-solve.html';">Solve</button>
+				<button class="generic-button comments-button active"
+					onclick="location.href = 'student-view-problem-comments.html';">Comments</button>
+			</div>
+			<div class="comments">
+				<div class="comment">
+					<div class="left-pane">
+						<div class="user">
+							<img class="user-pic" src="../resources/student-image-1.png" alt="avatar of user X">
+							<a class="user-link" href="">user_not_a_mockup1</a>
+						</div>
+
+						<div class="post-date">
+							<p>On</p>
+							<p>10/04/2023 10:00</p>
+						</div>
+					</div>
+					<div class="message">
+						<content>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nulla corrupti fugit enim excepturi aut, eveniet cupiditate voluptatum cumque tempore reiciendis voluptate nemo, ea quam fuga quia neque accusamus praesentium.
+						</content>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="left-pane">
+						<div class="user">
+							<img class="user-pic" src="../resources/student-image-2.jpg" alt="avatar of user X">
+							<a class="user-link" href="">user_not_a_mockup2</a>
+						</div>
+
+						<div class="post-date">
+							<p>On</p>
+							<p>10/04/2023 10:00</p>
+						</div>
+					</div>
+					<div class="message">
+						<content>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nulla corrupti fugit enim excepturi aut, eveniet cupiditate voluptatum cumque tempore reiciendis voluptate nemo, ea quam fuga quia neque accusamus praesentium.
+						</content>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="left-pane">
+						<div class="user">
+							<img class="user-pic" src="../resources/student-image-1.png" alt="avatar of user X">
+							<a class="user-link" href="">user_not_a_mockup3</a>
+						</div>
+
+						<div class="post-date">
+							<p>On</p>
+							<p>10/04/2023 10:00</p>
+						</div>
+					</div>
+					<div class="message">
+						<content>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nulla corrupti fugit enim excepturi aut, eveniet cupiditate voluptatum cumque tempore reiciendis voluptate nemo, ea quam fuga quia neque accusamus praesentium.
+						</content>
+					</div>
+				</div>
+			</div>
+			<div class="button-section">
+
+				<div class="submit-new-comment">
+					<button class="generic-button submit-button">Submit</button>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

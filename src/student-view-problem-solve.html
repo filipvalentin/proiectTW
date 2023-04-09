@@ -34,14 +34,21 @@
 		<div class="content">
 			<div class="description">
 				<div class="title">
-					<p class="format-title">Problem name 111</p>
+					<p class="format-title"> Class Name &#x2022; Problem name 111</p>
 				</div>
 				<div class="stats">
 					<div class="text">
 						<p class="header"> Deadline: </p>
 						<p class="type">10/04/2023 10:00</p>
 					</div>
-
+					<div class="text">
+						<p class="header"> Diffficulty: </p>
+						<p class="type">MEDIUM</p>
+					</div>
+					<div class="text">
+						<p class="header"> Tags: </p>
+						<div class="tags-list"></div>
+					</div>
 
 					<div class="rating">
 						<p>Rating: </p>
@@ -54,8 +61,8 @@
 				</div>
 			</div>
 			<div class="button-section">
-				<button class="generic-button solve-button active">Solve</button>
-				<button class="generic-button comments-button">Comments</button>
+				<button class="generic-button solve-button active" onclick="location.href = 'student-view-problem-solve.html';">Solve</button>
+				<button class="generic-button comments-button" onclick="location.href = 'student-view-problem-comments.html';">Comments</button>
 			</div>
 			<div class="body">
 				<div class="problem-text">
@@ -82,7 +89,7 @@
 			</div>
 
 			<div class="button-section">
-				<button class="generic-button send-button">Send</button>
+				<button class="generic-button submit-button">Submit</button>
 			</div>
 		</div>
 	</main>

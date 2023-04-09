@@ -13,31 +13,23 @@
 </head>
 
 <body>
-    <nav class="top-navbar">
-        <div>
-            <a class="active" href="index.html">Home</a>
-        </div>
-        <div>
-            <a href="my-classes.html">My Classes</a>
-        </div>
+	<nav class="top-navbar">
+		<div>
+			<a class="active" href="my-classes.html">My classes</a>
+		</div>
 
-
-        <div class="navbar-right" style="display: none;">
-            <a href="login.html">My Account</a>
-        </div>
-        <div class="navbar-right" style="display: none;">
-
-            <a href="login.html">Other</a>
-        </div>
-
-    </nav>
+		<div class="navbar-right">
+			<a href="my-problems.html">My problems</a>
+			<a href="account-administration.html">My account</a>
+		</div>
+	</nav>
 
 
     <main>
         <div class="create-custom">
-            <div class="title">
-                <p class="setting-for-title">Pasul 2: Probleme existente</p>
-                <div class="stade">
+            <div class="header">
+                <p class="title">Step 2: Assign existing problems </p>
+                <div class="progress-view">
                     <div class="progress">
                         <p class="bullet" style="background-color: #f24353; color:#fff">1</p>
                     </div>
@@ -48,21 +40,21 @@
                         <p class="bullet">3</p>
                     </div>
                 </div>
-                <form>
-                    <button type="submit" class="button" formaction="add-homework-3.html">Next step</button>
-                </form>
+
+                    <button type="submit" class="button" onclick="location.href = 'add-homework-3.html';">Next step</button>
+
             </div>
             <div class="custom">
                 <div class="cerinta">
-                    <p class="explication">Aici veti gasi probleme deja existente in baza noastra de date
+                    <p class="explication">Search & add from a variety of proposed problems written by teachers.
                     </p>
                 </div>
                 <div class="forms">
                     <div class="search">
-                        <input type="text" placeholder="Introduceti numele, id-ul sau ceva din descrierea problemei">
+                        <input type="text" placeholder="Search by problems ID, name or content">
                     </div>
                     <div class="filtering">
-                        <input type="text" id="tags" placeholder="Introduceti niste tag-uri">
+                        <input type="text" id="tags" placeholder="Search by tags">
                         <div class="difficulty">
                             <div class="selection">
                                 <input type="checkbox" name="" id="easy">
@@ -77,7 +69,7 @@
                                 <label for="hard">HARD</label>
                             </div>
                             <div class="selection">
-                                <input type="submit" name="SEARCH" id="sent">
+                                <button name="SEARCH" id="sent">Search</button>
                             </div>
                         </div>
                     </div>
