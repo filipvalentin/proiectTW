@@ -52,7 +52,7 @@
     <h2>Introducere</h2>
     <p>
       Proiectul InformatiX este o aplicație web destinată eleviilor de liceu ce are ca scop învățarea programării prin
-      intermediul problemelor ce se regăsesc pe site. Aceste probleme sunt propuse de către profesori și aprobare de către administratori. 
+      intermediul rezolvării de probleme. Aceste probleme sunt propuse de către profesori și aprobare de către administratori. 
     </p>
       Profesorii înregistrați pe plaftormă pot crea clase și adăuga elevi ce sunt deja înregistrați pe platformă. Profesorii pot crea teme fie propunând probleme, fie alegând din alte probleme propuse de alți profesori.
       Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a fi evaluate. De asemenea, elevii vor putea acorda un rating pentru problemă sau să adauge comentarii privitoare la problemă 
@@ -68,333 +68,107 @@
     <!-- review? -->
     <h2>Structura site-ului</h2>
     <p>
-      
+        Aplicația are în total 26 de fișiere HTML, ce acoperă servicii esențiale, precum crearea unui cont, logarea pe aplicație, dar și administrarea contului, 
+        postarea de probleme și rezolvarea de teme.
+        În continuare, în următoarele secțiuni, se vor parcurge aceste pagini și se vor detalia rolul acestora.
     </p>
-    <section id="Root">
+    <section id="index">
       <!-- review? -->
-      <h3>The root and <code>head</code></h3>
+      <h3><code>index.html</code></h3>
       <p>
-        The document must be encoded in UTF-8 and transmitted with a media type of
-        <code>text/html</code>.
-      </p>
-      <p>
-        The <code>head</code> must contain <code>&lt;meta charset="utf-8"&gt;</code> element and a
-        <code>title</code> element.
+        Această pagină este prima pagină cu care utilizatorul va interacționa. În această pagină, pe lângă bara de navigare, există un câmp cu numele aplicației, 
+        opțiunea de a te loga cu rol de profesor sau cu rol de elev. În cazul în care utilizatorul este la primul contact cu aplicația, există opțiunea de crearea
+        a contului.
       </p>
     </section>
-    <section id="article">
+    <section id="login">
       <!-- review? -->
-      <h3>The <code>article</code></h3>
+      <h3><code>login.html</code></h3>
       <p>
-        The first child of <code>article</code> must be <code>header</code>. The header should
-        contain an <code>h1</code> with the title of the document. The following element must be a
-        <code>div</code> with the role of <code>contentinfo</code> containing author and
-        affiliation information. See <a href="#contentinfo-semantics">The <code>contentinfo</code>
-          Region Semantics</a> for information about the semantic decoration of this element.
+        Această pagină reprezintă principalul mod de conectare a utilizatorului în aplicație. La apariția acesteia,
+        utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care utilizatorul 
+        și-a uitat parola, acesta va apăsa pe opțiunea "Forgot your password?" pentru a-și reseta parola.
       </p>
       <p>
-        Any number of <code>section</code> elements may be listed within the article at arbitrary
-        depths, but each <code>section</code> must begin with an <code>hx</code> element,
-        indicating a numbered section in the article. If the sections require headings that exceed
-        <code>h6</code>, <code>aria-level</code> must be included to indicate depth.
+        În cazul în care utilizatorul nu are cont pe aplicație, acesta va apăsa pe opțiunea "Create one!", ce-l va redirecta
+        pe pagina de creare a contului.
       </p>
-      <figure typeof="schema:SoftwareSourceCode" role="doc-example" id="arialevelexample">
-        <pre><code>
-    &lt;section>      
-      &lt;h6>Granular Details about Zoology&lt;/h6>
-        &lt;p>…&lt;/p>
-      &lt;section>    
-        &lt;h6 aria-level="7">Even More Information!&lt;/h6>
-          </code></pre>
-        <figcaption>Example of a level 7 heading, using <code>aria-level</code></figcaption>
-      </figure>
       <p>
-        Each section may contain zero or more <a href="#hunk">Hunk Elements</a> and
-        <code>section</code> elements.
+        După ce a completat câmpurile, utilizatorul va apăsa pe butonul de login, ce îl va redirecta spre pagina de administrare a contului.
       </p>
     </section>
-    <section id="hunk">
-      <!-- review? -->
-      <h3>Hunk Elements</h3>
+    <section id="forgot-passwd">
+      <h3><code>forgot-password.html</code></h3>
       <p>
-        Hunk elements are the meaningful blocks from which sections are built. They contain text
-        and <a href="#inline">inline elements</a>. There are several types of hunk elements. All
-        content, ranging from long paragraphs to note references and footnotes can be captured
-        using this specified set of elements. The method for distinguishing one from another in a
-        machine-readable manner is specified in <a href="#semantics">Semantics Overlay</a>.
+        În cazul în care utilizatorul nu-și amintește parola asociată contului, va accesa această pagină. În această pagină, utilizatorul va 
+        furniza e-mailul asociat contului, unde vor fi transmise instrucțiunile pentru stabilirea unei noi parole.
       </p>
-      <p>
-        The most common hunk element is
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-p-element"><code>p</code></a>.
-      </p>
-      <p>
-        The
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-blockquote-element"><code>blockquote</code></a>,
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-ul-element"><code>ul</code></a>,
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-ol-element" <code>ol</code></a>,
-        and
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-dl-element"><code>dl</code></a>
-        elements can be used as they typically would and require no special treatment.
-      </p>
-      <p>
-        The
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-dl-element" <code>aside</code></a>
-        hunk element is used to capture portions of content that stand apart from the main flow of
-        content. These can be separated from the article without having impact on the reader’s
-        understanding of the article. A common use is text boxes in print. If the
-        <code>aside</code> contains an <code>header</code> heading element, that heading must be
-        the first element child and its numeric part must reflect its depth, making use of
-        <code>aria-level</code> according to the same rules that apply for <code>section</code>.
-        The other children of asid<code>aside</code>e must all be hunk elements. For example, if
-        an <code>aside</code> follows a <code>section</code> with a level 3 heading, the top-level
-        heading in the <code>aside</code> should be <code>h4</code>.
-      </p>
-      <section id="figures">
-        <!-- review? -->
-        <h4>Figures</h4>
-        <p>
-          The
-          <a href="https://www.w3.org/TR/html51/semantics.html#the-figure-element"><code>figure</code></a>
-          element is a general container for self-contained content units that are embedded inside
-          the main body of the text. It can come in several flavors that are dictated by its
-          <code>typeof</code> attribute. Common uses for <code>figure</code> are as a container
-          for images, tables, equations, and computer code.
-        </p>
-        <p>
-          If <code>figure</code> is <code>typeof="sa:image"</code>, it is an image container. It
-          must contain an <code>img</code> child element and should contain a <code>figcaption</code>
-          labeling that image.
-        </p>
-        <p>
-          If <code>figure</code> is a <code>typeof="sa:table"</code>table, it is a table
-          container. It must contain a <code>table</code> element. If there is a table caption, it
-          should be included using the <code>caption</code> child element of the table, and not
-          the <code>figcaption</code> child of the <code>figure</code>. Table notes may also be
-          included as <code>ol</code> with <code>li</code> elements with the role of
-          <code>doc-footnote</code>.
-        </p>
-        <p>
-          If <code>figure</code> is a <code>typeof="sa:formula"</code>, it is a formula container.
-          It must contain a <code>math</code> element and, optionally, a <code>figcaption</code>
-          describing the formula. The <code>math</code> element must be valid MathML 3.
-          Additionally, given the dismal state of support for MathML in Web browsers the math
-          element must contain an annotation descendant with the TeX equivalent of the formula.
-        </p>
-        <p>
-          If <code>figure</code> is a <code>typeof="schema:SoftwareSourceCode"</code>, it is a
-          code container. It must contain a <code>pre</code> element and, optionally, a
-          <code>figcaption</code>. The <code>pre</code> element must contain a <code>code</code>
-          element as its only child.
-        </p>
-      </section>
     </section>
-    <section id="inline">
-      <!-- review? -->
-      <h3>Inline Elements</h3>
+    <section id="create-accont">
+      <h3><code>register.html</code></h3>
       <p>
-        <a href="https://www.w3.org/TR/html51/semantics.html#text-level-semantics">Inline
-          elements</a> decorate, describe, and enrich text. Inline elements can be used inside of
-        hunk elements, heading elements, and captioning elements. Where applicable, they can nest
-        within one another. Inline images and inline math can be inlcuded as well. This can be
-        accomplished using <code>img</code> for images or <code>math</code> for formulas.
-        Equations can be displayed inline or as blocks within a paragaph.
+        Această pagină este dedicată înregistrării utilizatorului pe această platformă.
       </p>
-      <figure typeof="schema:SoftwareSourceCode" resource="#mathblock-example" id="mathblock-example"
-        role="doc-example">
-        <pre><code>
-&lt;p>
-  If we should weep when clowns put on their show,
-  if we should stumble when musicians play,
-  &lt;math display="block">
-    &lt;semantics>
-      &lt;mrow>
-        &lt;mi>Δ&lt;/mi>&lt;msup>&lt;mi>E&lt;/mi>&lt;mn>2&lt;/mn>&lt;/msup>
-        &lt;mspace width="0.222em">&lt;/mspace>
-        &lt;mo>=&lt;/mo>
-        &lt;mspace width="0.222em">&lt;/mspace>
-        &lt;msub>&lt;mi>q&lt;/mi>&lt;mi>i&lt;/mi>&lt;/msub>
-        &lt;mspace width="0.222em">&lt;/mspace>
-        &lt;mo>×&lt;/mo>
-        &lt;mspace width="0.222em">&lt;/mspace>
-        &lt;mo stretchy="false" form="prefix">(&lt;/mo>
-        &lt;msub>
-          &lt;msup>&lt;mi>F&lt;/mi>&lt;mn>2&lt;/mn>&lt;/msup>
-          &lt;mrow>
-            &lt;mo stretchy="false" form="prefix">(&lt;/mo>
-            &lt;mi>i&lt;/mi>&lt;mo>,&lt;/mo>
-            &lt;mspace width="0.222em">&lt;/mspace>
-            &lt;mi>j&lt;/mi>
-            &lt;mo stretchy="false" form="postfix">)&lt;/mo>
-          &lt;/mrow>
-        &lt;/msub>
-        &lt;mspace width="0.222em">&lt;/mspace>
-        &lt;mo>/&lt;/mo>
-        &lt;mspace width="0.222em">&lt;/mspace>
-        &lt;msub>&lt;mi>ε&lt;/mi>&lt;mi>j&lt;/mi>&lt;/msub>
-        &lt;mspace width="0.222em">&lt;/mspace>&lt;mspace width="0.222em">&lt;/mspace>
-        &lt;msub>&lt;mi>ε&lt;/mi>&lt;mi>i&lt;/mi>&lt;/msub>
-        &lt;mo stretchy="false" form="postfix">)&lt;/mo>
-      &lt;/mrow>
-    &lt;/semantics>
-  &lt;/math>
-  time can say nothing but I told you so.
-&lt;/p>
-          </code></pre>
-        <figcaption></figcaption>
-      </figure>
+      <p>
+        Utilizatorul va completa acest formular cu informații privind următoarele aspecte:
+        <ul>
+          <li>
+            Stabilirea unui username;
+          </li>
+          <li>
+            Furnizarea unui e-mail ce va fi asociat contului nou creat;
+          </li>
+          <li>
+            De care tip va fi contul? (Elev sau profesor);
+          </li>
+          <li>
+            Stabilirea unei parole.
+          </li>
+        </ul>
+      </p>
+      <p>În cazul în care utilizatorul are deja un cont pe platformă, acesta va accesa opțiunea "Log in!".</p>
+      <p>După ce a completat formularul, utilizatorul va apăsa pe butonul "Register", ce va crea contul și-l va redirecta pe pagina de administrare a contului.</p>
     </section>
-    <section id="references">
-      <!-- review? -->
-      <h3>References</h3>
+    <section id="admin-cont">
+      <h3><code>account-administration.html</code></h3>
       <p>
-        The References section requires specific <a href="#citations">semantic overlays</a>
-        (reference) as well as strict content structure. Apart from a (required) <code>hx</code>
-        element, it must contain only one <code>ol</code> or <code>dl</code> element.
+        Această pagină este dedicată administrării informațiilor utilizatorului.
       </p>
       <p>
-        If using a <code>dl</code> element, the contents must be alternating <code>dt</code> and
-        <code>dd</code> elements. The <code>dd</code> must contain the citation.
+        În partea stângă, este prezentat utilizatorul. Prezentarea aceasta curprinde informații privioare la numele utilizatorului,
+        ziua lui de naștere, unde învață/predă utilizatorul, dar și o mică descriere a acestuia.
       </p>
-      <!-- XXX add references to sem as well as CSS to rearrange order based on citation format -->
-      <p>
-        If using <code>ol</code>, the only contents are <code>li</code> that include citations.
+      <p>În partea dreaptă, sunt mau multe formulare, cu rol în modificarea informațiilor asociate contului. Aceste formulare sunt:
+        <ul>
+          <li>
+            Formularul de schimbare a e-mailului: acest formular are rolul de a schimba e-mailul asociat contului;
+          </li>
+          <li>
+            Formularul de schimbare a parolei: acest formular este destinat schimbării de către utilizator a parolei, în principal din motice ce țin de securitatea
+            contului;
+          </li>
+          <li>
+            Formularul de modificare a profilului: utilizatorul poate să modifice diverse informații personale precum descrierea, instituția de învățământ, dar și 
+            username-ul. Tot în acest formular, utilizatorul va selecta ce informații va dori să le facă publice. 
+          </li>
+        </ul>
       </p>
     </section>
 
-    <section id="interactive">
-      <!-- review? -->
-      <h3>Interactive Elements</h3>
+    <section id="about">
+      <h3><code>about.html</code></h3>
       <p>
-        information about iframes to come
-      </p>
-      <p class="issue">
-        Let’s discuss details of iframes with the CG
+        Această pagină reprezintă o mică descriere a platformei și a modului de utilizare al aplicației.
       </p>
     </section>
-    <section id="HTMLRoles">
-      <!-- review? -->
-      <h3>HTML Roles</h3>
+
+    <section id="about">
+      <h3><code>about.html</code></h3>
       <p>
-        It is possible to provide information about an HTML element by decorating it with the
-        <a href="https://www.w3.org/TR/html51/dom.html#aria-role-attribute">role</a> attribute. The
-        <a href="https://www.w3.org/TR/wai-aria-1.1/">ARIA</a> vocabulary and its extensions provide
-        convenient terms that are relevant to document structure. The following roles from ARIA and
-        <a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA</a> should be applied where
-        appropriate:
-      </p>
-      <ul>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#contentinfo">contentinfo</a> to apply to the
-          <code>div</code> containing author and affiliation information
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#definition">definition</a> for defining a
-          term, such as a keyword or a glossary term
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#term">term</a> for a term corresponding to a
-          definition
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#presentation">presentation</a> to indicate
-          that an image is purely decorative
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-abstract">doc-abstract</a> on the
-          <code>section</code> that contains the abstract
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-acknowledgments">doc-acknowledgments</a>
-          on the <code>section</code> that contains acknowledgements (note that this is not the same
-          as funding information).
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-appendix">doc-appendix</a> on the
-          <code>section</code> that contains the appendix
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-biblioentry">doc-biblioentry</a> on the
-          list item that includes a citation
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-bibliography">doc-bibliography</a> on
-          the <code>section</code> or list that contains the references or works cited
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-conclusion">doc-conclusion</a> on the
-          <code>section</code> that explicity concludes the article
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-dedication">doc-dedication</a> on the
-          dedication element of the article (allowed on any hunk element)
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote">doc-endnote</a> on an
-          individual note item in a collection of notes
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-dedication">doc-endnotes</a> on the
-          <code>section</code> containing a group of notes
-        </li>
-        <li class="issue">
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-errata">doc-errata</a> on a ???
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-example">doc-example</a> on a hunk
-          element containing an illustrative concept, such as a code sample.
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-footnote">doc-footnote</a> on a hunk
-          element containing an individual note, such as an informative note about the author or
-          table footnote
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-introduction">doc-introduction</a> on
-          the <code>section</code> introducing the article, if relevant
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-subtitle">doc-subtitle</a> to indicate
-          that a portion of a heading is a secondary or alternate title of the work
-        </li>
-      </ul>
-      <p class="issue">
-        Should we require ARIA’s table, grid, rowheader, and rowgroup?
-      </p>
-      <p class="issue">
-        I did not include doc-credit bc of extensive citation markup in JSON-LD
-      </p>
-      <p class="issue">
-        doc-endnote, doc-endnotes are not in the current published draft of DPUB-ARIA. See
-        <a href="http://rawgit.com/w3c/aria/master/aria/dpub.html">March DPUB-ARIA draft</a>
+        Această pagină reprezintă o mică descriere a platformei și a modului de utilizare al aplicației.
       </p>
     </section>
-    <section id="validate">
-      <!-- review? -->
-      <h3>Validation</h3>
-      <p>
-        The only validation requirement for Scholarly HTML at this point is that the HTML is valid.
-        We are considering building a a validation tool in RelaxNG or JavaScript to check compliance
-        with this set of rules.
-      </p>
-      <p>
-        Articles should be in the following basic structure:
-      </p>
-      <ul>
-        <li>heading with article title</li>
-        <li>0+ hunks</li>
-        <li>
-          0+ sections
-          <ul>
-            <li>0+ headings</li>
-            <li>0+ hunks</li>
-            <li>0+ sections</li>
-          </ul>
-        </li>
-      </ul>
-      <p>
-        It must feature a <code>DOCTYPE</code> as its preamble.
-      </p>
-    </section>
+
   </section>
 </body>
 
