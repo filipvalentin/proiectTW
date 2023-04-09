@@ -134,13 +134,13 @@ h3 {
 }
 
 .forms>input {
-	font-weight: 600;
+	font-weight: 500;
 	font-family: 'Asap';
 	overflow: hidden;
 	display: block;
 	flex-direction: column;
 	width: 95%;
-	min-width: 250px;
+	/* min-width: 250px; */
 	flex-wrap: wrap;
 	font-size: 18px;
 	background-color: white;
@@ -209,29 +209,28 @@ button:hover {
 	overflow: hidden;
 	display: block;
 	flex-direction: column;
-	width: 65%;
-	min-width: 250px;
+	width: 100%;
 	flex-wrap: wrap;
 	font-size: 18px;
 	background-color: white;
 	border-radius: 5px;
-	padding: 10px;
+	padding: 0.5em;
 	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 1em;
 }
 
 
 
 textarea {
-	font-weight: 600;
+	/* font-weight: 600; */
 	overflow: hidden;
 	display: block;
 	flex-direction: column;
 	resize: none;
-	width: 65%;
-	max-width: 65%;
-	min-width: 250px;
-	min-height: 20%;
+	width: 95%;
+	/* max-width: 65%; */
+	/* min-width: 250px; */
+	/* min-height: 20%; */
 	flex-wrap: wrap;
 	font-size: 18px;
 	background-color: white;
