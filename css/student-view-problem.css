@@ -34,7 +34,7 @@ main {
 	width: 100%;
 	margin-top: 0;
 	height: auto;
-	z-index: 1;
+	/* z-index: 1; */
 	overflow: hidden;
 	
 }
@@ -178,9 +178,9 @@ ul {
 		border-top-right-radius: 5px;
 	}
 
-	.body{
-		/* height: 30em; */
-	}
+	/* .body{
+		height: 30em;
+	} */
 
 	main {
 		margin: 1em;
@@ -229,7 +229,9 @@ ul {
 	font-size: 1.3em;
 	font-family: 'Asap';
 	transition: all 300ms;
-border:none;
+	border:none;
+
+	cursor: pointer;
 	/* margin: 0 0.0em; */
 }
 

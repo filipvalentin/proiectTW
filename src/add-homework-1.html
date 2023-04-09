@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
 	<link rel="stylesheet" href="../css/add-homework.css">
+	<link rel="stylesheet" href="../css/add-homework-1.css">
 </head>
 
 <body>
@@ -45,19 +46,36 @@
 
 			</div>
 			<div class="problem-section">
-				<!-- <div class="cerinta"> -->
-				<!-- <p class="explication"> -->
-				<!-- </p> -->
-				<!-- </div> -->
-				<div class="custom-problem-section">
+				<div class="custom-problems-section">
 					<!-- <textarea class="c-problem" name="custom-problem"></textarea> -->
+					<div class="custom-problem" id="custom-problem" style="display: block;">
+						<div class="title">
+							<p>Title</p><input type="text">
+						</div>
+						<div class="problem-content">
+							<textarea ></textarea>
+						</div>
+					</div>
 					<div class="add-custom-problem-button-section">
-						<button class="add-custom-problem-button">Add custom problem</button>
+						<button class="add-custom-problem-button" onclick="addNewCustomProblem();">Add custom
+							problem</button>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</main>
 </body>
+
+<script>
+	function addNewCustomProblem() {
+		var x = document.getElementById("custom-problem");
+		if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
+	}
+</script>
 
 </html>
