@@ -1,0 +1,45 @@
+.right-area{
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+
+}
+
+.user-list{
+	background-color: #ffffff43;
+	margin:0.5em;
+	border-radius: 5px;
+}
+
+/* needs rework */
+.student-entry{
+	cursor: pointer;
+}
+
+.user-pane{
+	background-color: #ffffff43;
+	margin:0.5em;
+	border-radius: 5px;
+	overflow: hidden;
+	border-radius: 5px;
+
+}
+
+.user-pic{
+	width:5em;
+	border-radius: 5px;
+}	
+
+.entry{
+	display: flex;
+	align-items: center;
+	gap:1em;
+}
+.content{
+padding: 0.5em;
+}
+header{
+	background-color: #36363665;
+	font-size: 1.5em;
+	padding: 0.5em;
+
+}
