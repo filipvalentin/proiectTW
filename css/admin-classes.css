@@ -4,8 +4,21 @@ p{
 	margin: 0;
 }
 
+.panel {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 
-.classes-panel {
+	max-width: 50em;
+	margin: 1em auto;
+	padding-bottom: 2em;
+
+	background-color: #ada2d675;
+	border-radius: 4px;
+	position: relative;
+}
+
+/* .classes-panel {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -19,7 +32,7 @@ p{
 
 	position: relative;
 	padding-bottom: 3em;
-}
+} */
 
 /* dashboard related */
 
@@ -155,8 +168,4 @@ p{
 }
 .id>p{
 	margin-right: 0.5em;
-}
-
-.search-bar{
-	margin-bottom: 0;
 }

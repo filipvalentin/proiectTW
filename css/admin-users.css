@@ -1,45 +1,82 @@
-.right-area{
+.right-area {
 	display: grid;
 	grid-template-columns: 2fr 3fr;
+	grid-template-areas: "user-list user-pane";
 
 }
 
-.user-list{
+.user-list {
 	background-color: #ffffff43;
-	margin:0.5em;
+	margin: 0.5em;
 	border-radius: 5px;
+	padding-bottom: 2em;
+	position: relative;
 }
 
 /* needs rework */
-.student-entry{
+.student-entry {
 	cursor: pointer;
 }
 
-.user-pane{
+.user-pane {
 	background-color: #ffffff43;
-	margin:0.5em;
+	margin: 0.5em;
 	border-radius: 5px;
 	overflow: hidden;
 	border-radius: 5px;
 
 }
 
-.user-pic{
-	width:5em;
+.user-pic {
+	width: 5em;
 	border-radius: 5px;
-}	
+}
 
-.entry{
+.entry {
 	display: flex;
 	align-items: center;
-	gap:1em;
+	gap: 1em;
 }
-.content{
-padding: 0.5em;
+
+.content {
+	padding: 0.5em;
 }
-header{
+
+header {
 	background-color: #36363665;
 	font-size: 1.5em;
 	padding: 0.5em;
 
+}
+
+
+@media (max-width: 45em) {
+	main {
+		flex-direction: column;
+		height: fit-content;
+	}
+
+	.dashboard {
+		margin: 1em;
+		height: fit-content;
+		border-radius: 8px;
+
+	}
+
+	.dashboard>.class-id {
+		margin-top: 2em;
+	}
+
+	.section-area {
+		height: fit-content;
+		width: auto;
+		padding-bottom: 4em;
+	}
+
+	.right-area{
+		grid-template-columns: 1fr;
+		grid-template-areas: "user-list"
+							"user-pane";
+		width: auto;
+	}
 }
