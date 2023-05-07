@@ -52,7 +52,7 @@
 	animation: wawes 7s infinite;
 }
 
-.register>input {
+input {
 	font-weight: 600;
 
 	display: block;
@@ -141,3 +141,26 @@ a {
 		 width: 16em; 
 	} */
 }
+
+
+.password-wrong{
+background: #f15a4c;
+transition: background-color 300ms;
+opacity: 1;
+/* color: white; */
+}
+
+.password-correct{
+background: #93f07b;
+transition: background-color 300ms;
+opacity: 1;
+/* font color: white; */
+}
+/* input.password-wrong::placeholder{
+	color: #000;
+  }
+  input.password-correct::placeholder{
+	color: #000;
+  } */
+
+

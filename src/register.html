@@ -10,6 +10,9 @@
 	<link rel="stylesheet" href="../css/register.css">
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
+
+	<link rel="stylesheet" href="../css/reveal-password-eye.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 </head>
 
 <body>
@@ -24,22 +27,31 @@
 
 	</nav>
 	<main>
-		<form class="register">
-			<input type="text" placeholder="Username" required>
-			<input type="email" class="email" placeholder="Email" required>
-			<select name="option" required>
+		<form class="register" onsubmit="return validateForm()">
+			<input type="text" placeholder="Username" required id="username">
+			<input type="email" class="email" placeholder="Email" required id="email">
+			<select name="option" required id="accountType">
 				<option value="" disabled selected>Select your account type</option> <!-- Selectati tipul de cont -->
 				<option value="Elev">Student</option>
 				<option value="Profesor">Professor</option>
 			</select>
-			<input type="password" placeholder="Password" required>
-			<input type="password" placeholder="Retype Password" required>
-
-			<button formaction="account-administration.html">Register</button>
+			<div class="password-div">
+				<input type="password" placeholder="Password" value="" required id="password" onkeyup='check();'>
+				<i class="bi bi-eye-slash" name="togglePassword" onclick='revealPasswordButtonRegisterPage();'></i>
+			</div>
+			<div class="password-div">
+				<input type="password" placeholder="Retype Password" value="" required id="retypePassword"
+					onkeyup='check();'>
+				<i class="bi bi-eye-slash" name="togglePassword" onclick='revealPasswordButtonRegisterPage();'></i>
+			</div>
+			<button formaction="register()">Register</button>
 
 			<p>Already have an account? <a href="login.html">Log in!</a></p>
 		</form>
 	</main>
+
+	<script type="text/javascript" src="../script/reveal-password-button.js"></script>
+	<script type="text/javascript" src="../script/register.js"></script>
 </body>
 
 </html>

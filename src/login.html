@@ -7,10 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Log in</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
-	
+
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
 	<link rel="stylesheet" href="../css/login.css">
+
+	<link rel="stylesheet" href="../css/reveal-password-eye.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 </head>
 
 <body>
@@ -27,16 +30,19 @@
 	<main>
 		<form class="login">
 			<input type="email" class="email" placeholder="Email" required>
-			<input type="password" placeholder="Password" required>
-
+			<div class="password-div">
+				<input type="password" placeholder="Password" value="" required id="password" onkeyup='check();'>
+				<i class="bi bi-eye-slash" name="togglePassword" onclick='revealPasswordButtonLoginPage();'></i>
+			</div>
 			<!-- formaction trebuie regandit -->
 			<button type="submit" formaction="account-administration.html">LOG IN</button>
 			<p class="register"><a href="forgot-password.html">Forgot your password?</a></p>
 			<p class="register">Don't have an account? <a href="register.html">Create one!</a></p>
 		</form>
-		<
-	</main>
 
+	</main>
+	
+	<script type="text/javascript" src="../script/reveal-password-button.js"></script>
 </body>
 
 </html>
