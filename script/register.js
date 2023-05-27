@@ -8,10 +8,93 @@
 // 	form.classList.add("error")
 // })
 
-function check() {
+function checkPassword() {
 	var password = document.getElementById("password").value;
 	var retypePassword = document.getElementById("retypePassword").value;
 
+	colorizeInputFields(retypePassword, password);
+
+	var lowercaseLetterRegExp = /[a-z]/g;
+	var uppercaseLetterRegExp = /[A-Z]/g;
+	var numberRegExp = /[0-9]/g;
+	var specialCharRegExp = /[\*\.\!\@\#\$\%\^\&\(\)\{\}\[\]\:\;\<\>\,\.\?\/\~\_\+\-\=\|]/g;
+
+	var hasLowercase = false;
+	var hasUppercase = false;
+	var hasNumner = false;
+	var hasSpecialChar = false;
+	var hasMinLength = false;
+	
+	if(lowercaseLetterRegExp.test(password)){
+		hasLowercase = true;
+	}
+	if(uppercaseLetterRegExp.test(password)){
+		hasUppercase = true;
+	}
+	if(numberRegExp.test(password)){
+		hasNumner = true;
+	}
+	if(specialCharRegExp.test(password)){
+		hasSpecialChar = true;
+	}
+	if(password.length >= 8){
+		hasMinLength = true;
+	}
+
+	colorizeRequirementItems(hasLowercase, hasUppercase, hasNumner, hasSpecialChar, hasMinLength);
+
+
+
+
+}
+
+
+function colorizeRequirementItems(hasLowercase, hasUppercase, hasNumner, hasSpecialChar, hasMinLength) {
+	var i1lcs1ucs = document.getElementById("i1lcs1ucs");
+	var i1number = document.getElementById("i1number");
+	var i1specialc = document.getElementById("i1specialc");
+	var iatleast8c = document.getElementById("iatleast8c");
+
+	if (hasLowercase && hasUppercase) {
+		i1lcs1ucs.classList.remove("requirement-item-wrong");
+		i1lcs1ucs.classList.add("requirement-item-correct");
+	}
+	else {
+		i1lcs1ucs.classList.remove("requirement-item-correct");
+		i1lcs1ucs.classList.add("requirement-item-wrong");
+	}
+
+	if (hasNumner) {
+		i1number.classList.remove("requirement-item-wrong");
+		i1number.classList.add("requirement-item-correct");
+	}
+	else {
+		i1number.classList.remove("requirement-item-correct");
+		i1number.classList.add("requirement-item-wrong");
+	}
+
+	if (hasSpecialChar) {
+		i1specialc.classList.remove("requirement-item-wrong");
+		i1specialc.classList.add("requirement-item-correct");
+	}
+	else {
+		i1specialc.classList.remove("requirement-item-correct");
+		i1specialc.classList.add("requirement-item-wrong");
+	}
+
+	if(hasMinLength){
+		iatleast8c.classList.remove("requirement-item-wrong");
+		iatleast8c.classList.add("requirement-item-correct");
+	}
+	else{
+		iatleast8c.classList.remove("requirement-item-correct");
+		iatleast8c.classList.add("requirement-item-wrong");
+	}
+}
+
+
+
+function colorizeInputFields(retypePassword, password) {
 	if (retypePassword == "") {
 		document.getElementById("retypePassword").className = "";
 	}
@@ -24,8 +107,6 @@ function check() {
 		document.getElementById("retypePassword").classList.add("password-wrong");
 	}
 }
-
-
 
 function validateForm() {
 	var password = document.getElementById("password").value;
@@ -40,18 +121,49 @@ function validateForm() {
 }
 
 function register() {
+	console.log("eee");
 	var http = new XMLHttpRequest();
-	var url = 'get_data.php';
-	var params = 'orem=ipsum&name=binny';
+	const url = "register.php";
+
+	const username = document.getElementById("username").value;
+	const email = document.getElementById("username").value;
+	const password = document.getElementById("password").value;
+	const accountType = document.getElementById("accountType").value;
+
 	http.open('POST', url, true);
 
 	//Send the proper header information along with the request
-	http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	http.setRequestHeader('Content-Type', 'application/json');
+	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  
+	const data = {
+		username: username,
+		email: email,
+		accountType: accountType,
+		password: password //asuming we use HTTPS
+	};
+
+	const json = JSON.stringify(data);
 
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
 			alert(http.responseText);
 		}
 	}
-	http.send(params);
+
+	http.send(json);
 }
+
+
+//nu stiu ce fac
+function displayPasswordStrengthPopup(){
+	var popup = document.getElementById("password-strength-popup");
+    popup.style.display = "grid";
+  
+}
+var popup = document.getElementById("password-strength-popup");
+const passwordField = document.getElementById("password");
+passwordField.addEventListener('focusout', function (event) {
+	popup.style.display = "none";
+});
+

@@ -37,19 +37,19 @@
 }
 
 .register::before {
-	left: 60%;
-	bottom: -100%;
+	left: 66%;
+	bottom: -70%;
 	background-color: #313137ae;
 
 	animation: wawes 6s infinite linear;
 }
 
 .register::after {
-	left: 55%;
-	bottom: -95%;
+	left: 62%;
+	bottom: -65%;
 	background-color: #31313763;
 
-	animation: wawes 7s infinite;
+	animation: wawes 9s infinite;
 }
 
 input {
@@ -60,12 +60,12 @@ input {
 	border-radius: 4px;
 	font-size: 16px;
 
-	background: white;
+	/* background: white; */
 	width: 22.5em;
 	/* width: 100%; */
 	height: 100%;
 	padding: 12px 20px;
-	margin: 15px 0px;
+	margin: 0.5em 0em 1em 0em;
 	opacity: 0.8;
 }
 
@@ -81,7 +81,7 @@ input {
 	height: 100%;
 	padding: 12px;
 	margin-right: 1em;
-	/* margin: 15px 0px; */
+	margin: 0.5em 0em 1em 0em;
 	opacity: 0.8;
 }
 
@@ -143,19 +143,27 @@ a {
 }
 
 
-.password-wrong{
-background: #f15a4c;
-transition: background-color 300ms;
-opacity: 1;
-/* color: white; */
+.password-wrong {
+	background: #f15a4c;
+	transition: background-color 300ms;
+	opacity: 1;
+	/* color: white; */
 }
 
-.password-correct{
-background: #93f07b;
-transition: background-color 300ms;
-opacity: 1;
-/* font color: white; */
+.password-correct {
+	background: #93f07b;
+	transition: background-color 300ms;
+	opacity: 1;
+	/* font color: white; */
 }
+
+.reveal-password-button{
+	padding: 0.5em;
+	margin-top: -0.5em;
+
+	cursor: pointer;
+}
+
 /* input.password-wrong::placeholder{
 	color: #000;
   }
@@ -163,4 +171,30 @@ opacity: 1;
 	color: #000;
   } */
 
+
+.password-strength-popup {
+	display: none;
+	grid-template-areas: "i1lcs1ucs i1number"
+		"i1specialc iatleast8c";
+	justify-content: center;
+	justify-items: center;
+	margin-bottom: 1em;
+}
+
+.password-requirement-item {
+	background-color: #f15a4c;
+	margin: 0.2em;
+	padding: 0.2em 0.5em;
+	border-radius: 5px;
+	width: fit-content;
+
+	transition: all 100ms linear;
+}
+
+.requirement-item-wrong{
+	background-color: #f15a4c;
+}
+.requirement-item-correct{
+	background-color: #79d861;
+}
 

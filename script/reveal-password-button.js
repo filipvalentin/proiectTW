@@ -1,5 +1,7 @@
 function revealPasswordButtonRegisterPage() {
-	const togglePassword = document.getElementsByName('togglePassword');
+	// const togglePassword = document.getElementsByName('togglePassword');
+	const togglePassword = document.getElementById('togglePassword');
+
 	const password = document.getElementById('password');
 	const retypePassword = document.getElementById('retypePassword');
 	
@@ -8,11 +10,9 @@ function revealPasswordButtonRegisterPage() {
 
 	const type_rpw = retypePassword.getAttribute('type') === 'password' ? 'text' : 'password';
 	retypePassword.setAttribute('type', type_rpw);
+	
 	// toggle the eye / eye slash icon
-
-	togglePassword.forEach(element => {
-		element.classList.toggle('bi-eye');
-	});
+	togglePassword.classList.toggle('bi-eye');
 
 }
 
