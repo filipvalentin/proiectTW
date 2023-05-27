@@ -157,28 +157,6 @@ a {
 	/* font color: white; */
 }
 
-.password-div{
-	position: relative;
-}
-
-.reveal-password-button{
-	position: absolute;
-	right: 1em;
-	top: 0.7em;
-
-	padding: 0.5em;
-	margin-top: -0.5em;
-
-	cursor: pointer;
-}
-
-/* input.password-wrong::placeholder{
-	color: #000;
-  }
-  input.password-correct::placeholder{
-	color: #000;
-  } */
-
 
 .password-strength-popup {
 	display: none;
