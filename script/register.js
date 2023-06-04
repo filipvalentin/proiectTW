@@ -24,27 +24,26 @@ function checkPassword() {
 	var hasNumner = false;
 	var hasSpecialChar = false;
 	var hasMinLength = false;
-	
-	if(lowercaseLetterRegExp.test(password)){
+
+	if (lowercaseLetterRegExp.test(password)) {
 		hasLowercase = true;
 	}
-	if(uppercaseLetterRegExp.test(password)){
+	if (uppercaseLetterRegExp.test(password)) {
 		hasUppercase = true;
 	}
-	if(numberRegExp.test(password)){
+	if (numberRegExp.test(password)) {
 		hasNumner = true;
 	}
-	if(specialCharRegExp.test(password)){
+	if (specialCharRegExp.test(password)) {
 		hasSpecialChar = true;
 	}
-	if(password.length >= 8){
+	if (password.length >= 8) {
 		hasMinLength = true;
 	}
 
 	colorizeRequirementItems(hasLowercase, hasUppercase, hasNumner, hasSpecialChar, hasMinLength);
 
-
-
+	return hasLowercase && hasUppercase && hasNumner && hasSpecialChar && hasMinLength;
 
 }
 
@@ -82,11 +81,11 @@ function colorizeRequirementItems(hasLowercase, hasUppercase, hasNumner, hasSpec
 		i1specialc.classList.add("requirement-item-wrong");
 	}
 
-	if(hasMinLength){
+	if (hasMinLength) {
 		iatleast8c.classList.remove("requirement-item-wrong");
 		iatleast8c.classList.add("requirement-item-correct");
 	}
-	else{
+	else {
 		iatleast8c.classList.remove("requirement-item-correct");
 		iatleast8c.classList.add("requirement-item-wrong");
 	}
@@ -108,38 +107,50 @@ function colorizeInputFields(retypePassword, password) {
 	}
 }
 
-function validateForm() {
+function validateRegistration() {
+
+	if (checkPassword() == false) {
+		return false;
+	}
+
 	var password = document.getElementById("password").value;
 	var retypePassword = document.getElementById("retypePassword").value;
-	// console.
+
 	if (password != retypePassword) {
 		return false;
-	}//else{
+	}
 
-	//}
+	const username = document.getElementById("username").value;
+
+	// if (username == "")
+
+	// const email = document.getElementById("username").value;
+
+	const role = document.getElementById("role").value;
+
 
 }
 
 function register() {
-	console.log("eee");
+
 	var http = new XMLHttpRequest();
 	const url = "register.php";
 
 	const username = document.getElementById("username").value;
 	const email = document.getElementById("username").value;
 	const password = document.getElementById("password").value;
-	const accountType = document.getElementById("accountType").value;
+	const role = document.getElementById("role").value;
 
 	http.open('POST', url, true);
 
 	//Send the proper header information along with the request
 	http.setRequestHeader('Content-Type', 'application/json');
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  
+
 	const data = {
 		username: username,
 		email: email,
-		accountType: accountType,
+		role: role,
 		password: password //asuming we use HTTPS
 	};
 
@@ -149,6 +160,10 @@ function register() {
 		if (http.readyState == 4 && http.status == 200) {
 			alert(http.responseText);
 		}
+		if (http.readyState == 4 && http.status == 403) {
+			document.getElementById("register-error-message").style.display = "block";
+		}
+
 	}
 
 	http.send(json);
@@ -156,10 +171,10 @@ function register() {
 
 
 //nu stiu ce fac
-function displayPasswordStrengthPopup(){
+function displayPasswordStrengthPopup() {
 	var popup = document.getElementById("password-strength-popup");
-    popup.style.display = "grid";
-  
+	popup.style.display = "grid";
+
 }
 var popup = document.getElementById("password-strength-popup");
 const passwordField = document.getElementById("password");
@@ -167,3 +182,80 @@ passwordField.addEventListener('focusout', function (event) {
 	popup.style.display = "none";
 });
 
+var global_isValidUsername = false;
+
+
+function checkUsername() {
+	var usernameInputField = document.getElementById("username");
+	var username = usernameInputField.value;
+
+	var regexPattern = /([a-zA-Z_0-9]+)/;
+	var forbiddenCharsRegex = /[\!\@\#\$\%\^\&\*\(\)\-\=+\[\]\;\'\,\.\/\{\}\:\"\|\<\>\?\"]/
+	var isValidUsername = regexPattern.test(username) && !/ /.test(username) && !forbiddenCharsRegex.test(username);
+
+	if (username == "") {
+		usernameInputField.className="";
+		global_isValidUsername = false;
+		return;
+	}
+	// if(/ /.test(username)){
+	// 	usernameInputField.className = "";
+	// 	usernameInputField.classList.add("requirement-item-wrong");
+	// 	global_isValidUsername = false;
+	// 	return;
+	// }
+
+
+	var http = new XMLHttpRequest();
+
+	http.open("GET", "verify_username.php?username=" + username, true);
+	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+	http.onreadystatechange = function () {
+		if (http.readyState == 4 && http.status == 200) {
+			handleTakenUsernamePopup(http.responseText, isValidUsername);
+		}
+	}
+
+	http.send();
+}
+
+//logica: fiindca functia asta e apelata dupa fiecare key press
+//pot sa am logica de afisare aici, si fiindca e async, functia asta se executa dupa
+//ce s-a calculat daca e valid usernameul, deci totul e bun.
+//verific daca usernameul e luat si afisez utilizatorului
+//verific daca usernameul nu e valid si afisez utilizatorului
+//apoi pe baza celor 2 flaguri colorez si caseta daca totul e bine
+function handleTakenUsernamePopup(usernameTaken, isValidUsername) {
+
+	var usernameInputField = document.getElementById("username");
+	var usernameTakenpopup = document.getElementById("username-taken-popup");
+	var usernameInvalidpopup = document.getElementById("username-invalid-popup");
+	if (isValidUsername == true) {
+		usernameInvalidpopup.style.display = "none";
+
+		if (usernameTaken == 0) {
+			usernameTakenpopup.style.display = "none";
+		}
+		else {
+			usernameTakenpopup.style.display = "block";
+		}
+	
+	}
+	else {
+		usernameInvalidpopup.style.display = "block";
+	}
+
+	if (usernameTaken == 1 || isValidUsername == false) {
+		usernameInputField.classList.remove("requirement-item-correct");
+		usernameInputField.classList.add("requirement-item-wrong");
+		global_isValidUsername = true;
+	}
+	else {
+		usernameInputField.classList.remove("requirement-item-wrong");
+		usernameInputField.classList.add("requirement-item-correct");
+		global_isValidUsername = false;
+	}
+
+
+}

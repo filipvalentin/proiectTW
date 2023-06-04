@@ -16,7 +16,7 @@
 </head>
 
 <!-- DEBUG ONLY !!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<script type="text/javascript" src="https://livejs.com/live.js"></script>
+<!-- <script type="text/javascript" src="https://livejs.com/live.js"></script> -->
 
 <body>
 	<nav class="top-navbar">
@@ -32,12 +32,17 @@
 	<main>
 		<div class="register">
 			<label>Username</label>
-			<input type="text" placeholder="Username" required id="username">
+			<div class="username-field">
+				<input type="text" placeholder="Username" id="username" onkeyup="checkUsername()">
+				<item class="username-taken-popup" id="username-taken-popup">Sorry, this username is already taken
+				</item>
+				<item class="username-invalid-popup" id="username-invalid-popup">Invalid username.</item>
+			</div>
 			<label>Email</label>
-			<input type="email" class="email" placeholder="Email" required id="email">
-			<label>Account type</label>
-			<select required id="accountType">
-				<option value="" disabled selected>Select your account type</option> <!-- Selectati tipul de cont -->
+			<input type="email" class="email" placeholder="Email" id="email">
+			<label>Account role</label>
+			<select required id="role">
+				<option value="" disabled selected>Select your account role</option> <!-- Selectati tipul de cont -->
 				<option value="student">Student</option>
 				<option value="teacher">Professor</option>
 			</select>
@@ -45,7 +50,8 @@
 			<div class="password-div">
 				<input type="password" placeholder="Password" value="" required id="password" onkeyup="checkPassword()"
 					onfocus="displayPasswordStrengthPopup()">
-				<i class="reveal-password-button bi bi-eye-slash" name="togglePassword" onclick="revealPasswordButtonRegisterPage()"></i>
+				<i class="reveal-password-button bi bi-eye-slash" name="togglePassword"
+					onclick="revealPasswordButtonRegisterPage()"></i>
 			</div>
 			<div class="password-strength-popup" id="password-strength-popup">
 				<item class="password-requirement-item" id="i1lcs1ucs">1 lowercase & 1 uppercase</item>
@@ -59,7 +65,11 @@
 				onkeyup='checkPassword();'>
 			<!-- <i class="bi bi-eye-slash" name="togglePassword" onclick='revealPasswordButtonRegisterPage();'></i> -->
 			<!-- </div> -->
-			<button onclick='register()'>Register</button>
+			<div class="register-button-row">
+				<button onclick='register()'>Register</button>
+				<p class="register-error-message" id="register-error-message">Couldn't create your account.<br> Please
+					retry.</p>
+			</div>
 
 			<p>Already have an account? <a href="login.html">Log in!</a></p>
 		</div>

@@ -52,6 +52,19 @@
 	animation: wawes 9s infinite;
 }
 
+.username-field{
+	display: flex;
+	flex-direction: column;
+}
+.username-taken-popup{
+	display: none;
+	margin: -0.5em 0em 1em 0em;
+}
+.username-invalid-popup{
+	display: none;
+	margin: -0.5em 0em 1em 0em;
+}
+
 input {
 	font-weight: 600;
 
@@ -63,7 +76,7 @@ input {
 	/* background: white; */
 	width: 22.5em;
 	/* width: 100%; */
-	height: 100%;
+	height: 1.2em;
 	padding: 12px 20px;
 	margin: 0.5em 0em 1em 0em;
 	opacity: 0.8;
@@ -85,22 +98,35 @@ input {
 	opacity: 0.8;
 }
 
-.register>button {
-
+button {
 	cursor: pointer;
 	color: #fff;
 	font-size: 16px;
 
 	text-transform: uppercase;
-	width: 120px;
+	width: 7em;
 	border: 0;
 	padding: 10px 0;
-	margin-top: 10px;
+	/* margin-top: 10px; */
+	height: 2.5em;
 
 	border-radius: 5px;
 	background-color: #f45b69;
 
 	transition: background-color 300ms;
+}
+
+.register-button-row{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+}
+.register-error-message{
+	display: none;
+	margin: 0em 1em;
+	color: red;
+	font-weight: 700;
 }
 
 .register>button:hover {
