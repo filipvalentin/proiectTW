@@ -1,12 +1,5 @@
-// const form = document.querySelector("register");
-// eInput = form.querySelector("input");
-// text = form.querySelector("emailcheck");
 
-// form.addEventListener("submit", (e)=>{
-// 	e.preventDefault();
-// 	let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-// 	form.classList.add("error")
-// })
+
 
 function checkPassword() {
 	var password = document.getElementById("password").value;
@@ -131,43 +124,8 @@ function validateRegistration() {
 
 }
 
-function register() {
 
-	var http = new XMLHttpRequest();
-	const url = "register.php";
 
-	const username = document.getElementById("username").value;
-	const email = document.getElementById("username").value;
-	const password = document.getElementById("password").value;
-	const role = document.getElementById("role").value;
-
-	http.open('POST', url, true);
-
-	//Send the proper header information along with the request
-	http.setRequestHeader('Content-Type', 'application/json');
-	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
-	const data = {
-		username: username,
-		email: email,
-		role: role,
-		password: password //asuming we use HTTPS
-	};
-
-	const json = JSON.stringify(data);
-
-	http.onreadystatechange = function () {//Call a function when the state changes.
-		if (http.readyState == 4 && http.status == 200) {
-			alert(http.responseText);
-		}
-		if (http.readyState == 4 && http.status == 403) {
-			document.getElementById("register-error-message").style.display = "block";
-		}
-
-	}
-
-	http.send(json);
-}
 
 
 //nu stiu ce fac
@@ -182,29 +140,47 @@ passwordField.addEventListener('focusout', function (event) {
 	popup.style.display = "none";
 });
 
+
+
+
+
+
+// USERNAME CHECKING
+
+
+var typingTimer;                //timer identifier
+var doneTypingInterval = 200;  //time in ms
+var usernameInputField = document.getElementById('username');
+
+//on keyup, start the countdown
+usernameInputField.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (usernameInputField.value) {
+        typingTimer = setTimeout(checkUsername, doneTypingInterval);
+    }
+});
+
+
+
 var global_isValidUsername = false;
 
+const MAX_USERNAME_LENGTH = 35;
 
 function checkUsername() {
-	var usernameInputField = document.getElementById("username");
 	var username = usernameInputField.value;
 
 	var regexPattern = /([a-zA-Z_0-9]+)/;
 	var forbiddenCharsRegex = /[\!\@\#\$\%\^\&\*\(\)\-\=+\[\]\;\'\,\.\/\{\}\:\"\|\<\>\?\"]/
-	var isValidUsername = regexPattern.test(username) && !/ /.test(username) && !forbiddenCharsRegex.test(username);
+	var isValidUsername = regexPattern.test(username)
+		&& !/ /.test(username)
+		&& !forbiddenCharsRegex.test(username)
+		&& username.length <= MAX_USERNAME_LENGTH;
 
 	if (username == "") {
-		usernameInputField.className="";
+		usernameInputField.className = "";
 		global_isValidUsername = false;
 		return;
 	}
-	// if(/ /.test(username)){
-	// 	usernameInputField.className = "";
-	// 	usernameInputField.classList.add("requirement-item-wrong");
-	// 	global_isValidUsername = false;
-	// 	return;
-	// }
-
 
 	var http = new XMLHttpRequest();
 
@@ -229,21 +205,30 @@ function checkUsername() {
 function handleTakenUsernamePopup(usernameTaken, isValidUsername) {
 
 	var usernameInputField = document.getElementById("username");
-	var usernameTakenpopup = document.getElementById("username-taken-popup");
-	var usernameInvalidpopup = document.getElementById("username-invalid-popup");
+	var usernameTakenPopup = document.getElementById("username-taken-popup");
+	var usernameInvalidPopup = document.getElementById("username-invalid-popup");
+	var usernameInvalidLengthPopup = document.getElementById("username-invalid-length-popup");
+
+
 	if (isValidUsername == true) {
-		usernameInvalidpopup.style.display = "none";
+		usernameInvalidPopup.style.display = "none";
+		usernameInvalidLengthPopup.style.display = "none";
 
 		if (usernameTaken == 0) {
-			usernameTakenpopup.style.display = "none";
+			usernameTakenPopup.style.display = "none";
 		}
 		else {
-			usernameTakenpopup.style.display = "block";
+			usernameTakenPopup.style.display = "block";
 		}
-	
+
 	}
 	else {
-		usernameInvalidpopup.style.display = "block";
+		if (usernameInputField.value.length >= MAX_USERNAME_LENGTH) {
+			usernameInvalidLengthPopup.style.display = "block";
+		}
+		else {
+			usernameInvalidPopup.style.display = "block";
+		}
 	}
 
 	if (usernameTaken == 1 || isValidUsername == false) {
@@ -258,4 +243,68 @@ function handleTakenUsernamePopup(usernameTaken, isValidUsername) {
 	}
 
 
+}
+
+
+
+
+
+
+
+
+
+
+function register(){
+
+	var regErrMsgInvalidData = document.getElementById("register-error-message-invalid-data");
+	regErrMsgInvalidData.style.display = "none";
+	//check other locally done checks before proceeding
+	if(global_isValidUsername && checkPassword()){
+		sendRegisterRequest();
+	}
+	else{
+		regErrMsgInvalidData.style.display = "block";
+	}
+}
+
+// function checkValidData(){
+// 	return ;
+// }
+
+function sendRegisterRequest() {
+
+	var http = new XMLHttpRequest();
+	const url = "register.php";
+
+	const username = document.getElementById("username").value;
+	const email = document.getElementById("email").value;
+	const password = document.getElementById("password").value;
+	const role = document.getElementById("role").value;
+
+	http.open('POST', url, true);
+
+	//Send the proper header information along with the request
+	http.setRequestHeader('Content-Type', 'application/json');
+	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+	const data = {
+		username: username,
+		email: email,
+		role: role,
+		password: password //asuming we use HTTPS
+	};
+
+	const json = JSON.stringify(data);
+
+	http.onreadystatechange = function () {//Call a function when the state changes.
+		if (http.readyState == 4 && http.status == 200) {
+			// alert(http.responseText);
+		}
+		if (http.readyState == 4 && http.status == 403) {
+			document.getElementById("register-error-message").style.display = "block";
+		}
+
+	}
+
+	http.send(json);
 }

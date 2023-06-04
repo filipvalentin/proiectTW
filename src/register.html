@@ -33,10 +33,11 @@
 		<div class="register">
 			<label>Username</label>
 			<div class="username-field">
-				<input type="text" placeholder="Username" id="username" onkeyup="checkUsername()">
+				<input type="text" placeholder="Username" id="username" >
 				<item class="username-taken-popup" id="username-taken-popup">Sorry, this username is already taken
 				</item>
 				<item class="username-invalid-popup" id="username-invalid-popup">Invalid username.</item>
+				<item class="username-invalid-popup" id="username-invalid-length-popup">This username is too long!</item>
 			</div>
 			<label>Email</label>
 			<input type="email" class="email" placeholder="Email" id="email">
@@ -50,7 +51,7 @@
 			<div class="password-div">
 				<input type="password" placeholder="Password" value="" required id="password" onkeyup="checkPassword()"
 					onfocus="displayPasswordStrengthPopup()">
-				<i class="reveal-password-button bi bi-eye-slash" name="togglePassword"
+				<i class="reveal-password-button bi bi-eye-slash" name="togglePassword" id="togglePassword"
 					onclick="revealPasswordButtonRegisterPage()"></i>
 			</div>
 			<div class="password-strength-popup" id="password-strength-popup">
@@ -69,6 +70,7 @@
 				<button onclick='register()'>Register</button>
 				<p class="register-error-message" id="register-error-message">Couldn't create your account.<br> Please
 					retry.</p>
+				<p class="register-error-message" id="register-error-message-invalid-data">Invalid data. Please verify your inputs.</p>
 			</div>
 
 			<p>Already have an account? <a href="login.html">Log in!</a></p>
