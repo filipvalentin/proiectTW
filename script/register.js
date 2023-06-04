@@ -158,6 +158,10 @@ usernameInputField.addEventListener('keyup', () => {
     if (usernameInputField.value) {
         typingTimer = setTimeout(checkUsername, doneTypingInterval);
     }
+	else{
+		usernameInputField.className = "";
+		global_isValidUsername = false;
+	}
 });
 
 
@@ -234,12 +238,12 @@ function handleTakenUsernamePopup(usernameTaken, isValidUsername) {
 	if (usernameTaken == 1 || isValidUsername == false) {
 		usernameInputField.classList.remove("requirement-item-correct");
 		usernameInputField.classList.add("requirement-item-wrong");
-		global_isValidUsername = true;
+		global_isValidUsername = false;
 	}
 	else {
 		usernameInputField.classList.remove("requirement-item-wrong");
 		usernameInputField.classList.add("requirement-item-correct");
-		global_isValidUsername = false;
+		global_isValidUsername = true;
 	}
 
 
@@ -259,6 +263,9 @@ function register(){
 	var regErrMsgInvalidData = document.getElementById("register-error-message-invalid-data");
 	regErrMsgInvalidData.style.display = "none";
 	//check other locally done checks before proceeding
+
+	console.log(global_isValidUsername +" "+checkPassword())
+
 	if(global_isValidUsername && checkPassword()){
 		sendRegisterRequest();
 	}
@@ -299,6 +306,7 @@ function sendRegisterRequest() {
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
 			// alert(http.responseText);
+			console.log(http.responseText)
 		}
 		if (http.readyState == 4 && http.status == 403) {
 			document.getElementById("register-error-message").style.display = "block";

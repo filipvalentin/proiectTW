@@ -32,11 +32,13 @@ if ($checkUsername->fetchColumn() == 1) { //daca a gasit emailul => fail direct
 }
 
 
-$stm = $db->prepare("INSERT INTO users VALUES (?,?,?,?)");
-$stm->bindValue(1, $username);
-$stm->bindValue(2, $email);
-$stm->bindValue(3, $role);
-$stm->bindValue(4, $password_hash);
+
+$stm = $db->prepare("INSERT INTO users VALUES (?,?,?,?,?)");
+$stm->bindValue(1, uniqid());
+$stm->bindValue(2, $username);
+$stm->bindValue(3, $email);
+$stm->bindValue(4, $role);
+$stm->bindValue(5, $password_hash);
 
 $res = $stm->execute();
 
