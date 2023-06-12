@@ -264,8 +264,6 @@ function register(){
 	regErrMsgInvalidData.style.display = "none";
 	//check other locally done checks before proceeding
 
-	console.log(global_isValidUsername +" "+checkPassword())
-
 	if(global_isValidUsername && checkPassword()){
 		sendRegisterRequest();
 	}
@@ -305,8 +303,11 @@ function sendRegisterRequest() {
 
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
-			// alert(http.responseText);
-			console.log(http.responseText)
+						
+			sendAuthRequest(email, password);
+
+			window.location.replace("home.html");//profil!
+
 		}
 		if (http.readyState == 4 && http.status == 403) {
 			document.getElementById("register-error-message").style.display = "block";

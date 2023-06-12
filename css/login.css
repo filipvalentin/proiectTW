@@ -74,12 +74,12 @@ input {
 	opacity: 0.8;
 }
 
-.login>button {
+button {
 	/* width: 100px; */
 	width: auto;
 	border: 0;
-	padding: 0.5em 1em;
-	margin-top: 10px;
+	padding: 0.7em 1em;
+	/* margin-top: 10px; */
 	border-radius: 5px;
 
 	font-size: 16px;
@@ -91,17 +91,30 @@ input {
 	transition: background-color 300ms;
 }
 
-.login>button:hover {
+button:hover {
 	background-color: #f24353;
 	opacity: 1;
 }
 
 
-
-.register>a {
+a {
 	opacity: 1;
 	text-decoration: none;
 	color: rgb(255, 0, 89);
+}
+
+.login-button-row{
+	display: flex;
+	flex-direction: row;
+	
+}
+
+.login-error-message{
+	display: none;
+	margin: 0em 1em;
+	align-self: center;
+	color: red;
+	font-weight: 600;
 }
 
 @keyframes wawes {
@@ -120,7 +133,7 @@ input {
 		width: 70vw;
 	}
 
-	.login>input {
+	input {
 		width: 60vw;
 		/* width: 16em; */
 	}
