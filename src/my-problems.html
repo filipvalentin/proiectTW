@@ -3,6 +3,10 @@
 <head>
 	<!-- <script type="text/javascript" async src="../script/parse-jwt.js"></script>
 	<script type="text/javascript" async src="../script/require-teacher.js"></script> -->
+	<script type="text/javascript" src="../script/retrieve-problems.js"></script>	
+	<script type="text/javascript" src="../script/retrieve-problems-pages.js"></script>
+	<script type="text/javascript" src="../script/retrieve-first-problems.js"></script>
+
 
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,10 +44,11 @@
 			-->
 			<p class="filter">Filter</p>
 			<div class="search-by-word">
-				<p>Search by title or description</p>
-				<input placeholder="Type words">
+				<p class="label">Search by title or description</p>
+				<input class="custom-input" placeholder="Type words">
 			</div>
 			<div class="tag">
+				<p class="label">Difficulty</p>
 				<form class="tag-1">
 					<div class="dificultate">
 						<input class="hidden" id="chk1" type="checkbox">
@@ -62,21 +67,19 @@
 						</label>
 					</div>
 				</form>
-				<form action="">
-					<span>Tags </span>
-					<div class="search-tag">
-
-						<input type="text" name="cuvinte" placeholder="Type tags">
-					</div>
-				</form>
 			</div>
-			<div class="date">
-				<form class="date-form">
-					<span>Start</span>
-					<input type="date" name="data-inceput">
-					<span>End</span>
-					<input type="date" name="data-final">
-				</form>
+			<div class="tags">
+				<p class="label">Tags</p>
+				<input type="text" placeholder="Type tags" class="custom-input">
+			</div>
+			<div class="dates-selectors">
+				<p class="label">Starting with</p>
+				<input type="date" id="start-date" class="custom-input date-selector">
+				<p class="label">Ending to</p>
+				<input type="date" id="end-date" class="custom-input date-selector">
+			</div>
+			<div class="apply-filters-button-wrapper">
+				<button class="apply-filters-button">Search with the applied filters</button>
 			</div>
 
 		</div>
@@ -87,67 +90,45 @@
 				<button class="section-save-button" onclick="location.href = 'add-problem.html'">Submit new
 					problem</button>
 			</div>
-			<div class="section-main">
-				<div class="homework">
+			<div class="section-main" id="problem-list">
+				<!-- <div class="problem" id="33">
 					<div class="header">
-						<p class="homework-title">Problem 1</p>
-						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View
+						<p id="p33t" class="problem-title">Problem 1</p>
+						<difficulty id="p33d" class="difficulty difficulty-easy">EASY</difficulty>
+						 <difficulty>E</difficulty>
+						<difficulty>E</difficulty>
+						<div class="tags-div">
+							<p>Tags:</p>
+							<p id="p33tg">tag1, tag2, tag3</p>
+						</div>
+						<button class="view-problem-button" onclick="location.href = 'view-problem.html?problem=33';">View
 							problem</button>
 					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<!-- <div class="homework">
-					<div class="header">
-						<p class="homework-title">Problem 2</p>
-						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View problem</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Problem 3</p>
-						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View problem</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Problem 4</p>
-						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View problem</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Problem 5</p>
-						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View problem</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+					<div id="p33d" class="description">
+						<p class="problem-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
 							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
 						</p>
 					</div>
 				</div> -->
+
+
+				<template id="problem-template">
+					<div class="problem">
+						<div class="header">
+							<p id="problem-title" class="problem-title"></p>
+							<dl id="problem-difficulty" class="difficulty"></dl>
+							<div class="tags-div">
+								<p>Tags:</p>
+								<p id="problem-tags"></p>
+							</div>
+							<button class="view-problem-button" id="problem-view-button">View problem</button>
+						</div>
+						<div class="description">
+							<p class="problem-description" id="problem-description"></p>
+						</div>
+					</div>
+				</template>
+
 
 				<div class="navigation-buttons">
 					<button>&lt;</button>
@@ -161,7 +142,6 @@
 		</div>
 
 	</main>
-
 
 	<script type="text/javascript" src="../script/my-problems.js"></script>
 </body>
