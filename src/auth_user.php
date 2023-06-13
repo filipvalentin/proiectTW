@@ -1,5 +1,5 @@
 <?php
-require_once("E:\\twlab\\xampp\\php\\vendor\\autoload.php");//TODO 
+require_once("E:\\twlab\\xampp\\php\\vendor\\autoload.php"); //todo
 use Firebase\JWT\JWT;
 
 $response = json_decode(file_get_contents('php://input'), true);
@@ -40,7 +40,6 @@ if (password_verify($response['password'], $rows[0][1]))
 
     $jwt = JWT::encode($payload, $key, 'HS256');
 	
-
     echo $jwt;
 } else {
     http_response_code(401);

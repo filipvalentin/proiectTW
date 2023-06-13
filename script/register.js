@@ -306,7 +306,7 @@ function sendRegisterRequest() {
 						
 			sendAuthRequest(email, password);
 
-			window.location.replace("home.html");//profil!
+			window.location.href = "/home.html/";//profil!
 
 		}
 		if (http.readyState == 4 && http.status == 403) {

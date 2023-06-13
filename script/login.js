@@ -4,18 +4,17 @@ function login() {
 	var password = document.getElementById("password").value;
 
 	if (email && password) {
-		if (sendAuthRequest(email, password) == false) {
-			document.getElementById("login-error-message").style.display = "block";
-		}
-		else {
-			
-			window.location.replace("home.html");
-		}
+		sendAuthRequest(
+			email,
+			password,
+			() => { window.location.assign("home.html"); },
+			() => { document.getElementById("login-error-message").style.display = "block"; }
+		);
 	}
 }
 
 //autorizarea este deocamdata pe 7 zile
-function sendAuthRequest(email, password) {
+function sendAuthRequest(email, password, funcOnSucess, funcOnFail) {
 
 	var http = new XMLHttpRequest();
 
@@ -34,11 +33,11 @@ function sendAuthRequest(email, password) {
 
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
-			localStorage.setItem("JWTTOKEN", http.responseText);
-			return true;
+			localStorage.setItem("JWT", http.responseText);
+			funcOnSucess();
 		}
 		if (http.readyState == 4 && http.status == 401) {
-			return false;
+			funcOnFail();
 		}
 
 	}
