@@ -1,122 +1,164 @@
-
-.complete-form{
-    display: flex;
-    flex-direction: column;
+/* .main{
+	display: grid;
+	justify-content: center;
+} */
+.submit-form {
+	display: grid;
+	grid-template-areas: "title-header title-header"
+		"form-specs right-pane-textarea";
+	grid-template-columns: 2fr 3fr;
 	border-radius: 5px;
 	overflow: hidden;
-    flex-wrap: wrap;
-    margin: 2em auto auto auto;
-    margin-bottom: 2em;
-    max-width: 50em;
-    align-self: center;
-    min-width: 300px;
+	/* flex-wrap: wrap; */
+	margin: 1em auto auto auto;
+	/* width: 70em; */
+	max-width: 70em;
+
+	margin-bottom: 2em;
+	align-self: center;
+
+	background-color: #ada2d675;
 }
 
-.about-problem{
-    display: flex;
-    flex-direction: column;
+.about-problem {
+	display: flex;
+	flex-direction: column;
 }
 
-textarea{
-    resize: none;
-    width: 100%;
-    min-height: 6em;
-    font-family: 'Asap';
-    font-size: 1.0em;
+
+.check {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Asap';
+	background-color: #e6e4d8;
+	margin-bottom: 1.2em;
+	border-radius: 5px;
+	padding: 1em;
 }
 
-.check{
-    display: flex;
-    flex-direction: column;
-    font-family: 'Asap';
-    background-color: #e6e4d8;
-    margin-bottom: 1.2em;
-    border-radius: 5px;
-    padding: 1em;
+.check>select {
+	width: 100%;
+	min-height: 1.5em;
+	font-size: 1em;
+	/* font-family: 'Asap'; */
 }
 
-.check >select{
-    width: 100%;
-    min-height: 1.5em;
-    font-size: 1.2em;
-    font-family: 'Asap';
+.title-header {
+	grid-area: title-header;
+
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+
+	background-color: #5a7a7b;
+
 }
 
-.Titlu{
-    margin-top: 0;
-    /* margin-bottom: 1em;
-	padding: 0.75em; */
-    background-color: #5a7a7b;
-    /* //#292c2ff9; */
+.title {
+	margin-left: 1em;
+	font-size: 1.2em;
+	color: white;
 }
 
-.title{
-    float: left;
-    margin-left: 1em;
+.submit-problem-button {
 
-    font-size: 1.4em;
+	justify-self: right;
+	margin-right: 1em;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+	border:none;
+	font-size: 1.1em;
+	text-align: center;
 
-    color: white;
+	color: white;
+	background-color: #f45b69;
+	transition: background-color 300ms;
+
+	cursor: pointer;
+	text-decoration: none;
 }
 
-.form{
-    background-color:#ada2d675;
-    padding: 2em;
+.submit-problem-button:hover {
+	background-color: #f24353;
 }
 
-.spec >.text-form{
-    font-size: 1.2em;
-    font-family: 'Asap';
-    width:100%;
-    height: 1.5em;
-    padding: 0.1em;
+
+.form-specs {
+	grid-area: form-specs;
+
+	padding: 1em;
 }
 
-.specification{
-    margin: 0em;
-    padding-bottom: 1em;
-    font-size: 1.2em;
+.form-input {
+	font-size: 1em;
+	font-family: 'Asap';
+	width: 100%;
+	height: 1.5em;
+	padding: 0.1em;
 }
 
-.spec{
-    background-color: #e7e3e3;
-    border-radius: 5px;
-    padding: 1em;
-    margin-bottom: 1.2em;
+.specification {
+	margin: 0em;
+	padding-bottom: 0.5em;
+	font-size: 1.1em;
 }
 
-.textarea-form{
-    background-color: #e7e3e3;
-    border-radius: 5px;
-    padding: 1em;
-}
-.redirect{
-    float: right;
-
-    margin: 0.8em;
-    padding: 0.6em;
-    border-radius: 5px;
-
-    font-size: 1.1em;
-    text-align: center;
-
-    color: white;
-    background-color: #f45b69;
-    transition: background-color 300ms;
-
-    cursor: pointer;
-    text-decoration: none;
+.spec {
+	background-color: #e7e3e3;
+	border-radius: 5px;
+	padding: 1em;
+	margin-bottom: 1em;
 }
 
-.redirect:hover{
-    background-color: #f24353;
+.textarea-form {
+	background-color: #e7e3e3;
+	border-radius: 5px;
+	padding: 1em;
 }
+
+.problem-textarea {
+	width: 100%;
+	resize: vertical;
+	min-height: 14.6em;
+
+	font-family: 'Asap';
+	font-size: 1.0em;
+}
+
+
+
+.right-pane-textarea {
+	grid-area: right-pane-textarea;
+	margin: 1em 1em 1em 0em;
+
+}
+
 
 @media only screen and (max-width: 55em) {
-	.complete-form {
+	/* .submit-form {
 		min-width: none;
 		width: auto;
         font-size: auto;
 		margin: 2em;
+	} */
+}
+
+@media (max-width: 72em) {
+	.submit-form {
+		/* width: unset; */
+		margin: 1em;
+	}
+}
+
+@media (max-width: 45em) {
+	.submit-form {
+		grid-template-areas: "title-header"
+			"form-specs"
+			"right-pane-textarea";
+		grid-template-columns: none;
+	}
+
+	.right-pane-textarea {
+		margin: -1em 1em 1em 1em;
 	}
 }

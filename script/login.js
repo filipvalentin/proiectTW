@@ -13,7 +13,7 @@ function login() {
 	}
 }
 
-//autorizarea este deocamdata pe 7 zile
+
 function sendAuthRequest(email, password, funcOnSucess, funcOnFail) {
 
 	var http = new XMLHttpRequest();

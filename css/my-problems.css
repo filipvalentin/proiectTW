@@ -146,13 +146,14 @@
 
     font-size: 1.1em;
     text-align: center;
-
+	border: none;
     color: white;
     background-color: #f45b69;
     transition: background-color 300ms;
 
     cursor: pointer;
-    text-decoration: none;
+
+	outline: 0;
 }
 
 .section-save-button:hover {
@@ -237,7 +238,7 @@
     background-color: #1a494a;
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 45em) {
     .class-admin {
         flex-direction: column;
         height: fit-content;

@@ -25,36 +25,40 @@
 	</nav>
 
 	<main class="main">
-		<div class="complete-form">
-			<div class="about-problem">
-				<div class="Titlu">
-					<p class="title">Submit new problem</p>
-					<a class="redirect" href="problem.html">Submit</a>
+		<div class="submit-form">
+			<div class="title-header">
+				<p class="title">Submit a new problem</p>
+				<button class="submit-problem-button" href="problem.html" onclick="sendRequest()">Submit</button>
+			</div>
+			<div class="form-specs">
+				<div class="spec">
+					<p class="specification">Title</p>
+					<input class="form-input" type="text" placeholder="The sumarry of the problem" required id="title">
 				</div>
-				<div class="form"> 
-					<div class="spec">
-						<p class="specification">Title</p>
-						<input class="text-form" type="text" placeholder="Write the title of problem" required>
-					</div>
-					<div class="check">
-						<p class="specification">Difficulty</p>
-						<select name="difficulty" id="dif" required>
-							<option value="EASY">EASY</option>
-							<option value="MEDIUM">MEDIUM</option>
-							<option value="HARD">HARD</option>
-						</select>
-					</div>
-					<div class="spec">
-						<p class="specification">Tags</p>
-						<input class="text-form" type="text" placeholder="Write some tags" required>
-					</div>
-					<div class="textarea-form">
-						<p class="specification">Body</p>
-						<textarea name="Problema" id="" placeholder="Write the specification of problem" required></textarea>
-					</div>
+				<div class="check">
+					<p class="specification">Difficulty</p>
+					<select name="difficulty" id="difficulty" required>
+						<option value="EASY">EASY</option>
+						<option value="MEDIUM">MEDIUM</option>
+						<option value="HARD">HARD</option>
+					</select>
+				</div>
+				<div class="spec">
+					<p class="specification">Tags</p>
+					<input class="form-input" type="text" placeholder="Write some tags" required id="tags">
+				</div>
+
+			</div>
+			<div class="right-pane-textarea">
+				<div class="textarea-form">
+					<p class="specification">Description</p>
+					<textarea name="problem-textarea" id="description" placeholder="Write the description of the problem"
+						required class="problem-textarea"></textarea>
 				</div>
 			</div>
 		</div>
+
+		<script type="text/javascript" src="../script/add-problem.js"></script>
 	</main>
 </body>
 

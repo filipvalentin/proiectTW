@@ -1,6 +1,9 @@
 <html lang="en">
 
 <head>
+	<!-- <script type="text/javascript" async src="../script/parse-jwt.js"></script>
+	<script type="text/javascript" async src="../script/require-teacher.js"></script> -->
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,10 +39,9 @@
 			Setari generale clasa?
 			-->
 			<p class="filter">Filter</p>
-			<div class="search-bar">
-				<!-- https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg -->
-				<img class="image" src="../resources/256px-Magnifying_glass_icon.svg.png" alt="magnifying glass icon">
-				<input class="search-input">
+			<div class="search-by-word">
+				<p>Search by title or description</p>
+				<input placeholder="Type words">
 			</div>
 			<div class="tag">
 				<form class="tag-1">
@@ -61,17 +63,18 @@
 					</div>
 				</form>
 				<form action="">
+					<span>Tags </span>
 					<div class="search-tag">
+
 						<input type="text" name="cuvinte" placeholder="Type tags">
-						<input type="submit" name="Search" id="">
 					</div>
 				</form>
 			</div>
 			<div class="date">
 				<form class="date-form">
-					<span>Start:</span>
+					<span>Start</span>
 					<input type="date" name="data-inceput">
-					<span>End:</span>
+					<span>End</span>
 					<input type="date" name="data-final">
 				</form>
 			</div>
@@ -81,13 +84,15 @@
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Problems</p>
-				<a class="section-save-button" href="add-problem.html">Submit new problem</a>
+				<button class="section-save-button" onclick="location.href = 'add-problem.html'">Submit new
+					problem</button>
 			</div>
 			<div class="section-main">
 				<div class="homework">
 					<div class="header">
 						<p class="homework-title">Problem 1</p>
-						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View problem</button>
+						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View
+							problem</button>
 					</div>
 					<div class="description">
 						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
@@ -96,7 +101,7 @@
 					</div>
 				</div>
 
-				<div class="homework">
+				<!-- <div class="homework">
 					<div class="header">
 						<p class="homework-title">Problem 2</p>
 						<button class="view-homework-button" onclick="location.href = 'view-problem.html';">View problem</button>
@@ -142,13 +147,12 @@
 							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
 						</p>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="navigation-buttons">
 					<button>&lt;</button>
 					<div class="button-list">
 						<button>1</button>
-						<button>2</button>
 					</div>
 					<button>&gt;</button>
 				</div>
@@ -157,6 +161,9 @@
 		</div>
 
 	</main>
+
+
+	<script type="text/javascript" src="../script/my-problems.js"></script>
 </body>
 
 </html>
