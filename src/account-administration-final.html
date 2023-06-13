@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Administration</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/account-administration.css">
+    <link rel="stylesheet" href="../css/top-navbar.css">
+</head>
+
+<body>
+
+    <nav class="top-navbar">
+        <div>
+            <a class="active" href="my-classes-student-view.html">My classes</a>
+        </div>
+
+        <div class="navbar-right">
+            <a href="account-administration-student-view.html">My account</a>
+        </div>
+    </nav>
+
+    <main class="main account-admin-main">
+        <div class="sidepanel">
+            <div class="main_focus">
+                <img class="picture" src="../resources/Sample_User_Icon.png">
+            </div>
+        </div>
+
+        <div class="settings-area">
+
+            <div class="modify">
+                <h3>Change e-mail</h3>
+                <form class="forms" onsubmit="return false">
+                    <input type="email" placeholder="Current e-mail" id="currentEmail" required>
+                    <div id="error-email" class="error">
+                        <p>This e-mail isn't account e-mail.</p>
+                    </div>
+                    <input type="email" placeholder="New e-mail" id="newEmail" required>
+                    <div id="taken-email" class="error">
+                        <p>This e-mail is used by another account.</p>
+                    </div>
+                    <input type="email" placeholder="Confirm e-mail" id="confirmationEmail" required>
+                    <div id="isnt-email" class="error">
+                        <p>Please, write the correct e-mail.</p>
+                    </div>
+                    <div class="button">
+                        <button onclick="changeEmail()">Change e-mail</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modify">
+                <h3>Change password</h3>
+                <form class="forms">
+                    <input type="password" placeholder="Current password" required>
+                    <input type="password" placeholder="New password" required>
+                    <input type="password" placeholder="Confirm email" required>
+                    <div class="button">
+                        <button>Change password</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modify">
+                <h3>Profile preferences</h3>
+                <div class="mod-profil">
+                    <div class="form_2">
+                        <form class="forms">
+                            <input type="text" placeholder="Username">
+                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Your high school">
+                            <input type="date" placeholder="Birthday">
+                            <select name="option">
+                                <option value="" disabled selected>Select your gender</option>
+                                <option value="Masculin">Male</option>
+                                <option value="Feminin">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <p>About me</p>
+                            <textarea></textarea>
+
+                        </form>
+                    </div>
+                    <form class="selection">
+                        <input type="checkbox" name="afisare_nastere" id="nastere">
+                        <label for="nastere">I would like my birthday to be visible</label><br>
+                        <input type="checkbox" name="afisare_institutie" id="institutie">
+                        <label for="institutie">I would like to make my high shool visible.</label><br>
+                        <input type="checkbox" name="afisare_gen" id="gen">
+                        <label for="institutie">I would like to make my gender visible</label><br>
+                    </form>
+                    <div class="button">
+                        <button class="preferences-button">Save profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<script type="text/javascript" src="../script/changeEmailFormular.js"></script>
+
+</html>
