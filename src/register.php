@@ -8,6 +8,7 @@ $role = $response['role'];
 
 $password_hash = password_hash($response['password'], PASSWORD_DEFAULT);
 
+$currentDate = date('Y-m-d');
 
 
 $db = new PDO("mysql:host=localhost;dbname=project", 'root', '');
@@ -32,14 +33,19 @@ if ($checkUsername->fetchColumn() == 1) { //daca a gasit emailul => fail direct
 }
 
 
-
-$stm = $db->prepare("INSERT INTO users VALUES (?,?,?,?,?)");
-$stm->bindValue(1, uniqid());
+$uniqueId = uniqid();
+$stm = $db->prepare("INSERT INTO users VALUES (?,?,?,?,?,?)");
+$stm->bindValue(1, $uniqueId);
 $stm->bindValue(2, $username);
 $stm->bindValue(3, $email);
 $stm->bindValue(4, $role);
 $stm->bindValue(5, $password_hash);
+$stm->bindValue(6, $currentDate);
 
+$res = $stm->execute();
+
+$stm = $db->prepare("INSERT INTO info_users (id_user) VALUES (?)");
+$stm->bindValue(1, $uniqueId);
 $res = $stm->execute();
 
 http_response_code(200);
