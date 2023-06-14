@@ -6,7 +6,22 @@ function changePassword() {
     document.getElementById('failed-passwd-spec-char').style.display = "none";
     document.getElementById('failed-passwd-small-letter').style.display = "none";
     document.getElementById('conf-passwd').style.display = "none";
-    isUserPassword();
+    document.getElementById('empty-passwd').style.display = "none";
+    document.getElementById('empty2-passwd').style.display = "none";
+    document.getElementById('empty3-passwd').style.display = "none";
+    
+    if(document.getElementById('currentPassword').value==''){
+        document.getElementById('empty-passwd').style.display = "block";
+    }
+    if(document.getElementById('newPassword').value==''){
+        document.getElementById('empty2-passwd').style.display = "block";
+    }
+    if(document.getElementById('confirmPassword').value==''){
+        document.getElementById('empty3-passwd').style.display = "block";
+    }
+    if(document.getElementById('currentPassword').value !='' && document.getElementById('newPassword').value !='' && document.getElementById('confirmPassword').value !=''){
+        isUserPassword();
+    }
 }
 
 function isUserPassword() {
