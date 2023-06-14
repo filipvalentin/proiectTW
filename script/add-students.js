@@ -3,17 +3,16 @@ function addStudents() {
 
 	var usersToAdd = new Array();
 	document.getElementById("users-input").value
-	.split("\n").forEach(e=>{
-		e.split(",").forEach(element => {
-		element.split(" ").forEach(k=>{
-			if(k){
-				usersToAdd.push(k);
-			}
-		})
-		
-	});
-	})
-	
+		.split("\n").forEach(e => {
+			e.split(",").forEach(element => {
+				element.split(" ").forEach(k => {
+					if (k) {
+						usersToAdd.push(k);
+					}
+				});
+			});
+		});
+
 	// console.log(usersToAdd);
 
 	var http = new XMLHttpRequest();
@@ -38,7 +37,7 @@ function addStudents() {
 
 			// console.log(http.responseText);
 
-			window.location.assign("class-admin-students.html?id="+id);
+			window.location.assign("class-admin-students.html?id=" + id);
 		}
 		if (http.readyState == 4 && http.status == 401) {
 

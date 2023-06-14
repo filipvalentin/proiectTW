@@ -34,7 +34,8 @@ if ($checkUsername->fetchColumn() == 1) { //daca a gasit emailul => fail direct
 
 
 $uniqueId = uniqid();
-$stm = $db->prepare("INSERT INTO users VALUES (?,?,?,?,?,?)");
+
+$stm = $db->prepare("INSERT INTO users (user_id, username, email, role, password, creation_date) VALUES (?,?,?,?,?,?)");
 $stm->bindValue(1, $uniqueId);
 $stm->bindValue(2, $username);
 $stm->bindValue(3, $email);
@@ -44,8 +45,10 @@ $stm->bindValue(6, $currentDate);
 
 $res = $stm->execute();
 
-$stm = $db->prepare("INSERT INTO info_users (id_user) VALUES (?)");
-$stm->bindValue(1, $uniqueId);
-$res = $stm->execute();
+//todo cand facem merge
+
+// $stm = $db->prepare("INSERT INTO info_users (id_user) VALUES (?)");
+// $stm->bindValue(1, $uniqueId);
+// $res = $stm->execute();
 
 http_response_code(200);

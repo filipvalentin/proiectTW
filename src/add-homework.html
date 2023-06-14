@@ -36,35 +36,10 @@
 				<div class="problem-section">
 					<div class="custom-problems-section">
 						<div id="custom-problems-list">
-							<!-- <div class="custom-problem" id="custom-problem">
-								<div class="custom-problem-title">
-									<p class="cpt-title">Title</p>
-									<input type="text" class="new-problem-title" id="new-problem-title">
-								</div>
-								<div class="custom-problem-tags" id="custom-problem-tags">
-									<p class="cpt-title">Tags</p>
-									<input type="text" class="new-problem-tags" id="new-problem-tags">
-								</div>
-								<div class="custom-problem-difficulty">
-									<p class="cpt-title">Difficulty</p>
-									<select class="cp-d-selector" id="custom-problem-difficulty-selector" required>
-										<option>EASY</option>
-										<option>MEDIUM</option>
-										<option>HARD</option>
-									</select>
-								</div>
-								<div class="problem-content">
-									<p>Description</p>
-									<textarea class="description-input" id="new-problem-description"></textarea>
-								</div>
-								<div class="problem-discard">
-									<button class="npd-button" id="new-problem-discard-button">Discard</button>
-								</div>
-							</div> -->
 						</div>
 
 						<template id="custom-problem-template">
-							<div class="custom-problem" id="custom-problem">
+							<div class="custom-problem" id="custom-problem-id">
 								<div class="custom-problem-title">
 									<p class="cpt-title">Title</p>
 									<input type="text" class="new-problem-title" id="new-problem-title">
@@ -75,7 +50,7 @@
 								</div>
 								<div class="custom-problem-difficulty">
 									<p class="cpt-title">Difficulty</p>
-									<select class="cp-d-selector" id="custom-problem-difficulty-selector" required>
+									<select class="cp-d-selector" id="new-problem-difficulty-selector" required>
 										<option>EASY</option>
 										<option>MEDIUM</option>
 										<option>HARD</option>
@@ -108,88 +83,84 @@
 
 				</div>
 				<div class="custom">
-					<div class="cerinta">
-						<p class="explication">Search & add from a variety of proposed problems from other teachers.
-						</p>
-					</div>
+
+					<p class="label">Search & add verified problems from other teachers.
+					</p>
+
 					<div class="forms">
 						<div class="search">
-							<input type="text" placeholder="Search by problems ID, name or content">
+							<input type="text" placeholder="Search by problems ID or name" id="search-by-id-or-name">
 						</div>
 						<div class="filtering">
-							<input type="text" id="tags" placeholder="Search by tags">
+							<input type="text" id="search-by-tags" placeholder="Search by tags">
 							<div class="difficulty">
 								<div class="selection">
-									<input type="checkbox" name="" id="easy">
+									<input type="checkbox" id="easy-dif-ckb">
 									<label for="easy">EASY</label>
 								</div>
 								<div class="selection">
-									<input type="checkbox" name="" id="medium">
+									<input type="checkbox" id="medium-dif-ckb">
 									<label for="medium">MEDIUM</label>
 								</div>
 								<div class="selection">
-									<input type="checkbox" name="" id="hard">
+									<input type="checkbox" id="hard-dif-ckb">
 									<label for="hard">HARD</label>
 								</div>
 								<div class="selection">
-									<button name="SEARCH" id="sent">Search</button>
+									<button class="search-button" id="search-button" onclick="retrieveProblems()">Search</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="result">
-						<div class="a-result">
-							<div class="details">
+
+						<p class="label2">Results</p>
+						<div class="result-list" id="result-list">
+							
+							<!-- <div class="entry">
+							<div class="entry-details">
 								<div>
-									<input type="checkbox" name="" id="idk">
-									<label for="idk">Problem title 1</label>
+									<input type="checkbox" name="" id="assigned-problem-checkbox">
+									<label>Problem title 1</label>
 								</div>
-								<div>
-									<label for="idk">ID: #123456</label>
+								<dl id="problem-difficulty" class="result-difficulty">E</dl>
+								<div class="result-tags">
+									<label>Tags:</label>
+									<p id="assigned-problem-tags">tag1</p>
+								</div>
+								<div class="id-label">
+									<label>ID:</label>
+									<p id="assigned-problem-label"></p>
 								</div>
 							</div>
-							<div class="see-prob">
-								<form>
-									<button type="submit" class="button-2" formaction="view-problem.html">View
-										problem</button>
-								</form>
+							<div class="view-prob">
+								<button class="button-2" id="assigned-problem-view-button">View problem</button>
+							</div>
+						</div> -->
+						</div>
+					
+					<template id = "entry-template">
+						<div class="entry" id="entry-id">
+							<div class="entry-details">
+								<div class="checkbox-title-div">
+									<input type="checkbox" class="assigned-problem-checkbox" id="assigned-problem-checkbox">
+									<label id="entry-title">Problem title 1</label>
+								</div>
+								<dl id="entry-difficulty" class="result-difficulty">E</dl>
+								<div class="result-tags">
+									<label>Tags:</label>
+									<p id="entry-tags">tag1</p>
+								</div>
+								<div class="id-label">
+									<label>ID:</label>
+									<p id="entry-label"></p>
+								</div>
+							</div>
+							<div class="view-prob">
+								<button class="assigned-problem-view-button" id="entry-view-button">View
+									problem</button>
 							</div>
 						</div>
-						<div class="a-result">
-							<div class="details">
-								<div>
-									<input type="checkbox" name="" id="idk">
-									<label for="idk">Problem title 2 longer title</label>
-								</div>
-								<div>
-									<label for="idk">ID: #123456</label>
-								</div>
-							</div>
-							<div class="see-prob">
-								<form>
-									<button type="submit" class="button-2" formaction="view-problem.html">View
-										problem</button>
-								</form>
-							</div>
-						</div>
-						<div class="a-result">
-							<div class="details">
-								<div>
-									<input type="checkbox" name="" id="idk">
-									<label for="idk">Problem title 3 even longer title</label>
-								</div>
-								<div>
-									<label for="idk">ID: #123456</label>
-								</div>
-							</div>
-							<div class="see-prob">
-								<form>
-									<button type="submit" class="button-2" formaction="view-problem.html">View
-										problem</button>
-								</form>
-							</div>
-						</div>
-					</div>
+					</template>
 
 				</div>
 
@@ -199,33 +170,9 @@
 		<div class="step3">
 			<div class="create-custom">
 				<div class="header">
-					<p class="header-title">Step 3: Tags and deadline</p>
+					<p class="header-title">Step 3: Deadline</p>
 				</div>
 				<div class="custom">
-					<!-- <div class="cerinta">
-						<p class="explication">Aici veti seta niste taguri si deadline-ul temei
-						</p>
-					</div> -->
-					<div class="forms">
-						<div class="filtering">
-							<input type="text" id="tags" placeholder="Type your tags">
-							<div class="difficulty">
-								<div class="selection">
-									<input type="checkbox" name="" id="easy">
-									<label for="easy">EASY</label>
-								</div>
-								<div class="selection">
-									<input type="checkbox" name="" id="medium">
-									<label for="medium">MEDIUM</label>
-								</div>
-								<div class="selection">
-									<input type="checkbox" name="" id="hard">
-									<label for="hard">HARD</label>
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<div class="date-section">
 						<p>Deadline: </p>
 						<input type="date">
@@ -234,6 +181,11 @@
 			</div>
 		</div>
 
+		<div class="submit-button-div">
+			<button class="submit-button" id="submit-button">Submit</button>
+		</div>
+
+		<div class="filler"></div>	
 
 		<script src="../script/add-homework.js"></script>
 	</main>

@@ -11,7 +11,7 @@ function retrievePageNumbers() {
 		"&filterTags=" + filterTags +
 		"&filterStartDate=" + filterStartDate +
 		"&filterEndDate=" + filterEndDate;
-	console.log(url.toString());
+	// console.log(url.toString());
 	http.open('GET', url.toString(), true);
 
 	//Send the proper header information along with the request
@@ -22,7 +22,7 @@ function retrievePageNumbers() {
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
 
-			console.log(http.responseText);
+			// console.log(http.responseText);
 			pages = parseInt(http.responseText);
 			
 			updatePageNumbers();
