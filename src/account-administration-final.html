@@ -111,17 +111,47 @@
                     <div class="form_2">
                         <form class="forms">
                             <input type="text" placeholder="Username" id="username" required>
+                            <div id="empty-username" class="error">
+                                <p>Please, enter an username.</p>
+                            </div>
+                            <div id="invalid-username" class="error">
+                                <p>Please, enter a valid username.</p>
+                            </div>
+                            <div id="taken-username" class="error">
+                                <p>This username is already taken.</p>
+                            </div>
                             <input type="text" placeholder="Name" id="name" required>
+                            <div id="empty-name" class="error">
+                                <p>Please, enter a name.</p>
+                            </div>
                             <input type="text" placeholder="Your high school" id="highschool" required>
+                            <div id="empty-school" class="error">
+                                <p>Please, enter a high school.</p>
+                            </div>
                             <input type="date" placeholder="Birthday" id="birthday" required>
+                            <div id="empty-date" class="error">
+                                <p>Please, enter a date.</p>
+                            </div>
+                            <div id="invalid-date" class="error">
+                                <p>Please, enter a valid date.</p>
+                            </div>
                             <select name="option" id="gender" required>
                                 <option value="" disabled selected>Select your gender</option>
-                                <option value="Masculin">Male</option>
-                                <option value="Feminin">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <div id="empty-gender" class="error">
+                                <p>Please, select a gender.</p>
+                            </div>
                             <p>About me</p>
                             <textarea id="aboutMe" required></textarea>
+                            <div id="empty-about" class="error">
+                                <p>Please, write something about you.</p>
+                            </div>
+                            <div id="too-about" class="error">
+                                <p>Limit is 200 characters.</p>
+                            </div>
 
                         </form>
                     </div>
