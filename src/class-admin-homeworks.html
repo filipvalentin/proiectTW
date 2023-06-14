@@ -37,22 +37,25 @@
 			-->
 			<p class="class-name">Class Name</p>
 
-			<a href="class-admin-overview.html">Overview</a>
-			<a href="class-admin-settings.html">Settings</a>
-			<a href="class-admin-students.html">Students</a>
-			<a href="class-admin-homeworks.html" class="active">Homeworks</a>
+			<a id="class-overview-button">Overview</a>
+			<a id="class-settings-button">Settings</a>
+			<a id="class-students-button">Students</a>
+			<a class="active" id="class-homeworks-button">Homeworks</a>
 
-			<p class="class-id">ID: #123456</p>
+			<div class="class-id">
+				<p>ID:</p>
+				<p id="class-id"></p>
+			</div>
 
 		</div>
 
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Homeworks</p>
-				<a class="section-save-button" href="add-homework-1.html">Add homework</a>
+				<a class="section-save-button" href="add-homework-1.html" id="add-homework-button">Add homework</a>
 			</div>
 			<div class="section-main">
-				<div class="homework">
+				<!-- <div class="homework">
 					<div class="header">
 						<p class="homework-title">Homework 1</p>
 						<button class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
@@ -62,78 +65,27 @@
 							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
 						</p>
 					</div>
-				</div>
+				</div> -->
 
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Homework 2</p>
-						<button class="view-homework-button"  onclick="location.href='prof-view-homework.html';">View homework</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Homework 3</p>
-						<button class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Homework 4</p>
-						<button class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-				
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Homework 5</p>
-						<button class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<div class="homework">
-					<div class="header">
-						<p class="homework-title">Homework 6</p>
-						<button class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div>
-
-				<div class="navigation-buttons">
-					<button>&lt;</button>
-					<div class="button-list">
-						<button>1</button>
-						<button>2</button>
-					</div>
-					<button>&gt;</button>
-				</div>
 			</div>
+
+			<template id="homework-template">
+				<div class="homework" id="homework-div">
+					<div class="header">
+						<p class="homework-title" id="homework-title"></p>
+						<button id="goto-homework" class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
+					</div>
+					<div class="description">
+						<p class="homework-description" id="homework-description"></p>
+					</div>
+				</div>
+			</template>
+
 		</div>
+
+
+
+		<script src="../script/class-admin-identification.js"></script>
 	</main>
 </body>
 

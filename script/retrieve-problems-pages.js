@@ -5,7 +5,6 @@ var currentPage = 1;
 function retrievePageNumbers() {
 	var http = new XMLHttpRequest();
 
-
 	var url = "get_my_problems_pages.php" +
 		"?filterWords=" + filterWords +
 		"&filerDifficulty=" + filerDifficulty +
@@ -25,7 +24,7 @@ function retrievePageNumbers() {
 
 			console.log(http.responseText);
 			pages = parseInt(http.responseText);
-
+			
 			updatePageNumbers();
 
 		}

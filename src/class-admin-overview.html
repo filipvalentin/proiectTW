@@ -27,28 +27,29 @@
 
 	<main class="main class-admin">
 		<div class="dashboard">
-			<!-- Ce se poate face: vazut elevi, adaugat elevi, gestionat elevi + bara de search
-			Postat probleme, vazut (istoric) probleme, editat probleme,
-			postat teme, vazut (istoric) teme, editat teme
-			Proful trebuie sa aiba panou pentru rezolvari primite: pagina dedicata, validare
-			Setari generale clasa?
-			-->
 			<p class="class-name">Class Name</p>
 
-			<a href="class-admin-overview.html" class="active">Overview</a>
-			<a href="class-admin-settings.html">Settings</a>
-			<a href="class-admin-students.html">Students</a>
-			<a href="class-admin-homeworks.html">Homeworks</a>
+			<a class="active" id="class-overview-button">Overview</a>
+			<a id="class-settings-button">Settings</a>
+			<a id="class-students-button">Students</a>
+			<a id="class-homeworks-button">Homeworks</a>
 
-			<p class="class-id">ID: #123456</p>
+			<div class="class-id">
+				<p>ID:</p>
+				<p id="class-id"></p>
+			</div>
 
 		</div>
 
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Overview</p>
+				
 			</div>
+			<div>statistici</div>
 		</div>
+
+		<script src="../script/class-admin-identification.js"></script>
 	</main>
 </body>
 

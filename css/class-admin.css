@@ -49,15 +49,19 @@
 	color: white;
 	background-color: #313137ea;
 	overflow: visible;
-	/* max-width: 300px; */
+
 	margin-bottom: 1em;
-	/* white-space: initial; */
+
 	word-wrap: break-word;
 }
 
 .dashboard>.class-id {
-	text-align: center;
-	/* align-self:flex-end; */
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 0.5em;
+
 	margin-top: auto;
 	font-size: 0.9em;
 }
