@@ -47,6 +47,21 @@
 	background-color: #c2c2c291;
 	border-radius: 5px;
 }
+.title{
+	font-size: large;
+	margin-bottom: 0.25em;
+	font-style: italic;
+	border-bottom: solid #687d72;
+}
+
+.content{
+	font-family: 'JetBrains Mono';
+	text-align: start;
+}
+
+.content > p{
+	text-rendering: justify;
+}
 
 .settings-area {
 	background-color: #ada2d675;

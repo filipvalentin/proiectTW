@@ -109,11 +109,15 @@ http.onreadystatechange = function () {
         var aboutMe = information.about_me;
         var aboutDiv = document.createElement("div");
         aboutDiv.classList.add("aboutme");
-        var aux1 = document.createElement("p");
+        var aux1 = document.createElement("div");
+        aux1.classList.add("title");
         aux1.innerHTML = "About me"
         aboutDiv.appendChild(aux1);
-        var aux2 = document.createElement("p");
-        aux2.innerHTML = aboutMe;
+        var aux2 = document.createElement("div");
+        aux2.classList.add("content");
+        var aux3 = document.createElement("p");
+        aux3.innerHTML = aboutMe;
+        aux2.appendChild(aux3);
         aboutDiv.appendChild(aux2);
         mainFrame.appendChild(aboutDiv);
 
