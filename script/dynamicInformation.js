@@ -96,7 +96,7 @@ http.onreadystatechange = function () {
             var schoolDiv = document.createElement("div");
             schoolDiv.classList.add("user-info");
             var aux1 = document.createElement("p");
-            aux1.innerHTML = "I'm studying at: "
+            aux1.innerHTML = "Institution : "
             schoolDiv.appendChild(aux1);
             var aux2 = document.createElement("p");
             aux2.innerHTML = high_school;
