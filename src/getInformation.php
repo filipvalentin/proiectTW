@@ -28,14 +28,18 @@ if(empty($rows)){ // nu s-a gasit emailul
 	return;
 }
 
+$birth = strtotime($rows[0][6]);
+$enter = strtotime($rows[0][2]);
+
+
 $user = array(
     'username' => $rows[0][0],
     'email' => $rows[0][1],
-    'creation_date' => $rows[0][2],
+    'creation_date' => date("d F Y", $enter),
     'entire_name' => $rows[0][3],
     'gender' => $rows[0][4],
     'high_school' => $rows[0][5],
-    'birth_date' => $rows[0][6],
+    'birth_date' => date("d F Y", $birth),
     'about_me' => $rows[0][7],
     'display_birthdate' => $rows[0][8],
     'display_gender' => $rows[0][9],
