@@ -28,7 +28,7 @@
     <main class="main account-admin-main">
         <div class="sidepanel">
             <div class="main_focus" id="main-frame">
-                <img class="picture" src="../resources/Sample_User_Icon.png">
+                <img class="picture" src="" id="profile">
             </div>
 
             <div class="user-info-large" id="information">
@@ -172,6 +172,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modify">
+                <h3>Change profile image</h3>
+                <form id="imageForm" enctype="multipart/form-data" class="forms" onsubmit="return false">
+                    <input type="file" name="image" id="imageInput">
+                    <div id="no-image" class="error">
+                        <p>Please, choose an image.</p>
+                    </div>
+                    <div class="button">
+                        <button onclick="uploadImage()">Change profile image</button>
+                    </div>
+                  </form>
+                  
+            </div>
         </div>
     </main>
 
@@ -181,6 +195,7 @@
 <script type="text/javascript" src="../script/changePasswordFormular.js"></script>
 <script type="text/javascript" src="../script/changeInfoFormular.js"></script>
 <script type="text/javascript" src="../script/dynamicInformation.js"></script>
+<script type="text/javascript" src="../script/uploadImage.js"></script>
 
 
 </html>

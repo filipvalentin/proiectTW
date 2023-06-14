@@ -123,6 +123,29 @@ http.onreadystatechange = function () {
         aboutDiv.appendChild(aux2);
         mainFrame.appendChild(aboutDiv);
 
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'getImage2.php?id='+id, true);
+        
+        xhr.onload = function () {
+            if (xhr.status == 200 && xhr.readyState == 4) {
+                console.log(xhr.responseText);
+                if (xhr.responseText != '') {
+                    console.log('ay');
+                    var imgElement = document.getElementById('profile');
+                    imgElement.src = xhr.responseText;
+                } else {
+                    var imgElement = document.getElementById('profile');
+                    imgElement.src = "../resources/Sample_User_Icon.png";
+                }
+            } if (xhr.readyState == 4 && xhr.status == 401) {
+                console.log('au')
+                window.location.assign("unauthorized.html");
+            }
+        };
+
+        xhr.send();
+
     }
     if (http.readyState == 4 && http.status == 401) {
         console.log('au')
