@@ -1,7 +1,9 @@
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+
 var http = new XMLHttpRequest();
-http.open("GET", 'getInformation.php', true);
+http.open("GET", 'getInformationId.php?id='+id, true);
 http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 http.onreadystatechange = function () {
     //Call a function when the state changes.
     if (http.readyState == 4 && http.status == 200) {
