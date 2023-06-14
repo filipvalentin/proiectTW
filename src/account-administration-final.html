@@ -41,13 +41,22 @@
                     <div id="error-email" class="error">
                         <p>This e-mail isn't account e-mail.</p>
                     </div>
+                    <div id="empty-email" class="error">
+                        <p>Please, write account e-mail.</p>
+                    </div>
                     <input type="email" placeholder="New e-mail" id="newEmail" required>
                     <div id="taken-email" class="error">
                         <p>This e-mail is used by another account.</p>
                     </div>
+                    <div id="empty2-email" class="error">
+                        <p>Please, write the new e-mail.</p>
+                    </div>
                     <input type="email" placeholder="Confirm e-mail" id="confirmationEmail" required>
                     <div id="isnt-email" class="error">
                         <p>Please, write the correct e-mail.</p>
+                    </div>
+                    <div id="empty3-email" class="error">
+                        <p>Please, write e-mail.</p>
                     </div>
                     <div class="button">
                         <button onclick="changeEmail()">Change e-mail</button>
@@ -57,12 +66,42 @@
 
             <div class="modify">
                 <h3>Change password</h3>
-                <form class="forms">
-                    <input type="password" placeholder="Current password" required>
-                    <input type="password" placeholder="New password" required>
-                    <input type="password" placeholder="Confirm email" required>
+                <form class="forms" onsubmit="return false">
+                    <input type="password" placeholder="Current password" id="currentPassword" required>
+                    <div id="error-passwd" class="error">
+                        <p>This password isn't account password.</p>
+                    </div>
+                    <div id="empty-passwd" class="error">
+                        <p>Please, enter the current password.</p>
+                    </div>
+                    <input type="password" placeholder="New password" id="newPassword" required>
+                    <div id="failed-passwd-cap-letter" class="error">
+                        <p>This password doesn't have a capital letter.</p>
+                    </div>
+                    <div id="failed-passwd-spec-char" class="error">
+                        <p>This password doesn't have a special character.</p>
+                    </div>
+                    <div id="failed-passwd-number" class="error">
+                        <p>This password doesn't have a number.</p>
+                    </div>
+                    <div id="failed-passwd-lenght" class="error">
+                        <p>This password doesn't have 8 characters.</p>
+                    </div>
+                    <div id="failed-passwd-small-letter" class="error">
+                        <p>This password doesn't have small letters.</p>
+                    </div>
+                    <div id="empty2-passwd" class="error">
+                        <p>Please, enter the new password.</p>
+                    </div>
+                    <input type="password" placeholder="Confirm password" id="confirmPassword" required>
+                    <div id="conf-passwd" class="error">
+                        <p>Please, enter the correct password.</p>
+                    </div>
+                    <div id="empty3-passwd" class="error">
+                        <p>Please, enter the password.</p>
+                    </div>
                     <div class="button">
-                        <button>Change password</button>
+                        <button onclick="changePassword()">Change password</button>
                     </div>
                 </form>
             </div>
@@ -71,31 +110,31 @@
                 <div class="mod-profil">
                     <div class="form_2">
                         <form class="forms">
-                            <input type="text" placeholder="Username">
-                            <input type="text" placeholder="Name">
-                            <input type="text" placeholder="Your high school">
-                            <input type="date" placeholder="Birthday">
-                            <select name="option">
+                            <input type="text" placeholder="Username" id="username" required>
+                            <input type="text" placeholder="Name" id="name" required>
+                            <input type="text" placeholder="Your high school" id="highschool" required>
+                            <input type="date" placeholder="Birthday" id="birthday" required>
+                            <select name="option" id="gender" required>
                                 <option value="" disabled selected>Select your gender</option>
                                 <option value="Masculin">Male</option>
                                 <option value="Feminin">Female</option>
                                 <option value="Other">Other</option>
                             </select>
                             <p>About me</p>
-                            <textarea></textarea>
+                            <textarea id="aboutMe" required></textarea>
 
                         </form>
                     </div>
                     <form class="selection">
-                        <input type="checkbox" name="afisare_nastere" id="nastere">
+                        <input type="checkbox" name="afisare_nastere" id="nastere" value="show">
                         <label for="nastere">I would like my birthday to be visible</label><br>
-                        <input type="checkbox" name="afisare_institutie" id="institutie">
+                        <input type="checkbox" name="afisare_institutie" id="institutie" value="show">
                         <label for="institutie">I would like to make my high shool visible.</label><br>
-                        <input type="checkbox" name="afisare_gen" id="gen">
+                        <input type="checkbox" name="afisare_gen" id="gen" value="show">
                         <label for="institutie">I would like to make my gender visible</label><br>
                     </form>
                     <div class="button">
-                        <button class="preferences-button">Save profile</button>
+                        <button onclick="changeInfo()" class="preferences-button">Save profile</button>
                     </div>
                 </div>
             </div>
@@ -105,5 +144,7 @@
 </body>
 
 <script type="text/javascript" src="../script/changeEmailFormular.js"></script>
+<script type="text/javascript" src="../script/changePasswordFormular.js"></script>
+<script type="text/javascript" src="../script/changeInfoFormular.js"></script>
 
 </html>

@@ -2,7 +2,21 @@ function changeEmail(){
     document.getElementById('isnt-email').style.display = "none";
     document.getElementById('error-email').style.display = "none";
     document.getElementById('taken-email').style.display = "none";
-    isUserEmail();
+    document.getElementById('empty-email').style.display = "none";
+    document.getElementById('empty2-email').style.display = "none";
+    document.getElementById('empty3-email').style.display = "none";
+    if(document.getElementById('currentEmail').value==''){
+        document.getElementById('empty-email').style.display = "block";
+    }
+    if(document.getElementById('newEmail').value==''){
+        document.getElementById('empty2-email').style.display = "block";
+    }
+    if(document.getElementById('confirmationEmail').value==''){
+        document.getElementById('empty3-email').style.display = "block";
+    }
+    if(document.getElementById('confirmationEmail').value !='' && document.getElementById('newEmail').value !='' && document.getElementById('confirmationEmail').value !=''){
+        isUserEmail();
+    }
 }
 
 function isUserEmail(){
