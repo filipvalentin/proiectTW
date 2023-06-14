@@ -90,30 +90,12 @@
 				<button class="section-save-button" onclick="location.href = 'add-problem.html'">Submit new
 					problem</button>
 			</div>
-			<div class="section-main" id="problem-list">
-				<!-- <div class="problem" id="33">
-					<div class="header">
-						<p id="p33t" class="problem-title">Problem 1</p>
-						<difficulty id="p33d" class="difficulty difficulty-easy">EASY</difficulty>
-						 <difficulty>E</difficulty>
-						<difficulty>E</difficulty>
-						<div class="tags-div">
-							<p>Tags:</p>
-							<p id="p33tg">tag1, tag2, tag3</p>
-						</div>
-						<button class="view-problem-button" onclick="location.href = 'view-problem.html?problem=33';">View
-							problem</button>
-					</div>
-					<div id="p33d" class="description">
-						<p class="problem-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div> -->
-
+			<div class="section-main">
+				<div id="problem-list">
+				</div>
 
 				<template id="problem-template">
-					<div class="problem">
+					<div class="problem" id="problem-id">
 						<div class="header">
 							<p id="problem-title" class="problem-title"></p>
 							<dl id="problem-difficulty" class="difficulty"></dl>
@@ -130,12 +112,11 @@
 				</template>
 
 
-				<div class="navigation-buttons">
-					<button>&lt;</button>
-					<div class="button-list">
-						<button>1</button>
-					</div>
-					<button>&gt;</button>
+				<div class="navigation-buttons" id="navigation-buttons">
+					<button id="back-page-button" onclick="backPageButtonClicked()">&lt;</button>
+					<select id="page-selector" onchange="pageSelectorClicked()">
+					</select>
+					<button id="next-page-button" onclick="nextPageButtonClicked()">&gt;</button>
 				</div>
 			</div>
 

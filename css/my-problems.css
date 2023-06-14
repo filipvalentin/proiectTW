@@ -366,6 +366,8 @@
 	padding: 0.2em;
 	border-radius: 4px;
 	color: black;
+	width: fit-content;
+	font-size: 0.8em;
 }
 
 .difficulty-easy{
@@ -420,15 +422,18 @@
 .problem-description{
 	padding: 0.5em;
 	margin:0;
-	max-height: 2.2em;
+	max-height: 1.9em;
+
+	color: #4c4c4f;
 }
 
 
 @media (max-width: 30em) {
 	.header{
 		grid-template-columns: none;
-		grid-template-rows: 1fr 1fr;
-
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		justify-content: center;
+		justify-items: center;
 	}
 
 	.problem-title{
@@ -443,6 +448,14 @@
 
 		justify-self: center;
 		margin: 0.2em;
+	}
+
+	.difficulty{
+		margin: 0;
+	}
+
+	.tags-div>p{
+		margin: 0;
 	}
 
 	.content{

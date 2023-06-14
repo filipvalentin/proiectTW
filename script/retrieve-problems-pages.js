@@ -1,4 +1,4 @@
-var pagesNumber = 0;
+var pages = 0;
 var currentPage = 1;
 
 
@@ -6,7 +6,7 @@ function retrievePageNumbers() {
 	var http = new XMLHttpRequest();
 
 
-	var url = "get_my_problems_pages.php"+
+	var url = "get_my_problems_pages.php" +
 		"?filterWords=" + filterWords +
 		"&filerDifficulty=" + filerDifficulty +
 		"&filterTags=" + filterTags +
@@ -24,7 +24,9 @@ function retrievePageNumbers() {
 		if (http.readyState == 4 && http.status == 200) {
 
 			console.log(http.responseText);
-			pagesNumber = parseInt(http.responseText);
+			pages = parseInt(http.responseText);
+
+			updatePageNumbers();
 
 		}
 		if (http.readyState == 4 && http.status == 401) {
@@ -37,6 +39,61 @@ function retrievePageNumbers() {
 	http.send();
 }
 
-function updatePageNumbers(){
-	//1 2 [select] last >= 4
+function updatePageNumbers() {
+	//< [] >
+
+	const pageSelector = document.getElementById("page-selector");
+
+	for (const page in [...Array(pages).keys()]) {
+		const option = document.createElement("option");
+
+		option.textContent = parseInt(page) + 1;
+
+		pageSelector.appendChild(option);
+
+	}
+
+	pageSelector.value = currentPage;
+
+}
+
+
+function backPageButtonClicked() {
+
+	const pageSelector = document.getElementById("page-selector");
+
+	if(currentPage > 1){
+		currentPage -= 1;
+	}
+
+	pageSelector.value = currentPage;
+
+	updateProblemList();
+
+}
+
+function nextPageButtonClicked() {
+	const pageSelector = document.getElementById("page-selector");
+
+	if(currentPage < pages){
+		currentPage += 1;
+	}
+
+	pageSelector.value = currentPage;
+	
+	updateProblemList();
+}
+
+function pageSelectorClicked(){
+	const pageSelector = document.getElementById("page-selector");
+	currentPage = pageSelector.value;
+
+	updateProblemList();
+}
+
+
+function updateProblemList() {
+	const problemList = document.getElementById("problem-list");
+	problemList.replaceChildren();
+	retrieveProblems(currentPage);
 }

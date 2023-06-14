@@ -21,7 +21,7 @@ $filterEndDate = $_GET['filterEndDate'];
 
 
 
-$query = "SELECT * FROM teacher_problems WHERE teacher_id = ?";
+$query = "SELECT * FROM teacher_problems WHERE teacher_id = ? ";
 
 if($filerDifficulty != 'null'){
 	$query .= " AND difficulty=".$filerDifficulty;
@@ -44,7 +44,7 @@ if($filterTags != 'null'){
 }
 
 
-$query .= "LIMIT ".$page.", 5";
+$query .= "LIMIT ".(($page - 1) * 5).", 5";
 
 
 

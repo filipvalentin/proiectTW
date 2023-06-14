@@ -1,11 +1,12 @@
 var filterWords = null;
 var filerDifficulty = null;
-var filterTags = "tag1"//null;
+var filterTags = null;
 var filterStartDate = null;
 var filterEndDate = null;
 
+var lastRetrievedIds = null;
 
-
+//and display them
 function retrieveProblems(pageCountMultiplier) {
 	var http = new XMLHttpRequest();
 
@@ -31,11 +32,14 @@ function retrieveProblems(pageCountMultiplier) {
 
 			var result = JSON.parse(http.responseText);
 
+			lastRetrievedIds = new Array();
+
 			result.forEach(element => {
 				displayProblem(element);
+				lastRetrievedIds.push("p" + element["id"]);
 			});
 
-			
+			// console.log(lastRetrievedIds);
 
 		}
 		if (http.readyState == 4 && http.status == 401) {
@@ -59,6 +63,10 @@ function displayProblem(jsonObj) {
 
 	const clone = template.content.cloneNode(true);
 
+
+	let problemIdNode = clone.getElementById("problem-id");
+	problemIdNode.id = "p" + problemId;
+
 	let problemTitle = clone.getElementById("problem-title");
 	problemTitle.textContent = jsonObj["title"];
 	problemTitle.id = "p" + problemId + "t";
@@ -75,7 +83,7 @@ function displayProblem(jsonObj) {
 		case "HARD":
 			problemDifficulty.classList.add("difficulty-hard");
 	}
-	problemDifficulty.textContent = difficulty.charAt(0);
+	problemDifficulty.textContent = difficulty;
 	problemDifficulty.id = "p" + problemId + "df";
 
 
@@ -88,7 +96,7 @@ function displayProblem(jsonObj) {
 	problemDescription.id = "p" + problemId + "dsc";
 
 	let problemViewButton = clone.getElementById("problem-view-button");
-	problemViewButton.setAttribute("onclick","location.href = 'view-problem.html?problem=" + jsonObj["id"] + "\';");
+	problemViewButton.setAttribute("onclick", "location.href = 'view-problem.html?problem=" + jsonObj["id"] + "\';");
 	problemViewButton.id = "p" + problemId + "b";
 
 	// console.log(jsonObj["title"]);

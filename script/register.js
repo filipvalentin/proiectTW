@@ -304,9 +304,7 @@ function sendRegisterRequest() {
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
 						
-			sendAuthRequest(email, password);
-
-			window.location.href = "home.html";//profil!
+			sendAuthRequest(email, password, ()=>{window.location.href = "home.html";});
 
 		}
 		if (http.readyState == 4 && http.status == 403) {
