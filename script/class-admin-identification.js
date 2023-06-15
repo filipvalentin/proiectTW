@@ -31,3 +31,20 @@ const addHomeworkButton = document.getElementById("add-homework-button");
 if(addHomeworkButton){
 	addHomeworkButton.setAttribute("href", "add-homework.html?id=" + id);
 }
+
+var http = new XMLHttpRequest();
+http.open("GET", 'getClassName.php?id='+id, true);
+http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+http.onreadystatechange = function () {
+    //Call a function when the state changes.
+    if (http.readyState == 4 && http.status == 200) {
+        var nameClass=document.getElementById('name-class');
+        nameClass.innerHTML=http.responseText;
+
+        }
+    if (http.readyState == 4 && http.status == 401) {
+        console.log('au')
+        window.location.assign("unauthorized.html");
+    }
+}
+http.send();
