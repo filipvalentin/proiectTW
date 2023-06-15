@@ -20,7 +20,7 @@ classHomeworksButton.setAttribute("href", "class-admin-homeworks.html?id=" + id)
 
 const classId = document.getElementById("class-id");
 if(classId)
-classId.textContent = id;
+	classId.textContent = id;
 
 const addStudentsButton = document.getElementById("add-students-button");
 if(addStudentsButton){
@@ -29,5 +29,5 @@ if(addStudentsButton){
 
 const addHomeworkButton = document.getElementById("add-homework-button");
 if(addHomeworkButton){
-	addHomeworkButton.setAttribute("href", "add-homework-1.html?id=" + id);
+	addHomeworkButton.setAttribute("href", "add-homework.html?id=" + id);
 }

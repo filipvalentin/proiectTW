@@ -1,20 +1,20 @@
 //STEP 1
 
-var problems = new Array();
+const customProblemList = document.getElementById("custom-problems-list");
+var customProblemsIds = new Array();
 
 function addNewCustomProblem() {
 
-	const problemId = problems.length + 1;
-	problems.push(problemId);
+	const problemId = customProblemsIds.length + 1;
+	customProblemsIds.push(problemId);
 
-	const customProblemList = document.getElementById("custom-problems-list");
 	const template = document.getElementById("custom-problem-template");
 
 	const clone = template.content.cloneNode(true);
 
 
 	let problemIdNode = clone.getElementById("custom-problem-id");
-	problemIdNode.id = "p" + problemId;
+	problemIdNode.id = "pc" + problemId;
 
 	let problemTitle = clone.getElementById("new-problem-title");
 	problemTitle.id = "p" + problemId + "t";
@@ -33,14 +33,11 @@ function addNewCustomProblem() {
 	problemDiscardButton.setAttribute("onclick", "discardProblem(\'" + problemId + "\')");
 	problemDiscardButton.id = "p" + problemId + "discard";
 
-
 	customProblemList.appendChild(clone);
-
 }
 
 function discardProblem(id) {
-	const customProblemList = document.getElementById("custom-problems-list");
-	const customProblem = document.getElementById("p" + id);
+	const customProblem = document.getElementById("pc" + id);
 	customProblemList.removeChild(customProblem);
 }
 
@@ -52,7 +49,7 @@ function discardProblem(id) {
 
 //global
 var problemResultJson = null;
-var selectedProblems = new Array();
+var selectedProblemsIds = new Array();
 
 
 function retrieveProblems() {
@@ -122,19 +119,18 @@ function displayResultListOnPages() {
 
 	childDivs.forEach((div) => {
 
-		if (div.id!=null && !selectedProblems.includes(div.id)) {
+		if (div.id != null && !selectedProblemsIds.includes(div.id)) {
 			resultList.removeChild(div);
 		}
 	});
 
 
 	problemResultJson.forEach(json => {
-		
-		if (!selectedProblems.includes("p" + json["id"])){
-			console.log("p" + json["id"]);
+
+		if (!selectedProblemsIds.includes("p" + json["id"])) {
 			displayAssignmentProblem(json);
 		}
-		console.log(" ");
+
 	})
 
 }
@@ -151,20 +147,19 @@ function displayAssignmentProblem(jsonObj) {
 
 
 	let problemIdNode = clone.getElementById("entry-id");
-	problemIdNode.id = "p" + entryID;
+	problemIdNode.id = "pa" + entryID;
 
 	let problemCheckbox = clone.getElementById("assigned-problem-checkbox");
 	problemCheckbox.id = "p" + entryID + "chkb";
 	problemCheckbox.addEventListener("change", function () {
 		if (this.checked) {
-			selectedProblems.push(this.parentNode.parentNode.parentNode.id);
+			selectedProblemsIds.push(this.parentNode.parentNode.parentNode.id);
 		} else {
-			const index = selectedProblems.indexOf(this.parentNode.parentNode.parentNode.id);
+			const index = selectedProblemsIds.indexOf(this.parentNode.parentNode.parentNode.id);
 			if (index > -1) {
-				selectedProblems.splice(index, 1); //scoate id-ul deselectat
+				selectedProblemsIds.splice(index, 1); //scoate id-ul deselectat
 			}
 		}
-		console.log(selectedProblems);
 	});
 
 
@@ -207,9 +202,129 @@ function displayAssignmentProblem(jsonObj) {
 
 
 
-
 // SUBMIT LOGIC
 
-function subitHomework(){
+var canSubmit = true;
 
+function submitHomework() {
+
+	if (customProblemsIds.length == 0 && selectedProblemsIds.length == 0) {
+		displayErrorNothingSelected();
+	}
+	else {
+		document.getElementById("error-popup-nothng-selected").style.display = "none";
+	}
+
+
+	var customProblems = new Array();
+
+	customProblemsIds.forEach((customProblemId) => {
+
+		const title = document.getElementById("p" + customProblemId + "t").value;
+		if (!title)
+			displayError();
+
+		const difficulty = document.getElementById("p" + customProblemId + "df").value;
+		const tags = document.getElementById("p" + customProblemId + "tg").value;
+		const description = document.getElementById("p" + customProblemId + "dsc").value;
+
+		customProblems.push(
+			{
+				title: title,
+				tags: tags,
+				difficulty: difficulty,
+				description: description
+			}
+		);
+
+	});
+
+	var assignedProblems = new Array();
+
+	selectedProblemsIds.forEach((selectedProblemId) => {
+		assignedProblems.push(selectedProblemId.substring(2));
+	})
+
+
+	const deadlineDate = document.getElementById("deadline-date-input").value;
+	const deadlineTime = document.getElementById("deadline-hour-input").value;
+
+	if (!deadlineDate || !deadlineTime) {
+		displayErrorUnsetDeadline();
+	}
+	else {
+		document.getElementById("error-popup-unset-deadline").style.display = "none";
+	}
+
+
+	const title =  document.getElementById("homework-title-input").value;
+	if(!title){
+		displayErrorNoTitle();
+	}
+	else{
+		document.getElementById("error-popup-unset-title").style.display = "none";
+	}
+
+
+	if (!canSubmit) {
+		return;
+	}
+
+	const data = {
+		custom_problems: customProblems,
+		assigned_problems: assignedProblems,
+		deadline: deadlineDate + " " + deadlineTime,
+		class_id: id, //nota: stiu ca id e destul de obscur, dar nu m-am gandit la asta cand am facut js-ul pentru page identification, deci ramane asa
+		title: title
+	}
+
+
+	var http = new XMLHttpRequest();
+
+	http.open('POST', "add_homework.php", true);
+
+	http.setRequestHeader('Content-Type', 'application/json');
+	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+
+
+	const json = JSON.stringify(data);
+
+	http.onreadystatechange = function () {
+		if (http.readyState == 4 && http.status == 200) {
+			// console.log(http.responseText);
+			window.location.assign("class-admin-homeworks.html?id=" + id);
+		}
+		if (http.readyState == 4 && http.status == 401) {
+			window.location.assign("unauthorized.html");
+		}
+	}
+
+	http.send(json);
+
+
+}
+
+function displayError() {
+	canSubmit = false;
+
+	document.getElementById("error-popup").style.display = "block";
+}
+
+function displayErrorNothingSelected() {
+	canSubmit = false;
+
+	document.getElementById("error-popup-nothng-selected").style.display = "block";
+}
+
+function displayErrorUnsetDeadline() {
+	canSubmit = false;
+
+	document.getElementById("error-popup-unset-deadline").style.display = "block";
+}
+
+function displayErrorNoTitle(){
+	canSubmit = false;
+
+	document.getElementById("error-popup-unset-title").style.display = "block";
 }

@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+	<script src="../script/retrieve-homeworks.js"></script>
+	<script src="../script/retrieve-first-homerworks.js"></script>
+
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,12 +33,6 @@
 
 	<main class="main class-admin">
 		<div class="dashboard">
-			<!-- Ce se poate face: vazut elevi, adaugat elevi, gestionat elevi + bara de search
-			Postat probleme, vazut (istoric) probleme, editat probleme,
-			postat teme, vazut (istoric) teme, editat teme
-			Proful trebuie sa aiba panou pentru rezolvari primite: pagina dedicata, validare
-			Setari generale clasa?
-			-->
 			<p class="class-name">Class Name</p>
 
 			<a id="class-overview-button">Overview</a>
@@ -54,30 +52,25 @@
 				<p class="section-title">Homeworks</p>
 				<a class="section-save-button" href="add-homework-1.html" id="add-homework-button">Add homework</a>
 			</div>
-			<div class="section-main">
-				<!-- <div class="homework">
-					<div class="header">
-						<p class="homework-title">Homework 1</p>
-						<button class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
-					</div>
-					<div class="description">
-						<p class="homework-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-							rem saepe, atque voluptatibus repudiandae ipsum nesciunt placeat numquam...
-						</p>
-					</div>
-				</div> -->
-
+			<div class="section-main" id="homeworks-list">			
 			</div>
 
 			<template id="homework-template">
 				<div class="homework" id="homework-div">
 					<div class="header">
-						<p class="homework-title" id="homework-title"></p>
-						<button id="goto-homework" class="view-homework-button" onclick="location.href='prof-view-homework.html';">View homework</button>
+						<div class="title-deadline-div">
+							<p class="homework-title" id="homework-title"></p>
+							<div class="deadline-label">
+								<p>Deadline:</p>
+								<p id="deadline-label-id"></p>
+							</div>
+						</div>
+						<button id="homework-goto-button" class="view-homework-button"
+							onclick="location.href='prof-view-homework.html';">View homework</button>
 					</div>
-					<div class="description">
+					<!-- <div class="description">
 						<p class="homework-description" id="homework-description"></p>
-					</div>
+					</div> -->
 				</div>
 			</template>
 

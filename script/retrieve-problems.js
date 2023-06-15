@@ -53,6 +53,12 @@ function retrieveProblems(pageCountMultiplier) {
 }
 
 
+// TODO
+function applyFilters(){
+
+}
+
+
 function displayProblem(jsonObj) {
 	// console.log(jsonObj);
 
@@ -96,7 +102,7 @@ function displayProblem(jsonObj) {
 	problemDescription.id = "p" + problemId + "dsc";
 
 	let problemViewButton = clone.getElementById("problem-view-button");
-	problemViewButton.setAttribute("onclick", "location.href = 'view-problem.html?problem=" + jsonObj["id"] + "\';");
+	problemViewButton.setAttribute("onclick", "location.href = 'view-problem.html?problem=" + problemId + "\';");
 	problemViewButton.id = "p" + problemId + "b";
 
 	// console.log(jsonObj["title"]);

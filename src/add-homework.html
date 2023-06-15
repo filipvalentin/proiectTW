@@ -107,42 +107,22 @@
 									<label for="hard">HARD</label>
 								</div>
 								<div class="selection">
-									<button class="search-button" id="search-button" onclick="retrieveProblems()">Search</button>
+									<button class="search-button" id="search-button"
+										onclick="retrieveProblems()">Search</button>
 								</div>
 							</div>
 						</div>
 					</div>
 
-						<p class="label2">Results</p>
-						<div class="result-list" id="result-list">
-							
-							<!-- <div class="entry">
-							<div class="entry-details">
-								<div>
-									<input type="checkbox" name="" id="assigned-problem-checkbox">
-									<label>Problem title 1</label>
-								</div>
-								<dl id="problem-difficulty" class="result-difficulty">E</dl>
-								<div class="result-tags">
-									<label>Tags:</label>
-									<p id="assigned-problem-tags">tag1</p>
-								</div>
-								<div class="id-label">
-									<label>ID:</label>
-									<p id="assigned-problem-label"></p>
-								</div>
-							</div>
-							<div class="view-prob">
-								<button class="button-2" id="assigned-problem-view-button">View problem</button>
-							</div>
-						</div> -->
-						</div>
-					
-					<template id = "entry-template">
+					<p class="label2">Results</p>
+					<div class="result-list" id="result-list"></div>
+
+					<template id="entry-template">
 						<div class="entry" id="entry-id">
 							<div class="entry-details">
 								<div class="checkbox-title-div">
-									<input type="checkbox" class="assigned-problem-checkbox" id="assigned-problem-checkbox">
+									<input type="checkbox" class="assigned-problem-checkbox"
+										id="assigned-problem-checkbox">
 									<label id="entry-title">Problem title 1</label>
 								</div>
 								<dl id="entry-difficulty" class="result-difficulty">E</dl>
@@ -170,24 +150,36 @@
 		<div class="step3">
 			<div class="create-custom">
 				<div class="header">
-					<p class="header-title">Step 3: Deadline</p>
+					<p class="header-title">Step 3: Title & Deadline</p>
 				</div>
 				<div class="custom">
 					<div class="date-section">
+						<p>Title: </p>
+						<input type="text" id="homework-title-input">
+					</div>
+					<div class="date-section">
 						<p>Deadline: </p>
-						<input type="date">
+						<input type="date" id="deadline-date-input">
+						<input type="time" id="deadline-hour-input">
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="submit-button-div">
-			<button class="submit-button" id="submit-button">Submit</button>
+			<button class="submit-button" id="submit-button" onclick="submitHomework()">Submit</button>
 		</div>
+		<div class="submit-button-div">
+			<p class="error-popup" id="error-popup">Please fill in all the fields of the problems!</p>
+			<p class="error-popup" id="error-popup-nothng-selected">Please select at least one problem to be included in the homework!</p>
+			<p class="error-popup" id="error-popup-unset-deadline">Please select a deadline for the homework!</p>
+			<p class="error-popup" id="error-popup-unset-title">Please give a name to your homework homework!</p>
+		</div>
+		<div class="filler"></div>
 
-		<div class="filler"></div>	
-
+		<script src="../script/class-admin-identification.js"></script>
 		<script src="../script/add-homework.js"></script>
+
 	</main>
 
 

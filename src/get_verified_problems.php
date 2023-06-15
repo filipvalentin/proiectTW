@@ -67,7 +67,7 @@ if (!empty($by_tags)) {
 }
 
 if (!empty($by_id_or_name)) {
-	$query .= " AND ( LOWER(title) LIKE LOWER('%".$by_id_or_name."%') OR id LIKE LOWER('%".$by_id_or_name."%') )";
+	$query .= " AND ( LOWER(title) LIKE LOWER('%" . $by_id_or_name . "%') OR id LIKE LOWER('%" . $by_id_or_name . "%') )";
 }
 
 // echo $query;

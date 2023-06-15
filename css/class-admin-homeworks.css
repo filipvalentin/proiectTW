@@ -18,6 +18,19 @@
 	align-items: center;
 }
 
+.title-deadline-div{
+	display: flex;
+		flex-direction: row;
+	gap:2em;
+	align-items: center;
+}
+
+.deadline-label{
+	display: flex;
+	flex-direction: row;
+	gap:0.5em;
+}
+
 .homework-title {
 	grid-column: 1;
 	float: left;
