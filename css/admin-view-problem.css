@@ -27,6 +27,9 @@ main {
 
 
 .title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	background-color: #3a3a3a;
 	color: white;
 	width: 100%;
@@ -39,7 +42,6 @@ main {
 
 .format-title {
 	float: left;
-	margin-left: 0.8em;
 	font-size: 1.2em;
 	color: white;
 }

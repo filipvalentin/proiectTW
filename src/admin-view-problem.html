@@ -5,14 +5,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>InformatiX</title>
+	<title>Admin view problem</title>
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
 	<link rel="stylesheet" href="../css/admin-view-problem.css">
-	<!-- <link rel="stylesheet" href="../css/class-admin.css"> -->
 	<link rel="stylesheet" href="../css/admin-top-navbar.css">
-	<!-- <link rel="stylesheet" href="../css/class-admin-students-panel.css"> -->
-	<!-- <link rel="stylesheet" href="../css/search-bar.css"> -->
 </head>
 
 <body>
@@ -27,58 +24,39 @@
 		<div class="content">
 			<div class="description">
 				<div class="title">
-					<p class="format-title">Problem name 111</p>
+					<p class="format-title" id="title-prb"></p>
 				</div>
 				<div class="tags">
 					<div class="text">
 						<p class="header"> Status: </p>
-						<p class="type">Pending</p>
+						<p class="type" id="status"></p>
 					</div>
 					<div class="text">
 						<p class="header"> Teacher: </p>
-						<p class="type">Teacher 1 link</p>
+						<p class="type" id="teacher"></p>
 					</div>
 					<div class="text">
 						<p class="header"> Created: </p>
-						<p class="type">12/12/1999 12:30:43</p>
+						<p class="type" id="date"></p>
 					</div>
 					<div class="text">
 						<p class="header"> Difficulty: </p>
-						<p class="type">MEDIUM</p>
+						<p class="type" id="diff"></p>
 					</div>
 					<div class="other-tags">
 						<p class="header">Tags</p>
-						<ul>
-							<li>
-								<p class="tags-2">backtracking</p>
-							</li>
-							<li>
-								<p class="tags-2">advanced programming</p>
-							</li>
-							<li>
-								<p class="tags-2">graph</p>
-							</li>
+						<ul id="tags">
 						</ul>
 					</div>
 				</div>
 				<div class="bottom-buttons">
-					<button class="button" id="accept-button" onclick="location.href = 'admin-problems.html'">ACCEPT</button>
-					<button class="button" id="reject-button" onclick="location.href = 'admin-problems.html'">REJECT</button>
+					<button class="button" id="accept-button" onclick="problem('1')">ACCEPT</button>
+					<button class="button" id="reject-button" onclick="problem('0')">REJECT</button>
 				</div>
 			</div>
 			<div class="body">
 				<div class="inner">
-					<textarea readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod earum nostrum veniam consectetur blanditiis dolorum, cumque magni libero corporis illo, hic pariatur necessitatibus officiis rerum odio exercitationem impedit esse tempore.
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-						aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+					<textarea readonly id="description">
 						
 					</textarea>
 				</div>
@@ -86,5 +64,5 @@
 		</div>
 	</main>
 </body>
-
+<script src="../script/admin-view-problem.js"></script>
 </html>
