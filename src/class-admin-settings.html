@@ -28,7 +28,7 @@
 	<main class="main class-admin">
 		<div class="dashboard">
 
-			<p class="class-name">Class Name</p>
+			<p class="class-name" id="name-class"></p>
 
 			<a id="class-overview-button">Overview</a>
 			<a class="active" id="class-settings-button">Settings</a>
@@ -45,22 +45,27 @@
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Settings</p>
-				<a class="section-save-button">Save</a>
+				<a class="section-save-button" onclick="changeInfoClass()">Save</a>
 			</div>
 
 			<div class="option">
 				<p class="option-label">Class name</p>
-				<input type="text" class="input-description" placeholder="Class Name">
-			
+				<input type="text" class="input-description" placeholder="Class Name" id="new-name">
+				<div id="empty-name" class="error">
+					<p>Please, enter the name of the class.</p>
+				</div>
 			</div>
 			<div class="option">
 				<p class="option-label">Class description</p>
-				<textarea class="input-description" >Generic class description</textarea>
-			
+				<textarea class="input-description" class="new-description" id="new-description">Generic class description</textarea>
+				<div id="empty-description" class="error">
+					<p>Please, tell something about this class.</p>
+				</div>
 			</div>
 
 
 			<script src="../script/class-admin-identification.js"></script>
+			<script src="../script/class-admin-settings.js"></script>
 		</div>
 	</main>
 </body>

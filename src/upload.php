@@ -12,6 +12,7 @@ if($decoded == null){
 $decoded_array = (array) $decoded;
 
 $user_id = $decoded_array['sub'];
+
 $response = json_decode(file_get_contents('php://input'), true);
 $blobImage=$response['image'];
 
