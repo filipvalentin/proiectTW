@@ -105,6 +105,10 @@ function displayProblem(jsonObj) {
 	problemViewButton.setAttribute("onclick", "location.href = 'view-problem.html?problem=" + problemId + "\';");
 	problemViewButton.id = "p" + problemId + "b";
 
+	let problemStatus = clone.getElementById("problem-status");
+	problemStatus.textContent = jsonObj["status"];
+	problemStatus.id = "p" + problemId + "s";
+
 	// console.log(jsonObj["title"]);
 	problemSection.appendChild(clone);
 

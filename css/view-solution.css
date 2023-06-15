@@ -10,14 +10,16 @@ main{
 
 * {box-sizing: border-box;}
 
-.problemas{
-	display: flex;
-	flex-direction: row;
+.problem{
+	display: grid;
+	grid-template-areas: "header header"
+	"description body";
+	grid-template-rows: auto 1fr;
 	background-color: #ada2d675;
 	margin: 2em;
  	align-self: center;
-	justify-content: center;
-	max-width: 1000px;
+	/* justify-content: center; */
+	/* max-width: 1000px; */
 	width: 100%;
 	height: calc(100vh - 6em);
 	border-radius: 5px;
@@ -25,19 +27,27 @@ main{
 }
 
 .description{
+	grid-area: description;
 	display: flex;
 	flex-direction: column;
 	align-self: center;
 	flex-grow: 1;
 	height: 100%;
+	
 }
 
-.title{
+.header{
+	grid-area: header;
 	background-color: #709a9b;
     color: white;
     width: 100%;
     margin-top: 0;
-    height: auto;
+
+	display: grid;
+	grid-template-columns: auto 1fr;
+	justify-items: end;
+	align-items: center;
+
 }
 
 .subtitle{
@@ -87,6 +97,7 @@ main{
 }
 
 .body{
+	grid-area: body;
 	background-color: #a0a0a0;
 	display: flex;
 	flex-direction: column;
@@ -150,23 +161,35 @@ ul{
 	padding: 1.5em;
 }
 
+textarea{
+	outline: none;
+}
+
+.score-section{
+	display: flex;
+	flex-direction: row;
+	/* justify-content: center; */
+	align-items: center;
+	gap: 0.5em;
+}
+
 @media only screen and (max-width: 55em) {
-	.problemas {
+	/* .problem {
 		flex-direction: column;
 		height: fit-content;
 		width: 100%;
 		overflow: hidden;
 		margin:1em;
-	}
+	} */
 
-	.the-body{
+	/* .the-body{
 		display: flex;
 		align-self: center;
 		max-width: 50em;
 		min-width: 90%;
 		padding: 1em;
 		height: 10em;
-	}
+	} */
 
 	.body{
 		width: 100%;
@@ -180,9 +203,8 @@ ul{
 		width:fit-content;
 		min-width: 100%;
 	}
-	main{
-		margin: 1em;
-	}
+
+	/* todo */
 
 
 }
