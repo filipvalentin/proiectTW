@@ -30,6 +30,15 @@ if ($checkUsername->fetchColumn() == 1) { //daca a gasit emailul => fail direct
 	return;
 }
 
+$path = 'C:/xampp/htdocs/proiectTW/resources/Sample_User_Icon.jpg';
+$type = pathinfo($path, PATHINFO_EXTENSION);
+$data = file_get_contents($path);
+$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+
+$db = new PDO("mysql:host=localhost;dbname=project", 'root', '');
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $uniqueId = uniqid();
 
@@ -42,10 +51,12 @@ $stm->bindValue(5, $password_hash);
 
 $res = $stm->execute();
 
+
 //todo cand facem merge
 
-$stm = $db->prepare("INSERT INTO info_users (id_user) VALUES (?)");
+$stm = $db->prepare("INSERT INTO info_users (id_user, user_image) VALUES (?, ?)");
 $stm->bindValue(1, $uniqueId);
+$stm->bindValue(2, $base64);
 $res = $stm->execute();
 
 http_response_code(200);

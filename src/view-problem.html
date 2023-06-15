@@ -28,48 +28,44 @@
 		<div class="problemas">
 			<div class="description">
 				<div class="title">
-					<p class="format-title">Problem</p>
+					<p class="format-title" id="title-prb"></p>
 				</div>
 				<div class="tags">
 					<div class="difficulty">
 						<p class="header"> Status: </p>
-						<p class="type">Approved</p>
+						<p class="type" id="status"></p>
 					</div>
 					<div class="difficulty">
 						<p class="header"> Created: </p>
-						<p class="type">12/12/1999</p>
+						<p class="type" id="date"></p>
+					</div>
+					<div class="difficulty">
+						<p class="header"> Checked: </p>
+						<p class="type" id="check"></p>
 					</div>
 					<div class="difficulty">
 						<p class="header"> Difficulty: </p>
-						<p class="type">MEDIUM</p>
+						<p class="type" id="diff"></p>
 					</div>
 					<div class="other-tags">
 						<p class="header">Tags</p>
-						<ul>
-							<li>
-								<p class="tags-2">backtracking</p>
-							</li>
-							<li>
-								<p class="tags-2">advanced programming</p>
-							</li>
-							<li>
-								<p class="tags-2">graph</p>
-							</li>
+						<ul id="tags">
+							
 						</ul>
 					</div>
 				</div>
 				<div class="special-class">
-					<button class="button">DELETE</button>
+					<button class="button" onclick="deleteProblem()">DELETE</button>
 				</div>
 			</div>
 			<div class="body">
 				<div class="the-body">
-					<textarea readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod earum nostrum veniam consectetur blanditiis dolorum, cumque magni libero corporis illo, hic pariatur necessitatibus officiis rerum odio exercitationem impedit esse tempore.
+					<textarea readonly id="description">
 					</textarea>
 				</div>
 			</div>
 		</div>
 	</main>
 </body>
-
+<script src="../script/view-problem.js"></script>
 </html>
