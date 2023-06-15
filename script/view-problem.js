@@ -27,12 +27,9 @@ function generatePage(id) {
             date.innerHTML = information.post_date;
 
             var check = document.getElementById('check');
-            if(information.update_data == null){
-                check.innerHTML = 'DURING';
-            }else{
-                check.innerHTML = information.update_data;
-            }
-            
+            check.innerHTML = information.update_data;
+
+
             var difficulty = document.getElementById('diff');
             difficulty.innerHTML = information.difficulty;
 
