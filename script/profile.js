@@ -138,10 +138,11 @@ http.onreadystatechange = function () {
                     var imgElement = document.getElementById('profile');
                     imgElement.src = "../resources/Sample_User_Icon.png";
                 }
-            } if (xhr.readyState == 4 && xhr.status == 401) {
-                console.log('au')
-                window.location.assign("unauthorized.html");
-            }
+            } 
+			// if (xhr.readyState == 4 && xhr.status == 401) {
+            //     console.log('au')
+            //     window.location.assign("unauthorized.html");
+            // }
         };
 
         xhr.send();
