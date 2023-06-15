@@ -8,6 +8,11 @@ main{
 p{
 	margin: 0.5em;
 }
+
+button{
+	cursor: pointer;
+}
+
 .info-panel, .problem-panel{
 	/* max-width: 40em; */
 	min-width: 40em;

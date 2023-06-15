@@ -10,11 +10,12 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
 	<link rel="stylesheet" href="../css/top-navbar.css">
-	<link rel="stylesheet" href="../css/student-view-problem-comments.css">
-	<link rel="stylesheet" href="../css/bottom-right-navigation-buttons.css">
+	<!-- <link rel="stylesheet" href="../css/student-view-problem-comments.css"> -->
+	<!-- <link rel="stylesheet" href="../css/bottom-right-navigation-buttons.css"> -->
 	<link rel="stylesheet" href="../css/prof-view-homework-problem.css">
 
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/rating.css">
 </head>
 
 <body>
@@ -41,7 +42,25 @@
 					<p class="name">Id:</p>
 					<p class="value" id="problem-id"></p>
 				</div>
-
+				<div class="item">
+					<p class="name">Difficulty:</p>
+					<p class="value" id="problem-difficulty"></p>
+				</div>
+				<div class="item">
+					<p class="name">Tags:</p>
+					<p class="value" id="problem-tags"></p>
+				</div>
+				<div class="item">
+					<p class="name">Average rating:</p>
+					<div class="rating">
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+					</div>
+				</div>
+				<p class="description" id="description"></p>
 			</div>
 		</div>
 		<div class="right-panel">
@@ -50,12 +69,13 @@
 				<tr class="table-header">
 					<th> Student </th>
 					<th> Status </th>
+					<th> Rating </th>
 				</tr>
 
 			</table>
 
 		</div>
-		<div class="comments">
+		<div class="comments" id="comment-section">
 			<header> Comments </header>
 		</div>
 
@@ -72,11 +92,21 @@
 						<p id="entry-solution-status"></p>
 					</div>
 				</td>
+				<td class="rating-td">
+					<div class="rating">
+						<span class="fa fa-star" id="star1"></span>
+						<span class="fa fa-star" id="star2"></span>
+						<span class="fa fa-star" id="star3"></span>
+						<span class="fa fa-star" id="star4"></span>
+						<span class="fa fa-star" id="star5"></span>
+					</div>
+				</td>
 				<td class="right-td">
 					<div class="view-solution-button">
 						<button class="generic-button" id="entry-view-solution-button">View solution</button>
 					</div>
 				</td>
+				
 			</tr>
 		</template>
 
@@ -95,9 +125,7 @@
 					<div class="delete-comment-button">
 						<button class="generic-button button delete-button" id="comment-delete-button">DELETE</button>
 					</div>
-
 				</div>
-
 				<div class="message">
 					<p id="comment-message">
 					</p>

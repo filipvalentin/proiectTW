@@ -345,7 +345,7 @@
 	/* margin-top: 0; */
 	display: grid;
 	/* grid-template-areas: "problem-title difficulty view-button"; */
-	grid-template-columns: auto auto auto 1fr;
+	grid-template-columns: auto auto auto auto 1fr;
 	align-items: center;
 }
 
@@ -390,7 +390,14 @@
 }
 
 
-
+.status{
+	margin-left: 1em;
+	padding: 0.2em;
+	border-radius: 4px;
+	color: black;
+	width: fit-content;
+	font-size: 0.9em;
+}
 
 
 .view-problem-button{

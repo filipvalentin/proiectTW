@@ -26,7 +26,7 @@ $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-$stm = $db->prepare("INSERT INTO teacher_problems (teacher_id, title, difficulty, tags, description, post_date) VALUES (?,?,?,?,?, NOW())");
+$stm = $db->prepare("INSERT INTO teacher_problems (teacher_id, title, difficulty, tags, status, description, post_date, status_update_date) VALUES (?,?,?,?,'PENDING',?, NOW(), NOW())");
 $res = $stm->execute([$user_id, $title, $difficulty, $tags, $description]);
 
 http_response_code(200);

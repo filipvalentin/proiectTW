@@ -22,19 +22,31 @@
 			<a href="account-administration.html">My account</a>
 		</div>
 	</nav>
-	
+
 
 	<main>
-		<div class="problemas">
-			<div class="description">
-				<div class="title">
-					<p class="format-title">ClassName &#x2022 user_not_a_mockup1 &#x2022 Solution</p>
+		<div class="problem">
+			<div class="header">
+				<div>
+					<p class="format-title" id="student-username"></p>
+				<p class="format-title">&#x2022</p>
+				<p class="format-title">solution</p>
 				</div>
+				
+				<div class="score-section">
+					<p>Score:</p>
+					<input class="score" id="score">
+					<button id="save-score" onclick="assignScore()" >Assign score</button>
+				</div>
+
+			</div>
+			<div class="description">
+
 				<div class="subtitle">
-					<p class="format-subtitle">Problem</p>
+					<p class="format-subtitle">Problem text</p>
 				</div>
 				<div class="the-body">
-					<textarea readonly>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A explicabo possimus architecto veniam maxime animi rerum! Tenetur eos delectus vitae vel necessitatibus quaerat, in nam fugit itaque consequuntur sunt corporis?</textarea>
+					<textarea readonly id="problem-description"> </textarea>
 				</div>
 			</div>
 			<div class="body">
@@ -42,11 +54,13 @@
 					<p class="format-subtitle">Solution</p>
 				</div>
 				<div class="the-body">
-					<textarea readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod earum nostrum veniam consectetur blanditiis dolorum, cumque magni libero corporis illo, hic pariatur necessitatibus officiis rerum odio exercitationem impedit esse tempore.
-					</textarea>
+					<textarea readonly id="solution-body"> </textarea>
 				</div>
 			</div>
 		</div>
+
+
+		<script src="../script/view-solution.js"></script>
 	</main>
 </body>
 
