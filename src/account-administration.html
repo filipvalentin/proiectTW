@@ -2,131 +2,200 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
-	<link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Account Administration</title>
-	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/account-administration.css">
-	<link rel="stylesheet" href="../css/top-navbar.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Administration</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/account-administration.css">
+    <link rel="stylesheet" href="../css/top-navbar.css">
 </head>
 
 <body>
 
-	<nav class="top-navbar">
-		<div>
-			<a class="active" href="my-classes.html">My classes</a>
-		</div>
+    <nav class="top-navbar">
+        <div>
+            <a class="active" href="my-classes-student-view.html">My classes</a>
+        </div>
 
-		<div class="navbar-right">
-			<a href="my-problems.html">My problems</a>
-			<a href="account-administration.html">My account</a>
-		</div>
-	</nav>
+        <div class="navbar-right">
+            <a href="account-administration-student-view.html">My account</a>
+        </div>
+    </nav>
 
-	<main class="main account-admin-main">
-		<div class="sidepanel">
-			<div class="main_focus">
-				<img class="picture" src="../resources/Sample_User_Icon.png">
-				<div class="username">
-					username_not_a_mockup_1
-				</div>
-			</div>
-			<div class="user-info-large">
-				<div class="user-info">
-					<p>Email:</p>
-					<p> user_not_a_mockup1@gmail.com</p>
-				</div>
-				<div class="user-info">
-					<p>Name:</p>
-					<p>Name Surname-Secondname</p>
-				</div>
-				<div class="user-info">
-					<p>Here since: </p>
-					<p>10/04/2023</p>
-				</div>
-				<div class="user-info">
-					<p>Gender:</p>
-					<p>Gender here</p>
-				</div>
-				<div class="user-info">
-					<p>Birthday: </p>
-					<p>10/04/2023</p>
-				</div>
-				<div class="user-info">
-					<p>From:</p>
-					<p>Country X</p>
-				</div>
-				<div class="aboutme">
-					<p>About me</p>
-					<p> About me text here.
-					</p>
-				</div>
-			</div>
-		</div>
-		</div>
+    <main class="main account-admin-main">
+        <div class="sidepanel">
+            <div class="main_focus" id="main-frame">
+                <img class="picture" src="" id="profile">
+            </div>
 
-		<div class="settings-area">
-			<div class="modify">
-				<h3>Change email</h3>
-				<form class="forms">
-					<input type="email" placeholder="Current email" required>
-					<input type="email" placeholder="New email" required>
-					<input type="email" placeholder="Confirm email" required>
-					<div class="button">
-						<button>Change email</button>
-					</div>
-				</form>
+            <div class="user-info-large" id="information">
+				
 			</div>
-			<div class="modify">
-				<h3>Change password</h3>
-				<form class="forms">
-					<input type="password" placeholder="Current password" required>
-					<input type="password" placeholder="New password" required>
-					<input type="password" placeholder="Confirm email" required>
-					<div class="button">
-						<button>Change password</button>
-					</div>
-				</form>
-			</div>
-			<div class="modify">
-				<h3>Profile preferences</h3>
-				<div class="mod-profil">
-					<div class="form_2">
-						<form class="forms">
-							<input type="text" placeholder="Username">
-							<input type="text" placeholder="Name">
-							<input type="text" placeholder="Your high school">
-							<input type="date" placeholder="Birthday">
-							<select name="option">
-								<option value="" disabled selected>Select your gender</option>
-								<option value="Masculin">Male</option>
-								<option value="Feminin">Female</option>
-								<option value="Other">Other</option>
-							</select>
-							<p>About me</p>
-							<textarea></textarea>
+        </div>
 
-						</form>
-					</div>
-					<form class="selection">
-						<input type="checkbox" name="afisare_nastere" id="nastere">
-						<label for="nastere">I would like my birthday to be visible</label><br>
-						<input type="checkbox" name="afisare_institutie" id="institutie">
-						<label for="institutie">I would like to make my high shool visible.</label><br>
-						<input type="checkbox" name="afisare_gen" id="gen">
-						<label for="institutie">I would like to make my gender visible</label><br>
-					</form>
-					<div class="button">
-						<button class="preferences-button">Save profile</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+        <div class="settings-area">
+
+            <div class="modify">
+                <h3>Change e-mail</h3>
+                <form class="forms" onsubmit="return false">
+                    <input type="email" placeholder="Current e-mail" id="currentEmail" required>
+                    <div id="error-email" class="error">
+                        <p>This e-mail isn't account e-mail.</p>
+                    </div>
+                    <div id="empty-email" class="error">
+                        <p>Please, write account e-mail.</p>
+                    </div>
+                    <input type="email" placeholder="New e-mail" id="newEmail" required>
+                    <div id="taken-email" class="error">
+                        <p>This e-mail is used by another account.</p>
+                    </div>
+                    <div id="empty2-email" class="error">
+                        <p>Please, write the new e-mail.</p>
+                    </div>
+                    <input type="email" placeholder="Confirm e-mail" id="confirmationEmail" required>
+                    <div id="isnt-email" class="error">
+                        <p>Please, write the correct e-mail.</p>
+                    </div>
+                    <div id="empty3-email" class="error">
+                        <p>Please, write e-mail.</p>
+                    </div>
+                    <div class="button">
+                        <button onclick="changeEmail()">Change e-mail</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modify">
+                <h3>Change password</h3>
+                <form class="forms" onsubmit="return false">
+                    <input type="password" placeholder="Current password" id="currentPassword" required>
+                    <div id="error-passwd" class="error">
+                        <p>This password isn't account password.</p>
+                    </div>
+                    <div id="empty-passwd" class="error">
+                        <p>Please, enter the current password.</p>
+                    </div>
+                    <input type="password" placeholder="New password" id="newPassword" required>
+                    <div id="failed-passwd-cap-letter" class="error">
+                        <p>This password doesn't have a capital letter.</p>
+                    </div>
+                    <div id="failed-passwd-spec-char" class="error">
+                        <p>This password doesn't have a special character.</p>
+                    </div>
+                    <div id="failed-passwd-number" class="error">
+                        <p>This password doesn't have a number.</p>
+                    </div>
+                    <div id="failed-passwd-lenght" class="error">
+                        <p>This password doesn't have 8 characters.</p>
+                    </div>
+                    <div id="failed-passwd-small-letter" class="error">
+                        <p>This password doesn't have small letters.</p>
+                    </div>
+                    <div id="empty2-passwd" class="error">
+                        <p>Please, enter the new password.</p>
+                    </div>
+                    <input type="password" placeholder="Confirm password" id="confirmPassword" required>
+                    <div id="conf-passwd" class="error">
+                        <p>Please, enter the correct password.</p>
+                    </div>
+                    <div id="empty3-passwd" class="error">
+                        <p>Please, enter the password.</p>
+                    </div>
+                    <div class="button">
+                        <button onclick="changePassword()">Change password</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modify">
+                <h3>Profile preferences</h3>
+                <div class="mod-profil">
+                    <div class="form_2">
+                        <form class="forms">
+                            <input type="text" placeholder="Username" id="username" required>
+                            <div id="empty-username" class="error">
+                                <p>Please, enter an username.</p>
+                            </div>
+                            <div id="invalid-username" class="error">
+                                <p>Please, enter a valid username.</p>
+                            </div>
+                            <div id="taken-username" class="error">
+                                <p>This username is already taken.</p>
+                            </div>
+                            <input type="text" placeholder="Name" id="name" required>
+                            <div id="empty-name" class="error">
+                                <p>Please, enter a name.</p>
+                            </div>
+                            <input type="text" placeholder="Your high school" id="highschool" required>
+                            <div id="empty-school" class="error">
+                                <p>Please, enter a high school.</p>
+                            </div>
+                            <input type="date" placeholder="Birthday" id="birthday" required>
+                            <div id="empty-date" class="error">
+                                <p>Please, enter a date.</p>
+                            </div>
+                            <div id="invalid-date" class="error">
+                                <p>Please, enter a valid date.</p>
+                            </div>
+                            <select name="option" id="gender" required>
+                                <option value="" disabled selected>Select your gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div id="empty-gender" class="error">
+                                <p>Please, select a gender.</p>
+                            </div>
+                            <p>About me</p>
+                            <textarea id="aboutMe" required></textarea>
+                            <div id="empty-about" class="error">
+                                <p>Please, write something about you.</p>
+                            </div>
+                            <div id="too-about" class="error">
+                                <p>Limit is 200 characters.</p>
+                            </div>
+
+                        </form>
+                    </div>
+                    <form class="selection">
+                        <input type="checkbox" name="afisare_nastere" id="nastere" value="show">
+                        <label for="nastere">I would like my birthday to be visible</label><br>
+                        <input type="checkbox" name="afisare_institutie" id="institutie" value="show">
+                        <label for="institutie">I would like to make my high shool visible.</label><br>
+                        <input type="checkbox" name="afisare_gen" id="gen" value="show">
+                        <label for="institutie">I would like to make my gender visible</label><br>
+                    </form>
+                    <div class="button">
+                        <button onclick="changeInfo()" class="preferences-button">Save profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modify">
+                <h3>Change profile image</h3>
+                <form id="imageForm" enctype="multipart/form-data" class="forms" onsubmit="return false">
+                    <input type="file" name="image" id="imageInput">
+                    <div id="no-image" class="error">
+                        <p>Please, choose an image.</p>
+                    </div>
+                    <div class="button">
+                        <button onclick="uploadImage()">Change profile image</button>
+                    </div>
+                  </form>
+                  
+            </div>
+        </div>
+    </main>
 
 </body>
+
+<script type="text/javascript" src="../script/changeEmailFormular.js"></script>
+<script type="text/javascript" src="../script/changePasswordFormular.js"></script>
+<script type="text/javascript" src="../script/changeInfoFormular.js"></script>
+<script type="text/javascript" src="../script/dynamicInformation.js"></script>
+<script type="text/javascript" src="../script/uploadImage.js"></script>
+
 
 </html>

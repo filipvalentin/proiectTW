@@ -44,8 +44,8 @@ $res = $stm->execute();
 
 //todo cand facem merge
 
-// $stm = $db->prepare("INSERT INTO info_users (id_user) VALUES (?)");
-// $stm->bindValue(1, $uniqueId);
-// $res = $stm->execute();
+$stm = $db->prepare("INSERT INTO info_users (id_user) VALUES (?)");
+$stm->bindValue(1, $uniqueId);
+$res = $stm->execute();
 
 http_response_code(200);
