@@ -3,26 +3,20 @@ const id_user = '648b132c83fa0';
 getData(id_user);
 
 function deleteImage(id) {
-    const file = "../resources/Sample_User_Icon.png";
-    const reader = new FileReader();
-    reader.addEventListener("load", () => {
-        const mortiiMaSii = reader.result;
-        console.log(mortiiMaSii);
-        // var http = new XMLHttpRequest();
-        // http.open("POST", "upload.php", true);
-        // http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-        // http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-        // const data = { image : mortiiMaSii };
-        // const json = JSON.stringify(data);
-        // http.onreadystatechange = function () {
-        //     if (http.readyState == 4 && http.status == 200) {
-        //         window.location.assign("account-administration-final.html");
-        //     }
-        // }
+    var http = new XMLHttpRequest();
+    console.log(id);
+    http.open("POST", "deleteImage.php", true);
+    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    const data = { idUser: id };
+    const json = JSON.stringify(data);
+    console.log(json);
+    http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 200) {
+            window.location.assign("admin-users.html");
+        }
+    }
 
-        // http.send(json);
-    });
-    reader.readAsDataURL(file);
+    http.send(json);
 
 }
 
@@ -73,7 +67,7 @@ function getData(id) {
                         imgElement.src = xhr.responseText;
                     } else {
                         var imgElement = document.getElementById('user-img');
-                        imgElement.src = "../resources/Sample_User_Icon.png";
+                        imgElement.src = "../resources/Sample_User_Icon.jpg";
                     }
                 }
                 // if (xhr.readyState == 4 && xhr.status == 401) {
@@ -103,26 +97,26 @@ function update(id) {
     const roleInput = document.getElementById('role').value;
 
     var http = new XMLHttpRequest();
-	http.open("POST", 'changeAdmin.php', true);
-	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    http.open("POST", 'changeAdmin.php', true);
+    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     console
     const data = {
         idUser: id,
         username: usernameInput,
         entire_name: nameInput,
-        highschool:highSchoolInput,
+        highschool: highSchoolInput,
         gender: genderInput,
         aboutMe: aboutMeInput,
-        role:roleInput,
-        email:emailInput
+        role: roleInput,
+        email: emailInput
     };
     const json = JSON.stringify(data);
     console.log(json);
     http.onreadystatechange = function () {
         //Call a function when the state changes.
-		if (http.readyState == 4 && http.status == 200) {
-			window.location.assign("admin-users.html");
-		}
-	}
-	http.send(json);
+        if (http.readyState == 4 && http.status == 200) {
+            window.location.assign("admin-users.html");
+        }
+    }
+    http.send(json);
 }
