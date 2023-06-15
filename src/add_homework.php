@@ -33,10 +33,12 @@ foreach ($assigned_problems as $assignedProblemId) {
 	$res = $stm->execute([$uniqueId, $assignedProblemId]);
 }
 
+$custom_problem_unique_id = uniqid("customp");
+
 $custom_roblems = $response["custom_problems"];
 foreach ($custom_roblems as $customProblem) {
-	$stm = $db->prepare("INSERT INTO homeworks_custom_problems (homework_id, title, tags, difficulty, description, added_at) VALUES (?,?,?,?,?,NOW())");
-	$res = $stm->execute([$uniqueId, $customProblem["title"], $customProblem["tags"], $customProblem["difficulty"], $customProblem["description"]]);
+	$stm = $db->prepare("INSERT INTO homeworks_custom_problems (homework_id, custom_problem_id, title, tags, difficulty, description, added_at) VALUES (?,?,?,?,?,?,NOW())");
+	$res = $stm->execute([$uniqueId, $custom_problem_unique_id, $customProblem["title"], $customProblem["tags"], $customProblem["difficulty"], $customProblem["description"]]);
 }
 
 

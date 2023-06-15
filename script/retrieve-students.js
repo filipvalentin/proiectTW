@@ -3,6 +3,10 @@ var http = new XMLHttpRequest();
 
 http.open('GET', "get_class_students.php?id=" + id, true);
 
+var canSend = true;
+if (!id) {
+	canSend = false;
+}
 
 http.setRequestHeader('Content-Type', 'application/json');
 http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -24,7 +28,10 @@ http.onreadystatechange = function () {
 
 }
 
-http.send();
+id(canSend){
+	http.send();
+}
+
 
 
 function displayStudent(jsonObj) {

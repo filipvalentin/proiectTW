@@ -1,33 +1,33 @@
 
-var http = new XMLHttpRequest();
+var httpCustomProblems = new XMLHttpRequest();
 
-http.open('GET', "get_my_classes.php", true);
+httpCustomProblems.open('GET', "get_my_classes.php", true);
 
 //Send the proper header information along with the request
-http.setRequestHeader('Content-Type', 'application/json');
-http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+httpCustomProblems.setRequestHeader('Content-Type', 'application/json');
+httpCustomProblems.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+httpCustomProblems.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 
-http.onreadystatechange = function () {//Call a function when the state changes.
-	if (http.readyState == 4 && http.status == 200) {
+httpCustomProblems.onreadystatechange = function () {//Call a function when the state changes.
+	if (httpCustomProblems.readyState == 4 && httpCustomProblems.status == 200) {
 
 		// console.log(http.responseText);
 
-		var result = JSON.parse(http.responseText);
+		var result = JSON.parse(httpCustomProblems.responseText);
 
 		result.forEach(element => {
 			displayClass(element);
 		});		
 
 	}
-	if (http.readyState == 4 && http.status == 401) {
+	if (httpCustomProblems.readyState == 4 && httpCustomProblems.status == 401) {
 
 		window.location.assign("unauthorized.html");
 	}
 
 }
 
-http.send();
+httpCustomProblems.send();
 
 
 function displayClass(jsonObj){

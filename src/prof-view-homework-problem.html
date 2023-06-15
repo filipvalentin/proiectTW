@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Class administration</title>
+	<link rel="stylesheet" href="../css/main.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
+	<link rel="stylesheet" href="../css/top-navbar.css">
+	<link rel="stylesheet" href="../css/student-view-problem-comments.css">
+	<link rel="stylesheet" href="../css/bottom-right-navigation-buttons.css">
+	<link rel="stylesheet" href="../css/prof-view-homework-problem.css">
+
+
+</head>
+
+<body>
+	<nav class="top-navbar">
+		<div>
+			<a class="active" href="my-classes.html">My classes</a>
+		</div>
+
+		<div class="navbar-right">
+			<a href="my-problems.html">My problems</a>
+			<a href="account-administration.html">My account</a>
+		</div>
+	</nav>
+
+	<main>
+		<div class="left-panel">
+			<header>
+				<div class="problem-title">
+					<p id="problem-title"></p>
+				</div>
+			</header>
+			<div class="content">
+				<div class="item">
+					<p class="name">Id:</p>
+					<p class="value" id="problem-id"></p>
+				</div>
+
+			</div>
+		</div>
+		<div class="right-panel">
+			<header>Students</header>
+			<table class="user-table" id="student-list">
+				<tr class="table-header">
+					<th> Student </th>
+					<th> Status </th>
+				</tr>
+
+			</table>
+
+		</div>
+		<div class="comments">
+			<header> Comments </header>
+		</div>
+
+		<template id="student-entry-template">
+			<tr class="student-entry">
+				<td class="left-td">
+					<div class="user">
+						<img class="user-pic" id="entry-student-pic">
+						<a id="entry-student-username"></a>
+					</div>
+				</td>
+				<td>
+					<div class="status">
+						<p id="entry-solution-status"></p>
+					</div>
+				</td>
+				<td class="right-td">
+					<div class="view-solution-button">
+						<button class="generic-button" id="entry-view-solution-button">View solution</button>
+					</div>
+				</td>
+			</tr>
+		</template>
+
+		<template id="comment-template">
+			<div class="comment">
+				<div class="left-pane">
+					<div class="user">
+						<img class="user-pic" id="comment-user-pic">
+						<a class="user-link" id="comment-username"></a>
+					</div>
+
+					<div class="post-date">
+						<p>On</p>
+						<p id="comment-post-date"></p>
+					</div>
+					<div class="delete-comment-button">
+						<button class="generic-button button delete-button" id="comment-delete-button">DELETE</button>
+					</div>
+
+				</div>
+
+				<div class="message">
+					<p id="comment-message">
+					</p>
+				</div>
+			</div>
+		</template>
+
+		<script src="../script/prof-view-homework-problem.js"></script>
+	</main>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+main {
+	display: grid;
+	grid-template-areas: "left-panel right-panel"
+							"comments comments";
+
+	grid-template-columns: auto 1fr;
+	gap: 0.5em;
+	margin: 1em;
+
+}
+
+.left-panel {
+	grid-area: left-panel;
+	background-color: #9b9b9bc0;
+	border-radius: 4px;
+	overflow: hidden;
+	width: 20em;
+
+}
+
+p {
+	margin: 0;
+}
+
+.problem-title {
+	width: 15em;
+	word-wrap: break-word;
+}
+
+.content {
+	padding: 1em;
+}
+
+.item {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5em;
+	margin: 0.2em
+}
+
+.item>p {
+	margin: 0;
+}
+
+.right-panel {
+	grid-area: right-panel;
+	background-color: #9b9b9bc0;
+	position: re;
+}
+
+.student-entry {
+	background-color: #f5f5dca5;
+	/* display: grid; */
+	/* grid-template-columns: 1fr 1fr 1fr; */
+	/* margin: 0.25em 0.5em; */
+	/* padding: 0.6em; */
+	border-radius: 4px;
+}
+
+table {
+	/* border: 1px solid black; */
+	/* border: none; */
+	border-collapse: separate;
+	border-spacing: 0 0.3em;
+	width: calc(100% - 2em);
+	margin: 1em;
+}
+
+th,
+td {
+
+	padding: 0.3em;
+}
+
+/* 
+tr {
+	padding-bottom: 4em;
+} */
+
+.left-td {
+	border-radius: 4px 0 0 4px;
+}
+
+.right-td {
+	border-radius: 0 4px 4px 0;
+}
+
+
+.user {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 0.5em;
+
+}
+
+.user-pic {
+	width: 3em;
+	border-radius: 10px;
+}
+
+.status {
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+	justify-items: center;
+}
+
+.view-solution-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+}
+
+
+.generic-button {
+	/* flex-grow: 1; */
+	padding: 0.2em 0.5em;
+	font-size: 1.1em;
+	font-family: 'Asap';
+	transition: all 300ms;
+	border: none;
+
+	border-radius: 4px;
+
+	cursor: pointer;
+	/* margin: 0 0.0em; */
+}
+
+.delete-button {
+	background-color: #f45b69;
+	color: white;
+}
+
+.delete-button:hover {
+	background-color: #fa293a;
+}
+
+@media (max-width:55em) {
+	main {
+		grid-template-areas: "left-panel"
+			"right-panel"
+			"comments";
+		width: auto;
+
+	}
+
+	.left-panel {
+		grid-column: 1/3;
+		width: auto;
+	}
+
+	.right-panel {
+		grid-column: 1/3;
+	}
+}
+
+.comments {
+	grid-area: comments;
+	/* max-width: 70em; */
+	/* margin: 0 auto; */
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+header {
+	font-size: 1.3em;
+	padding: 0.5em;
+	background-color: #888888;
+	color: #000;
+}
+
+.delete-comment-button {
+	display: flex;
+	/* align-items: center; */
+	/* margin: 0.5em; */
+	justify-content: center;
+}
+
+.post-date{
+	margin: 0.5em;
+	margin-left: 0;
+}
