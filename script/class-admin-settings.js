@@ -1,5 +1,3 @@
-
-
 function changeInfoClass() {
     document.getElementById('empty-name').style.display = "none";
     document.getElementById('empty-description').style.display = "none";

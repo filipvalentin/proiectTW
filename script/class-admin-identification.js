@@ -40,6 +40,28 @@ if (nameClass) {
 	httpClassName.onreadystatechange = function () {
 		if (httpClassName.readyState == 4 && httpClassName.status == 200) {
 			nameClass.textContent = httpClassName.responseText;
+			var changeName = document.getElementById('new-name');
+			if (changeName != null) {
+				changeName.setAttribute('value', httpClassName.responseText);
+
+				var descriptionClass = document.getElementById("new-description");
+				if (descriptionClass) {
+					var httpDescriptionName = new XMLHttpRequest();
+					httpDescriptionName.open("GET", 'getClassDescription.php?id=' + id, true);
+					httpDescriptionName.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+					httpDescriptionName.onreadystatechange = function () {
+						if (httpDescriptionName.readyState == 4 && httpDescriptionName.status == 200) {
+							console.log(httpDescriptionName.responseText);
+							descriptionClass.innerHTML = httpDescriptionName.responseText;
+						}
+						if (httpDescriptionName.readyState == 4 && httpDescriptionName.status == 401) {
+							console.log('au')
+							window.location.assign("unauthorized.html");
+						}
+					}
+					httpDescriptionName.send();
+				}
+			}
 		}
 		if (httpClassName.readyState == 4 && httpClassName.status == 401) {
 			console.log('au')
