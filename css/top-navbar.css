@@ -6,6 +6,8 @@
 
 @import url("https://fonts.googleapis.com/css?family=Asap");
 .top-navbar {
+	display: none;
+
 	overflow: hidden;
 	background-color: #313137;
 	position: sticky;
@@ -24,6 +26,7 @@
 	font-size: 1.2em;
 
 	transition: background 200ms;
+	cursor: pointer;
 }
 
 .top-navbar a:hover {
@@ -37,12 +40,51 @@
 }
 
 .navbar-right{
+	/* display: none; */
 	float: right;
+	position: relative;
 }
 
-.hidden{
-	display: block;
+.navbar-profile-menu{
+	display: none;
 }
+
+.user-pic {
+	width: 2.5em;
+	border-radius: 10px;
+
+}
+
+.account-button{
+	display: flex;
+	flex-direction: row;
+
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	color: white;
+	background-color: #434346;
+	padding: 0 0.5em;
+
+	cursor: pointer;
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid #ffffff;
+    border-right: 4px solid transparent;
+    border-bottom: 0 dotted;
+    border-left: 4px solid transparent;
+    content: ""
+}
+
+/* .hidden{
+	display: block;
+} */
 
 @media (max-width:30em) {
 	.hidden{

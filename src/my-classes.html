@@ -4,7 +4,7 @@
 <head>
 	<script src="../script/parse-jwt.js"></script>
 	<script src="../script/retrieve_my_classes.js"></script>
-	
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +18,33 @@
 
 <body>
 
-	<nav class="top-navbar">
+	<nav class="top-navbar" id="teacher-navbar">
 		<div>
 			<a class="active" href="my-classes.html">My classes</a>
 		</div>
 
 		<div class="navbar-right">
+
 			<a href="my-problems.html">My problems</a>
 			<a href="account-administration.html">My account</a>
+			<a onclick="logout()">Log out</a>
+		</div>
+	</nav>
+	<nav class="top-navbar" id="student-navbar">
+		<div>
+			<a class="active" href="my-classes.html">My classes</a>
+		</div>
+		<div class="navbar-right">
+			<div class="account-button">
+				<img class="user-pic" id="navbar-profile-img"></img>
+				<p id="navbar-profile-username">dartsd</p>
+				<span class="caret"></span>
+			</div>
+			<div class="navbar-profile-menu" id="navbar-profile-menu">
+				<a href="account-administration.html">My account</a>
+				<a onclick="logout()">Log out</a>
+			</div>
+
 		</div>
 	</nav>
 
@@ -56,10 +75,11 @@
 				<div class="class" id="class-div">
 					<div class="header">
 						<a class="title" id="class-title"></a>
-						
-						<div class="teacher"><p>•</p>
+
+						<div class="teacher">
+							<p>•</p>
 							<a>Teacher:</a>
-							<a id="teacher"></a>
+							<a class="teacher-link" id="teacher"></a>
 						</div>
 						<button class="gotobutton" id="class-goto-button">Go to class</button>
 					</div>
@@ -72,6 +92,7 @@
 
 
 		<script src="../script/my-classes.js"></script>
+		<script src="../script/navbar.js"></script>
 	</main>
 </body>
 

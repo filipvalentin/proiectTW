@@ -138,8 +138,8 @@ function sendComment() {
 
 	httpSendComment.onreadystatechange = function () {
 		if (httpSendComment.readyState == 4 && httpSendComment.status == 200) {
-			console.log(httpSendComment.responseText);
-			// window.location.assign(location.protocol + '//' + location.host + location.pathname + "?" + urlParams.toString());
+			// console.log(httpSendComment.responseText);
+			window.location.assign(location.protocol + '//' + location.host + location.pathname + "?" + urlParams.toString());
 		}
 		if (httpSendComment.readyState == 4 && httpSendComment.status == 401) {
 			window.location.assign("unauthorized.html");

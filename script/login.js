@@ -20,12 +20,11 @@ function login() {
 			intent,
 			() => {
 				if (intent == "student" || intent == "teacher"){
-					window.location.assign("home.html");
+					window.location.assign("my-classes.html");
 				}
 				else if(intent=="admin"){
 					window.location.assign("admin-overview.html");
-				}
-					
+				}	
 			},
 			() => { document.getElementById("login-error-message").style.display = "block"; }
 		);
@@ -53,6 +52,7 @@ function sendAuthRequest(email, password, intent, funcOnSucess, funcOnFail) {
 
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
+	
 			localStorage.setItem("JWT", http.responseText);
 			funcOnSucess();
 		}
