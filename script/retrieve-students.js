@@ -15,6 +15,8 @@ http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 http.onreadystatechange = function () {
 	if (http.readyState == 4 && http.status == 200) {
 
+		console.log(http.responseText);
+
 		var result = JSON.parse(http.responseText);
 
 		result.forEach(element => {
@@ -28,7 +30,7 @@ http.onreadystatechange = function () {
 
 }
 
-id(canSend){
+if(canSend){
 	http.send();
 }
 

@@ -18,7 +18,7 @@ $db = new PDO("mysql:host=localhost;dbname=project", 'root', '');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$stm = $db->prepare("SELECT users.user_id, users.username, users.user_image FROM users INNER JOIN classes_students ON users.user_id = classes_students.student_id AND classes_students.class_id = ?");
+$stm = $db->prepare("SELECT u.user_id, u.username, iu.user_image FROM users u INNER JOIN classes_students cs ON u.user_id = cs.student_id AND cs.class_id = ? INNER JOIN info_users iu ON u.user_id = iu.id_user");
 $res = $stm->execute([$class_id]);
 $results = $stm->fetchAll(PDO::FETCH_ASSOC);
 $json = json_encode($results);

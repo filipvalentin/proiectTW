@@ -15,7 +15,7 @@ $response = json_decode(file_get_contents('php://input'), true);
 $class_id = $response["class_id"];
 $users = $response["users"];
 
-echo $class_id;
+// echo $class_id;
 
 $db = new PDO("mysql:host=localhost;dbname=project", 'root', '');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
