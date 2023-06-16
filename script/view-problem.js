@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
+const id = urlParams.get('problem');
 
 console.log('hep');
 
