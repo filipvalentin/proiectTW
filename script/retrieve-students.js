@@ -15,7 +15,7 @@ http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 http.onreadystatechange = function () {
 	if (http.readyState == 4 && http.status == 200) {
 
-		console.log(http.responseText);
+		// console.log(http.responseText);
 
 		var result = JSON.parse(http.responseText);
 
@@ -30,7 +30,7 @@ http.onreadystatechange = function () {
 
 }
 
-if(canSend){
+if (canSend) {
 	http.send();
 }
 
@@ -56,12 +56,14 @@ function displayStudent(jsonObj) {
 
 	let studName = clone.getElementById("student-username");
 	studName.textContent = jsonObj["username"];
+	studName.setAttribute("href", "profile.html?id=" + studId);
 	studName.id = "s" + studId + "un";
 
 	let userRemoveButton = clone.getElementById("remove-student-button");
-	userRemoveButton.setAttribute("onclick", "removeUser('" + jsonObj["user_id"] + "\')");
-	userRemoveButton.id = "s" + studId + "b";
-
-
+	if (userRemoveButton) {
+		userRemoveButton.setAttribute("onclick", "removeUser('" + jsonObj["user_id"] + "\')");
+		userRemoveButton.id = "s" + studId + "b";
+	}
+	
 	studentList.appendChild(clone);
 }

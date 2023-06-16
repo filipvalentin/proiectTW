@@ -2,6 +2,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const homework_id = urlParams.get('id');
 
+const JWT = parseJwt(localStorage.getItem("JWT"));
+const role = JWT["role"];
 
 var http = new XMLHttpRequest();
 http.open('GET', "get_homework.php?id=" + homework_id, true);
@@ -77,7 +79,12 @@ function displayProblemEntry(jsonObj, parent, type) {
 	problemTitle.id = "p" + problemId + "t";
 
 	let problemGotoButton = clone.getElementById("problem-goto-button");
-	problemGotoButton.setAttribute("onclick", "location.href = 'prof-view-homework-problem.html?hmkId=" + homework_id + "&problemId=" + problemId + "&type=" + type + "\';")
+	if(role == "teacher"){
+		problemGotoButton.setAttribute("onclick", "location.href = 'prof-view-homework-problem.html?hmkId=" + homework_id + "&problemId=" + problemId + "&type=" + type + "\';")
+	}
+	else if(role == "student"){
+		problemGotoButton.setAttribute("onclick", "location.href = 'student-view-homework-problem.html?hmkId=" + homework_id + "&problemId=" + problemId + "&type=" + type + "\';")
+	}
 	problemGotoButton.id = "p" + problemId + "t";
 
 	parent.appendChild(clone);

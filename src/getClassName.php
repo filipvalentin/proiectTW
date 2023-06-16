@@ -8,11 +8,10 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $stm = $db->prepare("SELECT class_name from classes where id = ?");
 $res = $stm->execute([$class_id]);
-$rows = $stm->fetchAll(PDO::FETCH_NUM); //passwd
+$rows = $stm->fetchAll(PDO::FETCH_NUM);
 
-if(empty($rows)){ // nu s-a gasit emailul
-	http_response_code(401);
-	// echo "ENF"; //email not found
-	return;
+if(empty($rows)){
+	http_response_code(404);
+	die();
 }
 echo $rows[0][0];

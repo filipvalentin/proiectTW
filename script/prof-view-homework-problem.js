@@ -49,7 +49,7 @@ httpInitiatePage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getI
 httpInitiatePage.onreadystatechange = function () {
 	if (httpInitiatePage.readyState == 4 && httpInitiatePage.status == 200) {
 
-		// console.log(http.responseText)
+		// console.log(httpInitiatePage.responseText)
 
 		var result = JSON.parse(httpInitiatePage.responseText);
 		result.forEach(element => {
@@ -60,9 +60,6 @@ httpInitiatePage.onreadystatechange = function () {
 			}
 		});
 		
-
-
-
 	}
 	if (httpInitiatePage.readyState == 4 && httpInitiatePage.status == 401) {
 		window.location.assign("unauthorized.html");

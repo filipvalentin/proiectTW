@@ -1,3 +1,11 @@
+
+const JWT = parseJwt(localStorage.getItem("JWT"));
+const role = JWT["role"];
+
+if(role == "student"){
+	document.location.assign("unauthorized.html");
+}
+
 function createClass(){
 	const className = document.getElementById("class-name").value;
 

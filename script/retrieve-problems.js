@@ -98,7 +98,7 @@ function displayProblem(jsonObj) {
 	problemTags.id = "p" + problemId + "tg";
 
 	let problemDescription = clone.getElementById("problem-description");
-	problemDescription.textContent = jsonObj["description"].substring(1, 200) + "...";
+	problemDescription.textContent = jsonObj["description"].substring(0, 200) + "...";
 	problemDescription.id = "p" + problemId + "dsc";
 
 	let problemViewButton = clone.getElementById("problem-view-button");

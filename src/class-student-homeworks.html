@@ -6,11 +6,10 @@
 	<script src="../script/retrieve-homeworks.js"></script>
 	<script src="../script/retrieve-first-homerworks.js"></script>
 
-
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Class administration</title>
+	<title>My class</title>
 	<link rel="stylesheet" href="../css/main.css">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
@@ -23,21 +22,19 @@
 <body>
 	<nav class="top-navbar">
 		<div>
-			<a class="active" href="my-classes.html">My classes</a>
+			<a class="active" href="my-classes-student-view.html">My classes</a>
 		</div>
 
 		<div class="navbar-right">
-			<a href="my-problems.html">My problems</a>
-			<a href="account-administration.html">My account</a>
+			<a href="account-administration-student-view.html">My account</a>
 		</div>
 	</nav>
 
 	<main class="main class-admin">
 		<div class="dashboard">
-			<p class="class-name" id="name-class"></p>
+			<p class="class-name" id="class-name"></p>
 
 			<a id="class-overview-button">Overview</a>
-			<a id="class-settings-button">Settings</a>
 			<a id="class-students-button">Students</a>
 			<a class="active" id="class-homeworks-button">Homeworks</a>
 
@@ -45,15 +42,22 @@
 				<p>ID:</p>
 				<p id="class-id"></p>
 			</div>
-
 		</div>
 
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Homeworks</p>
-				<a class="section-save-button" href="add-homework-1.html" id="add-homework-button">Add homework</a>
 			</div>
 			<div class="section-main" id="homeworks-list">
+
+				<!-- <div class="navigation-buttons">
+					<button>&lt;</button>
+					<div class="button-list">
+						<button>1</button>
+						<button>2</button>
+					</div>
+					<button>&gt;</button>
+				</div> -->
 			</div>
 
 			<template id="homework-template">
@@ -69,17 +73,12 @@
 						<button id="homework-goto-button" class="view-homework-button"
 							onclick="location.href='prof-view-homework.html';">View homework</button>
 					</div>
-					<!-- <div class="description">
-						<p class="homework-description" id="homework-description"></p>
-					</div> -->
 				</div>
 			</template>
 
 		</div>
 
-
-		<script src="../script/parse-jwt.js"></script>
-		<script src="../script/class-admin-identification.js"></script>
+		<script src="../script/class-student-identification.js"></script>
 	</main>
 </body>
 

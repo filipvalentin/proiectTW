@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My class</title>
+	<link rel="stylesheet" href="../css/main.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
+	<link rel="stylesheet" href="../css/top-navbar.css">
+	<link rel="stylesheet" href="../css/class-admin.css">
+	<link rel="stylesheet" href="../css/class-admin-students-panel.css">
+	<link rel="stylesheet" href="../css/search-bar.css">
+	<link rel="stylesheet" href="../css/bottom-right-navigation-buttons.css">
+</head>
+
+<body>
+	<nav class="top-navbar">
+		<div>
+			<a class="active" href="my-classes-student-view.html">My classes</a>
+		</div>
+
+		<div class="navbar-right">
+			<a href="account-administration-student-view.html">My account</a>
+		</div>
+	</nav>
+	<main class="class-admin">
+
+		<div class="dashboard">
+			<p class="class-name" id="class-name"></p>
+
+			<a id="class-overview-button">Overview</a>
+			<a class="active" id="class-students-button">Students</a>
+			<a id="class-homeworks-button">Homeworks</a>>
+
+			<div class="class-id">
+				<p>ID:</p>
+				<p id="class-id"></p>
+			</div>
+		</div>
+
+		<div class="section-area">
+			<div class="section-header">
+				<p class="section-title">Students</p>
+			</div>
+
+			<div class="content-students">
+				<div class="student-list" id="student-list">
+
+				</div>
+
+				<template id="student-template">
+					<div class="student-entry" id="student-entry">
+						<div class="entry-left-side">
+							<img class="student-pic" id="student-image">
+							<a class="student-user" id="student-username"></a>
+						</div>
+						<!-- <div class="divider"></div>
+						<button class="student-entry-button" id="remove-student-button">Remove</button> -->
+					</div>
+				</template>
+
+				<!-- <div class="navigation-buttons">
+				<button>&lt;</button>
+				<div class="button-list">
+					<button>1</button>
+					<button>2</button>
+				</div>
+				<button>&gt;</button>
+			</div> -->
+			</div>
+
+			<script src="../script/class-student-identification.js"></script>
+			<script src="../script/retrieve-students.js"></script>
+	</main>
+</body>
+
+</html>

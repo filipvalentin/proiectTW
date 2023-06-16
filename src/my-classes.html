@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	<script src="../script/parse-jwt.js"></script>
 	<script src="../script/retrieve_my_classes.js"></script>
 
 	<meta charset="UTF-8">
@@ -33,27 +34,12 @@
 				<div class="dashboard-class-name">
 					<content>My classes</content>
 				</div>
-				<div class="dashboard-class-button">
+				<div class="dashboard-class-button" id="create-class-button-div">
 					<a href="create-class.html">Create class</a>
-					
 				</div>
 			</div>
-			<div id="class-list">
+			<div id="class-list"></div>
 
-			</div>
-			<!-- <div class="class">
-				<div class="header">
-					<a class="title">Class 1</a>
-					<a class="gotobutton" href="class-admin-overview.html">Go to class</a>
-				</div>
-				<div class="content">
-					<p>Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						Ut enim ad minim veniam...
-					</p>
-				</div>
-
-			</div> -->
 			<template id="class-template">
 				<div class="class" id="class-div">
 					<div class="header">
@@ -69,6 +55,7 @@
 		</div>
 
 
+		<script src="../script/my-classes.js"></script>
 	</main>
 </body>
 

@@ -1,4 +1,7 @@
 
+const JWT = parseJwt(localStorage.getItem("JWT"));
+const role = JWT["role"];
+
 var httpCustomProblems = new XMLHttpRequest();
 
 httpCustomProblems.open('GET', "get_my_classes.php", true);
@@ -17,7 +20,7 @@ httpCustomProblems.onreadystatechange = function () {//Call a function when the 
 
 		result.forEach(element => {
 			displayClass(element);
-		});		
+		});
 
 	}
 	if (httpCustomProblems.readyState == 4 && httpCustomProblems.status == 401) {
@@ -30,7 +33,7 @@ httpCustomProblems.onreadystatechange = function () {//Call a function when the 
 httpCustomProblems.send();
 
 
-function displayClass(jsonObj){
+function displayClass(jsonObj) {
 
 	const classId = jsonObj["id"];
 
@@ -48,7 +51,15 @@ function displayClass(jsonObj){
 	classTitle.id = "c" + classId + "t";
 
 	let classViewButton = clone.getElementById("class-goto-button");
-	classViewButton.setAttribute("onclick", "location.href = 'class-admin-overview.html?id=" + jsonObj["id"] + "\';");
+	if(role == "teacher"){
+		classViewButton.setAttribute("onclick", "location.href = 'class-admin-overview.html?id=" + jsonObj["id"] + "\';");
+	}
+	else if(role == "student"){
+		classViewButton.setAttribute("onclick", "location.href = 'class-student-overview.html?id=" + jsonObj["id"] + "\';");
+	}
+	else{
+		classViewButton.setAttribute("onclick", "location.href = 'unauthorized.html");
+	}
 	classViewButton.id = "c" + classId + "b";
 
 	let classDescription = clone.getElementById("class-description");

@@ -5,6 +5,9 @@
 const urlParams2 = new URLSearchParams(window.location.search);
 const urlClassId = urlParams2.get('id');
 
+const JWT = parseJwt(localStorage.getItem("JWT"));
+const role = JWT["role"];
+
 function retrieveHomeworks() {
 
 	var http = new XMLHttpRequest();
@@ -71,7 +74,12 @@ function displayHomework(jsonObj) {
 	hmkTitle.id = "h" + hmkId + "t";
 
 	let hmkGotoButton = clone.getElementById("homework-goto-button");
-	hmkGotoButton.setAttribute("onclick", "location.href = 'prof-view-homework.html?id=" + hmkId + "\';");
+	if(role == "teacher"){
+		hmkGotoButton.setAttribute("onclick", "location.href = 'prof-view-homework.html?id=" + hmkId + "\';");
+	}
+	else if(role == "student"){
+		hmkGotoButton.setAttribute("onclick", "location.href = 'stud-view-homework.html?id=" + hmkId + "\';");
+	}
 	hmkGotoButton.id = "h" + hmkId + "goto";
 
 	let hmkDeadline = clone.getElementById("deadline-label-id");

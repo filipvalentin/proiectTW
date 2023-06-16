@@ -30,7 +30,8 @@ if ($checkUsername->fetchColumn() == 1) { //daca a gasit emailul => fail direct
 	return;
 }
 
-$path = 'C:/xampp/htdocs/proiectTW/resources/Sample_User_Icon.jpg';
+$path = '../resources/Sample_User_Icon.jpg';
+
 $type = pathinfo($path, PATHINFO_EXTENSION);
 $data = file_get_contents($path);
 $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);

@@ -303,7 +303,7 @@ function sendRegisterRequest() {
 
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
-			console.log(http.responseText);	
+			// console.log(http.responseText);	
 			sendAuthRequest(email, password, ()=>{window.location.href = "home.html";}, ()=>{});
 
 		}

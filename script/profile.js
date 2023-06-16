@@ -8,11 +8,11 @@ http.onreadystatechange = function () {
     //Call a function when the state changes.
     if (http.readyState == 4 && http.status == 200) {
         var information = JSON.parse(http.responseText);
-        console.log(information);
+        // console.log(information);
 
         //adauga username ul in informatii
         var username = information.username;
-        console.log(username);
+        // console.log(username);
         var mainFrame = document.getElementById("main-frame");
         var usernameDiv = document.createElement("div");
         usernameDiv.classList.add("username");
@@ -22,7 +22,7 @@ http.onreadystatechange = function () {
         //
 
         var nameUser = information.entire_name;
-        console.log(nameUser);
+        // console.log(nameUser);
         var mainFrame = document.getElementById("information");
         var nameUserDiv = document.createElement("div");
         nameUserDiv.classList.add("user-info");
@@ -37,7 +37,7 @@ http.onreadystatechange = function () {
         //
 
         var email = information.email;
-        console.log(email);
+        // console.log(email);
         var emailDiv = document.createElement("div");
         emailDiv.classList.add("user-info");
         var aux1 = document.createElement("p");
@@ -129,9 +129,9 @@ http.onreadystatechange = function () {
         
         xhr.onload = function () {
             if (xhr.status == 200 && xhr.readyState == 4) {
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
                 if (xhr.responseText != '') {
-                    console.log('ay');
+                    // console.log('ay');
                     var imgElement = document.getElementById('profile');
                     imgElement.src = xhr.responseText;
                 } else {
@@ -149,7 +149,7 @@ http.onreadystatechange = function () {
 
     }
     if (http.readyState == 4 && http.status == 401) {
-        console.log('au')
+        // console.log('au')
         window.location.assign("unauthorized.html");
     }
 }
