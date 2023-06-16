@@ -7,26 +7,26 @@ document.getElementById("problem-id").textContent = problemId;
 
 //update problem title and short description
 if (problemType == "custom" || problemType == "assigned") {
-	var httpProblem = new XMLHttpRequest();
-	httpProblem.open('GET', "get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
-	httpProblem.setRequestHeader('Content-Type', 'application/json');
-	httpProblem.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-	httpProblem.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-	httpProblem.onreadystatechange = function () {
-		if (httpProblem.readyState == 4 && httpProblem.status == 200) {
+	var httpProblemDescription = new XMLHttpRequest();
+	httpProblemDescription.open('GET', "get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
+	httpProblemDescription.setRequestHeader('Content-Type', 'application/json');
+	httpProblemDescription.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	httpProblemDescription.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+	httpProblemDescription.onreadystatechange = function () {
+		if (httpProblemDescription.readyState == 4 && httpProblemDescription.status == 200) {
 
 			// console.log(httpProblem.responseText)
-			var result = JSON.parse(httpProblem.responseText);
+			var result = JSON.parse(httpProblemDescription.responseText);
 			document.getElementById("problem-title").textContent = result[0]["title"];
 			document.getElementById("problem-difficulty").textContent = result[0]["difficulty"];
 			document.getElementById("problem-tags").textContent = result[0]["tags"];
 			document.getElementById("description").textContent = result[0]["description"].substring(0, 100) + "...";
 		}
-		if (httpProblem.readyState == 4 && httpProblem.status == 401) {
+		if (httpProblemDescription.readyState == 4 && httpProblemDescription.status == 401) {
 			window.location.assign("unauthorized.html");
 		}
 	}
-	httpProblem.send();
+	httpProblemDescription.send();
 }
 else {
 	window.location.assign("unauthorized.html");
@@ -39,19 +39,18 @@ else {
 var average =  0;
 
 //username, status, studentid, comment
-var userImages = new Map();
 
-var httpInitiatePage = new XMLHttpRequest();
-httpInitiatePage.open('GET', "get_prof_view_homework_problem.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
-httpInitiatePage.setRequestHeader('Content-Type', 'application/json');
-httpInitiatePage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-httpInitiatePage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-httpInitiatePage.onreadystatechange = function () {
-	if (httpInitiatePage.readyState == 4 && httpInitiatePage.status == 200) {
+var httpGetComments = new XMLHttpRequest();
+httpGetComments.open('GET', "get_prof_view_homework_problem.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
+httpGetComments.setRequestHeader('Content-Type', 'application/json');
+httpGetComments.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+httpGetComments.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+httpGetComments.onreadystatechange = function () {
+	if (httpGetComments.readyState == 4 && httpGetComments.status == 200) {
 
-		// console.log(httpInitiatePage.responseText)
+		console.log(httpGetComments.responseText)
 
-		var result = JSON.parse(httpInitiatePage.responseText);
+		var result = JSON.parse(httpGetComments.responseText);
 		result.forEach(element => {
 			displayStudentEntry(element);
 
@@ -61,11 +60,11 @@ httpInitiatePage.onreadystatechange = function () {
 		});
 		
 	}
-	if (httpInitiatePage.readyState == 4 && httpInitiatePage.status == 401) {
+	if (httpGetComments.readyState == 4 && httpGetComments.status == 401) {
 		window.location.assign("unauthorized.html");
 	}
 }
-httpInitiatePage.send();
+httpGetComments.send();
 
 
 function displayAverageStars(){
@@ -183,7 +182,7 @@ function displayCommentTemplate(jsonObj) {
 	commentDeleteButton.id = "cm" + userId + "dcb";
 
 	let commentDateAdded = clone.getElementById("comment-post-date");
-	commentDateAdded.textContent = jsonObj["added_at"];
+	commentDateAdded.textContent = jsonObj["comment_date"];
 	commentDateAdded.id = "cm" + userId + "s";
 
 	let commentText = clone.getElementById("comment-message");

@@ -1,7 +1,7 @@
 .content {
 	grid-template-areas: "header"
 		"buttons"
-		"comments"
+		"comments-panel"
 		"new-comment";
 }
 
@@ -13,9 +13,10 @@
 	grid-area: buttons;
 }
 
-.comments {
-	grid-area: comments;
+.comments-panel {
+	grid-area: comments-panel;
 	background-color: rgb(177, 177, 177);
+	display: none;
 }
 
 .comment {
@@ -76,26 +77,17 @@
 	border-radius: 4px;
 }
 
-@media (max-width:50em) {
-	.comment {
-		grid-template-areas: "left-pane"
-			"message";
-	}
-
-	.message {
-		margin: 0;
-	}
-}
 
 .new-comment {
 	grid-area: new-comment;
 	display: grid;
 	grid-template-areas: "comment-greet-message comment-button"
-		"comment-message comment-button";
-	grid-template-columns: 1fr auto;
-	background-color: rgb(177, 177, 177);
+		"comment-message comment-message";
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(201, 199, 199, 0.983);
 	border-radius: 4px;
-	margin-top: 1em;
+
 }
 
 .comment-greet-message {
@@ -126,7 +118,20 @@
 
 .submit-button-cell {
 	grid-area: comment-button;
-	justify-self: end;
-	margin: 1em;
-	/* align-self: ; */
+	margin-top: 0.5em;
+	margin-right: 1em;
 }
+
+
+
+@media (max-width:50em) {
+	.comment {
+		grid-template-areas: "left-pane"
+			"message";
+	}
+
+	.message {
+		margin: 0;
+	}
+}
+

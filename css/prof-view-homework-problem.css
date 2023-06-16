@@ -175,6 +175,10 @@ header {
 }
 
 .post-date {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5em;
+
 	margin: 0.5em;
 	margin-left: 0;
 }

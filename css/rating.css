@@ -3,6 +3,8 @@
 	justify-self: end;
 	display: flex;
 	font-size: 1.1em;
+
+	cursor: pointer;
 }
 
 .rating>p{

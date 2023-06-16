@@ -23,7 +23,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $stm = $db->prepare("UPDATE homeworks_problems_info SET comment = '' WHERE homework_id = ? AND problem_id = ? AND user_id = ?");
 $res = $stm->execute([$hmk_id, $problem_id, $user_id]);
-echo $hmk_id." ".$problem_id." ". $user_id;
+// echo $hmk_id." ".$problem_id." ". $user_id;
 
 http_response_code(200);
 
