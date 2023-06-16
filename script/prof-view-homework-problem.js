@@ -36,38 +36,62 @@ else {
 
 
 
-var average =  0;
+var average = 0;
 
 //username, status, studentid, comment
 
-var httpGetComments = new XMLHttpRequest();
-httpGetComments.open('GET', "get_prof_view_homework_problem.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
-httpGetComments.setRequestHeader('Content-Type', 'application/json');
-httpGetComments.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-httpGetComments.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-httpGetComments.onreadystatechange = function () {
-	if (httpGetComments.readyState == 4 && httpGetComments.status == 200) {
+var httpGetStudents = new XMLHttpRequest();
+httpGetStudents.open('GET', "get_prof_view_homework_problem.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
+httpGetStudents.setRequestHeader('Content-Type', 'application/json');
+httpGetStudents.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+httpGetStudents.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+httpGetStudents.onreadystatechange = function () {
+	if (httpGetStudents.readyState == 4 && httpGetStudents.status == 200) {
 
-		console.log(httpGetComments.responseText)
+		console.log(httpGetStudents.responseText);
 
-		var result = JSON.parse(httpGetComments.responseText);
+		var result = JSON.parse(httpGetStudents.responseText);
 		result.forEach(element => {
 			displayStudentEntry(element);
 
-			if (element["comment"]) {
-				displayCommentTemplate(element);
-			}
+			getComments(element["user_id"]);
 		});
-		
+
 	}
-	if (httpGetComments.readyState == 4 && httpGetComments.status == 401) {
+	if (httpGetStudents.readyState == 4 && httpGetStudents.status == 401) {
 		window.location.assign("unauthorized.html");
 	}
 }
-httpGetComments.send();
+httpGetStudents.send();
 
 
-function displayAverageStars(){
+function getComments(userId) {
+	var httpGetComments = new XMLHttpRequest();
+	httpGetComments.open('GET', "get_homework_problem_comments.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + userId, true);
+	httpGetComments.setRequestHeader('Content-Type', 'application/json');
+	httpGetComments.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	httpGetComments.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+	httpGetComments.onreadystatechange = function () {
+		if (httpGetComments.readyState == 4 && httpGetComments.status == 200) {
+
+			console.log(httpGetComments.responseText);
+
+			var result = JSON.parse(httpGetComments.responseText);
+			result.forEach(element => {
+				displayCommentTemplate(element, userId);
+			});
+
+		}
+		if (httpGetComments.readyState == 4 && httpGetComments.status == 401) {
+			window.location.assign("unauthorized.html");
+		}
+	}
+	httpGetComments.send();
+
+}
+
+
+function displayAverageStars() {
 	//TODO
 }
 
@@ -147,23 +171,23 @@ function displayStudentEntry(jsonObj) {
 	studentList.appendChild(clone);
 }
 
-function displayCommentTemplate(jsonObj) {
-	const userId = jsonObj["user_id"];
+function displayCommentTemplate(jsonObj, userId) {
 
 	const commentList = document.getElementById("comment-section");
 	const template = document.getElementById("comment-template");
 
 	const clone = template.content.cloneNode(true);
 
+	const commentId = jsonObj["comment_id"];
 
 	let username = clone.getElementById("comment-username");
 	username.textContent = jsonObj["username"];
 	username.setAttribute("href", "profile.html?id=" + userId);
-	username.id = "cm" + userId + "un";
+	username.id = "cm" + userId + commentId + "un";
 
 
 	let userImage = clone.getElementById("comment-user-pic");
-	userImage.id = "cm" + userId + "im";
+	userImage.id = "cm" + userId + commentId + "im";
 	var httpImage = new XMLHttpRequest();
 	httpImage.open('GET', "getImage2.php?id=" + userId, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
@@ -178,16 +202,16 @@ function displayCommentTemplate(jsonObj) {
 
 
 	let commentDeleteButton = clone.getElementById("comment-delete-button");
-	commentDeleteButton.setAttribute("onclick", "deleteComment(\'" + homeworkId + "\',\'" + problemId + "\',\'" + userId + "\')");
-	commentDeleteButton.id = "cm" + userId + "dcb";
+	commentDeleteButton.setAttribute("onclick", "deleteComment(\'" + homeworkId + "\',\'" + problemId + "\',\'" + userId + "\',\'" +commentId+ "\')");
+	commentDeleteButton.id = "cm" + userId + commentId + "dcb";
 
 	let commentDateAdded = clone.getElementById("comment-post-date");
 	commentDateAdded.textContent = jsonObj["comment_date"];
-	commentDateAdded.id = "cm" + userId + "s";
+	commentDateAdded.id = "cm" + userId + commentId + "s";
 
 	let commentText = clone.getElementById("comment-message");
 	commentText.textContent = jsonObj["comment"];
-	commentText.id = "cm" + userId + "txt";
+	commentText.id = "cm" + userId + commentId + "txt";
 
 
 
@@ -195,7 +219,7 @@ function displayCommentTemplate(jsonObj) {
 }
 
 
-function deleteComment(hmkId, problemId, userId) {
+function deleteComment(hmkId, problemId, userId, commentId) {
 
 	var httpDeleteComment = new XMLHttpRequest();
 	httpDeleteComment.open('DELETE', "remove_user_comment.php", true);
@@ -206,13 +230,15 @@ function deleteComment(hmkId, problemId, userId) {
 	var data = {
 		homework_id: hmkId,
 		problem_id: problemId,
-		user_id: userId
+		user_id: userId,
+		comment_id: commentId
 	}
 
 	const json = JSON.stringify(data);
 
 	httpDeleteComment.onreadystatechange = function () {
 		if (httpDeleteComment.readyState == 4 && httpDeleteComment.status == 200) {
+			// console.log(httpDeleteComment.responseText);
 			window.location.assign(window.location);
 		}
 		if (httpDeleteComment.readyState == 4 && httpDeleteComment.status == 401) {

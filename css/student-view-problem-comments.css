@@ -36,6 +36,7 @@
 	grid-template-areas: "user"
 		"post-date";
 	height: fit-content;
+	gap:0.5em
 }
 
 

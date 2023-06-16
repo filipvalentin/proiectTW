@@ -218,26 +218,27 @@ function submitHomework() {
 
 	var customProblems = new Array();
 
-	customProblemsIds.forEach((customProblemId) => {
+	customProblemsIds.forEach(
+		(customProblemId) => {
+			const title = document.getElementById("p" + customProblemId + "t").value;
+			if (!title)
+				displayError();
 
-		const title = document.getElementById("p" + customProblemId + "t").value;
-		if (!title)
-			displayError();
+			const difficulty = document.getElementById("p" + customProblemId + "df").value;
+			const tags = document.getElementById("p" + customProblemId + "tg").value;
+			const description = document.getElementById("p" + customProblemId + "dsc").value;
 
-		const difficulty = document.getElementById("p" + customProblemId + "df").value;
-		const tags = document.getElementById("p" + customProblemId + "tg").value;
-		const description = document.getElementById("p" + customProblemId + "dsc").value;
+			customProblems.push(
+				{
+					title: title,
+					tags: tags,
+					difficulty: difficulty,
+					description: description
+				}
+			);
 
-		customProblems.push(
-			{
-				title: title,
-				tags: tags,
-				difficulty: difficulty,
-				description: description
-			}
-		);
-
-	});
+		}
+	);
 
 	var assignedProblems = new Array();
 
@@ -257,11 +258,11 @@ function submitHomework() {
 	}
 
 
-	const title =  document.getElementById("homework-title-input").value;
-	if(!title){
+	const title = document.getElementById("homework-title-input").value;
+	if (!title) {
 		displayErrorNoTitle();
 	}
-	else{
+	else {
 		document.getElementById("error-popup-unset-title").style.display = "none";
 	}
 
@@ -293,7 +294,7 @@ function submitHomework() {
 	http.onreadystatechange = function () {
 		if (http.readyState == 4 && http.status == 200) {
 			// console.log(http.responseText);
-			window.location.assign("class-admin-homeworks.html?id=" + id);
+			// window.location.assign("class-admin-homeworks.html?id=" + id);
 		}
 		if (http.readyState == 4 && http.status == 401) {
 			window.location.assign("unauthorized.html");
@@ -323,7 +324,7 @@ function displayErrorUnsetDeadline() {
 	document.getElementById("error-popup-unset-deadline").style.display = "block";
 }
 
-function displayErrorNoTitle(){
+function displayErrorNoTitle() {
 	canSubmit = false;
 
 	document.getElementById("error-popup-unset-title").style.display = "block";

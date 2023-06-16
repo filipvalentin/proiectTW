@@ -31,7 +31,7 @@ if($type == "custom"){
 	echo $json;
 }
 else if($type == "assigned"){
-	$stm = $db->prepare("SELECT tp.title, tp.tags, tp.difficulty, tp.description FROM homeworks_assigned_problems hap INNER JOIN teacher_problems tp WHERE hap.homework_id = ? AND hap.assigned_problem_id = ?");
+	$stm = $db->prepare("SELECT tp.title, tp.tags, tp.difficulty, tp.description FROM homeworks_assigned_problems hap INNER JOIN teacher_problems tp ON hap.assigned_problem_id = tp.id WHERE hap.homework_id = ? AND hap.assigned_problem_id = ?");
 	$res = $stm->execute([$hmk_id, $problem_id]);
 	$results = $stm->fetchAll(PDO::FETCH_ASSOC);
 	$json = json_encode($results);

@@ -22,7 +22,11 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // echo $homework_id." ".$problem_id;
 
-$stm = $db->prepare("SELECT users.username, hpi.user_id, hpi.status, hpi.rating, hpi.comment, hpi.last_status_update, hpi.comment_date FROM homeworks_problems_info hpi INNER JOIN users ON users.user_id = hpi.user_id WHERE homework_id = ? AND problem_id = ?");
+$query = 
+"SELECT users.username, hpi.user_id, hpi.status, hpi.rating, hpi.last_status_update FROM homeworks_problems_info hpi INNER JOIN users ON users.user_id = hpi.user_id WHERE hpi.homework_id = ? AND hpi.problem_id = ?";
+
+
+$stm = $db->prepare($query);
 $res = $stm->execute([$homework_id, $problem_id]);
 $results = $stm->fetchAll(PDO::FETCH_ASSOC);
 $json = json_encode($results);

@@ -36,10 +36,15 @@ foreach ($assigned_problems as $assignedProblemId) {
 	$res = $stm->execute([$classId, $hmk_unique_id, $assignedProblemId]);
 }
 
-$custom_problem_unique_id = uniqid("customp");
+
 
 $custom_roblems = $response["custom_problems"];
+
+// print_r($custom_roblems);
+
 foreach ($custom_roblems as $customProblem) {
+	$custom_problem_unique_id = uniqid("customp");
+
 	$stm = $db->prepare("INSERT INTO homeworks_custom_problems (homework_id, custom_problem_id, title, tags, difficulty, description, added_at) VALUES (?,?,?,?,?,?,NOW())");
 	$res = $stm->execute([$hmk_unique_id, $custom_problem_unique_id, $customProblem["title"], $customProblem["tags"], $customProblem["difficulty"], $customProblem["description"]]);
 

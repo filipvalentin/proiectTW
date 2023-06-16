@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-	<script type="text/javascript" async src="../script/verifyJWT.js"></script>
+	<script type="text/javascript" async src="../script/verifyNoJWT.js"></script>
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,13 +34,13 @@
 			</p>
 
 			<div class="login-options">
-				<div class="login-option" onclick="location.href='login-as-student.html'">
+				<div class="login-option" onclick="location.href='login.html?intent=student'">
 					<!-- <a href="https://www.flaticon.com/free-icons/student" title="student icons">Student icons created by Eucalyp - Flaticon</a> -->
 					<img class="icon" src="../resources/student.png" alt="student icon">
 					<p>LOG IN AS<br> STUDENT</p>
 				</div>
 
-				<div class="login-option" onclick="location.href='login.html'">
+				<div class="login-option" onclick="location.href='login.html?intent=teacher'">
 					<!-- https://icon-library.com/icon/teacher-icon-png-17.html -->
 					<img class="icon" src="../resources/teacher-icon-png-17.jpg" alt="teacher icon">
 					<p>LOG IN AS<br> TEACHER</p>
@@ -60,7 +61,7 @@
 		<footer>
 			<content><a href="about.html">About us</a></content>
 			<content>
-				Are you a moderator? <a href="admin-problems.html"> Log in!</a>
+				Are you a moderator? <a href="login.html?intent=admin"> Log in!</a>
 			</content>
 		</footer>
 	</wrapper>

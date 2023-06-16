@@ -149,7 +149,7 @@ http.onreadystatechange = function () {
 
     }
     if (http.readyState == 4 && http.status == 401) {
-        // console.log('au')
+        // console.log(http.responseText);
         window.location.assign("unauthorized.html");
     }
 }

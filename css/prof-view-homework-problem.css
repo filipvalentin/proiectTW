@@ -1,7 +1,7 @@
 main {
 	display: grid;
 	grid-template-areas: "left-panel right-panel"
-						"comments comments";
+		"comments comments";
 
 	grid-template-columns: auto 1fr;
 	gap: 0.5em;
@@ -27,7 +27,7 @@ p {
 }
 
 .description {
-	background-color: rgba(240, 255, 255, 0.58);
+	background-color: #ffffff94;
 	word-wrap: break-word;
 	padding: 0.5em;
 	border-radius: 5px;
@@ -91,7 +91,7 @@ tr {
 	border-radius: 0 4px 4px 0;
 }
 
-.rating-td{
+.rating-td {
 	display: flex;
 	justify-content: center;
 	padding: 1em 0 0 0;
@@ -105,7 +105,7 @@ tr {
 
 }
 
-button{
+button {
 	cursor: pointer;
 }
 
@@ -201,8 +201,10 @@ header {
 	border-radius: 4px;
 }
 
+
 .message {
 	grid-area: message;
+
 	margin-left: 1em;
 	padding: 0.5em;
 	background-color: #e8e8e8;
@@ -213,9 +215,9 @@ header {
 @media (max-width:55em) {
 	main {
 		grid-template-areas: "left-panel"
-						"right-panel"
-						"comments";
-		grid-template-columns:none;
+			"right-panel"
+			"comments";
+		grid-template-columns: none;
 		/* grid-template-rows: 1fr 1fr 1fr; */
 
 		/* width: auto; */
@@ -224,7 +226,8 @@ header {
 
 	.left-panel {
 		width: auto;
-	} 
+		max-width: unset;
+	}
 
 }
 
@@ -232,17 +235,18 @@ header {
 	.comment {
 		grid-template-areas: "left-pane"
 			"message";
-grid-template-columns:none;
-			
-
+		grid-template-columns: none;
 	}
 
-	.delete-comment-button{
+	.delete-comment-button {
 		margin: 1em;
 	}
-
 
 	.message {
 		margin: 0;
 	}
+/* 
+	.left-panel{
+		max-width: unset;
+	} */
 }

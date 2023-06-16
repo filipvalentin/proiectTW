@@ -5,6 +5,6 @@ function isTokenExpired(token) {
 
 const token = localStorage.getItem("JWT");
 
-if (token == null || isTokenExpired(localStorage.getItem("JWT"))) {
+if (token != null && !isTokenExpired(localStorage.getItem("JWT"))) {
 	window.location.assign("login.html");
 }

@@ -1,48 +1,91 @@
-main{
+main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap:1em;
+	gap: 1em;
 	margin: 1em;
 }
-p{
+
+p {
 	margin: 0.5em;
 }
 
-button{
+button {
 	cursor: pointer;
 }
 
-.info-panel, .problem-panel{
+.info-panel,
+.problem-panel {
 	/* max-width: 40em; */
-	min-width: 40em;
+	min-width: 60em;
 	background-color: #3f3d3d5b;
 	border-radius: 5px;
 	padding: 1em;
 	font-size: 1.1em;
 }
-.info-item{
+
+.info-item {
 	display: flex;
 	flex-direction: row;
 
 }
-.header{
+
+.header {
 	font-size: 1.2em;
 }
 
-.problem-item{
+.problem-item {
 	display: flex;
 	flex-direction: row;
 	/* gap: ; */
 	justify-content: space-between;
 	align-items: center;
-	background-color: rgba(240, 255, 255, 0.644);
+	background-color: #ffffff94;
 	margin: 0.5em;
 	border-radius: 5px;
 	padding: 0em 0.5em;
 }
 
-.problem-id-div{
+.problem-id-div {
 	display: flex;
 	flex-direction: row;
+	font-size: 0.9em;
+	gap: 0.5em;
+	color: rgb(55, 55, 55);
+}
+
+.problem-id-div>p {
+	margin: 0;
+}
+
+.item-bold {
+	font-weight: 600;
+}
+
+
+.problem-goto-button {
+
+	padding: 0.5em;
+	background-color: teal;
+	border-radius: 5px;
+	border: 0;
+	color: white;
+	transition: all 300ms linear;
+
+	cursor: pointer;
+}
+
+.problem-goto-button:hover {
+	background-color: rgb(210, 75, 75);
+}
+
+
+
+@media (max-width: 70em) {
+
+	.info-panel,
+	.problem-panel {
+		min-width: unset;
+		width: calc(100vw - 4em); 
+	}
 }

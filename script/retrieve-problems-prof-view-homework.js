@@ -78,12 +78,16 @@ function displayProblemEntry(jsonObj, parent, type) {
 	problemTitle.textContent = jsonObj["title"];
 	problemTitle.id = "p" + problemId + "t";
 
+	let problemIdLabel = clone.getElementById("problem-id");
+	problemIdLabel.textContent = problemId;
+	problemIdLabel.id = "p" + problemId + "id";
+
 	let problemGotoButton = clone.getElementById("problem-goto-button");
 	if(role == "teacher"){
 		problemGotoButton.setAttribute("onclick", "location.href = 'prof-view-homework-problem.html?hmkId=" + homework_id + "&problemId=" + problemId + "&type=" + type + "\';")
 	}
 	else if(role == "student"){
-		problemGotoButton.setAttribute("onclick", "location.href = 'student-view-homework-problem.html?hmkId=" + homework_id + "&problemId=" + problemId + "&type=" + type + "\';")
+		problemGotoButton.setAttribute("onclick", "location.href = 'student-view-homework-problem.html?hmkId=" + homework_id + "&problemId=" + problemId + "&type=" + type + "&intent=solve\';")
 	}
 	problemGotoButton.id = "p" + problemId + "t";
 

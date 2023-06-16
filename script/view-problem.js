@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('problem');
 
-console.log('hep');
+// console.log('hep');
 
 generatePage(id);
 
@@ -15,7 +15,7 @@ function generatePage(id) {
         //Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {
             var information = JSON.parse(http.responseText);
-            console.log(information);
+            // console.log(information);
 
             var title = document.getElementById('title-prb');
             title.innerHTML = information.title_problem;
@@ -37,7 +37,7 @@ function generatePage(id) {
 
             var tagsElem = document.getElementById('tags');
             for (const tag in tags) {
-                console.log(tags[tag]);
+                // console.log(tags[tag]);
                 var tagElem = document.createElement('li');
                 var tagProp = document.createElement('p');
                 tagProp.innerHTML = tags[tag];
@@ -51,7 +51,7 @@ function generatePage(id) {
 
         }
         if (http.readyState == 4 && http.status == 401) {
-            console.log('au')
+            // console.log('au')
             window.location.assign("unauthorized.html");
         }
     }
@@ -67,7 +67,7 @@ function exportProblem() {
         //Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {
             var information = JSON.parse(http.responseText);
-            console.log(information);
+            // console.log(information);
             const jsonNew = {
                 title : information.title_problem,
                 difficulty : information.difficulty,
@@ -86,7 +86,7 @@ function exportProblem() {
             link.remove(); 
         }
         if (http.readyState == 4 && http.status == 401) {
-            console.log('au')
+            // console.log('au')
             window.location.assign("unauthorized.html");
         }
     }
@@ -95,7 +95,7 @@ function exportProblem() {
 
 
 function deleteProblem() {
-    console.log(id);
+    // console.log(id);
     var http = new XMLHttpRequest();
     http.open("POST", 'deleteProblem.php', true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -103,7 +103,7 @@ function deleteProblem() {
         idProblem: id
     };
     const json = JSON.stringify(data);
-    console.log(json);
+    // console.log(json);
     http.onreadystatechange = function () {
         //Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {

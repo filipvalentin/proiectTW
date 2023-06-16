@@ -14,4 +14,12 @@
 
 .checked {
 	color: orange;
-  }
+}
+
+.hover{
+	color: rgb(250, 202, 112);
+}
+
+.fa{
+	height: 0.5em;
+}

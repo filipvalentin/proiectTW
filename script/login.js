@@ -1,3 +1,13 @@
+
+const urlParams = new URLSearchParams(window.location.search);
+var intent = null;
+if(urlParams.has("intent")){
+	intent = urlParams.get('intent');
+}
+else{
+	window.location.assign("index.html");
+}
+
 function login() {
 
 	const email = document.getElementById("email").value;
@@ -7,14 +17,23 @@ function login() {
 		sendAuthRequest(
 			email,
 			password,
-			() => { window.location.assign("home.html"); },
+			intent,
+			() => {
+				if (intent == "student" || intent == "teacher"){
+					window.location.assign("home.html");
+				}
+				else if(intent=="admin"){
+					window.location.assign("admin-overview.html");
+				}
+					
+			},
 			() => { document.getElementById("login-error-message").style.display = "block"; }
 		);
 	}
 }
 
 
-function sendAuthRequest(email, password, funcOnSucess, funcOnFail) {
+function sendAuthRequest(email, password, intent, funcOnSucess, funcOnFail) {
 
 	var http = new XMLHttpRequest();
 
@@ -26,7 +45,8 @@ function sendAuthRequest(email, password, funcOnSucess, funcOnFail) {
 
 	const data = {
 		email: email,
-		password: password
+		password: password,
+		intent: intent
 	};
 
 	const json = JSON.stringify(data);
@@ -43,5 +63,4 @@ function sendAuthRequest(email, password, funcOnSucess, funcOnFail) {
 	}
 
 	http.send(json);
-
 }

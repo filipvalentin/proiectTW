@@ -4,7 +4,7 @@
 <head>
 	<script src="../script/parse-jwt.js"></script>
 	<script src="../script/retrieve_my_classes.js"></script>
-
+	
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="../css/account-administration.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
 	<link rel="stylesheet" href="../css/my-classes.css">
+
 </head>
 
 <body>
@@ -40,7 +41,7 @@
 			</div>
 			<div id="class-list"></div>
 
-			<template id="class-template">
+			<template id="teacher-class-template">
 				<div class="class" id="class-div">
 					<div class="header">
 						<a class="title" id="class-title"></a>
@@ -49,7 +50,22 @@
 					<div class="content">
 						<p id="class-description"> </p>
 					</div>
-	
+				</div>
+			</template>
+			<template id="student-class-template">
+				<div class="class" id="class-div">
+					<div class="header">
+						<a class="title" id="class-title"></a>
+						
+						<div class="teacher"><p>•</p>
+							<a>Teacher:</a>
+							<a id="teacher"></a>
+						</div>
+						<button class="gotobutton" id="class-goto-button">Go to class</button>
+					</div>
+					<div class="content">
+						<p id="class-description"> </p>
+					</div>
 				</div>
 			</template>
 		</div>
