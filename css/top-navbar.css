@@ -44,7 +44,7 @@
 	/* display: none; */
 	float: right;
 	position: relative;
-
+	
 	width: fit-content;
 
 	z-index: 2;
@@ -80,6 +80,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: 0.5em;
+	height: 2.5em;
 	color: white;
 	/* background-color:#343439; */
 	padding: 0 0.5em;
@@ -101,7 +102,7 @@
 }
 
 .navbar-profile-menu a{
-	width: 8em;
+	width: 9em;
 }
 
 .top-navbar .logout-button:hover{

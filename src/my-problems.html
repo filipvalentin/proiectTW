@@ -23,15 +23,21 @@
 </head>
 
 <body>
-	<nav class="top-navbar">
-		<div>
-			<a class="active" href="my-classes.html">My classes</a>
-		</div>
-
+	<nav class="top-navbar" id="teacher-navbar">
+		<div> <a class="active" href="my-classes.html">My classes</a> </div>
 		<div class="navbar-right">
-			<a href="my-problems.html">My problems</a>
-			<a href="account-administration.html">My account</a>
+			<div class="account-button" onclick="showNavbarProfileMenuProf()">
+				<img class="user-pic" id="navbar-profile-img-prof"></img>
+				<p id="navbar-profile-username-prof"></p>
+				<span class="caret"></span>
+			</div>
+			<div class="navbar-profile-menu" id="navbar-profile-menu-prof" onmouseleave="hideNavbarProfileMenuProf()">
+				<a href="account-administration.html">Account settings</a>
+				<a id="profile-my-profile-link-prof">My profile</a>
+				<a class="logout-button" onclick="logout()">Log out</a>
+			</div>
 		</div>
+		<div class="navbar-right"> <a href="my-problems.html">My problems</a> </div>
 	</nav>
 
 	<main class="main class-admin">
@@ -81,10 +87,11 @@
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Problems</p>
-				
+
 				<button class="section-save-button" onclick="location.href = 'add-problem.html'">Submit new
 					problem</button>
-				<button class="section-save-button" onclick="location.href = 'import-problem.html'">Import problem</button>
+				<button class="section-save-button" onclick="location.href = 'import-problem.html'">Import
+					problem</button>
 			</div>
 			<div class="section-main">
 				<div id="problem-list">
@@ -118,9 +125,11 @@
 			</div>
 
 		</div>
-
 	</main>
 
+
+	<script src="../script/parse-jwt.js"></script>
+	<script src="../script/navbar.js"></script>
 	<script type="text/javascript" src="../script/my-problems.js"></script>
 </body>
 

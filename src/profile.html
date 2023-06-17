@@ -2,44 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
-    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/profile.css">
-    <link rel="stylesheet" href="../css/top-navbar.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
+	<link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile</title>
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/profile.css">
+	<link rel="stylesheet" href="../css/top-navbar.css">
 </head>
 
 <body>
 
-    <nav class="top-navbar">
-        <div>
-            <a class="active" href="my-classes-student-view.html">My classes</a>
-        </div>
-
-        <div class="navbar-right">
-            <a href="account-administration-final.html">My account</a>
-        </div>
-    </nav>
-
-    <main class="main account-admin-main">
-        <div class="sidepanel">
-            <div class="main_focus" id="main-frame">
-                <img class="picture"  id="profile">
-				<!-- src="../resources/Sample_User_Icon.png" -->
-            </div>
-
-            <div class="user-info-large" id="information">
-				
+	<nav class="top-navbar" id="teacher-navbar">
+		<div> <a class="active" href="my-classes.html">My classes</a> </div>
+		<div class="navbar-right">
+			<div class="account-button" onclick="showNavbarProfileMenuProf()">
+				<img class="user-pic" id="navbar-profile-img-prof"></img>
+				<p id="navbar-profile-username-prof"></p>
+				<span class="caret"></span>
 			</div>
-        </div>
-    </main>
+			<div class="navbar-profile-menu" id="navbar-profile-menu-prof" onmouseleave="hideNavbarProfileMenuProf()">
+				<a href="account-administration.html">Account settings</a>
+				<a id="profile-my-profile-link-prof">My profile</a>
+				<a class="logout-button" onclick="logout()">Log out</a>
+			</div>
+		</div>
+		<div class="navbar-right"> <a href="my-problems.html">My problems</a> </div>
+	</nav>
+	<nav class="top-navbar" id="student-navbar">
+		<div> <a class="active" href="my-classes.html">My classes</a> </div>
+		<div class="navbar-right">
+			<div class="account-button" onclick="showNavbarProfileMenuStud()">
+				<img class="user-pic" id="navbar-profile-img-stud"></img>
+				<p id="navbar-profile-username-stud"></p>
+				<span class="caret"></span>
+			</div>
+			<div class="navbar-profile-menu" id="navbar-profile-menu-stud" onmouseleave="hideNavbarProfileMenuStud()">
+				<a href="account-administration.html">Account settings</a>
+				<a id="profile-my-profile-link-stud">My profile</a>
+				<a class="logout-button" onclick="logout()">Log out</a>
+			</div>
+		</div>
+	</nav>
+
+	<main class="main account-admin-main">
+		<div class="sidepanel">
+			<div class="main_focus" id="main-frame">
+				<img class="picture" id="profile">
+				<!-- src="../resources/Sample_User_Icon.png" -->
+			</div>
+
+			<div class="user-info-large" id="information">
+
+			</div>
+		</div>
+	</main>
+	<script src="../script/parse-jwt.js"></script>
+	<script src="../script/navbar.js"></script>
 </body>
 
 <script type="text/javascript" src="../script/profile.js"></script>
-
 
 </html>

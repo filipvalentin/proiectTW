@@ -5,33 +5,39 @@ const studentNavbar = document.getElementById("student-navbar");
 const teacherNavbar = document.getElementById("teacher-navbar");
 
 var userImage = null;
+var username = null
 if (userJwt["role"] == "student") {
 	document.getElementById("student-navbar").style.display = "inline-block";
 	document.getElementById("profile-my-profile-link-stud").setAttribute("href", "profile.html?id=" + userJwt["sub"]);
 	userImage = document.getElementById("navbar-profile-img-stud");
+	username = document.getElementById("navbar-profile-username-stud");
 }
 else {
 	document.getElementById("teacher-navbar").style.display = "inline-block";
 	document.getElementById("profile-my-profile-link-prof").setAttribute("href", "profile.html?id=" + userJwt["sub"]);
 	userImage = document.getElementById("navbar-profile-img-prof");
+	username = document.getElementById("navbar-profile-username-prof");
 }
 
 
-var httpGetUserPic = new XMLHttpRequest();
-httpGetUserPic.open('GET', "getImage.php", true);
-httpGetUserPic.setRequestHeader('Content-Type', 'application/json');
-httpGetUserPic.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-httpGetUserPic.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-httpGetUserPic.onreadystatechange = function () {
-	if (httpGetUserPic.readyState == 4 && httpGetUserPic.status == 200) {
-		// console.log(httpGetUserPic.responseText);
-		userImage.setAttribute("src", httpGetUserPic.responseText);
+var httpGetUserInfo = new XMLHttpRequest();
+httpGetUserInfo.open('GET', "navbar_get_user_info.php", true);
+httpGetUserInfo.setRequestHeader('Content-Type', 'application/json');
+httpGetUserInfo.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+httpGetUserInfo.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+httpGetUserInfo.onreadystatechange = function () {
+	if (httpGetUserInfo.readyState == 4 && httpGetUserInfo.status == 200) {
+		// console.log(httpGetUserInfo.responseText)
+		let json = JSON.parse(httpGetUserInfo.responseText)[0];
+
+		userImage.setAttribute("src", json["user_image"]);
+		username.textContent = json["username"];
 	}
-	else if (httpGetUserPic.readyState == 4 && httpGetUserPic.status == 401) {
+	else if (httpGetUserInfo.readyState == 4 && httpGetUserInfo.status == 401) {
 		window.location.assign("unauthorized.html");
 	}
 }
-httpGetUserPic.send();
+httpGetUserInfo.send();
 
 
 function showNavbarProfileMenuProf() {
