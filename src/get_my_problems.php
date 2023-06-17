@@ -14,17 +14,17 @@ $user_id = $decoded_array['sub'];
 
 $page = $_GET['page'];
 $filterWords = $_GET['filterWords'];
-$filerDifficulty = $_GET['filerDifficulty'];
+$filterDifficulty = $_GET['filterDifficulty'];
 $filterTags =$_GET['filterTags'];
 $filterStartDate =$_GET['filterStartDate'];
 $filterEndDate = $_GET['filterEndDate'];
+$itemsOnPage = $_GET["itemsOnPage"];
 
 
+$query = "SELECT * FROM teacher_problems WHERE teacher_id = ?";
 
-$query = "SELECT * FROM teacher_problems WHERE teacher_id = ? ";
-
-if($filerDifficulty != 'null'){
-	$query .= " AND difficulty=".$filerDifficulty;
+if($filterDifficulty != 'null'){
+	$query .= " AND difficulty='".$filterDifficulty."'";
 }
 
 if($filterTags != 'null'){
@@ -43,10 +43,12 @@ if($filterTags != 'null'){
 
 }
 
+if ($filterWords != "null") {
+	$query .= " AND ( LOWER(title) LIKE LOWER('%" . $filterWords . "%')";
+}
 
-$query .= "LIMIT ".(($page - 1) * 5).", 5";
 
-
+$query .= " LIMIT ".(($page - 1) * $itemsOnPage).",".$itemsOnPage;
 
 // echo $query;
 
@@ -56,7 +58,6 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $stm = $db->prepare($query);
 $res = $stm->execute([$user_id]);
-// $rows = $stm->fetchAll(PDO::FETCH_NUM);
 $results = $stm->fetchAll(PDO::FETCH_ASSOC);
 $json = json_encode($results);
 
@@ -64,13 +65,3 @@ $json = json_encode($results);
 http_response_code(200);
 
 echo $json;
-// $json = "[";
-
-// foreach ($rows as $row) {
-// 	$json .= ""
-// }
-
-// $array = array();
-// while($row = mysqli_fetch_assoc($result)){
-//     $array[] = $row;
-// }

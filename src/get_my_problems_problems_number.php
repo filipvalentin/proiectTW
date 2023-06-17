@@ -13,7 +13,7 @@ $decoded_array = (array) $decoded;
 $user_id = $decoded_array['sub'];
 
 $filterWords = $_GET['filterWords'];
-$filerDifficulty = $_GET['filerDifficulty'];
+$filterDifficulty = $_GET['filterDifficulty'];
 $filterTags =$_GET['filterTags'];
 $filterStartDate =$_GET['filterStartDate'];
 $filterEndDate = $_GET['filterEndDate'];
@@ -21,8 +21,8 @@ $filterEndDate = $_GET['filterEndDate'];
 
 $query = "SELECT COUNT(id) FROM teacher_problems WHERE teacher_id = ?";
 
-if($filerDifficulty != 'null'){
-	$query .= " AND difficulty=".$filerDifficulty;
+if($filterDifficulty != 'null'){
+	$query .= " AND difficulty='".$filterDifficulty."'";
 }
 
 if($filterTags != 'null'){

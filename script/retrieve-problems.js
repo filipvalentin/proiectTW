@@ -1,10 +1,14 @@
 var filterWords = null;
-var filerDifficulty = null;
+var filterDifficulty = null;
 var filterTags = null;
 var filterStartDate = null;
 var filterEndDate = null;
 
 var lastRetrievedIds = null;
+
+// function retrieveAndUpdateProblems(pageCountMultiplier, itemsOnPage){
+// 	retrieveProblems()
+// }
 
 //and display them
 function retrieveProblems(pageCountMultiplier, itemsOnPage) {
@@ -12,9 +16,9 @@ function retrieveProblems(pageCountMultiplier, itemsOnPage) {
 
 	//standardul este ca am 5 (sau mai putine) probleme pe pagina
 	var url = "get_my_problems.php?page=" + pageCountMultiplier + 
-		"&itemsOnPage=" + itemsOnPage+
+		"&itemsOnPage=" + itemsOnPage +
 		"&filterWords=" + filterWords +
-		"&filerDifficulty=" + filerDifficulty +
+		"&filterDifficulty=" + filterDifficulty +
 		"&filterTags=" + filterTags +
 		"&filterStartDate=" + filterStartDate +
 		"&filterEndDate=" + filterEndDate;
@@ -54,10 +58,6 @@ function retrieveProblems(pageCountMultiplier, itemsOnPage) {
 }
 
 
-// TODO
-function applyFilters(){
-
-}
 
 
 function displayProblem(jsonObj) {

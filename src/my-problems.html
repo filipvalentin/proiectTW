@@ -44,24 +44,24 @@
 		<div class="dashboard">
 			<p class="filter">Filter</p>
 			<div class="search-by-word">
-				<p class="label">Search by title or description</p>
-				<input class="custom-input" placeholder="Type words">
+				<p class="label">Search by problem title</p>
+				<input class="custom-input" placeholder="Type words" id="filter-by-words-input">
 			</div>
 			<div class="tag">
 				<p class="label">Difficulty</p>
 				<form class="tag-1">
 					<div class="dificultate">
-						<input class="hidden" id="chk1" type="checkbox">
+						<input class="hidden" id="chk1" type="checkbox" onclick="setDifficulty('chk1')">
 						<label for="chk1">
 							<span class="text">EASY</span>
 						</label>
 
-						<input class="hidden" id="chk2" type="checkbox">
+						<input class="hidden" id="chk2" type="checkbox" onclick="setDifficulty('chk2')">
 						<label for="chk2">
 							<span class="text">MEDIUM</span>
 						</label>
 
-						<input class="hidden" id="chk3" type="checkbox">
+						<input class="hidden" id="chk3" type="checkbox" onclick="setDifficulty('chk3')">
 						<label for="chk3">
 							<span class="text">HARD</span>
 						</label>
@@ -70,16 +70,16 @@
 			</div>
 			<div class="tags">
 				<p class="label">Tags</p>
-				<input type="text" placeholder="Type tags" class="custom-input">
+				<input type="text" placeholder="Type tags" class="custom-input" id="filter-by-tags-input">
 			</div>
 			<div class="dates-selectors">
 				<p class="label">Starting with</p>
-				<input type="date" id="start-date" class="custom-input date-selector">
+				<input type="date" id="filter-by-start-date" class="custom-input date-selector">
 				<p class="label">Ending to</p>
-				<input type="date" id="end-date" class="custom-input date-selector">
+				<input type="date" id="filter-by-end-date" class="custom-input date-selector">
 			</div>
 			<div class="apply-filters-button-wrapper">
-				<button class="apply-filters-button">Search with the applied filters</button>
+				<button class="apply-filters-button" onclick="searchWithFilters()">Search with the applied filters</button>
 			</div>
 
 		</div>
@@ -106,7 +106,7 @@
 								<p>Tags:</p>
 								<p id="problem-tags"></p>
 							</div>
-							<p class="status" id="problem-status">pending</p>
+							<p class="status" id="problem-status"></p>
 							<button class="view-problem-button" id="problem-view-button">View problem</button>
 						</div>
 						<div class="description">
@@ -115,8 +115,13 @@
 					</div>
 				</template>
 
-
+				<div class="items-on-page">
+					<p>Items on page: </p>
+					<input class="items-on-page-input" type="text" id="items-on-page"  oninput="correctInput()">
+				</div>
+			
 				<div class="navigation-buttons" id="navigation-buttons">
+				
 					<button id="back-page-button" onclick="backPageButtonClicked()">&lt;</button>
 					<select id="page-selector" onchange="pageSelectorClicked()">
 					</select>
