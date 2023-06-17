@@ -102,7 +102,6 @@ tr {
 	align-items: center;
 	justify-content: start;
 	gap: 0.5em;
-
 }
 
 button {
@@ -111,7 +110,10 @@ button {
 
 .user-pic {
 	width: 3em;
+	height: 3em;
 	border-radius: 10px;
+
+	object-fit: cover;
 }
 
 .status {

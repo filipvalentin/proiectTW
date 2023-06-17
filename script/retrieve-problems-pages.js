@@ -1,8 +1,8 @@
 var pages = 0;
 var currentPage = 1;
 
-
-function retrievePageNumbers() {
+//get the number of pages
+function retrieveNumberOfProblems() {
 	var http = new XMLHttpRequest();
 
 	var url = "get_my_problems_pages.php" +
