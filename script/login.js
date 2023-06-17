@@ -1,12 +1,16 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 var intent = null;
-if(urlParams.has("intent")){
-	intent = urlParams.get('intent');
+
+if (window.location.href.indexOf("login.html")>-1) {
+	if (urlParams.has("intent")) {
+		intent = urlParams.get('intent');
+	}
+	else {
+		window.location.assign("index.html");
+	}
 }
-else{
-	window.location.assign("index.html");
-}
+
 
 function login() {
 
@@ -19,12 +23,12 @@ function login() {
 			password,
 			intent,
 			() => {
-				if (intent == "student" || intent == "teacher"){
+				if (intent == "student" || intent == "teacher") {
 					window.location.assign("my-classes.html");
 				}
-				else if(intent=="admin"){
+				else if (intent == "admin") {
 					window.location.assign("admin-overview.html");
-				}	
+				}
 			},
 			() => { document.getElementById("login-error-message").style.display = "block"; }
 		);
@@ -52,7 +56,7 @@ function sendAuthRequest(email, password, intent, funcOnSucess, funcOnFail) {
 
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
-	
+
 			localStorage.setItem("JWT", http.responseText);
 			funcOnSucess();
 		}
