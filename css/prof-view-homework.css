@@ -90,4 +90,8 @@ button {
 		min-width: unset;
 		width: calc(100vw - 4em); 
 	}
+
+	.problem-id-div {
+		display: none;
+	}
 }
