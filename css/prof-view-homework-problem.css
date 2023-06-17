@@ -116,12 +116,13 @@ button {
 	object-fit: cover;
 }
 
-.status {
+.status, .score {
 	display: flex;
 	/* align-items: center; */
 	justify-content: center;
 	justify-items: center;
 }
+
 
 .view-solution-button {
 	display: flex;

@@ -21,7 +21,7 @@ p {
 }
 
 .header {
-	background-color: #709a9b;
+	background-color: #5a7a7b;
 	color: white;
 	max-width: 100%;
 	width: 60em;
@@ -41,31 +41,6 @@ p {
 	font-size: 1.1em;
 }
 
-/* .search-button {
-	grid-area: button;
-	grid-column: 3;
-    float: right;
-    align-self: center;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    padding: 0.4em;
-    margin-right: 1em;
-    font-family: 'Asap';
-    color: white;
-    background-color: #f45b69;
-    transition: background-color 300ms;
-
-	cursor: pointer;
-}
-
-.button:active {
-	background-color: #f24353;
-}
-
-.button:hover {
-	background-color: #f24353;
-} */
 
 .problem-section {
 	display: flex;
@@ -76,41 +51,8 @@ p {
 	transition: all 300ms;
 }
 
-/* .progress {
-	display: flex;
-	justify-content: space-between;
-	margin: 1em;
-	border-radius: 100%;
-}
 
-.progress-view {
-	grid-area: progress-view;
-	grid-column: 2;
-	display: flex;
-	flex-direction: row;
-	align-self: center;
-	align-items: center;
-} */
 
-/* .bullet {
-    font-size: 1.2em;
-    padding: 0.5em 0.85em;
-    margin: 0em;
-    background-color: #fff;
-    color: black;
-    border-radius: 100%;
-
-} */
-
-/* .header-title {
-	padding: 0 1em;
-	width: 100%;
-	flex-grow:1;
-	display: flex;
-	flex-direction: column;
-	gap: 0.5em;
-	align-items: center;
-} */
 
 /* START CUSTOM PROBLEMS SECTION */
 
@@ -447,12 +389,6 @@ p {
 	margin-right: 0.5em;
 }
 
-/* .date-section>input {
-	padding: 0.2em;
-	font-size: 1.2em;
-	border-radius: 4px;
-	border-width: 1px;
-} */
 
 @media (max-width: 62em) {
 	.create-custom {
@@ -465,9 +401,6 @@ p {
 @media (max-width: 50em) {
 	.header {
 		grid-template-areas: "header-title";
-		/* height: 3.5em; */
-		/* grid-template-columns: none; */
-		/* grid-template-rows: 3.5em; */
 	}
 
 	.custom-problem {
@@ -541,7 +474,6 @@ p {
 	flex-direction: column;
 	justify-content: center;
 	justify-items: center;
-	/* align-content: center; */
 	align-items: center;
 }
 

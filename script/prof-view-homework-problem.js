@@ -36,7 +36,8 @@ else {
 
 
 
-var average = 0;
+var sumOfStars = 0;
+var numberOfStudents = 0;
 
 //username, status, studentid, comment
 
@@ -48,7 +49,7 @@ httpGetStudents.setRequestHeader('Authorization', 'Bearer ' + localStorage.getIt
 httpGetStudents.onreadystatechange = function () {
 	if (httpGetStudents.readyState == 4 && httpGetStudents.status == 200) {
 
-		console.log(httpGetStudents.responseText);
+		// console.log(httpGetStudents.responseText);
 
 		var result = JSON.parse(httpGetStudents.responseText);
 		result.forEach(element => {
@@ -57,6 +58,7 @@ httpGetStudents.onreadystatechange = function () {
 			getComments(element["user_id"]);
 		});
 
+		displayAverageStars();
 	}
 	if (httpGetStudents.readyState == 4 && httpGetStudents.status == 401) {
 		window.location.assign("unauthorized.html");
@@ -74,7 +76,7 @@ function getComments(userId) {
 	httpGetComments.onreadystatechange = function () {
 		if (httpGetComments.readyState == 4 && httpGetComments.status == 200) {
 
-			console.log(httpGetComments.responseText);
+			// console.log(httpGetComments.responseText);
 
 			var result = JSON.parse(httpGetComments.responseText);
 			result.forEach(element => {
@@ -92,7 +94,32 @@ function getComments(userId) {
 
 
 function displayAverageStars() {
-	//TODO
+	const average = Math.ceil(sumOfStars / numberOfStudents);
+
+	let star1 = document.getElementById("avg-rating-star1");
+	if (average > 0) {
+		star1.classList.add("checked");
+	}
+
+	let star2 = document.getElementById("avg-rating-star2");
+	if (average > 1) {
+		star2.classList.add("checked");
+	}
+
+	let star3 = document.getElementById("avg-rating-star3");
+	if (average > 2) {
+		star3.classList.add("checked");
+	}
+
+	let star4 = document.getElementById("avg-rating-star4");
+	if (average > 3) {
+		star4.classList.add("checked");
+	}
+
+	let star5 = document.getElementById("avg-rating-star5");
+	if (average > 4) {
+		star5.classList.add("checked");
+	}
 }
 
 
@@ -126,14 +153,24 @@ function displayStudentEntry(jsonObj) {
 	}
 	httpImage.send();
 
-	let classViewButton = clone.getElementById("entry-view-solution-button");
-	classViewButton.setAttribute("onclick", "location.href = 'view-solution.html?homework_id=" + homeworkId +
+	let userSolutionViewButton = clone.getElementById("entry-view-solution-button");
+	userSolutionViewButton.setAttribute("onclick", "location.href = 'view-solution.html?homework_id=" + homeworkId +
 		"&problem_id=" + problemId + "&problem_type=" + problemType + "&student_id=" + userId + "\';");
-	classViewButton.id = "s" + userId + "sb";
+	userSolutionViewButton.id = "s" + userId + "sb";
 
-	let classDescription = clone.getElementById("entry-solution-status");
-	classDescription.textContent = jsonObj["status"];
-	classDescription.id = "s" + userId + "s";
+	let userSolutionStatus = clone.getElementById("entry-solution-status");
+	userSolutionStatus.textContent = jsonObj["status"];
+	userSolutionStatus.id = "s" + userId + "s";
+
+	let userSolutionScore = clone.getElementById("entry-solution-score");
+	if (jsonObj["score"] == -1) {
+		userSolutionScore.textContent = "unscored";
+	}
+	else {
+		userSolutionScore.textContent = jsonObj["score"];
+	}
+
+	userSolutionScore.id = "s" + userId + "s";
 
 	const rating = jsonObj["rating"];
 	let star1 = clone.getElementById("star1");
@@ -166,7 +203,9 @@ function displayStudentEntry(jsonObj) {
 		star5.classList.add("checked");
 	}
 
-	average += parseInt(rating);
+	sumOfStars += parseInt(rating);
+	numberOfStudents += 1;
+
 
 	studentList.appendChild(clone);
 }
@@ -202,7 +241,7 @@ function displayCommentTemplate(jsonObj, userId) {
 
 
 	let commentDeleteButton = clone.getElementById("comment-delete-button");
-	commentDeleteButton.setAttribute("onclick", "deleteComment(\'" + homeworkId + "\',\'" + problemId + "\',\'" + userId + "\',\'" +commentId+ "\')");
+	commentDeleteButton.setAttribute("onclick", "deleteComment(\'" + homeworkId + "\',\'" + problemId + "\',\'" + userId + "\',\'" + commentId + "\')");
 	commentDeleteButton.id = "cm" + userId + commentId + "dcb";
 
 	let commentDateAdded = clone.getElementById("comment-post-date");

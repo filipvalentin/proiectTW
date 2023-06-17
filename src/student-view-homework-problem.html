@@ -39,9 +39,15 @@
 		<div class="content">
 			<div class="description">
 				<div class="title">
-					<p class="format-title" id="hmk-title"></p>
-					<p class="format-title">&#x2022;</p>
-					<p class="format-title" id="problem-title"></p>
+					<div>
+						<p class="format-title" id="hmk-title"></p>
+						<p class="format-title">&#x2022;</p>
+						<p class="format-title" id="problem-title"></p>
+					</div>
+					<div class="right-side">
+						<p>Score:</p>
+						<p id="score">43</p>
+					</div>
 				</div>
 				<div class="stats">
 					<div class="text">
@@ -87,8 +93,10 @@
 				</div>
 				<div class="button-section">
 					<button class="generic-button submit-button" onclick="submitSolution()">Submit</button>
+					<p class="solution-submitted-popup" id="solution-submitted-popup">Your solution has been submitted!</p>
 				</div>
 			</div>
+				
 
 			<div class="comments-panel" id="comments-panel">
 				<div id="comment-list"> </div>

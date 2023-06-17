@@ -23,7 +23,7 @@ $db = new PDO("mysql:host=localhost;dbname=project", 'root', '');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$stm = $db->prepare("UPDATE homeworks_problems_info SET status = ? WHERE homework_id = ? AND problem_id = ? AND user_id = ?");
+$stm = $db->prepare("UPDATE homeworks_problems_info SET score = ? WHERE homework_id = ? AND problem_id = ? AND user_id = ?");
 $res = $stm->execute([ $score, $hmk_id, $problem_id, $user_id]);
 
 

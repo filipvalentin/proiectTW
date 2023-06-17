@@ -76,10 +76,12 @@ button {
 }
 
 .problem-goto-button:hover {
-	background-color: rgb(210, 75, 75);
+	background-color: #d24b4b;
 }
 
-
+/* .goto-problem-button{
+	
+} */
 
 @media (max-width: 70em) {
 

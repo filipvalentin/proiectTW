@@ -24,7 +24,7 @@
 		<div class="navbar-right">
 			<div class="account-button" onclick="showNavbarProfileMenuProf()">
 				<img class="profile-user-pic" id="navbar-profile-img-prof"></img>
-				<p id="navbar-profile-username-prof">112345</p>
+				<p id="navbar-profile-username-prof"></p>
 				<span class="caret"></span>
 			</div>
 			<div class="navbar-profile-menu" id="navbar-profile-menu-prof" onmouseleave="hideNavbarProfileMenuProf()">
@@ -59,11 +59,11 @@
 				<div class="item">
 					<p class="name">Average rating:</p>
 					<div class="rating">
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
-						<span class="fa fa-star"></span>
+						<span class="fa fa-star" id="avg-rating-star1"></span>
+						<span class="fa fa-star" id="avg-rating-star2"></span>
+						<span class="fa fa-star" id="avg-rating-star3"></span>
+						<span class="fa fa-star" id="avg-rating-star4"></span>
+						<span class="fa fa-star" id="avg-rating-star5"></span>
 					</div>
 				</div>
 				<p class="description" id="description"></p>
@@ -75,6 +75,7 @@
 				<tr class="table-header">
 					<th> Student </th>
 					<th> Status </th>
+					<th> Score </th>
 					<th> Rating </th>
 				</tr>
 
@@ -98,6 +99,11 @@
 						<p id="entry-solution-status"></p>
 					</div>
 				</td>
+				<td>
+					<div class="score">
+						<p id="entry-solution-score"></p>
+					</div>
+				</td>
 				<td class="rating-td">
 					<div class="rating">
 						<span class="fa fa-star" id="star1"></span>
@@ -107,12 +113,13 @@
 						<span class="fa fa-star" id="star5"></span>
 					</div>
 				</td>
+
 				<td class="right-td">
 					<div class="view-solution-button">
 						<button class="generic-button" id="entry-view-solution-button">View solution</button>
 					</div>
 				</td>
-				
+
 			</tr>
 		</template>
 

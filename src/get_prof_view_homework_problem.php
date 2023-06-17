@@ -23,7 +23,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // echo $homework_id." ".$problem_id;
 
 $query = 
-"SELECT users.username, hpi.user_id, hpi.status, hpi.rating, hpi.last_status_update FROM homeworks_problems_info hpi INNER JOIN users ON users.user_id = hpi.user_id WHERE hpi.homework_id = ? AND hpi.problem_id = ?";
+"SELECT users.username, hpi.user_id, hpi.status, hpi.score, hpi.rating, hpi.last_status_update FROM homeworks_problems_info hpi INNER JOIN users ON users.user_id = hpi.user_id WHERE hpi.homework_id = ? AND hpi.problem_id = ?";
 
 
 $stm = $db->prepare($query);

@@ -69,9 +69,9 @@ function submitSolution() {
 
 	httpSendSolution.onreadystatechange = function () {
 		if (httpSendSolution.readyState == 4 && httpSendSolution.status == 200) {
-			// console.log(httpProblem.responseText)
+			// console.log(httpProblem.responseText);
+			document.getElementById("solution-submitted-popup").style.display = "block";
 
-			//TODO notificare de submitted
 		}
 		if (httpSendSolution.readyState == 4 && httpSendSolution.status == 401) {
 			window.location.assign("unauthorized.html");
@@ -100,7 +100,7 @@ function sendRating() {
 
 	httpSendRating.onreadystatechange = function () {
 		if (httpSendRating.readyState == 4 && httpSendRating.status == 200) {
-			console.log(httpSendRating.responseText);
+			// console.log(httpSendRating.responseText);
 			window.location.assign(window.location);
 		}
 		if (httpSendRating.readyState == 4 && httpSendRating.status == 401) {
@@ -188,19 +188,29 @@ else {
 
 
 //VREAU DATELE TEMEI + PROBLEMEI SI CE A INTRODUS USERUL 
-var httpProblem = new XMLHttpRequest();
-httpProblem.open('GET', "get_hmk_problem_info_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
-httpProblem.setRequestHeader('Content-Type', 'application/json');
-httpProblem.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-httpProblem.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-httpProblem.onreadystatechange = function () {
-	if (httpProblem.readyState == 4 && httpProblem.status == 200) {
 
-		console.log(httpProblem.responseText);
 
-		var result = JSON.parse(httpProblem.responseText);
+
+var httpGetStudentSolution = new XMLHttpRequest();
+httpGetStudentSolution.open('GET', "get_hmk_problem_info_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + userJwt["sub"], true);
+httpGetStudentSolution.setRequestHeader('Content-Type', 'application/json');
+httpGetStudentSolution.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+httpGetStudentSolution.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+httpGetStudentSolution.onreadystatechange = function () {
+	if (httpGetStudentSolution.readyState == 4 && httpGetStudentSolution.status == 200) {
+
+		// console.log(httpProblem.responseText);
+
+		var result = JSON.parse(httpGetStudentSolution.responseText);
 		document.getElementById("hmk-title").textContent = result[0]["title"];
 		document.getElementById("solution").textContent = result[0]["solution"];
+		if (result[0]["score"] == -1) {
+			document.getElementById("score").textContent = "unscored";
+		}
+		else {
+			document.getElementById("score").textContent = result[0]["score"];
+		}
+
 
 		displayRating(result[0]["rating"]);
 
@@ -210,11 +220,11 @@ httpProblem.onreadystatechange = function () {
 			canSubmit = false;
 		}
 	}
-	if (httpProblem.readyState == 4 && httpProblem.status == 401) {
+	if (httpGetStudentSolution.readyState == 4 && httpGetStudentSolution.status == 401) {
 		window.location.assign("unauthorized.html");
 	}
 }
-httpProblem.send();
+httpGetStudentSolution.send();
 
 
 var httpGetComments = new XMLHttpRequest();
