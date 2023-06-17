@@ -13,15 +13,21 @@
 </head>
 
 <body>
-	<nav class="top-navbar">
-		<div>
-			<a class="active" href="my-classes.html">My classes</a>
-		</div>
-
+	<nav class="top-navbar" id="teacher-navbar">
+		<div> <a class="active" href="my-classes.html">My classes</a> </div>
 		<div class="navbar-right">
-			<a href="my-problems.html">My problems</a>
-			<a href="account-administration.html">My account</a>
+			<div class="account-button" onclick="showNavbarProfileMenuProf()">
+				<img class="profile-user-pic" id="navbar-profile-img-prof"></img>
+				<p id="navbar-profile-username-prof"></p>
+				<span class="caret"></span>
+			</div>
+			<div class="navbar-profile-menu" id="navbar-profile-menu-prof" onmouseleave="hideNavbarProfileMenuProf()">
+				<a href="account-administration.html">Account settings</a>
+				<a id="profile-my-profile-link-prof">My profile</a>
+				<a class="logout-button" onclick="logout()">Log out</a>
+			</div>
 		</div>
+		<div class="navbar-right"> <a href="my-problems.html">My problems</a> </div>
 	</nav>
 
 

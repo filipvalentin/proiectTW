@@ -7,11 +7,12 @@ var filterEndDate = null;
 var lastRetrievedIds = null;
 
 //and display them
-function retrieveProblems(pageCountMultiplier) {
+function retrieveProblems(pageCountMultiplier, itemsOnPage) {
 	var http = new XMLHttpRequest();
 
 	//standardul este ca am 5 (sau mai putine) probleme pe pagina
-	var url = "get_my_problems.php?page=" + pageCountMultiplier +
+	var url = "get_my_problems.php?page=" + pageCountMultiplier + 
+		"&itemsOnPage=" + itemsOnPage+
 		"&filterWords=" + filterWords +
 		"&filerDifficulty=" + filerDifficulty +
 		"&filterTags=" + filterTags +

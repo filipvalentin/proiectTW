@@ -51,4 +51,4 @@ $stm->execute([$user_id]);
 
 http_response_code(200);
 
-echo ceil($stm->fetchColumn() / 5);
+echo $stm->fetchColumn();

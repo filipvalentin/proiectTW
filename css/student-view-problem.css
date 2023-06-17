@@ -266,3 +266,11 @@ p {
 .submit-button:hover {
 	background-color: #cc3939;
 }
+
+.user-pic{
+	width: 3em;
+	height: 3em;
+	border-radius: 10px;
+
+	object-fit: cover;
+}

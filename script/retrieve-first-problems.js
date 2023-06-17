@@ -1,4 +1,7 @@
 //this loads the first 5 problems and displays them, sets up the page numbers too
 
-retrieveProblems(1);
+//get the first x problems
+retrieveProblems(1, 5);
+
+//get the number of pages
 retrievePageNumbers();
