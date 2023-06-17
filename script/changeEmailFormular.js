@@ -101,7 +101,7 @@ function replaceEmail(){
     http.onreadystatechange = function () {
         //Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
-			window.location.assign("account-administration-final.html");
+			window.location.assign("account-administration.html");
 		}
 		if (http.readyState == 4 && http.status == 401) {
             console.log('au')
