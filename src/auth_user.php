@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../vendor/autoload.php'); //todo
+require_once(__DIR__ . '/../vendor/autoload.php');
 use Firebase\JWT\JWT;
 
 $response = json_decode(file_get_contents('php://input'), true);

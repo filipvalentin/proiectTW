@@ -14,13 +14,19 @@
 </head>
 
 <body>
-	<nav class="top-navbar">
-		<div>
-			<a class="active" href="my-classes-student-view.html">My classes</a>
-		</div>
-
+	<nav class="top-navbar" id="student-navbar">
+		<div> <a class="active" href="my-classes.html">My classes</a> </div>
 		<div class="navbar-right">
-			<a href="account-administration-student-view.html">My account</a>
+			<div class="account-button" onclick="showNavbarProfileMenuStud()">
+				<img class="user-pic" id="navbar-profile-img-stud"></img>
+				<p id="navbar-profile-username-stud"></p>
+				<span class="caret"></span>
+			</div>
+			<div class="navbar-profile-menu" id="navbar-profile-menu-stud" onmouseleave="hideNavbarProfileMenuStud()">
+				<a href="account-administration.html">Account settings</a>
+				<a id="profile-my-profile-link-stud">My profile</a>
+				<a class="logout-button" onclick="logout()">Log out</a>
+			</div>
 		</div>
 	</nav>
 
@@ -44,6 +50,8 @@
 			</div>
 		</div>
 
+		<script src="../script/parse-jwt.js"></script>
+		<script src="../script/navbar.js"></script>
 		<script src="../script/class-student-identification.js"></script>
 	</main>
 </body>

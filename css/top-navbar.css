@@ -70,7 +70,9 @@
 
 .user-pic {
 	width: 2.5em;
+	height: 2.5em;
 	border-radius: 10px;
+	object-fit: cover;
 }
 
 .account-button{

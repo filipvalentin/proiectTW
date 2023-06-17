@@ -100,7 +100,7 @@ function sendRating() {
 
 	httpSendRating.onreadystatechange = function () {
 		if (httpSendRating.readyState == 4 && httpSendRating.status == 200) {
-			// console.log(httpSendRating.responseText);
+			console.log(httpSendRating.responseText);
 			window.location.assign(window.location);
 		}
 		if (httpSendRating.readyState == 4 && httpSendRating.status == 401) {
@@ -196,15 +196,15 @@ httpProblem.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("
 httpProblem.onreadystatechange = function () {
 	if (httpProblem.readyState == 4 && httpProblem.status == 200) {
 
-		// console.log(httpProblem.responseText);
+		console.log(httpProblem.responseText);
 
 		var result = JSON.parse(httpProblem.responseText);
-		document.getElementById("hmk-title").textContent = result["title"];
-		document.getElementById("solution").textContent = result["solution"];
+		document.getElementById("hmk-title").textContent = result[0]["title"];
+		document.getElementById("solution").textContent = result[0]["solution"];
 
-		displayRating(result["rating"]);
+		displayRating(result[0]["rating"]);
 
-		const deadline = new Date(result["deadline"]);
+		const deadline = new Date(result[0]["deadline"]);
 		const now = new Date();
 		if (deadline < now) {
 			canSubmit = false;
