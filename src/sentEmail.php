@@ -24,28 +24,5 @@ if (empty($rows)) { // nu s-a gasit emailul
     // echo "ENF"; //email not found
     return;
 } else {
-    $id_user = $rows[0][0];
-    $link = "<a href='http://localhost/proiectTW/resetPassword.hmtl?id=" . $id_user . "'>Click To Reset password</a>";
-
-    try {
-        $mail = new PHPMailer(true);
-        $mail->CharSet = "UTF-8";
-        $mail->isSMTP();
-        $mail->SMTPAuth = true;
-        $mail->Host = "smtp.gmail.com";
-        $mail->Port = 465;
-        $mail->SMTPSecure = "ssl";
-        $mail->Username = "informatixproject@gmail.com";
-        $mail->Password = "TWproject";
-        $mail->From = "informatixproject@gmail.com";
-        $mail->FromName = "InformatiX";
-        $mail->addAddress($email_user);
-        $mail->Subject = 'Reset Password';
-        $mail->isHTML(true);
-        $mail->Body = 'Click On This Link to Reset Password ' . $link . '';
-        $mail->send();
-        echo "Check Your Email and Click on the link sent to your email";
-    } catch (Exception $e) {
-        echo "Mail Error -> " . $mail->ErrorInfo;
-    }
+    echo $rows[0][0];
 }

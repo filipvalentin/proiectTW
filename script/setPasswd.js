@@ -1,5 +1,7 @@
-function changePassword() {
-    document.getElementById('error-passwd').style.display = "none";
+const urlParams = new URLSearchParams(window.location.search);
+const id_user = urlParams.get('id');
+
+function resetPassword() {
     document.getElementById('failed-passwd-cap-letter').style.display = "none";
     document.getElementById('failed-passwd-number').style.display = "none";
     document.getElementById('failed-passwd-lenght').style.display = "none";
@@ -8,46 +10,16 @@ function changePassword() {
     document.getElementById('conf-passwd').style.display = "none";
     document.getElementById('empty-passwd').style.display = "none";
     document.getElementById('empty2-passwd').style.display = "none";
-    document.getElementById('empty3-passwd').style.display = "none";
 
-    if (document.getElementById('currentPassword').value == '') {
+    if (document.getElementById('newPassword').value == '') {
         document.getElementById('empty-passwd').style.display = "block";
     }
-    if (document.getElementById('newPassword').value == '') {
+    if (document.getElementById('confirmPassword').value == '') {
         document.getElementById('empty2-passwd').style.display = "block";
     }
-    if (document.getElementById('confirmPassword').value == '') {
-        document.getElementById('empty3-passwd').style.display = "block";
+    if (document.getElementById('newPassword').value != '' && document.getElementById('confirmPassword').value != '') {
+        validatePassword();
     }
-    if (document.getElementById('currentPassword').value != '' && document.getElementById('newPassword').value != '' && document.getElementById('confirmPassword').value != '') {
-        isUserPassword();
-    }
-}
-
-function isUserPassword() {
-    var currentPasswd = document.getElementById('currentPassword').value;
-    console.log(currentPasswd);
-    var http = new XMLHttpRequest();
-    http.open("POST", 'checkPassword.php', true);
-    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-    const data = { password: currentPasswd };
-    const json = JSON.stringify(data);
-    http.onreadystatechange = function () {
-        //Call a function when the state changes.
-        if (http.readyState == 4 && http.status == 200) {
-            if(http.responseText=='DA'){
-                validatePassword();
-            }else{
-                document.getElementById('error-passwd').style.display = "block";
-            }
-        }
-        if (http.readyState == 4 && http.status == 401) {
-            console.log('au')
-            window.location.assign("unauthorized.html");
-        }
-    }
-    http.send(json);
 }
 
 function validatePassword() {
@@ -104,15 +76,14 @@ function replacePassword() {
     var newPasswd = document.getElementById('newPassword').value;
     console.log(newPasswd);
     var http = new XMLHttpRequest();
-    http.open("POST", 'change-password.php', true);
+    http.open("POST", 'reset-password.php', true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-    const data = { password: newPasswd };
+    const data = { password: newPasswd, id: id_user };
     const json = JSON.stringify(data);
     http.onreadystatechange = function () {
         //Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {
-            window.location.assign("account-administration-final.html");
+            window.location.assign("index.html");
         }
         if (http.readyState == 4 && http.status == 401) {
             console.log('au')
