@@ -24,15 +24,21 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	overflow: hidden;
 }
 
 .picture {
 	background-color: #fff;
-	border-radius: 100%;
+		border-radius: 100%;
 	align-items: center;
-	width: 10em;
+	width: 12em;
 	margin-top: 5%;
 	margin-bottom: 5%;
+	width: 12em;
+	height: 12em;
+	background-position: center center;
+	background-repeat: no-repeat;
+	object-fit: cover;
 }
 
 .user {
@@ -47,14 +53,15 @@
 	background-color: #c2c2c291;
 	border-radius: 5px;
 }
-.title{
+
+.title {
 	font-size: large;
 	margin-bottom: 0.25em;
 	font-style: italic;
 	border-bottom: solid #687d72;
 }
 
-.content{
+.content {
 	font-family: 'JetBrains Mono';
 	text-align: justify;
 }
@@ -278,7 +285,7 @@ textarea {
 	color: gray;
 }
 
-.error{
+.error {
 	display: none;
 	font-style: italic;
 	color: #b91f1f;

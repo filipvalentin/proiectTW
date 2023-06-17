@@ -12,15 +12,21 @@
 </head>
 
 <body>
-	<nav class="top-navbar">
-		<div>
-			<a class="active" href="my-classes.html">My classes</a>
-		</div>
-
+	<nav class="top-navbar" id="teacher-navbar">
+		<div> <a class="active" href="my-classes.html">My classes</a> </div>
 		<div class="navbar-right">
-			<a href="my-problems.html">My problems</a>
-			<a href="account-administration.html">My account</a>
+			<div class="account-button" onclick="showNavbarProfileMenuProf()">
+				<img class="user-pic" id="navbar-profile-img-prof"></img>
+				<p id="navbar-profile-username-prof"></p>
+				<span class="caret"></span>
+			</div>
+			<div class="navbar-profile-menu" id="navbar-profile-menu-prof" onmouseleave="hideNavbarProfileMenuProf()">
+				<a href="account-administration.html">Account settings</a>
+				<a id="profile-my-profile-link-prof">My profile</a>
+				<a class="logout-button" onclick="logout()">Log out</a>
+			</div>
 		</div>
+		<div class="navbar-right"> <a href="my-problems.html">My problems</a> </div>
 	</nav>
 
 
@@ -29,14 +35,14 @@
 			<div class="header">
 				<div>
 					<p class="format-title" id="student-username"></p>
-				<p class="format-title">&#x2022</p>
-				<p class="format-title">solution</p>
+					<p class="format-title">&#x2022</p>
+					<p class="format-title">solution</p>
 				</div>
-				
+
 				<div class="score-section">
 					<p>Score:</p>
 					<input class="score" id="score">
-					<button id="save-score" onclick="assignScore()" >Assign score</button>
+					<button id="save-score" onclick="assignScore()">Assign score</button>
 				</div>
 
 			</div>
@@ -59,7 +65,8 @@
 			</div>
 		</div>
 
-
+		<script src="../script/parse-jwt.js"></script>
+		<script src="../script/navbar.js"></script>
 		<script src="../script/view-solution.js"></script>
 	</main>
 </body>

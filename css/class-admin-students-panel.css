@@ -31,8 +31,10 @@
 
 .student-pic {
 	width: 3em;
+	height: 3em;
 	border-radius: 10px;
-
+	background-position: center center;
+	object-fit: cover;
 }
 
 .student-user {

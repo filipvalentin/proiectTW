@@ -35,9 +35,9 @@ function addStudents() {
 	http.onreadystatechange = function () {//Call a function when the state changes.
 		if (http.readyState == 4 && http.status == 200) {
 
-			console.log(http.responseText);
+			// console.log(http.responseText);
 
-			// window.location.assign("class-admin-students.html?id=" + id);
+			window.location.assign("class-admin-students.html?id=" + id);
 		}
 		if (http.readyState == 4 && http.status == 401) {
 
