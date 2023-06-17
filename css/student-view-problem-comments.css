@@ -36,7 +36,7 @@
 	grid-template-areas: "user"
 		"post-date";
 	height: fit-content;
-	gap:0.5em
+	gap: 0.5em
 }
 
 
@@ -129,10 +129,17 @@
 	.comment {
 		grid-template-areas: "left-pane"
 			"message";
+		grid-template-rows: auto 1fr;
+		grid-template-columns: 1fr;
 	}
 
 	.message {
 		margin: 0;
 	}
-}
 
+	.left-pane {
+		grid-template-areas: "user post-date";
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr;
+	}
+}
