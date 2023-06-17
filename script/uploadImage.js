@@ -18,7 +18,7 @@ function uploadImage() {
             const json = JSON.stringify(data);
             http.onreadystatechange = function () {
                 if (http.readyState == 4 && http.status == 200) {
-                    window.location.assign("account-administration-final.html");
+                    window.location.assign("account-administration.html");
                 }
             }
 
