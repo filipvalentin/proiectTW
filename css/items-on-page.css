@@ -1,0 +1,25 @@
+.items-on-page {
+
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 0.5em;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	font-size: 1em;
+}
+
+.items-on-page p {
+	margin: 0;
+}
+
+.items-on-page-input{
+	width: 2em;
+	border-radius: 5px;
+	border: 0;
+	padding: 0.2em;
+}

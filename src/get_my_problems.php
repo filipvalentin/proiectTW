@@ -44,9 +44,10 @@ if($filterTags != 'null'){
 }
 
 if ($filterWords != "null") {
-	$query .= " AND ( LOWER(title) LIKE LOWER('%" . $filterWords . "%')";
+	$query .= " AND LOWER(title) LIKE LOWER('%" . $filterWords . "%')";
 }
 
+//TODO FILTER DATES
 
 $query .= " LIMIT ".(($page - 1) * $itemsOnPage).",".$itemsOnPage;
 

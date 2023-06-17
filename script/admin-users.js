@@ -1,122 +1,138 @@
-const id_user = '648b132c83fa0';
+// const id_user //= '648c244fa584d';
 
-getData(id_user);
+// getUserData(id_user);
 
 function deleteImage(id) {
-    var http = new XMLHttpRequest();
-    console.log(id);
-    http.open("POST", "deleteImage.php", true);
-    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    const data = { idUser: id };
-    const json = JSON.stringify(data);
-    console.log(json);
-    http.onreadystatechange = function () {
-        if (http.readyState == 4 && http.status == 200) {
-            window.location.assign("admin-users.html");
-        }
-    }
-
-    http.send(json);
-
+	var httpDeleteImg = new XMLHttpRequest();
+	// console.log(id);
+	httpDeleteImg.open("POST", "deleteImage.php", true);
+	httpDeleteImg.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	const json = JSON.stringify({ idUser: id });
+	// console.log(json);
+	httpDeleteImg.onreadystatechange = function () {
+		if (httpDeleteImg.readyState == 4 && httpDeleteImg.status == 200) {
+			window.location.assign("admin-users.html");
+		}
+	}
+	httpDeleteImg.send(json);
 }
 
-function getData(id) {
+function getUserData(id) {
 
-    var http = new XMLHttpRequest();
-    http.open("GET", 'getInfoAdmin.php?id=' + id, true);
-    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    http.onreadystatechange = function () {
-        //Call a function when the state changes.
-        if (http.readyState == 4 && http.status == 200) {
-            var information = JSON.parse(http.responseText);
-            console.log(information);
+	var httpGetUserData = new XMLHttpRequest();
+	httpGetUserData.open("GET", 'getInfoAdmin.php?id=' + id, true);
+	httpGetUserData.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	httpGetUserData.onreadystatechange = function () {
+		//Call a function when the state changes.
+		if (httpGetUserData.readyState == 4 && httpGetUserData.status == 200) {
+			var information = JSON.parse(httpGetUserData.responseText);
+			// console.log(information);
 
-            var header = document.getElementById('header-user');
-            header.innerHTML = information.username;
+			var headerUsername = document.getElementById('user-username');
+			headerUsername.innerHTML = information.username;
 
-            var usernameInput = document.getElementById('usernameInput');
-            usernameInput.setAttribute('value', information.username);
+			var headerUsername = document.getElementById('user-user-id');
+			headerUsername.innerHTML = information.user_id;
 
-            var aboutMeInput = document.getElementById('about-me');
-            aboutMeInput.innerHTML = information.about_me;
+			var usernameInput = document.getElementById('usernameInput');
+			usernameInput.setAttribute('value', information.username);
 
-            var emailInput = document.getElementById('currentEmail');
-            emailInput.setAttribute('value', information.email);
+			var aboutMeInput = document.getElementById('about-me');
+			aboutMeInput.textContent = information.about_me;
 
-            var usernameInput = document.getElementById('name-user');
-            usernameInput.setAttribute('value', information.entire_name);
+			var emailInput = document.getElementById('currentEmail');
+			emailInput.setAttribute('value', information.email);
 
-            var usernameInput = document.getElementById('high-school');
-            usernameInput.setAttribute('value', information.high_school);
+			var usernameInput = document.getElementById('name-user');
+			usernameInput.setAttribute('value', information.entire_name);
 
-            var genderInput = document.getElementById('gender');
-            genderInput.value = information.gender;
+			var usernameInput = document.getElementById('high-school');
+			usernameInput.setAttribute('value', information.high_school);
 
-            var roleInput = document.getElementById('role');
-            roleInput.value = information.role;
+			var genderInput = document.getElementById('gender');
+			genderInput.value = information.gender;
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'getImage2.php?id=' + id, true);
+			var roleInput = document.getElementById('role');
+			roleInput.value = information.role;
 
-            xhr.onload = function () {
-                if (xhr.status == 200 && xhr.readyState == 4) {
-                    console.log(xhr.responseText);
-                    if (xhr.responseText != '') {
-                        console.log('ay');
-                        var imgElement = document.getElementById('user-img');
-                        imgElement.src = xhr.responseText;
-                    } else {
-                        var imgElement = document.getElementById('user-img');
-                        imgElement.src = "../resources/Sample_User_Icon.jpg";
-                    }
-                }
-                // if (xhr.readyState == 4 && xhr.status == 401) {
-                //     console.log('au')
-                //     window.location.assign("unauthorized.html");
-                // }
-            };
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'getImage2.php?id=' + id, true);
 
-            xhr.send();
-        }
-        if (http.readyState == 4 && http.status == 401) {
-            console.log('au')
-            window.location.assign("unauthorized.html");
-        }
-    }
-    http.send();
+			xhr.onload = function () {
+				if (xhr.status == 200 && xhr.readyState == 4) {
+					// console.log(xhr.responseText);
+					if (xhr.responseText != '') {
+						// console.log('ay');
+						var imgElement = document.getElementById('user-img');
+						imgElement.src = xhr.responseText;
+					} else {
+						var imgElement = document.getElementById('user-img');
+						imgElement.src = "../resources/Sample_User_Icon.jpg";
+					}
+				}
+			};
+
+			xhr.send();
+		}
+		if (httpGetUserData.readyState == 4 && httpGetUserData.status == 401) {
+			window.location.assign("unauthorized.html");
+		}
+	}
+	httpGetUserData.send();
 }
 
 
 function update(id) {
-    const usernameInput = document.getElementById('usernameInput').value;
-    const aboutMeInput = document.getElementById('about-me').value;
-    const emailInput = document.getElementById('currentEmail').value;
-    const nameInput = document.getElementById('name-user').value;
-    const highSchoolInput = document.getElementById('high-school').value;
-    const genderInput = document.getElementById('gender').value;
-    const roleInput = document.getElementById('role').value;
+	const usernameInput = document.getElementById('usernameInput').value;
+	const aboutMeInput = document.getElementById('about-me').value;
+	const emailInput = document.getElementById('currentEmail').value;
+	const nameInput = document.getElementById('name-user').value;
+	const highSchoolInput = document.getElementById('high-school').value;
+	const genderInput = document.getElementById('gender').value;
+	const roleInput = document.getElementById('role').value;
 
-    var http = new XMLHttpRequest();
-    http.open("POST", 'changeAdmin.php', true);
-    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    console
-    const data = {
-        idUser: id,
-        username: usernameInput,
-        entire_name: nameInput,
-        highschool: highSchoolInput,
-        gender: genderInput,
-        aboutMe: aboutMeInput,
-        role: roleInput,
-        email: emailInput
-    };
-    const json = JSON.stringify(data);
-    console.log(json);
-    http.onreadystatechange = function () {
-        //Call a function when the state changes.
-        if (http.readyState == 4 && http.status == 200) {
-            window.location.assign("admin-users.html");
-        }
-    }
-    http.send(json);
+	var httpUpdateUserData = new XMLHttpRequest();
+	httpUpdateUserData.open("POST", 'changeAdmin.php', true);
+	httpUpdateUserData.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	httpUpdateUserData.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+	const data = {
+		idUser: id,
+		username: usernameInput,
+		entire_name: nameInput,
+		highschool: highSchoolInput,
+		gender: genderInput,
+		aboutMe: aboutMeInput,
+		role: roleInput,
+		email: emailInput
+	};
+	const json = JSON.stringify(data);
+	console.log(json);
+	httpUpdateUserData.onreadystatechange = function () {
+		//Call a function when the state changes.
+		if (httpUpdateUserData.readyState == 4 && httpUpdateUserData.status == 200) {
+			window.location.assign("admin-users.html");
+		}
+	}
+	httpUpdateUserData.send(json);
+}
+
+
+
+function deleteAccount(){
+	var httpDeleteUserAccount = new XMLHttpRequest();
+	httpDeleteUserAccount.open("POST", 'changeAdmin.php', true);
+	httpDeleteUserAccount.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	httpDeleteUserAccount.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+	httpDeleteUserAccount.onreadystatechange = function () {
+		//Call a function when the state changes.
+		if (httpDeleteUserAccount.readyState == 4 && httpDeleteUserAccount.status == 200) {
+			window.location.assign("admin-users.html");
+		}
+	}
+	httpDeleteUserAccount.send(json);
+}
+
+
+function correctInput() {
+	itemsOnPageElem.value = itemsOnPageElem.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
 }

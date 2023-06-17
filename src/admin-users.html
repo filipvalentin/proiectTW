@@ -7,17 +7,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Administration</title>
 	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/items-on-page.css">
+	<link rel="stylesheet" href="../css/bottom-right-navigation-buttons.css">
 	<link rel="stylesheet" href="../css/admin.css">
 	<link rel="stylesheet" href="../css/admin-top-navbar.css">
 	<link rel="stylesheet" href="../css/admin-users.css">
-	<link rel="stylesheet" href="../css/class-admin-students-panel.css">
-	<link rel="stylesheet" href="../css/bottom-right-navigation-buttons.css">
+
 </head>
 
 <body>
 
 	<nav class="admin-navbar">
-
 		<a class="admin-button" href="admin-users.html">USERS</a>
 		<a class="admin-button" href="admin-classes.html">CLASSES</a>
 		<a class="admin-button" href="admin-problems.html">PROBLEMS</a>
@@ -25,110 +25,61 @@
 
 	<main>
 		<div class="dashboard">
-
 			<p class="class-name">Users</p>
-
-			<p>Filter</p>
-
-			<p>Account type</p>
+			<p>Filter by username or ID</p>
+			<input type="text" id="filter-username-id">
+			<p>Account role</p>
+			<select id="filter-select-role">
+				<option>unset</option>
+				<option>student</option>
+				<option>teacher</option>
+				<option>admin</option>
+			</select>
 			<p>Creation date</p>
-
+			<input type="date" id="filter-date">
+			<button id="apply-filters-button" onclick="updateResultList()">Apply filters</button>
 		</div>
 
 		<div class="right-area">
-			<div class="user-list">
+			<div class="user-list-pane">
+
 				<!-- MOCK HERE FOR QUICK&DIRTY WORK, CLASELE VOR FI FACUTE SPECIAL PENTRU PAGINA ASTA -->
-				<div class="student-list">
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/student-image-1.png" alt="avatar of user X">
-
-							<a class="student-user">user_not_a_mokup</a>
-						</div>
-
-
-					</div>
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/student-image-2.jpg" alt="avatar of user X">
-							<a class="student-user">user_not_a_mokup2 &#x2022 student</a>
-
-						</div>
-
-
-					</div>
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/student-image-1.png" alt="avatar of user X">
-
-							<a class="student-user">user_not_a_mokup &#x2022 student</a>
-						</div>
-
-
-
-					</div>
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/student-image-2.jpg" alt="avatar of user X">
-							<a class="student-user">user_not_a_mokup2 &#x2022 student</a>
-						</div>
-
-
-					</div>
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/student-image-1.png" alt="avatar of user X">
-
-							<a class="student-user">user_not_a_mokup &#x2022 student</a>
-						</div>
-
-
-
-					</div>
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/student-image-2.jpg" alt="avatar of user X">
-							<a class="student-user">user_not_a_mokup2 &#x2022 student</a>
-						</div>
-
-
-					</div>
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/student-image-1.png" alt="avatar of user X">
-
-							<a class="student-user">user_not_a_mokup &#x2022 student</a>
-						</div>
-
-
-
-					</div>
-					<div class="student-entry">
-						<div class="entry-left-side">
-							<img class="student-pic" src="../resources/Sample_User_Icon.png" alt="avatar of user X">
-							<a class="student-user">user_not_a_mokup_teacher &#x2022 teacher</a>
-						</div>
-
-
-					</div>
-
-					<div class="navigation-buttons">
-						<button>&lt;</button>
-						<div class="button-list">
-							<button>1</button>
-							<button>2</button>
-						</div>
-						<button>&gt;</button>
-					</div>
+				<div class="user-list" id="user-list">
 
 				</div>
+
+				<div class="items-on-page">
+					<p>Items on page: </p>
+					<input class="items-on-page-input" type="text" id="items-on-page" oninput="correctInput()">
+				</div>
+
+				<div class="navigation-buttons" id="navigation-buttons">
+					<button id="back-page-button" onclick="backPageButtonClicked()">&lt;</button>
+					<select id="page-selector" onchange="pageSelectorClicked()">
+					</select>
+					<button id="next-page-button" onclick="nextPageButtonClicked()">&gt;</button>
+				</div>
+
+				<template id="user-entry-template">
+					<div class="user-entry" id="entry-user-div">
+						<div class="entry-data">
+							<a class="student-user" id="user-entry-username"></a>
+							<p>&#x2022</p>
+							<p id="entry-user-role"></p>
+						</div>
+					</div>
+				</template>
 			</div>
 			<div class="user-pane">
-				<header id="header-user"></header>
+				<header class="user-header">
+					<p id="user-username"></p>
+					<p>&#x2022</p>
+					<p id="user-user-id"></p>
+				</header>
 				<div class="content">
 					<div class="entry">
 						<p>User image</p>
-						<img class="user-pic" src="" alt="avatar of user X" id="user-img">
+						<img class="user-pic" src="" id="user-img">
 						<button class="generic-button" onclick="deleteImage(id_user)">Delete image</button>
 					</div>
 					<div class="information">
@@ -142,7 +93,7 @@
 								<input type="text" id="usernameInput" required>
 							</div>
 							<div class="info">
-								<label for="name-user">Name of user</label>
+								<label for="name-user">Full Name</label>
 								<input type="text" id="name-user" required>
 							</div>
 							<div class="info">
@@ -165,13 +116,14 @@
 							<div class="info">
 								<label for="role">Role</label>
 								<select name="option" id="role" required>
-									<option value="student" id="student">Student</option>
-									<option value="professor" id="professor">Professor</option>
-									<option value="admin" id="admin">Admin</option>
+									<option value="student" id="student">student</option>
+									<option value="teacher" id="teacher">teacher</option>
+									<option value="admin" id="admin">admin</option>
 								</select>
 							</div>
 							<div class="button">
-								<button onclick="update(id_user)">Update</button>
+								<button class="generic-button" onclick="update(id_user)">Update</button>
+								<button class="generic-button" onclick="deleteAccount(id_user)">Delete account</button>
 							</div>
 						</form>
 					</div>
@@ -179,13 +131,10 @@
 
 			</div>
 		</div>
-
 	</main>
-	
+
+	<script src="../script/admin-users-onload.js"></script>
+	<script type="text/javascript" src="../script/admin-users.js"></script>
 </body>
-
-<script type="text/javascript" src="../script/admin-users.js"></script>
-
-
 
 </html>

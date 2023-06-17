@@ -7,8 +7,6 @@ function updateProblemList() {
 	const problemList = document.getElementById("problem-list");
 	problemList.replaceChildren();
 
-	// comst updatePageNumbers
-
 	// console.log(itemsOnPage, pages);
 	retrieveProblems(currentPage, itemsOnPage);
 }
