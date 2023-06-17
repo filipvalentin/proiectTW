@@ -1,25 +1,22 @@
 
-const userRole = parseJwt(localStorage.getItem("JWT"))["role"];
+const userJwt = parseJwt(localStorage.getItem("JWT"));
 
 const studentNavbar = document.getElementById("student-navbar");
 const teacherNavbar = document.getElementById("teacher-navbar");
 
-if (userRole == "student") {
-
-	document.getElementById("student-navbar").style.display = "block";
-
+var userImage = null;
+if (userJwt["role"] == "student") {
+	document.getElementById("student-navbar").style.display = "inline-block";
+	document.getElementById("profile-my-profile-link-stud").setAttribute("href", "profile.html?id=" + userJwt["sub"]);
+	userImage = document.getElementById("navbar-profile-img-stud");
 }
 else {
-	document.getElementById("teacher-navbar").style.display = "block";
-}
-
-function logout() {
-	localStorage.removeItem("JWT");
-	window.location.replace("index.html");
+	document.getElementById("teacher-navbar").style.display = "inline-block";
+	document.getElementById("profile-my-profile-link-prof").setAttribute("href", "profile.html?id=" + userJwt["sub"]);
+	userImage = document.getElementById("navbar-profile-img-prof");
 }
 
 
-const userImage = document.getElementById("navbar-profile-img");
 var httpGetUserPic = new XMLHttpRequest();
 httpGetUserPic.open('GET', "getImage.php", true);
 httpGetUserPic.setRequestHeader('Content-Type', 'application/json');
@@ -35,3 +32,30 @@ httpGetUserPic.onreadystatechange = function () {
 	}
 }
 httpGetUserPic.send();
+
+
+function showNavbarProfileMenuProf() {
+	const menu = document.getElementById("navbar-profile-menu-prof");
+	menu.style.display = "flex";
+}
+
+function hideNavbarProfileMenuProf() {
+	const menu = document.getElementById("navbar-profile-menu-prof");
+	menu.style.display = "none";
+}
+
+function showNavbarProfileMenuStud() {
+	const menu = document.getElementById("navbar-profile-menu-stud");
+	menu.style.display = "flex";
+}
+
+function hideNavbarProfileMenuStud() {
+	const menu = document.getElementById("navbar-profile-menu-stud");
+	menu.style.display = "none";
+}
+
+
+function logout() {
+	localStorage.removeItem("JWT");
+	window.location.replace("index.html");
+}

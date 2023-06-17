@@ -7,8 +7,9 @@
 @import url("https://fonts.googleapis.com/css?family=Asap");
 .top-navbar {
 	display: none;
+	width: 100%;
 
-	overflow: hidden;
+	/* overflow: hidden; */
 	background-color: #313137;
 	position: sticky;
 	
@@ -43,16 +44,33 @@
 	/* display: none; */
 	float: right;
 	position: relative;
+
+	width: fit-content;
+
+	z-index: 2;
 }
 
 .navbar-profile-menu{
 	display: none;
+	/* display: flex; */
+	flex-direction: column;
+
+	position: fixed;
+	/* top: 2em; */
+	right: 0;
+	/* width: 8em; */
+	/* left: 0.5em; */
+	width: fit-content;
+
+	background-color: #313137;
+	color: white;
+
+	z-index: 3;
 }
 
 .user-pic {
 	width: 2.5em;
 	border-radius: 10px;
-
 }
 
 .account-button{
@@ -63,7 +81,7 @@
 	justify-content: center;
 	gap: 0.5em;
 	color: white;
-	background-color: #434346;
+	/* background-color:#343439; */
 	padding: 0 0.5em;
 
 	cursor: pointer;
@@ -82,9 +100,15 @@
     content: ""
 }
 
-/* .hidden{
-	display: block;
-} */
+.navbar-profile-menu a{
+	width: 8em;
+}
+
+.top-navbar .logout-button:hover{
+	background-color: rgb(196, 47, 47);
+	color: white;
+}
+
 
 @media (max-width:30em) {
 	.hidden{
