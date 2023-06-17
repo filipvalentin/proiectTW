@@ -9,17 +9,17 @@ function changePassword() {
     document.getElementById('empty-passwd').style.display = "none";
     document.getElementById('empty2-passwd').style.display = "none";
     document.getElementById('empty3-passwd').style.display = "none";
-    
-    if(document.getElementById('currentPassword').value==''){
+
+    if (document.getElementById('currentPassword').value == '') {
         document.getElementById('empty-passwd').style.display = "block";
     }
-    if(document.getElementById('newPassword').value==''){
+    if (document.getElementById('newPassword').value == '') {
         document.getElementById('empty2-passwd').style.display = "block";
     }
-    if(document.getElementById('confirmPassword').value==''){
+    if (document.getElementById('confirmPassword').value == '') {
         document.getElementById('empty3-passwd').style.display = "block";
     }
-    if(document.getElementById('currentPassword').value !='' && document.getElementById('newPassword').value !='' && document.getElementById('confirmPassword').value !=''){
+    if (document.getElementById('currentPassword').value != '' && document.getElementById('newPassword').value != '' && document.getElementById('confirmPassword').value != '') {
         isUserPassword();
     }
 }
@@ -27,28 +27,6 @@ function changePassword() {
 function isUserPassword() {
     var currentPasswd = document.getElementById('currentPassword').value;
     console.log(currentPasswd);
-    var http = new XMLHttpRequest();
-
-    http.open("GET", 'checkPassword.php?password=' + currentPasswd, true);
-    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-    http.onreadystatechange = function () {
-        //Call a function when the state changes.
-        if (http.readyState == 4 && http.status == 200) {
-            var response = http.responseText;
-            if (response == 'NU') {
-                console.log(response);
-                document.getElementById('error-passwd').style.display = "block";
-            } else {
-                console.log(response);
-                validatePassword();
-            }
-        }
-        if (http.readyState == 4 && http.status == 401) {
-            window.location.assign("unauthorized.html");
-        }
-    }
-    http.send();
 }
 
 function validatePassword() {
@@ -86,39 +64,39 @@ function validatePassword() {
         document.getElementById('failed-passwd-lenght').style.display = "block";
     }
 
-    if(hasLowercase && hasUppercase && hasNumner && hasSpecialChar && hasMinLength){
+    if (hasLowercase && hasUppercase && hasNumner && hasSpecialChar && hasMinLength) {
         confirmation();
     }
 }
 
-function confirmation(){
+function confirmation() {
     var passOne = document.getElementById('newPassword').value;
     var passTwo = document.getElementById('confirmPassword').value;
-    if(passOne !== passTwo){
+    if (passOne !== passTwo) {
         document.getElementById('conf-passwd').style.display = "block";
-    }else{
+    } else {
         replacePassword();
     }
 }
 
-function replacePassword(){
+function replacePassword() {
     var newPasswd = document.getElementById('newPassword').value;
     console.log(newPasswd);
     var http = new XMLHttpRequest();
-	http.open("POST", 'change-password.php', true);
-	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    http.open("POST", 'change-password.php', true);
+    http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
-    const data = {password : newPasswd};
+    const data = { password: newPasswd };
     const json = JSON.stringify(data);
     http.onreadystatechange = function () {
         //Call a function when the state changes.
-		if (http.readyState == 4 && http.status == 200) {
-			window.location.assign("account-administration-final.html");
-		}
-		if (http.readyState == 4 && http.status == 401) {
+        if (http.readyState == 4 && http.status == 200) {
+            window.location.assign("account-administration-final.html");
+        }
+        if (http.readyState == 4 && http.status == 401) {
             console.log('au')
-			window.location.assign("unauthorized.html");
-		}
-	}
-	http.send(json);
+            window.location.assign("unauthorized.html");
+        }
+    }
+    http.send(json);
 }
