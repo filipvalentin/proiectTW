@@ -3,6 +3,10 @@ const homeworkId = urlParams.get('hmkId');
 const problemId = urlParams.get("problemId");
 const problemType = urlParams.get("type");
 
+var turnedIn = 0;
+var remainingToScore = 0;
+var scored = 0;
+
 document.getElementById("problem-id").textContent = problemId;
 
 //update problem title and short description
@@ -58,7 +62,7 @@ httpGetStudents.onreadystatechange = function () {
 			getComments(element["user_id"]);
 		});
 
-		displayAverageStars();
+		displayStats();
 	}
 	if (httpGetStudents.readyState == 4 && httpGetStudents.status == 401) {
 		window.location.assign("unauthorized.html");
@@ -123,6 +127,16 @@ function displayAverageStars() {
 }
 
 
+function displayStats(){
+	document.getElementById("students-turn-in").textContent = turnedIn;
+	document.getElementById("number-of-students").textContent = scored+remainingToScore;
+	document.getElementById("scored-solutions").textContent = scored;
+	document.getElementById("number-of-solutions").textContent = scored+remainingToScore;
+	
+	displayAverageStars();
+}
+
+
 function displayStudentEntry(jsonObj) {
 	const userId = jsonObj["user_id"];
 
@@ -159,15 +173,20 @@ function displayStudentEntry(jsonObj) {
 	userSolutionViewButton.id = "s" + userId + "sb";
 
 	let userSolutionStatus = clone.getElementById("entry-solution-status");
+	if(jsonObj["status"]=="solved"){
+		turnedIn++;
+	}
 	userSolutionStatus.textContent = jsonObj["status"];
 	userSolutionStatus.id = "s" + userId + "s";
 
 	let userSolutionScore = clone.getElementById("entry-solution-score");
 	if (jsonObj["score"] == -1) {
 		userSolutionScore.textContent = "unscored";
+		remainingToScore++;
 	}
 	else {
 		userSolutionScore.textContent = jsonObj["score"];
+		scored++;
 	}
 
 	userSolutionScore.id = "s" + userId + "s";

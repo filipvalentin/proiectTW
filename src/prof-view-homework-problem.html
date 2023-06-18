@@ -56,6 +56,15 @@
 					<p class="name">Tags:</p>
 					<p class="value" id="problem-tags"></p>
 				</div>
+
+				<p class="description" id="description"></p>
+			</div>
+		</div>
+		<div class="sub-left-pane">
+			<header>
+				<p>Stats</p>
+			</header>
+			<div class="content">
 				<div class="item">
 					<p class="name">Average rating:</p>
 					<div class="rating">
@@ -66,7 +75,21 @@
 						<span class="fa fa-star" id="avg-rating-star5"></span>
 					</div>
 				</div>
-				<p class="description" id="description"></p>
+				<div class="item">
+					<p>Turned in:</p>
+					<p id="students-turn-in"></p>
+					<p>out of</p>
+					<p id="number-of-students"></p>
+					<p>students</p>
+				</div>
+
+				<div class="item">
+					<p>You have scored</p>
+					<p id="scored-solutions"></p>
+					<p>out of</p>
+					<p id="number-of-solutions"></p>
+					<p>students</p>
+				</div>
 			</div>
 		</div>
 		<div class="right-panel">
@@ -148,7 +171,7 @@
 
 
 	</main>
-	
+
 	<script src="../script/is-token-expired.js"></script>
 	<script src="../script/parse-jwt.js"></script>
 	<script src="../script/require-teacher-or-admin.js"></script>
