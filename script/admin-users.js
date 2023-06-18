@@ -11,6 +11,7 @@ function deleteImage(id) {
 	// console.log(json);
 	httpDeleteImg.onreadystatechange = function () {
 		if (httpDeleteImg.readyState == 4 && httpDeleteImg.status == 200) {
+			// console.log(httpDeleteImg.responseText);
 			window.location.assign("admin-users.html");
 		}
 	}
@@ -27,6 +28,9 @@ function getUserData(id) {
 		if (httpGetUserData.readyState == 4 && httpGetUserData.status == 200) {
 			var information = JSON.parse(httpGetUserData.responseText);
 			// console.log(information);
+
+			var deleteImgButton = document.getElementById("delete-user-img");
+			deleteImgButton.setAttribute("onclick", "deleteImage('" + id + "')")
 
 			var headerUsername = document.getElementById('user-username');
 			headerUsername.innerHTML = information.username;
@@ -95,6 +99,7 @@ function update(id) {
 	httpUpdateUserData.open("POST", '../php/changeAdmin.php', true);
 	httpUpdateUserData.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpUpdateUserData.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+
 	const data = {
 		idUser: id,
 		username: usernameInput,
@@ -118,7 +123,7 @@ function update(id) {
 
 
 
-function deleteAccount(){
+function deleteAccount() {
 	var httpDeleteUserAccount = new XMLHttpRequest();
 	httpDeleteUserAccount.open("POST", '../php/changeAdmin.php', true);
 	httpDeleteUserAccount.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
