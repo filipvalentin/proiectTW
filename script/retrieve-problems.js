@@ -43,13 +43,10 @@ function retrieveProblems(pageCountMultiplier, itemsOnPage) {
 				displayProblem(element);
 				lastRetrievedIds.push("p" + element["id"]);
 			});
-
-			// console.log(lastRetrievedIds);
-
 		}
 		if (http.readyState == 4 && http.status == 401) {
 			console.log(http.responseText);
-			// window.location.assign("unauthorized.html");
+			window.location.assign("unauthorized.html");
 		}
 
 	}
@@ -61,8 +58,6 @@ function retrieveProblems(pageCountMultiplier, itemsOnPage) {
 
 
 function displayProblem(jsonObj) {
-	// console.log(jsonObj);
-
 	const problemId = jsonObj["id"];
 
 	const problemSection = document.getElementById("problem-list");

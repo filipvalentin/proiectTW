@@ -37,8 +37,18 @@ if($filterTags != 'null'){
 	$query = substr_replace($query ,"", -3);
 
 	$query .= ") ";
+}
 
+if ($filterWords != "null") {
+	$query .= " AND LOWER(title) LIKE LOWER('%" . $filterWords . "%')";
+}
 
+if ($filterStartDate != "null") {
+	$query .= " AND post_date > '" . $filterStartDate . "'";
+}
+
+if ($filterEndDate != "null") {
+	$query .= " AND post_date < '" . $filterEndDate . "'";
 }
 
 

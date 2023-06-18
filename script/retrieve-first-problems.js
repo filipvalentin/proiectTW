@@ -3,7 +3,7 @@
 
 
 //get the first x problems
-retrieveProblems(currentPage, itemsOnPage);
+// retrieveProblems(currentPage, itemsOnPage);
 
 //get the number of pages
 retrieveNumberOfProblems();

@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
 	<link rel="stylesheet" href="../css/top-navbar.css">
 	<link rel="stylesheet" href="../css/class-admin.css">
+	<link rel="stylesheet" href="../css/class-overview.css">
 </head>
 
 <body>
@@ -50,19 +51,44 @@
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Overview</p>
-
 			</div>
-			<div>statistici</div>
+			<div>
+				<div class="scoreboard">
+					<table id="user-table">
+						<tr>
+							<th>User</th>
+							<th>Avg. score</th>
+						</tr>
+
+					</table>
+				</div>
+			</div>
 		</div>
 
+		<template id="entry-template">
+			<tr class="entry-tr">
+				<td class="left-td">
+					<div>
+						<div class="user">
+							<img class="user-pic" id="entry-user-pic">
+							<a class="user-link" id="entry-username"></a>
+						</div>
+					</div>
+				</td>
+				<td class="right-td">
+					<p id="entry-avg-score"></p>
+				</td>
+			</tr>
+		</template>
 
 	</main>
-	
+
 	<script src="../script/is-token-expired.js"></script>
 	<script src="../script/parse-jwt.js"></script>
 	<script src="../script/require-teacher-or-admin.js"></script>
 	<script src="../script/navbar.js"></script>
 	<script src="../script/class-admin-identification.js"></script>
+	<script src="../script/class-overview.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,64 @@
+
+.student-entry {
+	background-color: #f5f5dca5;
+	border-radius: 4px;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0 0.3em;
+	width: calc(100% - 2em);
+	margin: 1em;
+	align-items: center;
+	justify-items: center;
+}
+
+th,
+td {
+	padding: 0.3em;
+	text-align: center;
+	
+}
+
+.entry-tr{
+	background-color: #dad9d9;
+}
+
+
+/* .scoreboard{
+	width: 100%;
+} */
+
+
+.left-td {
+	border-radius: 4px 0 0 4px;
+}
+
+.right-td {
+	border-radius: 0 4px 4px 0;
+}
+
+/* .rating-td {
+	display: flex;
+	justify-content: center;
+	padding: 1em 0 0 0;
+}  */
+
+.user {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 0.5em;
+}
+
+button {
+	cursor: pointer;
+}
+
+.user-pic {
+	width: 3em;
+	height: 3em;
+	border-radius: 10px;
+
+	object-fit: cover;
+}

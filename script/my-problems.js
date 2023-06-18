@@ -6,8 +6,9 @@ itemsOnPageElem.addEventListener("focusout",
 		itemsOnPage = event.target.value;
 
 		// retrieveProblems(1,itemsOnPage);
-		updatePageNumbersWrapper();
-		updateProblemList();
+		// updatePageNumbersWrapper();
+		// updateProblemList();
+		retrieveNumberOfProblems();
 	}
 );
 
@@ -18,6 +19,8 @@ itemsOnPageElem.addEventListener("keyup", (event) => {
 
 	}
 });
+
+
 
 function correctInput() {
 	itemsOnPageElem.value = itemsOnPageElem.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
@@ -99,8 +102,8 @@ function searchWithFilters() {
 
 	updateGlobalParams();
 
-	updatePageNumbersWrapper();
-	updateProblemList();
+	retrieveNumberOfProblems();
+
 }
 
 retrieveMyProblemsStats();

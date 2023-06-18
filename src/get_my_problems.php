@@ -3,7 +3,7 @@ include("authorization_logic.php");
 
 $decoded = getDecodedJWT();
 
-if($decoded == null){
+if ($decoded == null) {
 	http_response_code(401);
 	die();
 }
@@ -15,41 +15,45 @@ $user_id = $decoded_array['sub'];
 $page = $_GET['page'];
 $filterWords = $_GET['filterWords'];
 $filterDifficulty = $_GET['filterDifficulty'];
-$filterTags =$_GET['filterTags'];
-$filterStartDate =$_GET['filterStartDate'];
+$filterTags = $_GET['filterTags'];
+$filterStartDate = $_GET['filterStartDate'];
 $filterEndDate = $_GET['filterEndDate'];
 $itemsOnPage = $_GET["itemsOnPage"];
 
 
 $query = "SELECT * FROM teacher_problems WHERE teacher_id = ?";
 
-if($filterDifficulty != 'null'){
-	$query .= " AND difficulty='".$filterDifficulty."'";
+if ($filterDifficulty != 'null') {
+	$query .= " AND difficulty='" . $filterDifficulty . "'";
 }
 
-if($filterTags != 'null'){
+if ($filterTags != 'null') {
 
 	$query .= " AND (";
 
 	$tags = explode(', ', $filterTags);
 	foreach ($tags as $value) {
-		$query .= "tags LIKE '%".$value."%' OR";
+		$query .= "tags LIKE '%" . $value . "%' OR";
 	}
 
-	$query = substr_replace($query ,"", -3);
+	$query = substr_replace($query, "", -3);
 
 	$query .= ") ";
-
-
 }
 
 if ($filterWords != "null") {
 	$query .= " AND LOWER(title) LIKE LOWER('%" . $filterWords . "%')";
 }
 
-//TODO FILTER DATES
+if ($filterStartDate != "null") {
+	$query .= " AND post_date > '" . $filterStartDate . "'";
+}
 
-$query .= " LIMIT ".(($page - 1) * $itemsOnPage).",".$itemsOnPage;
+if ($filterEndDate != "null") {
+	$query .= " AND post_date < '" . $filterEndDate . "'";
+}
+
+$query .= " LIMIT " . (($page - 1) * $itemsOnPage) . "," . $itemsOnPage;
 
 // echo $query;
 
