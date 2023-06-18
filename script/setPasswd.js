@@ -76,7 +76,7 @@ function replacePassword() {
     var newPasswd = document.getElementById('newPassword').value;
     console.log(newPasswd);
     var http = new XMLHttpRequest();
-    http.open("POST", 'reset-password.php', true);
+    http.open("POST", '../php/reset-password.php', true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     const data = { password: newPasswd, id: id_user };
     const json = JSON.stringify(data);

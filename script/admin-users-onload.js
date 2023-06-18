@@ -57,7 +57,7 @@ function updateFilters() {
 function retrieveNumberOfUsers() {
 	var httpRetrieveNumberOfUsers = new XMLHttpRequest();
 
-	var url = "admin_get_users_count.php?page=" + currentPage +
+	var url = "../php/admin_get_users_count.php?page=" + currentPage +
 		"&items_on_page=" + itemsOnPage +
 		"&filterUsernameId=" + filterUsernameId +
 		"&filterAccountType=" + filterAccountType +
@@ -88,7 +88,7 @@ function retrieveNumberOfUsers() {
 function retrieveNumberOfUsersAsync() {
 	var httpRetrieveNumberOfUsers = new XMLHttpRequest();
 
-	var url = "admin_get_users_count.php?page=" + currentPage +
+	var url = "../php/admin_get_users_count.php?page=" + currentPage +
 		"&items_on_page=" + itemsOnPage +
 		"&filterUsernameId=" + filterUsernameId +
 		"&filterAccountType=" + filterAccountType +
@@ -190,7 +190,7 @@ function updateUserList() {
 
 function retrieveUsers(currentPage, itemsOnPage) {
 	var httpRetrieveUsers = new XMLHttpRequest();
-	httpRetrieveUsers.open("POST", "admin_get_users.php?page=" + currentPage +
+	httpRetrieveUsers.open("POST", "../php/admin_get_users.php?page=" + currentPage +
 		"&items_on_page=" + itemsOnPage +
 		"&filterUsernameId=" + filterUsernameId +
 		"&filterAccountType=" + filterAccountType +

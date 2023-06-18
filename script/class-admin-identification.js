@@ -35,7 +35,7 @@ if (addHomeworkButton) {
 var nameClass = document.getElementById("name-class");
 if (nameClass) {
 	var httpClassName = new XMLHttpRequest();
-	httpClassName.open("GET", 'getClassName.php?id=' + id, true);
+	httpClassName.open("GET", '../php/getClassName.php?id=' + id, true);
 	httpClassName.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpClassName.onreadystatechange = function () {
 		if (httpClassName.readyState == 4 && httpClassName.status == 200) {
@@ -47,7 +47,7 @@ if (nameClass) {
 				var descriptionClass = document.getElementById("new-description");
 				if (descriptionClass) {
 					var httpDescriptionName = new XMLHttpRequest();
-					httpDescriptionName.open("GET", 'getClassDescription.php?id=' + id, true);
+					httpDescriptionName.open("GET", '../php/getClassDescription.php?id=' + id, true);
 					httpDescriptionName.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 					httpDescriptionName.onreadystatechange = function () {
 						if (httpDescriptionName.readyState == 4 && httpDescriptionName.status == 200) {

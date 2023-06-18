@@ -23,7 +23,7 @@ function retrieveProblems() {
 
 	var httpRetrieveProblems = new XMLHttpRequest();
 
-	httpRetrieveProblems.open('GET', "admin_get_problems.php?page=" + currentPage + "&items_on_page=" + itemsOnPage + "&filter_by_title_or_id=" + filterByTitleOrId, true);
+	httpRetrieveProblems.open('GET', "../php/admin_get_problems.php?page=" + currentPage + "&items_on_page=" + itemsOnPage + "&filter_by_title_or_id=" + filterByTitleOrId, true);
 
 	//Send the proper header information along with the request
 	httpRetrieveProblems.setRequestHeader('Content-Type', 'application/json');

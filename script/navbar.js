@@ -21,7 +21,7 @@ else {
 
 
 var httpGetUserInfo = new XMLHttpRequest();
-httpGetUserInfo.open('GET', "navbar_get_user_info.php", true);
+httpGetUserInfo.open('GET', "../php/navbar_get_user_info.php", true);
 httpGetUserInfo.setRequestHeader('Content-Type', 'application/json');
 httpGetUserInfo.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpGetUserInfo.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));

@@ -28,7 +28,7 @@ function isUserPassword() {
     var currentPasswd = document.getElementById('currentPassword').value;
     console.log(currentPasswd);
     var http = new XMLHttpRequest();
-    http.open("POST", 'checkPassword.php', true);
+    http.open("POST", '../php/checkPassword.php', true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
     const data = { password: currentPasswd };
@@ -104,7 +104,7 @@ function replacePassword() {
     var newPasswd = document.getElementById('newPassword').value;
     console.log(newPasswd);
     var http = new XMLHttpRequest();
-    http.open("POST", 'change-password.php', true);
+    http.open("POST", '../php/change-password.php', true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
     const data = { password: newPasswd };

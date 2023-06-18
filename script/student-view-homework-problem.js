@@ -54,7 +54,7 @@ function submitSolution() {
 
 	var solution = document.getElementById("solution").value;
 	var httpSendSolution = new XMLHttpRequest();
-	httpSendSolution.open('POST', "submit_homework_problem_solution.php", true);
+	httpSendSolution.open('POST', "../php/submit_homework_problem_solution.php", true);
 	httpSendSolution.setRequestHeader('Content-Type', 'application/json');
 	httpSendSolution.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpSendSolution.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -85,7 +85,7 @@ function submitSolution() {
 
 function sendRating() {
 	var httpSendRating = new XMLHttpRequest();
-	httpSendRating.open('PUT', "update_rating.php", true);
+	httpSendRating.open('PUT', "../php/update_rating.php", true);
 	httpSendRating.setRequestHeader('Content-Type', 'application/json');
 	httpSendRating.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpSendRating.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -123,7 +123,7 @@ function sendComment() {
 	}
 
 	var httpSendComment = new XMLHttpRequest();
-	httpSendComment.open('PUT', "add_homework_problem_comment.php", true);
+	httpSendComment.open('PUT', "../php/add_homework_problem_comment.php", true);
 	httpSendComment.setRequestHeader('Content-Type', 'application/json');
 	httpSendComment.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpSendComment.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -160,7 +160,7 @@ function sendComment() {
 
 if (problemType == "custom" || problemType == "assigned") {
 	var httpProblemDescription = new XMLHttpRequest();
-	httpProblemDescription.open('GET', "get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
+	httpProblemDescription.open('GET', "../php/get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
 	httpProblemDescription.setRequestHeader('Content-Type', 'application/json');
 	httpProblemDescription.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpProblemDescription.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -192,7 +192,7 @@ else {
 
 
 var httpGetStudentSolution = new XMLHttpRequest();
-httpGetStudentSolution.open('GET', "get_hmk_problem_info_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + userJwt["sub"], true);
+httpGetStudentSolution.open('GET', "../php/get_hmk_problem_info_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + userJwt["sub"], true);
 httpGetStudentSolution.setRequestHeader('Content-Type', 'application/json');
 httpGetStudentSolution.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpGetStudentSolution.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -228,7 +228,7 @@ httpGetStudentSolution.send();
 
 
 var httpGetComments = new XMLHttpRequest();
-httpGetComments.open('GET', "get_homework_problem_comments.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
+httpGetComments.open('GET', "../php/get_homework_problem_comments.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
 httpGetComments.setRequestHeader('Content-Type', 'application/json');
 httpGetComments.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpGetComments.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -270,7 +270,7 @@ function displayCommentTemplate(jsonObj) {
 	let userImage = clone.getElementById("comment-user-pic");
 	userImage.id = "cm" + user_id + comment_id + "im";
 	var httpImage = new XMLHttpRequest();
-	httpImage.open('GET', "get_image_unauthorized.php?id=" + user_id, true);
+	httpImage.open('GET', "../php/get_image_unauthorized.php?id=" + user_id, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
 	httpImage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	// httpImage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));

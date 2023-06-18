@@ -9,7 +9,7 @@ generatePage(id);
 function generatePage(id) {
 
     var http = new XMLHttpRequest();
-    http.open("GET", 'getInformationProblem.php?id=' + id, true);
+    http.open("GET", '../php/getInformationProblem.php?id=' + id, true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.onreadystatechange = function () {
         //Call a function when the state changes.
@@ -61,7 +61,7 @@ function generatePage(id) {
 
 function exportProblem() {
     var http = new XMLHttpRequest();
-    http.open("GET", 'getInformationProblem.php?id=' + id, true);
+    http.open("GET", '../php/getInformationProblem.php?id=' + id, true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.onreadystatechange = function () {
         //Call a function when the state changes.
@@ -97,7 +97,7 @@ function exportProblem() {
 function deleteProblem() {
     // console.log(id);
     var http = new XMLHttpRequest();
-    http.open("POST", 'deleteProblem.php', true);
+    http.open("DELETE", '../php/deleteProblem.php', true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     const data = {
         idProblem: id

@@ -6,7 +6,7 @@ function sendRequest() {
 
 	var http = new XMLHttpRequest();
 
-	http.open('POST', "add_problem.php", true);
+	http.open('POST', "../php/add_problem.php", true);
 
 	//Send the proper header information along with the request
 	http.setRequestHeader('Content-Type', 'application/json');

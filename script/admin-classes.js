@@ -24,7 +24,7 @@ searchInput.addEventListener("keyup", (event) => {
 function retrieveClasses() {
 	var httpRetrieveClasses = new XMLHttpRequest();
 
-	httpRetrieveClasses.open('GET', "admin_get_classes.php?page=" + currentPage + "&items_on_page=" + itemsOnPage + "&filter_by_title_or_id=" + filterByTitleOrId, true);
+	httpRetrieveClasses.open('GET', "../php/admin_get_classes.php?page=" + currentPage + "&items_on_page=" + itemsOnPage + "&filter_by_title_or_id=" + filterByTitleOrId, true);
 
 	//Send the proper header information along with the request
 	httpRetrieveClasses.setRequestHeader('Content-Type', 'application/json');

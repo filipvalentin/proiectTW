@@ -2,7 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
 var http = new XMLHttpRequest();
-http.open("GET", 'getInformationId.php?id='+id, true);
+http.open("GET", '../php/getInformationId.php?id='+id, true);
 http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 http.onreadystatechange = function () {
     //Call a function when the state changes.
@@ -125,7 +125,7 @@ http.onreadystatechange = function () {
 
 
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'get_image_unauthorized.php?id='+id, true);
+        xhr.open('GET', '../php/get_image_unauthorized.php?id='+id, true);
         
         xhr.onload = function () {
             if (xhr.status == 200 && xhr.readyState == 4) {

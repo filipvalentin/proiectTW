@@ -1,7 +1,7 @@
 function removeUser(user_id){
 	var http = new XMLHttpRequest();
 
-	http.open('DELETE', "remove_student_from_class.php", true);
+	http.open('DELETE', "../php/remove_student_from_class.php", true);
 
 	//Send the proper header information along with the request
 	http.setRequestHeader('Content-Type', 'application/json');

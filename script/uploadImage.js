@@ -11,7 +11,7 @@ function uploadImage() {
             const picture = reader.result;
             console.log(picture);
             var http = new XMLHttpRequest();
-            http.open("POST", "upload.php", true);
+            http.open("POST", "../php/upload.php", true);
             http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
             const data = { image : picture };

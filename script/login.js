@@ -40,7 +40,7 @@ function sendAuthRequest(email, password, intent, funcOnSucess, funcOnFail) {
 
 	var http = new XMLHttpRequest();
 
-	http.open('POST', "auth_user.php", true);
+	http.open('POST', "../php/auth_user.php", true);
 
 	//Send the proper header information along with the request
 	http.setRequestHeader('Content-Type', 'application/json');

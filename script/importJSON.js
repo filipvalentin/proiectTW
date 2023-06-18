@@ -12,7 +12,7 @@ function importJSON() {
             console.log(jsonData);
 
             var http = new XMLHttpRequest();
-            http.open("POST", "importJSON.php", true);
+            http.open("POST", "../php/importJSON.php", true);
             http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
             http.onreadystatechange = function () {

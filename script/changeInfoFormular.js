@@ -54,7 +54,7 @@ function checkUsername() {
     } else {
         var http = new XMLHttpRequest();
 
-        http.open("GET", "verify_username.php?username=" + username, true);
+        http.open("GET", "../php/verify_username.php?username=" + username, true);
         http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
         http.onreadystatechange = function () {
@@ -113,7 +113,7 @@ function modifyInDatabase(){
         displayHighSchool = 0;
     }
     var http = new XMLHttpRequest();
-	http.open("POST", 'change-info.php', true);
+	http.open("POST", '../php/change-info.php', true);
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
     const data = {

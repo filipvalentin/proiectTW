@@ -6,7 +6,7 @@ generatePage(id);
 
 function generatePage(id) {
     var http = new XMLHttpRequest();
-    http.open("GET", 'getInformationProblem.php?id=' + id, true);
+    http.open("GET", '../php/getInformationProblem.php?id=' + id, true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.onreadystatechange = function () {
         //Call a function when the state changes.
@@ -57,7 +57,7 @@ function generatePage(id) {
 
 function problem(param) {
     var http = new XMLHttpRequest();
-    http.open("POST", 'changeStatusProblem.php', true);
+    http.open("POST", '../php/changeStatusProblem.php', true);
     http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     const data = {
         id: id,

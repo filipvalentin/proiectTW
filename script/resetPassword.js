@@ -9,7 +9,7 @@ function sentEmail() {
 
         var http = new XMLHttpRequest();
         console.log(emailUser);
-        http.open("POST", 'sentEmail.php', true);
+        http.open("POST", 'php/sentEmail.php', true);
         http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         const data = {
             email: emailUser

@@ -11,7 +11,7 @@ function createClass(){
 
 	var http = new XMLHttpRequest();
 
-	http.open('POST', "create_class.php", true);
+	http.open('POST', "../php/create_class.php", true);
 
 	//Send the proper header information along with the request
 	http.setRequestHeader('Content-Type', 'application/json');

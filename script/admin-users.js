@@ -5,7 +5,7 @@
 function deleteImage(id) {
 	var httpDeleteImg = new XMLHttpRequest();
 	// console.log(id);
-	httpDeleteImg.open("POST", "deleteImage.php", true);
+	httpDeleteImg.open("POST", "../php/deleteImage.php", true);
 	httpDeleteImg.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	const json = JSON.stringify({ idUser: id });
 	// console.log(json);
@@ -20,7 +20,7 @@ function deleteImage(id) {
 function getUserData(id) {
 
 	var httpGetUserData = new XMLHttpRequest();
-	httpGetUserData.open("GET", 'getInfoAdmin.php?id=' + id, true);
+	httpGetUserData.open("GET", '../php/getInfoAdmin.php?id=' + id, true);
 	httpGetUserData.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpGetUserData.onreadystatechange = function () {
 		//Call a function when the state changes.
@@ -56,7 +56,7 @@ function getUserData(id) {
 			roleInput.value = information.role;
 
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'get_image_unauthorized.php?id=' + id, true);
+			xhr.open('GET', '../php/get_image_unauthorized.php?id=' + id, true);
 
 			xhr.onload = function () {
 				if (xhr.status == 200 && xhr.readyState == 4) {
@@ -92,7 +92,7 @@ function update(id) {
 	const roleInput = document.getElementById('role').value;
 
 	var httpUpdateUserData = new XMLHttpRequest();
-	httpUpdateUserData.open("POST", 'changeAdmin.php', true);
+	httpUpdateUserData.open("POST", '../php/changeAdmin.php', true);
 	httpUpdateUserData.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpUpdateUserData.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 	const data = {
@@ -120,7 +120,7 @@ function update(id) {
 
 function deleteAccount(){
 	var httpDeleteUserAccount = new XMLHttpRequest();
-	httpDeleteUserAccount.open("POST", 'changeAdmin.php', true);
+	httpDeleteUserAccount.open("POST", '../php/changeAdmin.php', true);
 	httpDeleteUserAccount.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpDeleteUserAccount.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 	httpDeleteUserAccount.onreadystatechange = function () {

@@ -27,7 +27,7 @@ if (addHomeworkButton) {
 var className = document.getElementById("class-name");
 if (className) {
 	var httpClassName = new XMLHttpRequest();
-	httpClassName.open("GET", 'getClassName.php?id=' + id, true);
+	httpClassName.open("GET", '../php/getClassName.php?id=' + id, true);
 	httpClassName.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpClassName.onreadystatechange = function () {
 		if (httpClassName.readyState == 4 && httpClassName.status == 200) {
