@@ -29,7 +29,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 http_response_code(200);
 
-$query = "SELECT u.user_id, u.username, tp.id, tp.status, tp.post_date, tp.title FROM teacher_problems tp INNER JOIN users u ON tp.teacher_id=u.user_id ";
+$query = "SELECT u.user_id, u.username, tp.id, tp.status, tp.post_date, tp.title FROM teacher_problems tp INNER JOIN users u ON tp.teacher_id=u.user_id AND tp.status = 'PENDING'";
 
 if(!empty($filterByTitleOrId)){
 	$query .= "WHERE LOWER(title) LIKE LOWER('%".$filterByTitleOrId."%') OR id LIKE '".$filterByTitleOrId."' ";
