@@ -2,6 +2,8 @@
 
 // getUserData(id_user);
 
+var id_user = null;
+
 function deleteImage(id) {
 	var httpDeleteImg = new XMLHttpRequest();
 	// console.log(id);
@@ -29,6 +31,7 @@ function getUserData(id) {
 			var information = JSON.parse(httpGetUserData.responseText);
 			// console.log(information);
 
+			id_user = id;
 			var deleteImgButton = document.getElementById("delete-user-img");
 			deleteImgButton.setAttribute("onclick", "deleteImage('" + id + "')")
 
