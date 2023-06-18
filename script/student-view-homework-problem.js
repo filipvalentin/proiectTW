@@ -270,7 +270,7 @@ function displayCommentTemplate(jsonObj) {
 	let userImage = clone.getElementById("comment-user-pic");
 	userImage.id = "cm" + user_id + comment_id + "im";
 	var httpImage = new XMLHttpRequest();
-	httpImage.open('GET', "getImage2.php?id=" + user_id, true);
+	httpImage.open('GET', "get_image_unauthorized.php?id=" + user_id, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
 	httpImage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	// httpImage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));

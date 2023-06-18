@@ -56,7 +56,7 @@ function getUserData(id) {
 			roleInput.value = information.role;
 
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'getImage2.php?id=' + id, true);
+			xhr.open('GET', 'get_image_unauthorized.php?id=' + id, true);
 
 			xhr.onload = function () {
 				if (xhr.status == 200 && xhr.readyState == 4) {

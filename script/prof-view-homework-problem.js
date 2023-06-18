@@ -155,7 +155,7 @@ function displayStudentEntry(jsonObj) {
 	let userImage = clone.getElementById("entry-student-pic");
 	userImage.id = "s" + userId + "im";
 	var httpImage = new XMLHttpRequest();
-	httpImage.open('GET', "getImage2.php?id=" + userId, true);
+	httpImage.open('GET', "get_image_unauthorized.php?id=" + userId, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
 	httpImage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	// httpImage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -247,7 +247,7 @@ function displayCommentTemplate(jsonObj, userId) {
 	let userImage = clone.getElementById("comment-user-pic");
 	userImage.id = "cm" + userId + commentId + "im";
 	var httpImage = new XMLHttpRequest();
-	httpImage.open('GET', "getImage2.php?id=" + userId, true);
+	httpImage.open('GET', "get_image_unauthorized.php?id=" + userId, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
 	httpImage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	// httpImage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
