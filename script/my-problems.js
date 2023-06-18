@@ -111,7 +111,7 @@ retrieveMyProblemsStats();
 function retrieveMyProblemsStats() {
 	var httpGetStats = new XMLHttpRequest();
 
-	httpGetStats.open('GET', "get_my_problems_stats.php", true);
+	httpGetStats.open('GET', "../php/get_my_problems_stats.php", true);
 
 	//Send the proper header information along with the request
 	httpGetStats.setRequestHeader('Content-Type', 'application/json');

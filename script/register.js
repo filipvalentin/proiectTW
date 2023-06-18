@@ -187,7 +187,7 @@ function checkUsername() {
 
 	var http = new XMLHttpRequest();
 
-	http.open("GET", "verify_username.php?username=" + username, true);
+	http.open("GET", "../php/verify_username.php?username=" + username, true);
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
 	http.onreadystatechange = function () {
@@ -278,7 +278,7 @@ function register(){
 function sendRegisterRequest() {
 
 	var http = new XMLHttpRequest();
-	const url = "register.php";
+	const url = "../php/register.php";
 
 	const username = document.getElementById("username").value;
 	const email = document.getElementById("email").value;

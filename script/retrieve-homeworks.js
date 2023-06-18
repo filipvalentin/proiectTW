@@ -18,7 +18,7 @@ function retrieveHomeworks() {
 		return;
 	}
 
-	var url = "get_homeworks.php?class_id=" + urlClassId + 
+	var url = "../php/get_homeworks.php?class_id=" + urlClassId + 
 		"&page_multiplier=" + pageCountMultiplier +
 		"&page_count=" + 9;
 

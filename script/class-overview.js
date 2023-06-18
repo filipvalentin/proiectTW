@@ -2,7 +2,7 @@
 
 var http = new XMLHttpRequest();
 
-http.open('GET', "get_class_students.php?id=" + id, true);
+http.open('GET', "../php/get_class_students.php?id=" + id, true);
 
 var canSend = true;
 if (!id) {
@@ -54,7 +54,7 @@ function displayStudentEntry(jsonObj) {
 	let userImage = clone.getElementById("entry-user-pic");
 	userImage.id = "sup" + userId;
 	var httpImage = new XMLHttpRequest();
-	httpImage.open('GET', "getImage2.php?id=" + userId, true);
+	httpImage.open('GET', "../php/get_image_unauthorized.php?id=" + userId, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
 	httpImage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	// httpImage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -75,7 +75,7 @@ function displayStudentEntry(jsonObj) {
 
 function displayUserAvgScore(entryNode, userId) {
 	var httpGetUserAvgScore = new XMLHttpRequest();
-	httpGetUserAvgScore.open('GET', "get_student_avg_score.php?class_id=" + id + "&user_id=" + userId, true);
+	httpGetUserAvgScore.open('GET', "../php/get_student_avg_score.php?class_id=" + id + "&user_id=" + userId, true);
 	httpGetUserAvgScore.setRequestHeader('Content-Type', 'application/json');
 	httpGetUserAvgScore.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpGetUserAvgScore.onreadystatechange = function () {

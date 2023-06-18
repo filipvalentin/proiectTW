@@ -24,7 +24,7 @@ function isUserEmail(){
     console.log(currentEmail);
     var http = new XMLHttpRequest();
 
-	http.open("GET", 'getEmail.php', true);
+	http.open("GET", '../php/getEmail.php', true);
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
     console.log(currentEmail);
@@ -55,7 +55,7 @@ function isTakenEmail(){
     var newEmail = document.getElementById('newEmail').value;
     console.log(newEmail);
     var http = new XMLHttpRequest();
-	http.open("GET", 'checkEmail.php?email='+newEmail, true);
+	http.open("GET", '../php/checkEmail.php?email='+newEmail, true);
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
     http.onreadystatechange = function () {
@@ -93,7 +93,7 @@ function replaceEmail(){
     var newEmail = document.getElementById('newEmail').value;
     console.log(newEmail);
     var http = new XMLHttpRequest();
-	http.open("POST", 'change-email.php', true);
+	http.open("POST", '../php/change-email.php', true);
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
     const data = {email : newEmail};

@@ -18,7 +18,7 @@ function correctInput() {
 //update problem title and short description
 if (problemType == "custom" || problemType == "assigned") {
 	var httpProblem = new XMLHttpRequest();
-	httpProblem.open('GET', "get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
+	httpProblem.open('GET', "../php/get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
 	httpProblem.setRequestHeader('Content-Type', 'application/json');
 	httpProblem.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpProblem.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -39,7 +39,7 @@ else {
 }
 
 var httpGetStudentSolution = new XMLHttpRequest();
-httpGetStudentSolution.open('GET', "get_hmk_problem_info_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + studentId, true);
+httpGetStudentSolution.open('GET', "../php/get_hmk_problem_info_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + studentId, true);
 httpGetStudentSolution.setRequestHeader('Content-Type', 'application/json');
 httpGetStudentSolution.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpGetStudentSolution.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -58,7 +58,7 @@ httpGetStudentSolution.send();
 
 
 var httpGetUsername = new XMLHttpRequest();
-httpGetUsername.open('GET', "getInformationId.php?id=" + studentId, true);
+httpGetUsername.open('GET', "../php/getInformationId.php?id=" + studentId, true);
 httpGetUsername.setRequestHeader('Content-Type', 'application/json');
 httpGetUsername.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpGetUsername.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -79,7 +79,7 @@ function assignScore() {
 	const score = document.getElementById("score-input").value;
 
 	var httpSendScore = new XMLHttpRequest();
-	httpSendScore.open('PUT', "set_student_hmk_problem_score.php", true);
+	httpSendScore.open('PUT', "../php/set_student_hmk_problem_score.php", true);
 	httpSendScore.setRequestHeader('Content-Type', 'application/json');
 	httpSendScore.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpSendScore.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));

@@ -79,7 +79,7 @@ function retrieveProblems() {
 
 	var http = new XMLHttpRequest();
 
-	http.open('POST', "get_verified_problems.php", true);
+	http.open('POST', "../php/get_verified_problems.php", true);
 
 	http.setRequestHeader('Content-Type', 'application/json');
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -288,7 +288,7 @@ function submitHomework() {
 
 	var http = new XMLHttpRequest();
 
-	http.open('POST', "add_homework.php", true);
+	http.open('POST', "../php/add_homework.php", true);
 
 	http.setRequestHeader('Content-Type', 'application/json');
 	http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');

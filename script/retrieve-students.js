@@ -1,7 +1,7 @@
 
 var http = new XMLHttpRequest();
 
-http.open('GET', "get_class_students.php?id=" + id, true);
+http.open('GET', "../php/get_class_students.php?id=" + id, true);
 
 var canSend = true;
 if (!id) {

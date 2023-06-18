@@ -15,7 +15,7 @@ function changeInfoClass() {
     }
     if (newName != '' && newDescription != '') {
         var http = new XMLHttpRequest();
-        http.open("POST", 'changeInfoClass.php', true);
+        http.open("POST", '../php/changeInfoClass.php', true);
         http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         const data = { 
             id: id,

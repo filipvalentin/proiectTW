@@ -4,7 +4,7 @@ const role = JWT["role"];
 
 var httpCustomProblems = new XMLHttpRequest();
 
-httpCustomProblems.open('GET', "get_my_classes.php", true);
+httpCustomProblems.open('GET', "../php/get_my_classes.php", true);
 
 //Send the proper header information along with the request
 httpCustomProblems.setRequestHeader('Content-Type', 'application/json');
@@ -81,7 +81,7 @@ function displayClass(jsonObj) {
 function getTeacher(node, classId) {
 	var httpTeacher = new XMLHttpRequest();
 
-	httpTeacher.open('GET', "get_teacher_by_class_id.php?class_id=" + classId, true);
+	httpTeacher.open('GET', "../php/get_teacher_by_class_id.php?class_id=" + classId, true);
 	httpTeacher.setRequestHeader('Content-Type', 'application/json');
 	httpTeacher.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpTeacher.onreadystatechange = function () {

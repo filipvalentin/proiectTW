@@ -6,7 +6,7 @@ const JWT = parseJwt(localStorage.getItem("JWT"));
 const role = JWT["role"];
 
 var http = new XMLHttpRequest();
-http.open('GET', "get_homework.php?id=" + homework_id, true);
+http.open('GET', "../php/get_homework.php?id=" + homework_id, true);
 http.setRequestHeader('Content-Type', 'application/json');
 http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -24,7 +24,7 @@ http.send();
 
 
 var httpCustomProblems = new XMLHttpRequest();
-httpCustomProblems.open('GET', "get_homework_custom_problems_info.php?id=" + homework_id, true);
+httpCustomProblems.open('GET', "../php/get_homework_custom_problems_info.php?id=" + homework_id, true);
 httpCustomProblems.setRequestHeader('Content-Type', 'application/json');
 httpCustomProblems.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpCustomProblems.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -45,7 +45,7 @@ httpCustomProblems.send();
 
 
 var httpAssignedProblems = new XMLHttpRequest();
-httpAssignedProblems.open('GET', "get_homework_assigned_problems_info.php?id=" + homework_id, true);
+httpAssignedProblems.open('GET', "../php/get_homework_assigned_problems_info.php?id=" + homework_id, true);
 httpAssignedProblems.setRequestHeader('Content-Type', 'application/json');
 httpAssignedProblems.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpAssignedProblems.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));

@@ -15,7 +15,7 @@ function updateProblemList() {
 function retrieveNumberOfProblems() {
 	var http = new XMLHttpRequest();
 
-	var url = "get_my_problems_problems_number.php" +
+	var url = "../php/get_my_problems_problems_number.php" +
 		"?filterWords=" + filterWords +
 		"&filterDifficulty=" + filterDifficulty +
 		"&filterTags=" + filterTags +

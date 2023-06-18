@@ -12,7 +12,7 @@ document.getElementById("problem-id").textContent = problemId;
 //update problem title and short description
 if (problemType == "custom" || problemType == "assigned") {
 	var httpProblemDescription = new XMLHttpRequest();
-	httpProblemDescription.open('GET', "get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
+	httpProblemDescription.open('GET', "../php/get_homework_problem_info.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&problem_type=" + problemType, true);
 	httpProblemDescription.setRequestHeader('Content-Type', 'application/json');
 	httpProblemDescription.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpProblemDescription.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -46,7 +46,7 @@ var numberOfStudents = 0;
 //username, status, studentid, comment
 
 var httpGetStudents = new XMLHttpRequest();
-httpGetStudents.open('GET', "get_prof_view_homework_problem.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
+httpGetStudents.open('GET', "../php/get_prof_view_homework_problem.php?homework_id=" + homeworkId + "&problem_id=" + problemId, true);
 httpGetStudents.setRequestHeader('Content-Type', 'application/json');
 httpGetStudents.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 httpGetStudents.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -73,7 +73,7 @@ httpGetStudents.send();
 
 function getComments(userId) {
 	var httpGetComments = new XMLHttpRequest();
-	httpGetComments.open('GET', "get_homework_problem_comments.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + userId, true);
+	httpGetComments.open('GET', "../php/get_homework_problem_comments.php?homework_id=" + homeworkId + "&problem_id=" + problemId + "&user_id=" + userId, true);
 	httpGetComments.setRequestHeader('Content-Type', 'application/json');
 	httpGetComments.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpGetComments.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -155,7 +155,7 @@ function displayStudentEntry(jsonObj) {
 	let userImage = clone.getElementById("entry-student-pic");
 	userImage.id = "s" + userId + "im";
 	var httpImage = new XMLHttpRequest();
-	httpImage.open('GET', "getImage2.php?id=" + userId, true);
+	httpImage.open('GET', "../php/get_image_unauthorized.php?id=" + userId, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
 	httpImage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	// httpImage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -247,7 +247,7 @@ function displayCommentTemplate(jsonObj, userId) {
 	let userImage = clone.getElementById("comment-user-pic");
 	userImage.id = "cm" + userId + commentId + "im";
 	var httpImage = new XMLHttpRequest();
-	httpImage.open('GET', "getImage2.php?id=" + userId, true);
+	httpImage.open('GET', "../php/get_image_unauthorized.php?id=" + userId, true);
 	httpImage.setRequestHeader('Content-Type', 'application/json');
 	httpImage.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	// httpImage.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
@@ -280,7 +280,7 @@ function displayCommentTemplate(jsonObj, userId) {
 function deleteComment(hmkId, problemId, userId, commentId) {
 
 	var httpDeleteComment = new XMLHttpRequest();
-	httpDeleteComment.open('DELETE', "remove_user_comment.php", true);
+	httpDeleteComment.open('DELETE', "../php/remove_user_comment.php", true);
 	httpDeleteComment.setRequestHeader('Content-Type', 'application/json');
 	httpDeleteComment.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	httpDeleteComment.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));

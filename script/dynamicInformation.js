@@ -1,5 +1,5 @@
 var http = new XMLHttpRequest();
-http.open("GET", 'getInformation.php', true);
+http.open("GET", '../php/getInformation.php', true);
 http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 http.onreadystatechange = function () {
@@ -122,7 +122,7 @@ http.onreadystatechange = function () {
         mainFrame.appendChild(aboutDiv);
 
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'getImage.php', true);
+        xhr.open('GET', '../php/getImage.php', true);
         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
         xhr.onload = function () {
             if (xhr.status == 200 && xhr.readyState == 4) {
