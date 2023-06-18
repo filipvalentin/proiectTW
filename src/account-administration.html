@@ -68,21 +68,21 @@
 						<p>This e-mail isn't account e-mail.</p>
 					</div>
 					<div id="empty-email" class="error">
-						<p>Please write account e-mail.</p>
+						<p>Please, write account e-mail.</p>
 					</div>
 					<input type="email" placeholder="New e-mail" id="newEmail" required>
 					<div id="taken-email" class="error">
 						<p>This e-mail is used by another account.</p>
 					</div>
 					<div id="empty2-email" class="error">
-						<p>Please write the new e-mail.</p>
+						<p>Please, write the new e-mail.</p>
 					</div>
 					<input type="email" placeholder="Confirm e-mail" id="confirmationEmail" required>
 					<div id="isnt-email" class="error">
-						<p>Please write the correct e-mail.</p>
+						<p>Please, write the correct e-mail.</p>
 					</div>
 					<div id="empty3-email" class="error">
-						<p>Please write e-mail.</p>
+						<p>Please, write e-mail.</p>
 					</div>
 					<div class="button">
 						<button onclick="changeEmail()">Change e-mail</button>
@@ -98,7 +98,7 @@
 						<p>This password isn't account password.</p>
 					</div>
 					<div id="empty-passwd" class="error">
-						<p>Please enter the current password.</p>
+						<p>Please, enter the current password.</p>
 					</div>
 					<input type="password" placeholder="New password" id="newPassword" required>
 					<div id="failed-passwd-cap-letter" class="error">
@@ -117,14 +117,14 @@
 						<p>This password doesn't have small letters.</p>
 					</div>
 					<div id="empty2-passwd" class="error">
-						<p>Please enter the new password.</p>
+						<p>Please, enter the new password.</p>
 					</div>
 					<input type="password" placeholder="Confirm password" id="confirmPassword" required>
 					<div id="conf-passwd" class="error">
-						<p>Please enter the correct password.</p>
+						<p>Please, enter the correct password.</p>
 					</div>
 					<div id="empty3-passwd" class="error">
-						<p>Please enter the password.</p>
+						<p>Please, enter the password.</p>
 					</div>
 					<div class="button">
 						<button onclick="changePassword()">Change password</button>
@@ -136,31 +136,36 @@
 				<div class="mod-profil">
 					<div class="form_2">
 						<form class="forms">
+							<label for="username">Your username</label>
 							<input type="text" placeholder="Username" id="username" required>
 							<div id="empty-username" class="error">
-								<p>Please enter an username.</p>
+								<p>Please, enter an username.</p>
 							</div>
 							<div id="invalid-username" class="error">
-								<p>Please enter a valid username.</p>
+								<p>Please, enter a valid username.</p>
 							</div>
 							<div id="taken-username" class="error">
 								<p>This username is already taken.</p>
 							</div>
+							<label for="name">Your name</label>
 							<input type="text" placeholder="Name" id="name" required>
 							<div id="empty-name" class="error">
-								<p>Please enter a name.</p>
+								<p>Please, enter a name.</p>
 							</div>
+							<label for="highschool">Institution</label>
 							<input type="text" placeholder="Your high school" id="highschool" required>
 							<div id="empty-school" class="error">
-								<p>Please enter a high school.</p>
+								<p>Please, enter a high school.</p>
 							</div>
+							<label for="birthday">Your birthday</label>
 							<input type="date" placeholder="Birthday" id="birthday" required>
 							<div id="empty-date" class="error">
-								<p>Please enter a date.</p>
+								<p>Please, enter a date.</p>
 							</div>
 							<div id="invalid-date" class="error">
-								<p>Please enter a valid date.</p>
+								<p>Please, enter a valid date.</p>
 							</div>
+							<label for="gender">Your gender</label>
 							<select name="option" id="gender" required>
 								<option value="" disabled selected>Select your gender</option>
 								<option value="Male">Male</option>
@@ -168,12 +173,12 @@
 								<option value="Other">Other</option>
 							</select>
 							<div id="empty-gender" class="error">
-								<p>Please select a gender.</p>
+								<p>Please, select a gender.</p>
 							</div>
-							<p>About me</p>
+							<label for="aboutMe">About me</label>
 							<textarea id="aboutMe" required></textarea>
 							<div id="empty-about" class="error">
-								<p>Please write something about you.</p>
+								<p>Please, write something about you.</p>
 							</div>
 							<div id="too-about" class="error">
 								<p>Limit is 200 characters.</p>
@@ -200,7 +205,7 @@
 				<form id="imageForm" enctype="multipart/form-data" class="forms" onsubmit="return false">
 					<input type="file" name="image" id="imageInput">
 					<div id="no-image" class="error">
-						<p>Please choose an image.</p>
+						<p>Please, choose an image.</p>
 					</div>
 					<div class="button">
 						<button onclick="uploadImage()">Change profile image</button>
