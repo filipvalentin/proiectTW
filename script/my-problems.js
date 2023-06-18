@@ -1,5 +1,4 @@
 
-
 const itemsOnPageElem = document.getElementById("items-on-page");
 itemsOnPageElem.value = itemsOnPage;
 itemsOnPageElem.addEventListener("focusout",
@@ -78,7 +77,7 @@ function updateGlobalParams() {
 	if (filterWords == "") {
 		filterWords = null;
 	}
-	
+
 	filterTags = document.getElementById("filter-by-tags-input").value;
 	if (filterTags == "") {
 		filterTags = null;
@@ -102,4 +101,32 @@ function searchWithFilters() {
 
 	updatePageNumbersWrapper();
 	updateProblemList();
+}
+
+retrieveMyProblemsStats();
+
+function retrieveMyProblemsStats() {
+	var httpGetStats = new XMLHttpRequest();
+
+	httpGetStats.open('GET', "get_my_problems_stats.php", true);
+
+	//Send the proper header information along with the request
+	httpGetStats.setRequestHeader('Content-Type', 'application/json');
+	httpGetStats.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	httpGetStats.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+
+	httpGetStats.onreadystatechange = function () {//Call a function when the state changes.
+		if (httpGetStats.readyState == 4 && httpGetStats.status == 200) {
+
+			// console.log(httpGetStats.responseText);
+
+			var result = JSON.parse(httpGetStats.responseText);
+			document.getElementById("submissions-label").textContent = result["problem_count"];
+			document.getElementById("approved-label").textContent = result["verified_count"];
+		}
+		if (httpGetStats.readyState == 4 && httpGetStats.status == 401) {
+			window.location.assign("unauthorized.html");
+		}
+	}
+	httpGetStats.send();
 }

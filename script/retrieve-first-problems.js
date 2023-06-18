@@ -7,3 +7,4 @@ retrieveProblems(currentPage, itemsOnPage);
 
 //get the number of pages
 retrieveNumberOfProblems();
+

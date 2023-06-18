@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="../css/search-bar.css">
 	<link rel="stylesheet" href="../css/my-problems.css">
 	<link rel="stylesheet" href="../css/bottom-right-navigation-buttons.css">
-	<link rel="stylesheet" href="../css/items-on-page.css">	
+	<link rel="stylesheet" href="../css/items-on-page.css">
 </head>
 
 <body>
@@ -77,7 +77,8 @@
 				<input type="date" id="filter-by-end-date" class="custom-input date-selector">
 			</div>
 			<div class="apply-filters-button-wrapper">
-				<button class="apply-filters-button" onclick="searchWithFilters()">Search with the applied filters</button>
+				<button class="apply-filters-button" onclick="searchWithFilters()">Search with the applied
+					filters</button>
 			</div>
 
 		</div>
@@ -85,11 +86,22 @@
 		<div class="section-area">
 			<div class="section-header">
 				<p class="section-title">Problems</p>
+				<div class="section-title-item" id="submissions">
+					<p>Submissions:</p>
+					<p id="submissions-label"></p>
+				</div>
+				<div class="section-title-item" id="approved">
+					<p>Verified:</p>
+					<p id="approved-label"></p>
+				</div>
+				<div class="section-header-buttons">
+					<button class="section-save-button" id="btn1" onclick="location.href = 'add-problem.html'">Submit
+						new
+						problem</button>
+					<button class="section-save-button" id="btn2" onclick="location.href = 'import-problem.html'">Import
+						problem</button>
+				</div>
 
-				<button class="section-save-button" onclick="location.href = 'add-problem.html'">Submit new
-					problem</button>
-				<button class="section-save-button" onclick="location.href = 'import-problem.html'">Import
-					problem</button>
 			</div>
 			<div class="section-main">
 				<div id="problem-list">
@@ -115,9 +127,9 @@
 
 				<div class="items-on-page">
 					<p>Items on page: </p>
-					<input class="items-on-page-input" type="text" id="items-on-page"  oninput="correctInput()">
+					<input class="items-on-page-input" type="text" id="items-on-page" oninput="correctInput()">
 				</div>
-			
+
 				<div class="navigation-buttons" id="navigation-buttons">
 					<button id="back-page-button" onclick="backPageButtonClicked()">&lt;</button>
 					<select id="page-selector" onchange="pageSelectorClicked()">

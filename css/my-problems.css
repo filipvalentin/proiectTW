@@ -176,31 +176,44 @@
 }
 
 .section-header {
-	margin-top: 0;
-	/* margin-bottom: 1em;
-	padding: 0.75em; */
 	background-color: #5a7a7b;
-	/* //#292c2ff9; */
+
+	display: grid;
+	grid-template-columns: auto auto auto 1fr auto;
+	align-items: center;
+	justify-content: center;
+	justify-items: end;
+	gap: 1em;
+
+	padding: 0 1em;
+
 }
 
 
 .section-title {
 	float: left;
-	margin-left: 1em;
-
 	font-size: 1.4em;
-
 	color: white;
 }
 
 
+.section-title-item {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5em;
+	color: white;
+}
 
-
+.section-header-buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+}
 
 .section-save-button {
 	float: right;
 
-	margin: 0.8em;
+	/* margin: 0.8em; */
 	padding: 0.6em;
 	border-radius: 5px;
 
@@ -301,7 +314,7 @@
 	background-color: #1a494a;
 }
 
-@media only screen and (max-width: 45em) {
+@media only screen and (max-width: 55em) {
 	.class-admin {
 		flex-direction: column;
 		height: fit-content;
@@ -311,7 +324,20 @@
 		margin: 1em;
 		height: fit-content;
 		border-radius: 8px;
+	}
 
+	.section-header-buttons {
+		grid-area: shb;
+	}
+
+	.section-header {
+		grid-template-columns: none;
+		grid-template-areas: "section-title submissions approved"
+			"shb shb shb";
+		padding: 0;
+		justify-items: center;
+		gap: 0;
+		padding-bottom: 1em;
 	}
 
 	.dashboard>.class-id {
@@ -324,7 +350,18 @@
 	}
 }
 
-
+@media (max-width:25em) {
+	.section-header {
+		display: flex;
+		flex-direction: column;
+	}
+	.section-title{
+		margin: 0em;
+	}
+	.section-header p{
+		margin: 0.5em;
+	}
+}
 
 
 
@@ -434,7 +471,7 @@
 }
 
 
-@media (max-width: 30em) {
+@media (max-width: 35em) {
 	.header {
 		grid-template-columns: none;
 		grid-template-rows: 1fr 1fr 1fr 1fr;
