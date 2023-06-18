@@ -26,18 +26,20 @@
 	<main>
 		<div class="dashboard">
 			<p class="class-name">Users</p>
-			<p>Filter by username or ID</p>
-			<input type="text" id="filter-username-id">
-			<p>Account role</p>
-			<select id="filter-select-role">
-				<option>unset</option>
-				<option>student</option>
-				<option>teacher</option>
-				<option>admin</option>
-			</select>
-			<p>Creation date</p>
-			<input type="date" id="filter-date">
-			<button id="apply-filters-button" onclick="updatePageSequenceAsync()">Apply filters</button>
+			<div class="inputs">
+				<p>Filter by username or ID</p>
+				<input type="text" id="filter-username-id">
+				<p>Account role</p>
+				<select id="filter-select-role">
+					<option value="unset">All</option>
+					<option value="student">Student</option>
+					<option value="teacher">Teacher</option>
+					<option value="admin">Admin</option>
+				</select>
+				<p>Creation date</p>
+				<input type="date" id="filter-date">
+				<button id="apply-filters-button" onclick="updatePageSequenceAsync()">Apply filters</button>
+			</div>
 		</div>
 
 		<div class="right-area">
