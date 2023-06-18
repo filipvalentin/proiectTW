@@ -43,50 +43,47 @@
 	<section typeof="sa:Abstract" id="abstract" role="doc-abstract">
 		<h2>Abstract</h2>
 		<p>
-			Proiectul In&lt;form&gt;atiX reprezintă o platformă de învățare a informaticii, prin folosirea de probleme,
-			propuse de
-			profesorii înregistrați pe platformă.
+			Proiectul In&lt;form&gt;atiX este o platformă de învățare a informaticii prin folosirea de probleme
+			și teme propuse de profesorii înregistrați pe platformă.
 		</p>
 	</section>
 	<section id="introduction" role="doc-introduction">
 		<!-- review? -->
 		<h2>Introducere</h2>
 		<p>
-			Proiectul In&lt;form&gt;atiX este o aplicație web destinată elevilor de liceu ce are ca scop învățarea
-			programării prin
+			Aplicația web este destinată elevilor de liceu și are ca viziune facilitarea învățării programării prin
 			intermediul rezolvării de probleme. Aceste probleme sunt propuse de către profesori și aprobare de către
 			administratori.
 		</p>
 		Profesorii înregistrați pe plaftormă pot crea clase și adăuga elevi ce sunt deja înregistrați pe platformă.
-		Profesorii pot crea teme fie propunând probleme, fie alegând din alte probleme propuse de alți profesori.
-		Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a fi evaluate. De asemenea,
-		elevii vor putea acorda un rating pentru problemă sau să adauge comentarii privitoare la problemă
+		Profesorii pot crea teme fie propunând probleme, fie alegând dintr-o muțime de probleme propuse de alți profesori.
+		Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a primi un punctaj. De asemenea,
+		elevii pot acorda un rating pentru fiecare problemă sau să adauge comentarii
 		(cu scopul de a oferi ponturi celorlalți colegi).
 		<p>
 		<p>
 			Am ales să dezvoltăm acest proiect pentru a vedea pe de o parte, cum au fost create alte platforme
-			asemănătoare, precum PBInfo, dar și
-			de încerca să aducem îmbunătățiri și inovații.
+			asemănătoare, precum PBInfo, dar și	de încerca să aducem îmbunătățiri și optimizări.
 		</p>
 
 	</section>
 	<section id="tehnologii" role="doc-tehnologies">
 		<h2>Tehnologii utilizate</h2>
 		<p>
-			Întreaga aplicație este construită folosind HTML, CSS și JavaScript pentru partea de front, iar pentru
-			partea de back-end s-a folosit
-			limbajul PHP. Pentru stocarea datelor, s-a folosit o bază de date relațională, MySQL. Pentru o
-			autentificarea și partajarea informației într-o
-			manieră sigură, se folosește un token de tip JWT.
+			Întreaga aplicație este construită folosind HTML, CSS și JavaScript pentru componenta de front-end,
+			iar pentru componenta de back-end s-a folositlimbajul PHP. 
+			Pentru stocarea datelor, s-a folosit o bază de date relaționalăȘ MySQL. 
+			Pentru o autentificarea și partajarea informației într-o manieră sigură se folosește un token JWT.
 		</p>
 		<p>
-			Întreaga aplicație rulează pe un server web oferit de Apache, Xampp.
+			Întreaga aplicație rulează pe un server web oferit de XAMPP.
 		</p>
 	</section>
 	<section id="arhitectura">
 		<h2>Arhitectura aplicației</h2>
 		<p>
-			Această aplicație este construită în jurul principiului SOA(Service-oriented Architecture).
+			Această aplicație este construită în jurul eficienței datelor aduse de la server, iar această specificitate
+			este posibilă prin a dedica o fucții fișierelor PHP.
 			Aceste servicii sunt responsabile cu furnizarea de date privind utilizatorul, problemele din baza de date,
 			temele rezolvate de către elevi,
 			importarea și exportarea problemelor, dar și cu adăugarea unui utilizator, modificarea profilului unui
