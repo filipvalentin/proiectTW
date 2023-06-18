@@ -80,7 +80,7 @@ function displayClass(jsonObj) {
 	classCreationDate.id = "cd" + classId;
 
 	let classGotoButton = clone.getElementById("entry-class-goto-button");
-	classGotoButton.href = "class-admin-overview.html?id=" + classId + "";
+	classGotoButton.href = "class-admin-overview.html?id=" + classId;
 
 	classList.appendChild(clone);
 
