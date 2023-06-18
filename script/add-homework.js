@@ -39,6 +39,12 @@ function addNewCustomProblem() {
 function discardProblem(id) {
 	const customProblem = document.getElementById("pc" + id);
 	customProblemList.removeChild(customProblem);
+	
+	const index = customProblemsIds.indexOf(id);
+	if (index > -1) { 
+		customProblemsIds.splice(index, 1);
+	}
+
 }
 
 
@@ -293,8 +299,8 @@ function submitHomework() {
 
 	http.onreadystatechange = function () {
 		if (http.readyState == 4 && http.status == 200) {
-			console.log(http.responseText);
-			// window.location.assign("class-admin-homeworks.html?id=" + id);
+			// console.log(http.responseText);
+			window.location.assign("class-admin-homeworks.html?id=" + id);
 		}
 		if (http.readyState == 4 && http.status == 401) {
 			window.location.assign("unauthorized.html");

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/top-navbar.css">
 	<link rel="stylesheet" href="../css/add-students.css">
 
-    <title>Document</title>
+	<title>Document</title>
 </head>
+
 <body>
 	<nav class="top-navbar" id="teacher-navbar">
 		<div> <a class="active" href="my-classes.html">My classes</a> </div>
@@ -29,9 +31,9 @@
 	</nav>
 
 
-    <main>
-        <div class="add">
-            <message>
+	<main>
+		<div class="add">
+			<message>
 				Enter students by <br>username or email:
 			</message>
 
@@ -40,10 +42,15 @@
 			<button class="create-button" onclick="addStudents()">
 				Add students
 			</button>
-        </div>
+		</div>
 
-		<script src="../script/add-students.js"></script>
-		<script src="../script/class-admin-identification.js"></script>
-    </main>
+
+	</main>
+	<script src="../script/is-token-expired.js"></script>
+	<script src="../script/parse-jwt.js"></script>
+	<script src="../script/require-teacher-or-admin.js"></script>
+	<script src="../script/add-students.js"></script>
+	<script src="../script/class-admin-identification.js"></script>
 </body>
+
 </html>

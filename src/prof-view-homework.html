@@ -35,7 +35,7 @@
 		<div class="navbar-right"> <a href="my-problems.html">My problems</a> </div>
 	</nav>
 
-	<main >
+	<main>
 		<div class="info-panel">
 			<div class="info-item">
 				<p>Homework title:</p>
@@ -51,7 +51,7 @@
 				<p>Custom problems</p>
 			</div>
 			<div class="problem-list" id="custom-problem-list">
-				
+
 			</div>
 		</div>
 		<div class="problem-panel">
@@ -64,7 +64,7 @@
 		</div>
 
 
-		
+
 		<template id="entry-template">
 			<div class="problem-item" id="problem-item-div">
 				<p id="problem-title"></p>
@@ -76,10 +76,14 @@
 			</div>
 		</template>
 
-		<script src="../script/parse-jwt.js"></script>
-		<script src="../script/navbar.js"></script>
-		<script src="../script/retrieve-problems-prof-view-homework.js"></script>
+
 	</main>
+
+	<script src="../script/is-token-expired.js"></script>
+	<script src="../script/parse-jwt.js"></script>
+	<script src="../script/require-teacher-or-admin.js"></script>
+	<script src="../script/navbar.js"></script>
+	<script src="../script/retrieve-problems-prof-view-homework.js"></script>
 </body>
 
 </html>
