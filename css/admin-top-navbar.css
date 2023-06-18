@@ -2,42 +2,60 @@
 
 
 /* ADMIN NAVBAR */
-
-.admin-navbar{
+.admin-navbar {
 	display: flex;
-
+	justify-content: space-between;
+	align-items: center;
 	overflow: hidden;
 	background-color: #313137;
 	position: sticky;
-	top: 0px;
+	top: 0;
 	font-family: Asap;
 	height: 3em;
-	align-items: center;
-	justify-content: center;
 	z-index: 2;
-}
-
-
-.admin-button {
-	/* float: left; */
+  }
+  
+  .admin-button {
 	color: #f2f2f2;
 	text-align: center;
-	padding: 1em;
-	/* margin:1em; */
+	padding: 0.7em;
 	text-decoration: none;
 	font-size: 1.2em;
-
 	transition: background 200ms;
 	cursor: pointer;
 	text-decoration: none;
-}
-
-.admin-button:hover {
+  }
+  
+  .center {
+	display: flex;
+	justify-content: center;
+	flex-grow: 1;
+  }
+  
+  .logout-button {
+	position: absolute;
+	right: 0;
+	display: flex;
+	align-items: center;
+  }
+  
+  .logout-button a {
+	color: #f2f2f2;
+	padding: 0.7em;
+	text-decoration: none;
+	font-size: 1.2em;
+	transition: background 200ms;
+	cursor: pointer;
+	text-decoration: none;
+  }
+  
+  .admin-button:hover,
+  .logout-button a:hover {
 	background-color: #ddd;
 	color: black;
-}
-
-.active{
+  }
+  
+  .active {
 	background-color: #c7cbd0;
 	color: black;
-}
+  }

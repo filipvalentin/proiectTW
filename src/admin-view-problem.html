@@ -13,10 +13,16 @@
 </head>
 
 <body>
+
 	<nav class="admin-navbar">
-		<a class="admin-button" href="admin-users.html">USERS</a>
-		<a class="admin-button" href="admin-classes.html">CLASSES</a>
-		<a class="admin-button" href="admin-problems.html">PROBLEMS</a>
+		<div class="center">
+			<a class="admin-button" href="admin-users.html">USERS</a>
+			<a class="admin-button" href="admin-classes.html">CLASSES</a>
+			<a class="admin-button active" href="admin-problems.html">PROBLEMS</a>
+		</div>
+		<div class="logout-button">
+			<a class="admin-button" onclick="logout()">Log out</a>
+		</div>
 	</nav>
 
 
@@ -57,7 +63,7 @@
 			<div class="body">
 				<div class="inner">
 					<textarea readonly id="description">
-						
+
 					</textarea>
 				</div>
 			</div>

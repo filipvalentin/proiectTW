@@ -83,7 +83,7 @@
 		<h2>Arhitectura aplicației</h2>
 		<p>
 			Această aplicație este construită în jurul eficienței datelor aduse de la server, iar această specificitate
-			este posibilă prin a dedica o fucții fișierelor PHP.
+			este posibilă prin a dedica fucții fișierelor PHP.
 			Aceste servicii sunt responsabile cu furnizarea de date privind utilizatorul, problemele din baza de date,
 			temele rezolvate de către elevi,
 			importarea și exportarea problemelor, dar și cu adăugarea unui utilizator, modificarea profilului unui
@@ -142,7 +142,7 @@
 					</li>
 				</ul>
 				Putem observa că informatiile pentru clase și teme nu sunt stocate în aceeași tabelă, acest aspect ne asigură o redundanță cât mai mică
-				și o complexitate a căutărilor in baza de date cât mai redusă. Pe acest principiu fiecare tabelă păstreaza chei străine pentru a asigura
+				și o complexitate a căutărilor in baza de date cât mai redusă. Pe acest principiu fiecare tabelă folosește chei străine pentru a asigura
 				integritatea datelor.
 
 			</p>
@@ -150,21 +150,21 @@
 	</section>
 
 	<section id="structure">
-		<!-- review? -->
 		<h2>Structura site-ului</h2>
 		<p>
-			Aplicația are peste 20 de fișiere HTML, ce acoperă servicii esențiale, precum crearea unui cont, logarea pe
-			aplicație, dar și administrarea contului, postarea de probleme și rezolvarea de teme.
+			Aplicația are peste 30 de fișiere HTML ce acoperă servicii esențiale precum crearea unui cont, logarea, perspectivele elevului și profesorului,
+			perspectiva administratorului, dar și administrarea contului și profilul personal.
 		</p>
 		<p>
-			Paleta de culori aleasă îî oferă aplicației un grad de seriozitate și profesionalism, potrivit pentru
-			segmentul profesorilor, dar, prin prezența unor culori mai îndrăznețe,
+			Paleta de culori aleasă îi oferă aplicației un grad de seriozitate și profesionalism, potrivit pentru
+			segmentul profesorilor, dar prin prezența unor culori mai îndrăznețe,
 			aplicația are și un caracter modern și rebel, potrivit segmentului tânăr.
+			În același timp, look & feel-ul este compensat de responsivitate și funcționalități și statistici pe fiecare pagină.
 		</p>
 		<p>
 			În următoarele secțiuni, vom parcurge aceste pagini și vom detalia rolul acestora.
 		</p>
-		<section id="index">
+		<section id="index" src="../src/index.html">
 			<!-- review? -->
 			<h3><code>index.html</code></h3>
 			<p>
@@ -184,9 +184,7 @@
 			<h3><code>login.html</code></h3>
 			<p>
 				Această pagină reprezintă principalul mod de conectare a utilizatorului în aplicație. La apariția
-				acesteia,
-				utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care
-				utilizatorul
+				acesteia, utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care utilizatorul
 				și-a uitat parola, acesta va apăsa pe opțiunea "Forgot your password?" pentru a-și reseta parola.
 			</p>
 			<p>
@@ -235,8 +233,8 @@
 				Apoi, se va confirma parola și se va apăsa pe buton, fiind redirecționat către pagina de login.
 			</p>
 		</section>
-		<section id="create-accont">
-			<h3><code>register.html</code></h3>
+		<section id="create-accont" >
+			<h3><code><a href="../src/register.html">register.html</a></code></h3>
 			<p>
 				Această pagină este dedicată înregistrării utilizatorului pe această platformă.
 			</p>

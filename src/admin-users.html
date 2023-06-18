@@ -18,9 +18,14 @@
 <body>
 
 	<nav class="admin-navbar">
-		<a class="admin-button active" href="admin-users.html">USERS</a>
-		<a class="admin-button" href="admin-classes.html">CLASSES</a>
-		<a class="admin-button" href="admin-problems.html">PROBLEMS</a>
+		<div class="center">
+			<a class="admin-button active" href="admin-users.html">USERS</a>
+			<a class="admin-button" href="admin-classes.html">CLASSES</a>
+			<a class="admin-button" href="admin-problems.html">PROBLEMS</a>
+		</div>
+		<div class="logout-button">
+			<a class="admin-button" onclick="logout()">Log out</a>
+		</div>
 	</nav>
 
 	<main>
@@ -82,7 +87,8 @@
 					<div class="entry">
 						<p>User image</p>
 						<img class="user-pic" src="" id="user-img">
-						<button class="generic-button" id="delete-user-img" onclick="deleteImage(id_user)">Delete image</button>
+						<button class="generic-button" id="delete-user-img" onclick="deleteImage(id_user)">Delete
+							image</button>
 					</div>
 					<div class="information">
 						<form class="forms" onsubmit="return false">
@@ -134,12 +140,13 @@
 			</div>
 		</div>
 	</main>
-	
+
 	<script src="../script/parse-jwt.js"></script>
 	<script src="../script/is-token-expired.js"></script>
 	<script src="../script/require-admin.js"></script>
 	<script src="../script/admin-users-onload.js"></script>
 	<script src="../script/admin-users.js"></script>
+	<script src="../script/admin-navbar.js"></script>
 </body>
 
 </html>

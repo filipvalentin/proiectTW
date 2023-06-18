@@ -27,7 +27,7 @@ function login() {
 					window.location.assign("my-classes.html");
 				}
 				else if (intent == "admin") {
-					window.location.assign("admin-overview.html");
+					window.location.assign("admin-problems.html");
 				}
 			},
 			() => { document.getElementById("login-error-message").style.display = "block"; }

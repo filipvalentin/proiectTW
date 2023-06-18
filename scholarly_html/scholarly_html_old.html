@@ -43,130 +43,45 @@
 	<section typeof="sa:Abstract" id="abstract" role="doc-abstract">
 		<h2>Abstract</h2>
 		<p>
-			Proiectul In&lt;form&gt;atiX este o platformă de învățare a informaticii prin folosirea de probleme
-			și teme propuse de profesorii înregistrați pe platformă.
+			Proiectul In&lt;form&gt;atiX reprezintă o platformă de învățare a informaticii, prin folosirea de probleme,
+			propuse de
+			profesorii înregistrați pe platformă.
 		</p>
 	</section>
 	<section id="introduction" role="doc-introduction">
 		<!-- review? -->
 		<h2>Introducere</h2>
 		<p>
-			Aplicația web este destinată elevilor de liceu și are ca viziune facilitarea învățării programării prin
+			Proiectul In&lt;form&gt;atiX este o aplicație web destinată elevilor de liceu ce are ca scop învățarea
+			programării prin
 			intermediul rezolvării de probleme. Aceste probleme sunt propuse de către profesori și aprobare de către
 			administratori.
 		</p>
 		Profesorii înregistrați pe plaftormă pot crea clase și adăuga elevi ce sunt deja înregistrați pe platformă.
-		Profesorii pot crea teme fie propunând probleme, fie alegând dintr-o muțime de probleme propuse de alți profesori.
-		Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a primi un punctaj. De asemenea,
-		elevii pot acorda un rating pentru fiecare problemă sau să adauge comentarii
+		Profesorii pot crea teme fie propunând probleme, fie alegând din alte probleme propuse de alți profesori.
+		Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a fi evaluate. De asemenea,
+		elevii vor putea acorda un rating pentru problemă sau să adauge comentarii privitoare la problemă
 		(cu scopul de a oferi ponturi celorlalți colegi).
 		<p>
 		<p>
 			Am ales să dezvoltăm acest proiect pentru a vedea pe de o parte, cum au fost create alte platforme
-			asemănătoare, precum PBInfo, dar și	de încerca să aducem îmbunătățiri și optimizări.
+			asemănătoare, precum PBInfo, dar și
+			de încerca să aducem îmbunătățiri și inovații.
 		</p>
 
 	</section>
-	<section id="tehnologii" role="doc-tehnologies">
-		<h2>Tehnologii utilizate</h2>
-		<p>
-			Întreaga aplicație este construită folosind HTML, CSS și JavaScript pentru componenta de front-end,
-			iar pentru componenta de back-end s-a folositlimbajul PHP. 
-			Pentru stocarea datelor, s-a folosit o bază de date relaționalăȘ MySQL. 
-			Pentru o autentificarea și partajarea informației într-o manieră sigură se folosește un token JWT.
-		</p>
-		<p>
-			Întreaga aplicație rulează pe un server web oferit de XAMPP.
-		</p>
-	</section>
-	<section id="arhitectura">
-		<h2>Arhitectura aplicației</h2>
-		<p>
-			Această aplicație este construită în jurul eficienței datelor aduse de la server, iar această specificitate
-			este posibilă prin a dedica fucții fișierelor PHP.
-			Aceste servicii sunt responsabile cu furnizarea de date privind utilizatorul, problemele din baza de date,
-			temele rezolvate de către elevi,
-			importarea și exportarea problemelor, dar și cu adăugarea unui utilizator, modificarea profilului unui
-			utilizator, adăugarea și modificarea
-			de probleme, adăugarea de teme.
-		</p>
-
-		<section id="arhitectura">
-			<h3>Baza de date</h2>
-			<p>
-				Se folosește o bază de date MySQL, o bază de date relațională. Motivația folosirii unei baze de date relațională este experiența 
-				avută cu o asemenea bază de date și suportul complex pe care platforma îl oferă . 
-				Baza de date a aplicației conține 10 tabele:
-				<ul>
-					<li>
-						<p>users: tabela ce stocheaza infomațiile primordiale referitoare la utilizator, precum e-mailul utilizat, id-ul, username-ul,
-							dar mai ales parola acestuia. Pentru securitatea aplicației, parolelor le este aplicat un hash care este stocat în această tabelă.
-						</p>
-					</li>
-					<li>
-						<p>info_users: tabela ce stochează infomațiile ce țin de profilul utilizatorului, precum numele întreg, data nașterii, o scurtă descriere, 
-							dar și poza de profil(înregistrată în format BLOB) și preferințele privitoare la ce informații dorește să le expună.
-						</p>
-					</li>
-					<li>
-						<p>classes: tabela ce stochează infomațiile privitoare la clasele create, precum numele clasei, o mică descriere și creatorul acelei clase.
-						</p>
-					</li>
-					<li>
-						<p>classes_homeworks: tabela ce stochează infomațiile privitoare la temele create, precum id-ul clasei căruia i-a fost atribuită tema, id-ul temei în sine, titlul temei și deadline-ul acesteia.
-						</p>
-					</li>
-					<li>
-						<p>classes_students: tabela ce stochează relația dintre studenți și clasă(la ce clasă este arondat un student).
-						</p>
-					</li>
-					<li>
-						<p>teacher_problems: tabela ce stochează informațiile referitoare la problemele propuse de profesori (cine a propus, titlul, dificultatea, status-ul și tag-urile aferente).
-						</p>
-					</li>
-					<li>
-						<p>homeworks_problems_info: tabela ce stochează informații privind soluțiile date la o problemă din temă (rating acordat de elev, soluția propusă de elev, punctajul soluției).
-						</p>
-					</li>
-					<li>
-						<p>homeworks_problems_comments: tabela ce stochează comentariile postate de către user la o problemă propusă ca temă.
-						</p>
-					</li>
-					<li>
-						<p>homeworks_customs_problems: tabela ce stochează probleme create la momentul creării temei.
-						</p>
-					</li>
-					<li>
-						<p>homeworks_assigned_problems: tabela ce stochează ce probleme au fost propuse pentru o anumită temă.
-						</p>
-					</li>
-				</ul>
-				Putem observa că informatiile pentru clase și teme nu sunt stocate în aceeași tabelă, acest aspect ne asigură o redundanță cât mai mică
-				și o complexitate a căutărilor in baza de date cât mai redusă. Pe acest principiu fiecare tabelă folosește chei străine pentru a asigura
-				integritatea datelor.
-
-			</p>
-		</section>
-	</section>
-
 	<section id="structure">
+		<!-- review? -->
 		<h2>Structura site-ului</h2>
 		<p>
-			Aplicația are peste 30 de fișiere HTML ce acoperă servicii esențiale precum crearea unui cont, logarea, perspectivele elevului și profesorului,
-			perspectiva administratorului, dar și administrarea contului și profilul personal.
-		</p>
-		<p>
-			Paleta de culori aleasă îi oferă aplicației un grad de seriozitate și profesionalism, potrivit pentru
-			segmentul profesorilor, dar prin prezența unor culori mai îndrăznețe,
-			aplicația are și un caracter modern și rebel, potrivit segmentului tânăr.
-			În același timp, look & feel-ul este compensat de responsivitate și funcționalități și statistici pe fiecare pagină.
-		</p>
-		<p>
+			Aplicația are peste 20 de fișiere HTML, ce acoperă servicii esențiale, precum crearea unui cont, logarea pe
+			aplicație, dar și administrarea contului,
+			postarea de probleme și rezolvarea de teme.
 			În următoarele secțiuni, vom parcurge aceste pagini și vom detalia rolul acestora.
 		</p>
 		<section id="index">
 			<!-- review? -->
-			<h3><code><a href="../src/index.html">index.html</a></code></h3>
+			<h3><code>index.html</code></h3>
 			<p>
 				Această pagină este prima pagină cu care utilizatorul va interacționa. În această pagină, pe lângă bara
 				de navigare, există un câmp cu numele aplicației,
@@ -184,7 +99,9 @@
 			<h3><code>login.html</code></h3>
 			<p>
 				Această pagină reprezintă principalul mod de conectare a utilizatorului în aplicație. La apariția
-				acesteia, utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care utilizatorul
+				acesteia,
+				utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care
+				utilizatorul
 				și-a uitat parola, acesta va apăsa pe opțiunea "Forgot your password?" pentru a-și reseta parola.
 			</p>
 			<p>
@@ -193,48 +110,21 @@
 				pe pagina de creare a contului.
 			</p>
 			<p>
-				După ce a completat câmpurile, utilizatorul va apăsa pe butonul de login. În cazul în care informațile
-				furnizate sunt corecte și se regăsesc în baza de date,
-				acesta va fi redirectat spre pagina de prezentare a claselor unde este arondat user-ul, iar dacă este
-				administrator, va fi redirectat spre pagina specifică administrării
-				site-ului.
+				După ce a completat câmpurile, utilizatorul va apăsa pe butonul de login, ce îl va redirecta spre pagina
+				de administrare a contului.
 			</p>
 		</section>
 		<section id="forgot-passwd">
 			<h3><code>forgot-password.html</code></h3>
 			<p>
 				În cazul în care utilizatorul nu-și amintește parola asociată contului, va accesa această pagină. În
-				această pagină, utilizatorul va furniza e-mailul asociat contului, de unde va fi redirectat spre pagina
-				de resetare a parolei, în cazul
-				în care se regăsește acel e-mail în baza de date.
+				această pagină, utilizatorul va
+				furniza e-mailul asociat contului, unde vor fi transmise instrucțiunile pentru stabilirea unei noi
+				parole.
 			</p>
 		</section>
-		<section id="reset-passwd">
-			<h3><code>reset-password.html</code></h3>
-			<p>
-				Această pagină este dedicată resetării efective a parolei. Utilizatorul va stabili o nouă parolă ce va
-				respecta următoarele caracteristici:
-			<ul>
-				<li>
-					Minim 8 caractere;
-				</li>
-				<li>
-					Să conțină măcar o cifră;
-				</li>
-				<li>
-					Să conțină o majusculă;
-				</li>
-				<li>
-					Să conțină un caracter special.
-				</li>
-			</ul>
-			</p>
-			<p>
-				Apoi, se va confirma parola și se va apăsa pe buton, fiind redirecționat către pagina de login.
-			</p>
-		</section>
-		<section id="create-accont" >
-			<h3><code><a href="../src/register.html">register.html</a></code></h3>
+		<section id="create-accont">
+			<h3><code>register.html</code></h3>
 			<p>
 				Această pagină este dedicată înregistrării utilizatorului pe această platformă.
 			</p>
@@ -251,44 +141,23 @@
 					De care tip va fi contul? (Elev sau profesor);
 				</li>
 				<li>
-					Stabilirea unei parole, unde se va respecta următoarele caracteristici:
-					<ul>
-						<li>
-							Minim 8 caractere;
-						</li>
-						<li>
-							Să conțină măcar o cifră;
-						</li>
-						<li>
-							Să conțină o majusculă;
-						</li>
-						<li>
-							Să conțină un caracter special.
-						</li>
-					</ul>
+					Stabilirea unei parole.
 				</li>
 			</ul>
 			</p>
 			<p>În cazul în care utilizatorul are deja un cont pe platformă, acesta va accesa opțiunea "Log in!".</p>
 			<p>După ce a completat formularul, utilizatorul va apăsa pe butonul "Register", ce va crea contul și-l va
-				redirecta pe pagina "my-classes".</p>
-			<p>
-				Dacă e-mailul a fost deja reutilizat, acesta va fi avertizat.
-			</p>
+				redirecta pe pagina de administrare a contului.</p>
 		</section>
 		<section id="admin-cont">
 			<h3><code>account-administration.html</code></h3>
 			<p>
-				Această pagină este dedicată administrării informațiilor utilizatorului. Aspectul este unul intuitiv, în
-				partea stângă fiind prezentat
-				user-ul, iar în partea dreaptă fiind prezente mai multe formulare responsabile cu modificarea datelor
-				privitoare la user.
+				Această pagină este dedicată administrării informațiilor utilizatorului.
 			</p>
 			<p>
 				În partea stângă, este prezentat utilizatorul. Prezentarea aceasta curprinde informații privioare la
-				numele utilizatorului, o poză de profil,
+				numele utilizatorului,
 				ziua lui de naștere, unde învață/predă utilizatorul, dar și o mică descriere a acestuia.
-				Prezența unor informații sunt stabilite într-un formular.
 			</p>
 			<p>În partea dreaptă, sunt mau multe formulare, cu rol în modificarea informațiilor asociate contului.
 				Aceste formulare sunt:
@@ -308,21 +177,10 @@
 					username-ul. Tot în acest formular, utilizatorul va selecta ce informații va dori să le facă
 					publice.
 				</li>
-				<li>
-					Formularul de modificare a pozei de profil: acest formular este responabil cu schimbarea pozei de
-					profil
-					a utilizatorului.
-				</li>
 			</ul>
 			</p>
 		</section>
-		<section id="profile">
-			<h3><code>profile.html</code></h3>
-			<p>
-				Această pagină reprezintă o prezentare scurtă a unui user, fiind furnizare informații precum numele
-				acestuia, o mică desciere, dar și
-				alte informații stabilite ca publice de către utilizator.
-		</section>
+
 		<section id="about">
 			<h3><code>about.html</code></h3>
 			<p>
@@ -334,9 +192,8 @@
 			<h3><code>my-problems.html</code></h3>
 			<p>
 				Această pagină este accesibilă doar pentru utilizatorii cu rol de profesor. Această pagină reprezintă un
-				dashboard cu probleme propuse de către acesta. Aspectul este unul simplist, intuitiv și ușor de
-				utilizat, în stânga fiind componenta de
-				filtrare a problemelor, iar în dreapta o listare a problemelor propuse după anumite criterii.
+				dashboard cu probleme propuse de către
+				acesta.
 			</p>
 			<p>
 				În partea stângă există un mod de filtrare a problemelor afișate în partea dreaptă. Aceste probleme pot
@@ -349,8 +206,7 @@
 			<p>
 				În partea dreaptă, sunt prezentate problemele postate de către utilizator. În partea de sus, există
 				butonul de "Submit new problem", prin care
-				utilizatorul poate posta o nouă problemă, dar și un buton de importare a problemelor. Fiecare problemă
-				afișată are, pe lângă o mică descriere, și un
+				utilizatorul poate posta o nouă problemă. Fiecare problemă afișată are, pe lângă o mică descriere, și un
 				buton pentru vizualizarea efectivă a problemei.
 			</p>
 		</section>
@@ -384,24 +240,11 @@
 				a fost respinsă sau se află în curs de evaluare). Pe lângă asta, utilizatorul va vedea dificulatea
 				problemei, data la care a fost postată și
 				tag-urile specifice problemei.
-				Mai jos, sunt prezente butoane pentru ștergerea problemei, dar și pentru exportarea acesteia într-un fișier de tip JSON.
 			</p>
 			<p>
 				În partea dreaptă este afișat enunțul propriu-zis al problemei
 			</p>
 		</section>
-		<section id="imp-prob">
-			<h3><code>import-problem.html</code></h3>
-			<p>
-				Utilizatorul va importa o problemă din calculatorul personal. Fișierele acceptate sunt de tip JSON.
-			</p>
-			<p>
-				După ce a încărcat un fișier, acesta va apăsa butonul de "import", ce va încărca în baza de date
-				problema, sau va afișa anumite
-				avertismente, în cazul în care sunt eventuale probleme.
-			</p>
-		</section>
-
 		<section id="my-classes">
 			<h3><code>my-classes.html</code></h3>
 			<p>
@@ -412,7 +255,7 @@
 				"Create class".
 			</p>
 			<p>
-				Pentru a intra pe pagina specifică clasei, utilizatorul va apăsa pe butonul "Go to class".
+				Pentru a intra pe pagina specifică clasei, utilizatorul va apăsa pe butonul Go to class".
 			</p>
 		</section>
 		<section id="create-class">
@@ -424,10 +267,7 @@
 		<section id="class">
 			<h3>Class section</h3>
 			<p>Această secțiune reprezintă este responsabilă cu buna funcționare și administrare a clasei. Aceasta are 2
-				persective: cea a elevului și cea a profesorului. În principal, s-a utilizat un stil simplu, minimalist,
-				funcțional și intuitiv,
-				pentru a o feri o experiență plăcută utilizatorului.
-			</p>
+				persective: cea a elevului și cea a profesorului.</p>
 			<ul>
 				<section id="class-overview">
 					<h3><code>class-admin-overview.html</code></h3>
@@ -449,8 +289,7 @@
 				<section id="class-settings">
 					<h3><code>class-admin-settings.html</code></h3>
 					<p>
-						Această pagină este dedicată setărilor ce pot fi aduse clasei, fiind disponibilă doar
-						utilizatorilor cu rol de profesor.
+						Această pagină este dedicată setărilor ce pot fi aduse clasei.
 					</p>
 					<p>
 						În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
@@ -469,12 +308,10 @@
 						În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
 					</p>
 					<p>
-						În partea dreaptă, prin apăsarea butonului "Add students", utilizatorul cu rol de profesor poate
-						adăuga unul sau
+						În partea dreaptă, prin apăsarea butonului "Add students", utilizatorul poate adăuga unul sau
 						mai mulți studenți. Tot în partea dreaptă, utilizatorul poate vizualiza lista de elevi, având
 						posibilitatea de a-l elimina din clasă sau de
-						a verifica toate temele postate de acesta, ultimele două opțiuni fiind disponibile doar pentru
-						utilizator-profesor.
+						a verifica toate temele postate de acesta.
 					</p>
 				</section>
 				<section id="class-homeworks">
@@ -507,53 +344,60 @@
 			</p>
 		</section>
 		<section id="add-homework">
-			<h3><code>add-homework.html</code></h3>
-
-			<p>
-				Această pagină este compusă din 3 componente.
-			</p>
-			<p>Prima componentă este responsabilă cu crearea de probleme ce nu sunt prezente în baza de date.</p>
-			<p>
-				Utilizatorul cu rol de profesor va putea adăuga probleme ce nu sunt în baza de date a
-				aplicației, apăsând pe butonul
-				"Add custom problem", iar apoi scriind în caseta text enunțul problemei, dar și alte detalii privind problema.
-			</p>
-
-			<p>
-				Această pagină este cel de-al doilea pas în crearea unei teme.
-			</p>
-			<p>
-				Utilizatorul cu rol de profesor va putea căuta și selecta probleme ce sunt în baza de date a aplicației. Acesta
-				va putea realiza o filtrare a
-				bazei de date, folosindu-se de formularul din partea superioară. Filtrarea poate fi în funcție
-				de dificultate sau tag-uri. Apoi din lista afișată,
-				utilizatorul va bifa câte probleme
-				dorește să fie adăugate în temă. Utilizatorul poate să vizualizeze problema explicată în
-				detaliu, apăsând pe butonul "View problem".
-			</p>
-			<p>
-				Utilizatorul cu rol de profesor va stabili câteva tag-uri corespunzătoare temei, dificultatea
-				temei, și în special deadline-ul acestei noi teme.
-			</p>
-			<p>
-				La final, utilizatorul va posta tema.
-			</p>
+			<h3>Add homework</h3>
+			Pentru a menține o interfața curată, procesul de adăugare a temei s-a împărțit în 3 pași:
+			<ul>
+				<section id="add-homework1">
+					<h3><code>add-homework-1.html</code></h3>
+					<p>
+						Această pagină este primul pas în crearea unei teme.
+					</p>
+					<p>
+						Utilizatorul cu rol de profesor va putea adăuga probleme ce nu sunt în baza de date a
+						aplicației, apăsând pe butonul
+						"Add custom problem", iar apoi scriind în caseta text enunțul problemei. La final, utilizatorul
+						va trece la următorul pas.
+					</p>
+				</section>
+				<section id="add-homework2">
+					<h3><code>add-homework-2.html</code></h3>
+					<p>
+						Această pagină este cel de-al doilea pas în crearea unei teme.
+					</p>
+					<p>
+						Utilizatorul cu rol de profesor va putea selecta probleme din baza de date a aplicației. Acesta
+						va putea realiza o filtrare a
+						bazei de date, folosindu-se de formularul din partea superioară. Filtrarea poate fi în funcție
+						de dificultate sau tag-uri. Apoi din lista afișată,
+						utilizatorul va bifa câte probleme
+						dorește să fie adăugate în temă. Utilizatorul poate să vizualizeze problema explicată în
+						detaliu, apăsând pe butonul "View problem".
+					</p>
+					<p>
+						La final, utilizatorul va trece la următorul pas.
+					</p>
+				</section>
+				<section id="add-homework3">
+					<h3><code>add-homework-3.html</code></h3>
+					<p>
+						Această pagină este ultimul pas în crearea unei teme.
+					</p>
+					<p>
+						Utilizatorul cu rol de profesor va stabili câteva tag-uri corespunzătoare temei, dificultatea
+						temei, și în special deadline-ul acestei noi teme.
+					</p>
+					<p>
+						La final, utilizatorul va posta tema.
+					</p>
+				</section>
+			</ul>
 		</section>
-		<!-- 18/6/23 -->
 		<section id="prof-view-homework">
 			<h3><code>prof-view-homework.html</code></h3>
 			<p>
 				Această pagină este responsabilă cu vizualizarea unei teme. Utilizatorul cu rol de profesor va putea
 				vedea care este termenul limită stabilit pentru
-				această temă, da și ce probleme a propus, ca apoi sa verifice apăsând de butonul "Go to problem" eventuale soluții postate de elevi.
-			</p>
-		</section>
-		<section id="prof-view-homework-problem">
-			<h3><code>prof-view-homework-problem.html</code></h3>
-			<p>
-				Această pagină este responsabilă cu vizualizarea unei probleme propuse ca tema. Utilizatorul cu rol de profesor va putea
-				vedea cine a rezolvat acea problemă, cu acces la soluția dată, un rating acordat de utilizatori, câteva mici detalii desăre problemă,
-				dar și eventuale comentarii puse de către utilizatori.
+				această temă, dar și ce elevi au rezolvat această temă.
 			</p>
 		</section>
 		<section id="admin">
@@ -579,12 +423,9 @@
 				<section id="admin-users">
 					<h3><code>admin-users.html</code></h3>
 					<p>
-						Din această pagină, administratorul manageriaza toți utilizatorii platformei. Acesta poate
-						aplica o
-						filtrare în funcție de tipul de cont sau de data creării, precum si alte filtre ce vor fi
-						implementate in viitor, pentru o căutare mai ușoară a unui
-						utilizator. De asemenea dispune de o lista, iar in dreapta acesteia va putea modifica datele
-						unui utilizator.
+						Din această pagină, administratorul manageriaza toți utilizatorii platformei. Acesta poate aplica o
+						filtrare în funcție de tipul de cont sau de data creării, precum si alte filtre ce vor fi implementate in viitor, pentru o căutare mai ușoară a unui
+						utilizator. De asemenea dispune de o lista, iar in dreapta acesteia va putea modifica datele unui utilizator.
 					</p>
 				</section>
 				<section id="admin-problems">
@@ -647,13 +488,25 @@
 			</p>
 			<p>
 				În partea stângă se regăsește enunțul problemei, iar în partea dreaptă soluția propusă de
-				elev.
+				elev. 
 			</p>
-			<p>În vitor va dispune și de controale pentru a valida/invalida soluția, pentru a acorda un eventual scor
-				<br>
-				sau pentru a da feedback.
-			</p>
+			<p>În vitor va dispune și de controale pentru a valida/invalida soluția, pentru a acorda un eventual scor <br>
+				sau pentru a da feedback.</p>
 		</section>
+	</section>
+	<section id="resurse">
+		<h2>Resurse</h2>
+		<p>Atașăm aici link-urile la imaginile pe care le-am folosit în acest proiect.</p>
+		<ul>
+			<a href="https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg">
+				https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg</a><br>
+			<a href="https://en.wikipedia.org/wiki/File:Sample_User_Icon.png">
+				https://en.wikipedia.org/wiki/File:Sample_User_Icon.png</a><br>
+			<a href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+				https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css</a><br>
+			<a href="https://www.flaticon.com/free-icons/student" title="student icons"> Student icons created by Eucalyp - Flaticon</a><br>
+			<a href="https://icon-library.com/icon/teacher-icon-png-17.html">https://icon-library.com/icon/teacher-icon-png-17.html</a>
+		</ul>
 	</section>
 </body>
 

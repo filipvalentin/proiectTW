@@ -89,3 +89,4 @@ function displayClass(jsonObj) {
 function updateFilter() {
 	filterByTitleOrId = document.getElementById("search-input").value;
 }
+

@@ -19,15 +19,17 @@
 <body>
 
 	<nav class="admin-navbar">
-		<a class="admin-button" href="admin-users.html">USERS</a>
-		<a class="admin-button" href="admin-classes.html">CLASSES</a>
-		<a class="admin-button active" href="admin-problems.html">PROBLEMS</a>
+		<div class="center">
+			<a class="admin-button" href="admin-users.html">USERS</a>
+			<a class="admin-button" href="admin-classes.html">CLASSES</a>
+			<a class="admin-button active" href="admin-problems.html">PROBLEMS</a>
+		</div>
+		<div class="logout-button">
+			<a class="admin-button" onclick="logout()">Log out</a>
+		</div>
 	</nav>
 
 	<main>
-
-
-
 		<div class="panel">
 			<div class="dashboard">
 				<div class="dashboard-class-name">
@@ -85,11 +87,12 @@
 
 
 	</main>
-	
+
 	<script src="../script/parse-jwt.js"></script>
 	<script src="../script/is-token-expired.js"></script>
 	<script src="../script/require-admin.js"></script>
 	<script src="../script/admin-problems.js"></script>
+	<script src="../script/admin-navbar.js"></script>
 </body>
 
 </html>
