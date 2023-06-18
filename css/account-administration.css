@@ -285,6 +285,18 @@ textarea {
 	color: gray;
 }
 
+.forms > label{
+	font-weight: 600;
+	overflow: hidden;
+	display: block;
+	flex-direction: column;
+	width: 100%;
+	flex-wrap: wrap;
+	font-size: 18px;
+	margin-top: 4px;
+	margin-bottom: 5px;
+}
+
 .error {
 	display: none;
 	font-style: italic;

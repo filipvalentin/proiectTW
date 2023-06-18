@@ -12,6 +12,8 @@ http.onreadystatechange = function () {
         var username = information.username;
         // console.log(username);
         var mainFrame = document.getElementById("main-frame");
+        var usernameInput = document.getElementById("username");
+        usernameInput.value = username;
         var usernameDiv = document.createElement("div");
         usernameDiv.classList.add("username");
         usernameDiv.textContent = username;
@@ -20,6 +22,8 @@ http.onreadystatechange = function () {
         //
 
         var nameUser = information.entire_name;
+        var nameInput = document.getElementById("name");
+        nameInput.value = nameUser;
         // console.log(nameUser);
         var mainFrame = document.getElementById("information");
         var nameUserDiv = document.createElement("div");
@@ -61,6 +65,11 @@ http.onreadystatechange = function () {
 
         //
 
+        var genderInput = document.getElementById("gender");
+        if(information.gender !=''){
+            genderInput.removeAttribute('selected');
+            genderInput.value = information.gender;
+        }
         if (information.display_gender == '1') {
             var gender = information.gender;
             var genderDiv = document.createElement("div");
@@ -75,7 +84,8 @@ http.onreadystatechange = function () {
         }
 
         //
-
+        var dayInput = document.getElementById("birthday");
+        dayInput.value = information.unformat_b_d;
         if (information.display_birthdate == '1') {
             var birthday = information.birth_date;
             var birthDiv = document.createElement("div");
@@ -90,7 +100,8 @@ http.onreadystatechange = function () {
         }
 
         //
-
+        var schoolInput = document.getElementById("highschool");
+        schoolInput.value = information.high_school;
         if (information.display_highschool == '1') {
             var high_school = information.high_school;
             var schoolDiv = document.createElement("div");
@@ -105,8 +116,9 @@ http.onreadystatechange = function () {
         }
 
         //
-
+        var aboutInput = document.getElementById("aboutMe");
         var aboutMe = information.about_me;
+        aboutInput.innerHTML = aboutMe;
         var aboutDiv = document.createElement("div");
         aboutDiv.classList.add("aboutme");
         var aux1 = document.createElement("div");

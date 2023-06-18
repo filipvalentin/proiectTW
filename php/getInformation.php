@@ -43,7 +43,8 @@ $user = array(
     'about_me' => $rows[0][7],
     'display_birthdate' => $rows[0][8],
     'display_gender' => $rows[0][9],
-    'display_highschool' => $rows[0][10]
+    'display_highschool' => $rows[0][10],
+    'unformat_b_d' =>$rows[0][6]
 );
 
 header('Content-Type: application/json');

@@ -56,6 +56,7 @@ function checkUsername() {
 
         http.open("GET", "../php/verify_username.php?username=" + username, true);
         http.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        http.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
 
         http.onreadystatechange = function () {
             if (http.readyState == 4 && http.status == 200) {
