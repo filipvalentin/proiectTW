@@ -66,7 +66,18 @@
 			Am ales să dezvoltăm acest proiect pentru a vedea pe de o parte, cum au fost create alte platforme
 			asemănătoare, precum PBInfo, dar și de încerca să aducem îmbunătățiri și optimizări.
 		</p>
+		
 
+	</section>
+	<section id="paleta-culori" role="doc-tehnologies">
+		<h2>Paleta de culori</h2>
+		<p>
+			Suntem adepții unui design cât mai curat și non-intrusiv, motiv pentru care folosim predominant albul
+			concomitent cu nuanțe de gri, iar drept culoare de accent vernil închis: 
+			<span style="color: #4f7072; font-weight: 600;">
+				#4f7072
+			</span>.
+		</p>
 	</section>
 	<section id="tehnologii" role="doc-tehnologies">
 		<h2>Tehnologii utilizate</h2>
@@ -448,32 +459,31 @@
 				funcțional și intuitiv,
 				pentru a o feri o experiență plăcută utilizatorului.
 			</p>
+			<p>
+				Această pagină reprezintă panoul de control al clasei.
+			</p>
+			<p>
+				În partea stângă, există un meniu, de unde putem selecta:
+			<ul>
+				<li>Settings: pagina pentru anumite setări ale clasei;</li>
+				<li>Students: pagina pentru a vedea ce studenti sunt în clasă;</li>
+				<li>Homeworks: pagina dedicată vizualizării temelor propuse.</li>
+			</ul>
+			</p>
+			<p>
+				În partea dreaptă, va fi afișat meniul specific opțiunii selectate.
+			</p>
 			<ul>
 				<section id="class-overview">
 					<h3><code>class-admin-overview.html</code></h3>
-					<p>
-						Această pagină reprezintă panoul de control al clasei.
-					</p>
-					<p>
-						În partea stângă, există un meniu, de unde putem selecta:
-					<ul>
-						<li>Settings: pagina pentru anumite setări ale clasei;</li>
-						<li>Students: pagina pentru a vedea ce studenti sunt în clasă;</li>
-						<li>Homeworks: pagina dedicată vizualizării temelor propuse.</li>
-					</ul>
-					</p>
-					<p>
-						În partea dreaptă, va fi afișat meniul specific opțiunii selectate.
-					</p>
+					<p>Afișează un clasament al clasei în functie de punctele obținute la teme.</p>
+
 				</section>
 				<section id="class-settings">
 					<h3><code>class-admin-settings.html</code></h3>
 					<p>
 						Această pagină este dedicată setărilor ce pot fi aduse clasei, fiind disponibilă doar
 						utilizatorilor cu rol de profesor.
-					</p>
-					<p>
-						În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
 					</p>
 					<p>
 						În partea dreaptă, utilizatorul poate adăuga o descriere a clasei sau să modifice denumirea
@@ -483,10 +493,10 @@
 				<section id="class-students">
 					<h3><code>class-admin-students.html</code></h3>
 					<p>
-						Această pagină este dedicată vizualizării listei de elevi ce sunt înscriși în clasă.
+						Această pagină este dedicată vizualizării listei de elevi înscriși în clasă.
 					</p>
 					<p>
-						În partea stângă, există meniul ce-l regăsim și în pagina de class-overview.
+						În partea stângă, există meniul regăsit și în pagina de class-overview.
 					</p>
 					<p>
 						În partea dreaptă, prin apăsarea butonului "Add students", utilizatorul cu rol de profesor poate
@@ -600,20 +610,22 @@
 					<h3><code>admin-users.html</code></h3>
 					<p>
 						Din această pagină, administratorul manageriază toți utilizatorii platformei. Acesta poate
-						aplica o filtrare în funcție de tipul de cont, username sau id, sau un interval de dată în care s-a creat contul.
-						De asemenea dispune de o lista iar in dreapta acesteia va putea modifica datele	unui utilizator.
+						aplica o filtrare în funcție de tipul de cont, username sau id, sau un interval de dată în care
+						s-a creat contul.
+						De asemenea dispune de o lista iar in dreapta acesteia va putea modifica datele unui utilizator.
 					</p>
 				</section>
 				<section id="admin-problems">
 					<h3><code>admin-problems.html</code></h3>
 					<p>
-						Din această pagină, administratorul observă toate probleme neverificate propuse de către profesori.
+						Din această pagină, administratorul observă toate probleme neverificate propuse de către
+						profesori.
 						Administratorul poate aplica o filtrare, folosindu-se de bara de căutare.
 					</p>
 					<p>
 						Ca informații afișate, administratorului i se arată numele problemei, cine a propus acea
 						problemă, data la care s-a propus acea problemă și id-ul unic al problemei. Ca să vadă mai multe
-						detalii privitoare la problema propusa,	administratorul poate apăsa pe butonul "View problem".
+						detalii privitoare la problema propusa, administratorul poate apăsa pe butonul "View problem".
 					</p>
 				</section>
 				<section id="admin-view-problem">
@@ -624,8 +636,7 @@
 					</p>
 					<p>
 						Administratorul va vedea, pe lângă statusul problemei, data la care a fost propusă problema și
-						cine a propus, și dificultatea problemei, tag-urile specifice problemei
-						și enunțul problemei.
+						cine a propus, și dificultatea problemei, tag-urile specifice problemei și enunțul problemei.
 					</p>
 					<p>
 						La final, administratorul poate că accepte ca problema să apară în baza de date a platformei sau
@@ -634,26 +645,20 @@
 				</section>
 			</ul>
 		</section>
-		<section id="stud-view-prob-comm">
-			<h3><code>student-view-problem-comments.html</code></h3>
+		<section id="stud-view-prob">
+			<h3><code>student-view-problems.html</code></h3>
 			<p>
-				Această pagină este disponibilă pentru utilizatorii cu rol de elev.
+				Această pagină este disponibilă pentru utilizatorii cu rol de elev și este gândită să fie accesibilă,
+				utilă și compactă pentru elev.
 			</p>
 			<p>
-				Această pagină afișează, pe lângă date privitoare la problemă, comentariile postate de alți elevi la
-				aceeași problemă, dar și un rating dat de către utilizatori.
-				Utilizatorul, la rândul său poate să adauge și el comentariu referitor la problemă.
-			</p>
-		</section>
-		<section id="stud-view-prob-solve">
-			<h3><code>student-view-problem-solve.html</code></h3>
-			<p>
-				Această pagină este disponibilă pentru utilizatorii cu rol de elev.
-			</p>
-			<p>
-				Această pagină afișează, pe lângă date privitoare la problemă, enunțul problemei și un text-area unde
-				utilizatorul va putea scrie rezolvarea la problemă.
+				Sunt afișate, pe lângă date privitoare la problemă, enunțul problemei și un text-area unde
+				utilizatorul va putea scrie rezolvarea problemei.
 				La final, ca soluția lui să poată fi corectată, utilizatorul va apăsa pe butonul de "Submit".
+				Pagina dispune de o altă secțiune, COMMENTS, unde poate posta comentarii, poate vedea și
+				comentariile postate de alți elevi pentru respectiva problemă, dar și un rating dat de către
+				utilizatori.
+				Utilizatorul, la rândul său poate să adauge și el comentariu referitor la problemă.
 			</p>
 		</section>
 		<section id="view-solution">
@@ -664,10 +669,6 @@
 			<p>
 				În partea stângă se regăsește enunțul problemei, iar în partea dreaptă soluția propusă de
 				elev.
-			</p>
-			<p>În vitor va dispune și de controale pentru a valida/invalida soluția, pentru a acorda un eventual scor
-				<br>
-				sau pentru a da feedback.
 			</p>
 		</section>
 	</section>
