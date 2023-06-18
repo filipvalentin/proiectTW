@@ -93,6 +93,59 @@
 			utilizator, adăugarea și modificarea
 			de probleme, adăugarea de teme.
 		</p>
+
+		<section id="arhitectura">
+			<h3>Baza de date</h2>
+			<p>
+				Se folosește o bază de date MySQL, o bază de date relațională. Motivația folosirii unei baze de date relațională este experiența 
+				avută cu o asemenea bază de date. 
+				Baza de date a aplicației conține 10 tabele:
+				<ul>
+					<li>
+						<p>users: tabela ce stocheaza infomațiile primordiale referitoare la utilizator, precum e-mailul utilizat, id-ul, username-ul,
+							dar mai ales parola acestuia. Pentru securitatea aplicației, s-a hotărât criptarea parolei.
+						</p>
+					</li>
+					<li>
+						<p>info_users: tabela ce stochează infomațiile ce țin de profilul utilizatorului, precum numele întreg, data nașterii, o scurtă descriere, 
+							dar și poza de profil(înregistrată în format BLOB) și preferințele privitoare la ce informații dorește să le expună.
+						</p>
+					</li>
+					<li>
+						<p>classes: tabela ce stochează infomațiile privitoare la clasele create, precum numele clasei, o mică descriere și creatorul acelei clase.
+						</p>
+					</li>
+					<li>
+						<p>classes_homeworks: tabela ce stochează infomațiile privitoare la temele create, precum id-ul clasei căruia i-a fost atribuită tema, id-ul temei în sine, titlul temei și deadline-ul acesteia.
+						</p>
+					</li>
+					<li>
+						<p>classes_students: tabela ce stochează relația dintre studenți și clasă(la ce clasă este arondat un student).
+						</p>
+					</li>
+					<li>
+						<p>teacher_problems: tabela ce stochează informațiile referitoare la problemele propuse de profesori (cine a propus, titlul, dificultatea, status-ul și tag-urile aferente).
+						</p>
+					</li>
+					<li>
+						<p>homeworks_problems_info: tabela ce stochează informații privind soluțiile date la o problemă din temă (rating acordat de elev, soluția propusă de elev, punctajul soluției).
+						</p>
+					</li>
+					<li>
+						<p>homeworks_problems_comments: tabela ce stochează comentariile postate de către user la o problemă propusă ca temă.
+						</p>
+					</li>
+					<li>
+						<p>homeworks_customs_problems: tabela ce stochează probleme create la momentul creării temei.
+						</p>
+					</li>
+					<li>
+						<p>homeworks_assigned_problems: tabela ce stochează ce probleme au fost propuse pentru o anumită temă.
+						</p>
+					</li>
+				</ul>
+			</p>
+		</section>
 	</section>
 
 	<section id="structure">
