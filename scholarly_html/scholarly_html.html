@@ -56,14 +56,15 @@
 			administratori.
 		</p>
 		Profesorii înregistrați pe plaftormă pot crea clase și adăuga elevi ce sunt deja înregistrați pe platformă.
-		Profesorii pot crea teme fie propunând probleme, fie alegând dintr-o muțime de probleme propuse de alți profesori.
+		Profesorii pot crea teme fie propunând probleme, fie alegând dintr-o muțime de probleme propuse de alți
+		profesori.
 		Elevii vor putea rezolva aceste probleme, ca apoi să trimită rezolvările pentru a primi un punctaj. De asemenea,
 		elevii pot acorda un rating pentru fiecare problemă sau să adauge comentarii
 		(cu scopul de a oferi ponturi celorlalți colegi).
 		<p>
 		<p>
 			Am ales să dezvoltăm acest proiect pentru a vedea pe de o parte, cum au fost create alte platforme
-			asemănătoare, precum PBInfo, dar și	de încerca să aducem îmbunătățiri și optimizări.
+			asemănătoare, precum PBInfo, dar și de încerca să aducem îmbunătățiri și optimizări.
 		</p>
 
 	</section>
@@ -71,8 +72,8 @@
 		<h2>Tehnologii utilizate</h2>
 		<p>
 			Întreaga aplicație este construită folosind HTML, CSS și JavaScript pentru componenta de front-end,
-			iar pentru componenta de back-end s-a folositlimbajul PHP. 
-			Pentru stocarea datelor, s-a folosit o bază de date relaționalăȘ MySQL. 
+			iar pentru componenta de back-end s-a folositlimbajul PHP.
+			Pentru stocarea datelor, s-a folosit o bază de date relaționalăȘ MySQL.
 			Pentru o autentificarea și partajarea informației într-o manieră sigură se folosește un token JWT.
 		</p>
 		<p>
@@ -93,43 +94,55 @@
 
 		<section id="arhitectura">
 			<h3>Baza de date</h2>
-			<p>
-				Se folosește o bază de date MySQL, o bază de date relațională. Motivația folosirii unei baze de date relațională este experiența 
-				avută cu o asemenea bază de date și suportul complex pe care platforma îl oferă . 
-				Baza de date a aplicației conține 10 tabele:
+				<p>
+					Se folosește o bază de date MySQL, o bază de date relațională. Motivația folosirii unei baze de date
+					relațională este experiența
+					avută cu o asemenea bază de date și suportul complex pe care platforma îl oferă .
+					Baza de date a aplicației conține 10 tabele:
 				<ul>
 					<li>
-						<p>users: tabela ce stocheaza infomațiile primordiale referitoare la utilizator, precum e-mailul utilizat, id-ul, username-ul,
-							dar mai ales parola acestuia. Pentru securitatea aplicației, parolelor le este aplicat un hash care este stocat în această tabelă.
+						<p>users: tabela ce stocheaza infomațiile primordiale referitoare la utilizator, precum e-mailul
+							utilizat, id-ul, username-ul,
+							dar mai ales parola acestuia. Pentru securitatea aplicației, parolelor le este aplicat un
+							hash care este stocat în această tabelă.
 						</p>
 					</li>
 					<li>
-						<p>info_users: tabela ce stochează infomațiile ce țin de profilul utilizatorului, precum numele întreg, data nașterii, o scurtă descriere, 
-							dar și poza de profil(înregistrată în format BLOB) și preferințele privitoare la ce informații dorește să le expună.
+						<p>info_users: tabela ce stochează infomațiile ce țin de profilul utilizatorului, precum numele
+							întreg, data nașterii, o scurtă descriere,
+							dar și poza de profil(înregistrată în format BLOB) și preferințele privitoare la ce
+							informații dorește să le expună.
 						</p>
 					</li>
 					<li>
-						<p>classes: tabela ce stochează infomațiile privitoare la clasele create, precum numele clasei, o mică descriere și creatorul acelei clase.
+						<p>classes: tabela ce stochează infomațiile privitoare la clasele create, precum numele clasei,
+							o mică descriere și creatorul acelei clase.
 						</p>
 					</li>
 					<li>
-						<p>classes_homeworks: tabela ce stochează infomațiile privitoare la temele create, precum id-ul clasei căruia i-a fost atribuită tema, id-ul temei în sine, titlul temei și deadline-ul acesteia.
+						<p>classes_homeworks: tabela ce stochează infomațiile privitoare la temele create, precum id-ul
+							clasei căruia i-a fost atribuită tema, id-ul temei în sine, titlul temei și deadline-ul
+							acesteia.
 						</p>
 					</li>
 					<li>
-						<p>classes_students: tabela ce stochează relația dintre studenți și clasă(la ce clasă este arondat un student).
+						<p>classes_students: tabela ce stochează relația dintre studenți și clasă(la ce clasă este
+							arondat un student).
 						</p>
 					</li>
 					<li>
-						<p>teacher_problems: tabela ce stochează informațiile referitoare la problemele propuse de profesori (cine a propus, titlul, dificultatea, status-ul și tag-urile aferente).
+						<p>teacher_problems: tabela ce stochează informațiile referitoare la problemele propuse de
+							profesori (cine a propus, titlul, dificultatea, status-ul și tag-urile aferente).
 						</p>
 					</li>
 					<li>
-						<p>homeworks_problems_info: tabela ce stochează informații privind soluțiile date la o problemă din temă (rating acordat de elev, soluția propusă de elev, punctajul soluției).
+						<p>homeworks_problems_info: tabela ce stochează informații privind soluțiile date la o problemă
+							din temă (rating acordat de elev, soluția propusă de elev, punctajul soluției).
 						</p>
 					</li>
 					<li>
-						<p>homeworks_problems_comments: tabela ce stochează comentariile postate de către user la o problemă propusă ca temă.
+						<p>homeworks_problems_comments: tabela ce stochează comentariile postate de către user la o
+							problemă propusă ca temă.
 						</p>
 					</li>
 					<li>
@@ -137,29 +150,34 @@
 						</p>
 					</li>
 					<li>
-						<p>homeworks_assigned_problems: tabela ce stochează ce probleme au fost propuse pentru o anumită temă.
+						<p>homeworks_assigned_problems: tabela ce stochează ce probleme au fost propuse pentru o anumită
+							temă.
 						</p>
 					</li>
 				</ul>
-				Putem observa că informatiile pentru clase și teme nu sunt stocate în aceeași tabelă, acest aspect ne asigură o redundanță cât mai mică
-				și o complexitate a căutărilor in baza de date cât mai redusă. Pe acest principiu fiecare tabelă folosește chei străine pentru a asigura
+				Putem observa că informatiile pentru clase și teme nu sunt stocate în aceeași tabelă, acest aspect ne
+				asigură o redundanță cât mai mică
+				și o complexitate a căutărilor in baza de date cât mai redusă. Pe acest principiu fiecare tabelă
+				folosește chei străine pentru a asigura
 				integritatea datelor.
 
-			</p>
+				</p>
 		</section>
 	</section>
 
 	<section id="structure">
 		<h2>Structura site-ului</h2>
 		<p>
-			Aplicația are peste 30 de fișiere HTML ce acoperă servicii esențiale precum crearea unui cont, logarea, perspectivele elevului și profesorului,
+			Aplicația are peste 30 de fișiere HTML ce acoperă servicii esențiale precum crearea unui cont, logarea,
+			perspectivele elevului și profesorului,
 			perspectiva administratorului, dar și administrarea contului și profilul personal.
 		</p>
 		<p>
 			Paleta de culori aleasă îi oferă aplicației un grad de seriozitate și profesionalism, potrivit pentru
 			segmentul profesorilor, dar prin prezența unor culori mai îndrăznețe,
 			aplicația are și un caracter modern și rebel, potrivit segmentului tânăr.
-			În același timp, look & feel-ul este compensat de responsivitate și funcționalități și statistici pe fiecare pagină.
+			În același timp, look & feel-ul este compensat de responsivitate și funcționalități și statistici pe fiecare
+			pagină.
 		</p>
 		<p>
 			În următoarele secțiuni, vom parcurge aceste pagini și vom detalia rolul acestora.
@@ -184,7 +202,8 @@
 			<h3><code>login.html</code></h3>
 			<p>
 				Această pagină reprezintă principalul mod de conectare a utilizatorului în aplicație. La apariția
-				acesteia, utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în care utilizatorul
+				acesteia, utilizatorul va furniza e-mailul cu care acesta și-a creat contul, dar și parola. În cazul în
+				care utilizatorul
 				și-a uitat parola, acesta va apăsa pe opțiunea "Forgot your password?" pentru a-și reseta parola.
 			</p>
 			<p>
@@ -233,7 +252,7 @@
 				Apoi, se va confirma parola și se va apăsa pe buton, fiind redirecționat către pagina de login.
 			</p>
 		</section>
-		<section id="create-accont" >
+		<section id="create-accont">
 			<h3><code><a href="../src/register.html">register.html</a></code></h3>
 			<p>
 				Această pagină este dedicată înregistrării utilizatorului pe această platformă.
@@ -384,7 +403,8 @@
 				a fost respinsă sau se află în curs de evaluare). Pe lângă asta, utilizatorul va vedea dificulatea
 				problemei, data la care a fost postată și
 				tag-urile specifice problemei.
-				Mai jos, sunt prezente butoane pentru ștergerea problemei, dar și pentru exportarea acesteia într-un fișier de tip JSON.
+				Mai jos, sunt prezente butoane pentru ștergerea problemei, dar și pentru exportarea acesteia într-un
+				fișier de tip JSON.
 			</p>
 			<p>
 				În partea dreaptă este afișat enunțul propriu-zis al problemei
@@ -510,33 +530,30 @@
 			<h3><code>add-homework.html</code></h3>
 
 			<p>
-				Această pagină este compusă din 3 componente.
+				Această pagină este are în componență 3 pagini care inițial au fost proiectate să se prezinte precum un
+				SPA,
+				însă combinarea acestora într-una singură a facilitat eficiența în dezvoltare.
 			</p>
-			<p>Prima componentă este responsabilă cu crearea de probleme ce nu sunt prezente în baza de date.</p>
+			<p>Prima sub-componentă este responsabilă cu crearea de probleme ce nu sunt prezente în baza de date.</p>
 			<p>
 				Utilizatorul cu rol de profesor va putea adăuga probleme ce nu sunt în baza de date a
 				aplicației, apăsând pe butonul
-				"Add custom problem", iar apoi scriind în caseta text enunțul problemei, dar și alte detalii privind problema.
+				"Add custom problem", iar apoi completând datele problemei în casetele dedicate.
 			</p>
 
 			<p>
-				Această pagină este cel de-al doilea pas în crearea unei teme.
+				A doua componentă facilit
 			</p>
 			<p>
-				Utilizatorul cu rol de profesor va putea căuta și selecta probleme ce sunt în baza de date a aplicației. Acesta
-				va putea realiza o filtrare a
-				bazei de date, folosindu-se de formularul din partea superioară. Filtrarea poate fi în funcție
-				de dificultate sau tag-uri. Apoi din lista afișată,
-				utilizatorul va bifa câte probleme
-				dorește să fie adăugate în temă. Utilizatorul poate să vizualizeze problema explicată în
-				detaliu, apăsând pe butonul "View problem".
+				Profesorul va putea căuta și selecta probleme ce sunt în baza de date a aplicației. Acesta
+				va putea realiza o filtrare a bazei de date cât mai flexibilă. Filtrarea poate fi în funcție
+				de dificultate sau tag-uri. Apoi din lista afișată profesorul va bifa problemele dorite.
+				Utilizatorul poate să vizualizeze problema explicată în
+				detaliu, apăsând pe butonul "View problem", iar dacă dorește să facă altă căutare, problemele deja
+				selectate vor rămâne selectate.
 			</p>
 			<p>
-				Utilizatorul cu rol de profesor va stabili câteva tag-uri corespunzătoare temei, dificultatea
-				temei, și în special deadline-ul acestei noi teme.
-			</p>
-			<p>
-				La final, utilizatorul va posta tema.
+				Apoi se stabilește titlul temei și deadlineul acesteia.
 			</p>
 		</section>
 		<!-- 18/6/23 -->
@@ -545,14 +562,17 @@
 			<p>
 				Această pagină este responsabilă cu vizualizarea unei teme. Utilizatorul cu rol de profesor va putea
 				vedea care este termenul limită stabilit pentru
-				această temă, da și ce probleme a propus, ca apoi sa verifice apăsând de butonul "Go to problem" eventuale soluții postate de elevi.
+				această temă, da și ce probleme a propus, ca apoi sa verifice apăsând de butonul "Go to problem"
+				eventuale soluții postate de elevi.
 			</p>
 		</section>
 		<section id="prof-view-homework-problem">
 			<h3><code>prof-view-homework-problem.html</code></h3>
 			<p>
-				Această pagină este responsabilă cu vizualizarea unei probleme propuse ca tema. Utilizatorul cu rol de profesor va putea
-				vedea cine a rezolvat acea problemă, cu acces la soluția dată, un rating acordat de utilizatori, câteva mici detalii desăre problemă,
+				Această pagină este responsabilă cu vizualizarea unei probleme propuse ca tema. Utilizatorul cu rol de
+				profesor va putea
+				vedea cine a rezolvat acea problemă, cu acces la soluția dată, un rating acordat de utilizatori, câteva
+				mici detalii desăre problemă,
 				dar și eventuale comentarii puse de către utilizatori.
 			</p>
 		</section>
@@ -568,7 +588,7 @@
 					<h3><code>admin-classes.html</code></h3>
 					<p>
 						Din această pagină, administratorul verifică clasele existente pe platformă. Acesta poate să
-						caute anumite clase folosind bara de căutare.
+						caute anumite clase după nume sau id, folosind bara de căutare.
 					</p>
 					<p>
 						Din lista de clase prezentată (având ca o mică descriere: numele clasei, id-ul acesteia și
@@ -579,25 +599,21 @@
 				<section id="admin-users">
 					<h3><code>admin-users.html</code></h3>
 					<p>
-						Din această pagină, administratorul manageriaza toți utilizatorii platformei. Acesta poate
-						aplica o
-						filtrare în funcție de tipul de cont sau de data creării, precum si alte filtre ce vor fi
-						implementate in viitor, pentru o căutare mai ușoară a unui
-						utilizator. De asemenea dispune de o lista, iar in dreapta acesteia va putea modifica datele
-						unui utilizator.
+						Din această pagină, administratorul manageriază toți utilizatorii platformei. Acesta poate
+						aplica o filtrare în funcție de tipul de cont, username sau id, sau un interval de dată în care s-a creat contul.
+						De asemenea dispune de o lista iar in dreapta acesteia va putea modifica datele	unui utilizator.
 					</p>
 				</section>
 				<section id="admin-problems">
 					<h3><code>admin-problems.html</code></h3>
 					<p>
-						Din această pagină, administratorul observă toate probleme propuse de către utilizatorii cu rol
-						de profesor. Administratorul poate aplica o filtrare, folosindu-se de bara de căutare.
+						Din această pagină, administratorul observă toate probleme neverificate propuse de către profesori.
+						Administratorul poate aplica o filtrare, folosindu-se de bara de căutare.
 					</p>
 					<p>
 						Ca informații afișate, administratorului i se arată numele problemei, cine a propus acea
 						problemă, data la care s-a propus acea problemă și id-ul unic al problemei. Ca să vadă mai multe
-						detalii privitoare la problema propusa,
-						administratorul poate apăsa pe butonul "View problem".
+						detalii privitoare la problema propusa,	administratorul poate apăsa pe butonul "View problem".
 					</p>
 				</section>
 				<section id="admin-view-problem">
