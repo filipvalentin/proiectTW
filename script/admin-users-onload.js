@@ -13,11 +13,15 @@ itemsOnPageElem.addEventListener("focusout",
 	(event) => {
 		itemsOnPage = event.target.value;
 
-	
-		updatePageNumbersWrapper();
-		updateResultList();
+		updatePageSequenceAsync();
 	}
 );
+
+function updatePageSequenceAsync() {
+	updateFilters();
+	retrieveNumberOfUsersAsync();
+
+}
 
 itemsOnPageElem.addEventListener("keyup", (event) => {
 	if (event.key === "Enter") {
@@ -25,7 +29,7 @@ itemsOnPageElem.addEventListener("keyup", (event) => {
 	}
 });
 
-retrieveNumberOfUsers();
+retrieveNumberOfUsers();//initial load, it's not used for future requests
 retrieveUsers(currentPage, itemsOnPage);
 
 function updateResultList() {
@@ -72,6 +76,39 @@ function retrieveNumberOfUsers() {
 
 			numberOfUsers = httpRetrieveNumberOfUsers.responseText;
 			updatePageNumbersWrapper(httpRetrieveNumberOfUsers.responseText);
+		}
+		if (httpRetrieveNumberOfUsers.readyState == 4 && httpRetrieveNumberOfUsers.status == 401) {
+			// console.log(httpRetrieveNumberOfUsers.responseText);
+			window.location.assign("unauthorized.html");
+		}
+	}
+	httpRetrieveNumberOfUsers.send();
+}
+
+function retrieveNumberOfUsersAsync() {
+	var httpRetrieveNumberOfUsers = new XMLHttpRequest();
+
+	var url = "admin_get_users_count.php?page=" + currentPage +
+		"&items_on_page=" + itemsOnPage +
+		"&filterUsernameId=" + filterUsernameId +
+		"&filterAccountType=" + filterAccountType +
+		"&filterCreationDate=" + filterCreationDate;
+
+	httpRetrieveNumberOfUsers.open('GET', url.toString(), true);
+
+	//Send the proper header information along with the request
+	httpRetrieveNumberOfUsers.setRequestHeader('Content-Type', 'application/json');
+	httpRetrieveNumberOfUsers.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	httpRetrieveNumberOfUsers.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("JWT"));
+
+	httpRetrieveNumberOfUsers.onreadystatechange = function () {//Call a function when the state changes.
+		if (httpRetrieveNumberOfUsers.readyState == 4 && httpRetrieveNumberOfUsers.status == 200) {
+			// console.log(httpRetrieveNumberOfUsers.responseText);
+
+			numberOfUsers = httpRetrieveNumberOfUsers.responseText;
+			updatePageNumbersWrapper(httpRetrieveNumberOfUsers.responseText);
+
+			updateResultList();
 		}
 		if (httpRetrieveNumberOfUsers.readyState == 4 && httpRetrieveNumberOfUsers.status == 401) {
 			// console.log(httpRetrieveNumberOfUsers.responseText);

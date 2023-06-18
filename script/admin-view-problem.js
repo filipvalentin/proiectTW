@@ -1,8 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
-console.log('hep');
-
 generatePage(id);
 
 
@@ -14,7 +12,7 @@ function generatePage(id) {
         //Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {
             var information = JSON.parse(http.responseText);
-            console.log(information);
+            // console.log(information);
 
             var title = document.getElementById('title-prb');
             title.innerHTML = information.title_problem;
@@ -35,7 +33,7 @@ function generatePage(id) {
 
             var tagsElem = document.getElementById('tags');
             for (const tag in tags) {
-                console.log(tags[tag]);
+                // console.log(tags[tag]);
                 var tagElem = document.createElement('li');
                 var tagProp = document.createElement('p');
                 tagProp.innerHTML = tags[tag];
@@ -49,7 +47,7 @@ function generatePage(id) {
 
         }
         if (http.readyState == 4 && http.status == 401) {
-            console.log('au')
+            // console.log('au')
             window.location.assign("unauthorized.html");
         }
     }

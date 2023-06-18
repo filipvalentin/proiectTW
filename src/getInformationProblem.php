@@ -10,9 +10,8 @@ $stm = $db->prepare("SELECT users.username, teacher_problems.post_date, teacher_
 $res = $stm->execute([$user_id]);
 $rows = $stm->fetchAll(PDO::FETCH_NUM); //passwd
 
-if(empty($rows)){ // nu s-a gasit emailul
+if(empty($rows)){
 	http_response_code(401);
-	// echo "ENF"; //email not found
 	return;
 }
 

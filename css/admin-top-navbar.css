@@ -36,3 +36,8 @@
 	background-color: #ddd;
 	color: black;
 }
+
+.active{
+	background-color: #c7cbd0;
+	color: black;
+}

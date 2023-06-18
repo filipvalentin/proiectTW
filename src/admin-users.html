@@ -18,7 +18,7 @@
 <body>
 
 	<nav class="admin-navbar">
-		<a class="admin-button" href="admin-users.html">USERS</a>
+		<a class="admin-button active" href="admin-users.html">USERS</a>
 		<a class="admin-button" href="admin-classes.html">CLASSES</a>
 		<a class="admin-button" href="admin-problems.html">PROBLEMS</a>
 	</nav>
@@ -37,7 +37,7 @@
 			</select>
 			<p>Creation date</p>
 			<input type="date" id="filter-date">
-			<button id="apply-filters-button" onclick="updateResultList()">Apply filters</button>
+			<button id="apply-filters-button" onclick="updatePageSequenceAsync()">Apply filters</button>
 		</div>
 
 		<div class="right-area">

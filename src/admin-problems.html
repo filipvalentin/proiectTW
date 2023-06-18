@@ -21,7 +21,7 @@
 	<nav class="admin-navbar">
 		<a class="admin-button" href="admin-users.html">USERS</a>
 		<a class="admin-button" href="admin-classes.html">CLASSES</a>
-		<a class="admin-button" href="admin-problems.html">PROBLEMS</a>
+		<a class="admin-button active" href="admin-problems.html">PROBLEMS</a>
 	</nav>
 
 	<main>
@@ -33,85 +33,57 @@
 				<div class="dashboard-class-name">
 					<content>Pending problems</content>
 				</div>
-				<!-- <div class="dashboard-problems-page-select">
-					<p>Page:</p>
-					<select name="page" class="page-select">
-						<option value="1">1</option>
-						<option value="2">2</option>
-					</select>
-				
-				</div> -->
 			</div>
 			<div class="search-bar">
 				<!-- https://commons.wikimedia.org/wiki/File:Magnifying_glass_icon.svg -->
 				<img class="image" src="../resources/256px-Magnifying_glass_icon.svg.png" alt="magnifying glass icon">
-				<input class="search-input">
-			</div>
-			<!-- <div style="background-color: blueviolet;">Filters</div> -->
-
-			<div class="item">
-				<div class="header">
-
-					<a class="title">Problem_1_title_long</a>
-					<button class="gotobutton" onclick="location.href = 'admin-view-problem.html'">View problem</button>
-				</div>
-
-				<div class="content">
-					<div class="teacher-name">
-						<p>Teacher:</p>
-						<p class="teacher-name-content">Teacher1</p>
-					</div>
-					<div class="date">
-						<p>Date: </p>
-						<p>01/01/1997 12:40:21</p>
-					</div>
-					<div class="id">
-						<p>ID:</p>
-						<p class="id-content">#123456</p>
-					</div>
-				</div>
-
+				<input class="search-input" id="search-input" oninput="updateFilter()">
 			</div>
 
-			<div class="item">
-				<div class="header">
-					<a class="title">Class 2</a>
-					<button class="gotobutton" onclick="location.href = 'admin-view-problem.html'">View problem</button>
-				</div>
-				<div class="content">
-					<div class="teacher-name">
-						<p>Teacher:</p>
-						<p class="teacher-name-content">Teacher2</p>
-					</div>
-					<div class="date">
-						<p>Date: </p>
-						<p>01/01/1997 12:40:21</p>
-					</div>
-					<div class="id">
-						<p>ID:</p>
-						<p class="id-content">#123456</p>
-					</div>
-				</div>
-
-
+			<div id="problem-list">
+				
 			</div>
 
-			<!-- <div class="class">
-				<div class="content">
-					<p style="text-align: center;">You haven't joined a class yet.</p>
+			<template id="problem-template">
+				<div class="item">
+					<div class="header">
+						<div class="header-items">
+							<a class="title" id="problem-entry-title"></a>
+							<a class="title" id="problem-entry-status"></a>
+						</div>
+						<button class="gotobutton" id="problem-entry-view-button">View problem</button>
+					</div>
+
+					<div class="content">
+						<div class="teacher-name">
+							<p>Teacher:</p>
+							<a class="teacher-name-content" id="problem-entry-teacher"></a>
+						</div>
+						<div class="creation-date">
+							<p>Date: </p>
+							<p id="problem-entry-post-date"></p>
+						</div>
+						<div class="id">
+							<p>ID:</p>
+							<p class="id-content" id="problem-entry-id"></p>
+						</div>
+					</div>
 				</div>
-			</div> -->
-			<div class="navigation-buttons">
+			</template>
+
+
+
+			<!-- <div class="navigation-buttons">
 				<button>&lt;</button>
 				<div class="button-list">
 					<button>1</button>
 					<button>2</button>
 				</div>
 				<button>&gt;</button>
-			</div>
+			</div> -->
 		</div>
 
-
+		<script src="../script/admin-problems.js"></script>
 	</main>
 </body>
 

@@ -14,7 +14,7 @@
 
 .item>.header {
 	width: 100%;
-	display:grid;
+	display: grid;
 	grid-template-columns: auto 1fr;
 	align-items: center;
 	justify-content: center;
@@ -64,29 +64,31 @@
 	color: #171616;
 	/* padding: 0.7em; */
 	display: grid;
-	grid-template-areas: "teacher-name id"
-						"date id";
+	grid-template-areas: "teacher-name date id";
 	grid-template-columns: auto 1fr;
 }
 
-.teacher-name{
+.teacher-name {
 	grid-area: teacher-name;
 	display: flex;
-	gap:0.5em;
+	gap: 0.5em;
 	margin: 0.5em;
 	margin-bottom: 0;
 }
-.date{
+
+.creation-date {
 	grid-area: date;
 	display: flex;
-	gap:0.5em;
+	flex-direction: row;
+	gap: 0.5em;
 	margin: 0.5em;
 }
-.id{
+
+.id {
 	justify-self: end;
 	grid-area: id;
 	display: flex;
-	gap:0.5em;
+	gap: 0.5em;
 	margin: 0.5em;
 }
 
@@ -95,26 +97,27 @@
 		min-width: none;
 		width: auto;
 
-		margin: 1em ;
+		margin: 1em;
 	}
 
 }
 
 @media (max-width: 30em) {
-	.problem>.header{
+	.problem>.header {
 		grid-template-columns: none;
 		/* grid-template-columns: 1fr; */
 		grid-template-rows: 1fr 1fr;
 
 	}
 
-	.header>.title{
+	.header>.title {
 		grid-row: 1;
 		justify-self: center;
 		margin: 0;
-		
+
 	}
-	.header>.gotobutton{
+
+	.header>.gotobutton {
 		/* grid-row: 2; */
 		grid-column: 1;
 
@@ -122,11 +125,11 @@
 		margin: 0.2em;
 	}
 
-	.content{
+	.content {
 		grid-template-areas: "teacher-name"
-							"date"
-							"id";
-							grid-template-columns: 1fr;
+			"date"
+			"id";
+		grid-template-columns: 1fr;
 	}
 
 }
@@ -142,3 +145,11 @@
 	float: right;
 }
 
+
+.header-items {
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+	margin-left: 0.5em;
+	color: white;
+}

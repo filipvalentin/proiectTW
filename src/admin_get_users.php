@@ -49,11 +49,10 @@ $db = new PDO("mysql:host=localhost;dbname=project", 'root', '');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
+http_response_code(200);
 $stm = $db->prepare($query);
 $res = $stm->execute();
 $results = $stm->fetchAll(PDO::FETCH_ASSOC);
 $json = json_encode($results);
 
 echo $json;
-http_response_code(200);
