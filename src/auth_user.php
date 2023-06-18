@@ -17,7 +17,7 @@ $stm = $db->prepare("SELECT user_id, password, role FROM users WHERE email = ?")
 $res = $stm->execute([$email]);
 $rows = $stm->fetchAll(PDO::FETCH_NUM); //userId, username, email, role, password
 
-if (empty($rows)) { // nu s-a gasit emailul
+if (empty($rows)) {
 	http_response_code(401);
 	return;
 }

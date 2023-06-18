@@ -259,11 +259,12 @@ p {
 }
 
 .solution-submitted-popup{
+	grid-column: 2/3;
 	display: none;
 	color: red;
 	font-weight: 600;
 	position: absolute;
 	bottom: 0;
 	/* left: 5em; */
-	transform: translate(140%, 100%);
+	transform: translate(-50%, 100%);
 }
