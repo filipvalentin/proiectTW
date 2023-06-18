@@ -98,12 +98,12 @@
 			<h3>Baza de date</h2>
 			<p>
 				Se folosește o bază de date MySQL, o bază de date relațională. Motivația folosirii unei baze de date relațională este experiența 
-				avută cu o asemenea bază de date. 
+				avută cu o asemenea bază de date și suportul complex pe care platforma îl oferă . 
 				Baza de date a aplicației conține 10 tabele:
 				<ul>
 					<li>
 						<p>users: tabela ce stocheaza infomațiile primordiale referitoare la utilizator, precum e-mailul utilizat, id-ul, username-ul,
-							dar mai ales parola acestuia. Pentru securitatea aplicației, s-a hotărât criptarea parolei.
+							dar mai ales parola acestuia. Pentru securitatea aplicației, parolelor le este aplicat un hash care este stocat în această tabelă.
 						</p>
 					</li>
 					<li>
@@ -144,6 +144,10 @@
 						</p>
 					</li>
 				</ul>
+				Putem observa că informatiile pentru clase și teme nu sunt stocate în aceeași tabelă, acest aspect ne asigură o redundanță cât mai mică
+				și o complexitate a căutărilor in baza de date cât mai redusă. Pe acest principiu fiecare tabelă păstreaza chei străine pentru a asigura
+				integritatea datelor.
+
 			</p>
 		</section>
 	</section>
